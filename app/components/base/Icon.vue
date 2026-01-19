@@ -4,7 +4,7 @@ interface Props {
   size?: number | string
 }
 
-const { size = 24, name = 'loading' } = defineProps<Props>()
+const { size = 24, name } = defineProps<Props>()
 
 const emit = defineEmits<{ click: [] }>()
 
