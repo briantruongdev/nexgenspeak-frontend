@@ -1,5 +1,6 @@
 <template>
   <UiHomeBanner />
+  <UiHomeRegister />
 </template>
 
 <script setup lang="ts"></script>
