@@ -1,5 +1,5 @@
 <template>
-  <div>index</div>
+  <UiHomeBanner />
 </template>
 
 <script setup lang="ts"></script>
