@@ -3,6 +3,7 @@
   <UiHomeRegister />
   <UiHomeTeachingStaff />
   <UiHomeBenefits />
+  <UiHomeAbout />
 </template>
 
 <script setup lang="ts"></script>
