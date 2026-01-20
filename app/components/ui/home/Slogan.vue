@@ -20,8 +20,8 @@ const data = [
 </script>
 <template>
   <div class="container">
-    <div class="mt-24">
-      <p class="text-4xl text-text-primary font-bold">Học Chăm Luyện Chất Cùng NexGen Speak</p>
+    <div class="mt-32">
+      <p class="title">Học Chăm Luyện Chất Cùng NexGen Speak</p>
 
       <p class="my-6 text-lg">
         Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên

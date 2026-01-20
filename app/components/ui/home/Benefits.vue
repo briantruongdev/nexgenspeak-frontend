@@ -16,7 +16,7 @@ const benefits = [
 </script>
 <template>
   <div class="container">
-    <p class="text-4xl font-bold my-12">Quyền lợi khi học tại NexGen Speak Online</p>
+    <p class="title mb-12 mt-32">Quyền lợi khi học tại NexGen Speak Online</p>
     <div class="grid grid-cols-[1fr_1fr_1fr] gap-8">
       <div v-for="(item, index) in benefits" :key="index" class="relative hover-scale-105">
         <img :src="item.image" :alt="item.title" loading="lazy" class="mx-auto h-80 w-full rounded-lg" />

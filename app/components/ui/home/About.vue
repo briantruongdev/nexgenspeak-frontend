@@ -18,7 +18,7 @@ const summaries = [
   <div class="container">
     <div class="mt-44 grid grid-cols-[1fr_1fr] gap-16">
       <div class="">
-        <p class="text-4xl text-text-primary font-bold">Về chúng tôi, NexGen Speak Online English School</p>
+        <p class="title">Về chúng tôi, NexGen Speak Online English School</p>
 
         <div class="flex items-center mt-10">
           <div class="h-1 w-56 bg-primary"></div>

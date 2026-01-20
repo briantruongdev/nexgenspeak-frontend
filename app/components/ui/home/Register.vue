@@ -26,7 +26,7 @@ const cards = [
     <div class="absolute top-1/6 w-full">
       <div class="container grid grid-cols-[1fr_3fr] mx-auto">
         <div>
-          <p class="mb-6 text-4xl text-text-primary font-bold">
+          <p class="mb-6 title">
             Các bước đăng <br />
             kí học online
           </p>

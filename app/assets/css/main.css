@@ -17,3 +17,7 @@
 .hover-scale-105 {
   @apply transform transition-transform duration-300 ease-out hover:scale-105;
 }
+
+.title {
+  @apply text-4xl text-text-primary font-bold;
+}

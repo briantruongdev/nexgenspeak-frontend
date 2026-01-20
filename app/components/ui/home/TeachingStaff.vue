@@ -35,9 +35,9 @@ const items = [
 
 <template>
   <div class="container">
-    <div class="my-12">
-      <p class="text-4xl font-bold">Đội ngũ giáo viên</p>
-      <p>Kinh nghiệm giảng dạy và Chuyên môn</p>
+    <div class="mb-12 mt-32">
+      <p class="title">Đội ngũ giáo viên</p>
+      <p class="text-lg mt-2">Kinh nghiệm giảng dạy và Chuyên môn</p>
     </div>
     <UCarousel
       v-slot="{ item }"
