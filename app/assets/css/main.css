@@ -8,3 +8,8 @@
   /* Text */
   --color-text-primary: #183028;
 }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}

@@ -22,38 +22,40 @@ const cards = [
 </script>
 <template>
   <div class="relative">
-    <div class="bg-[#FAE4D3] h-110 w-1/3 rounded-br-[82px] relative">
-      <div class="absolute top-1/6 left-1/6">
-        <p class="mb-6 text-4xl text-text-primary font-bold">
-          Các bước đăng <br />
-          kí học online
-        </p>
-        <UButton
-          class="rounded-xl text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105 flex items-center leading-none border-2"
-          size="lg"
-          variant="outline"
-        >
-          <template #leading>
-            <BaseIcon name="arrow-right" class="shrink-0" />
-          </template>
-          <span class="leading-none">Tìm hiểu thêm</span>
-        </UButton>
-      </div>
-    </div>
-    <div class="py-12 px-6 md:px-12 w-7/10 absolute top-0 left-3/12">
-      <div class="grid grid-cols-3 gap-8">
-        <div
-          v-for="(card, index) in cards"
-          :key="index"
-          class="relative bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
-        >
-          <div class="absolute top-2 left-3 text-2xl font-bold text-orange-500">
-            {{ card.number }}
+    <div class="bg-[#FAE4D3] h-110 w-1/3 rounded-br-[82px]"></div>
+    <div class="absolute top-1/6 w-full">
+      <div class="container grid grid-cols-[1fr_3fr] mx-auto">
+        <div>
+          <p class="mb-6 text-4xl text-text-primary font-bold">
+            Các bước đăng <br />
+            kí học online
+          </p>
+          <UButton
+            class="rounded-xl text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105 flex items-center leading-none border-2"
+            size="lg"
+            variant="outline"
+          >
+            <template #leading>
+              <BaseIcon name="arrow-right" class="shrink-0" />
+            </template>
+            <span class="leading-none">Tìm hiểu thêm</span>
+          </UButton>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8">
+          <div
+            v-for="(card, index) in cards"
+            :key="index"
+            class="relative bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="absolute top-2 left-3 text-2xl font-bold text-orange-500">
+              {{ card.number }}
+            </div>
+
+            <img :src="card.image" alt="Card Image" class="mx-auto w-48" loading="lazy" />
+
+            <p class="text-sm leading-relaxed">{{ card.description }}</p>
           </div>
-
-          <img :src="card.image" alt="Card Image" class="mx-auto w-48" loading="lazy" />
-
-          <p class="text-sm leading-relaxed">{{ card.description }}</p>
         </div>
       </div>
     </div>
