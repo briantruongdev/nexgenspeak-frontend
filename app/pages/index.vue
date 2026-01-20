@@ -4,6 +4,7 @@
   <UiHomeTeachingStaff />
   <UiHomeBenefits />
   <UiHomeAbout />
+  <UiHomeSlogan />
 </template>
 
 <script setup lang="ts"></script>
