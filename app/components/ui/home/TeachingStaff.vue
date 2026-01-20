@@ -60,9 +60,7 @@ const items = [
             <p class="mb-2 text-xl">Giáo viên: {{ item.name }}</p>
             <p class="text-lg">{{ item.description }}</p>
           </div>
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105 w-fit"
-            size="lg"
+          <UButton class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer hover-scale-105 w-fit" size="lg"
             >Đặt lịch học
           </UButton>
         </div>

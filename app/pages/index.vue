@@ -2,6 +2,7 @@
   <UiHomeBanner />
   <UiHomeRegister />
   <UiHomeTeachingStaff />
+  <UiHomeBenefits />
 </template>
 
 <script setup lang="ts"></script>

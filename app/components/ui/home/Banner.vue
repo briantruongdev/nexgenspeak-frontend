@@ -10,7 +10,7 @@
         </p>
 
         <UButton
-          class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105 flex items-center leading-none"
+          class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer hover-scale-105 flex items-center leading-none"
           size="lg"
         >
           <template #leading>
@@ -25,19 +25,13 @@
         <USeparator orientation="horizontal" class="h-1" />
 
         <p class="gap-4 flex mt-4">
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105"
-            size="lg"
+          <UButton class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105" size="lg"
             >Đăng kí học thử miễn
           </UButton>
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105"
-            size="lg"
+          <UButton class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105" size="lg"
             >Mua khóa luyện thi</UButton
           >
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105"
-            size="lg"
+          <UButton class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105" size="lg"
             >Hỗ trợ</UButton
           >
         </p>

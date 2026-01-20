@@ -31,7 +31,7 @@ const cards = [
             kí học online
           </p>
           <UButton
-            class="rounded-xl text-primary cursor-pointer transform transition-transform duration-300 ease-out hover:scale-105 flex items-center leading-none border-2"
+            class="rounded-xl text-primary cursor-pointer hover-scale-105 flex items-center leading-none border-2"
             size="lg"
             variant="outline"
           >
@@ -46,7 +46,7 @@ const cards = [
           <div
             v-for="(card, index) in cards"
             :key="index"
-            class="relative bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+            class="relative bg-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 hover-scale-105"
           >
             <div class="absolute top-2 left-3 text-2xl font-bold text-orange-500">
               {{ card.number }}
