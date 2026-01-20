@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const appConfig = useAppConfig()
+const _appConfig = useAppConfig()
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
   link: [{ rel: 'icon', href: '/images/logo.png' }],

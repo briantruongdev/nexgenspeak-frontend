@@ -14,6 +14,7 @@ const benefits = [
   }
 ]
 </script>
+
 <template>
   <div class="container">
     <p class="title mb-12 mt-32">Quyền lợi khi học tại NexGen Speak Online</p>

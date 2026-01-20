@@ -10,6 +10,7 @@ const navItemsSecondary = [
   { name: 'Tuyển dụng', href: '/' }
 ]
 </script>
+
 <template>
   <div class="flex justify-between items-center h-24 mx-9">
     <img src="/images/logo.png" alt="Logo" loading="lazy" class="w-24 hover:cursor-pointer" @click="navigateTo('/')" />

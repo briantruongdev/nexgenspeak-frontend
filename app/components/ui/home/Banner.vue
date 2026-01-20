@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
+
 <template>
   <div class="relative w-full">
     <img src="/images/banner.png" alt="Banner" loading="lazy" />

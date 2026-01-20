@@ -18,6 +18,7 @@ const data = [
   }
 ]
 </script>
+
 <template>
   <div class="container">
     <div class="mt-32">

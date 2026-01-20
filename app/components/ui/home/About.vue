@@ -14,6 +14,7 @@ const summaries = [
   }
 ]
 </script>
+
 <template>
   <div class="container">
     <div class="mt-44 grid grid-cols-[1fr_1fr] gap-16">
@@ -52,7 +53,7 @@ const summaries = [
       <div class="relative">
         <img src="/images/home-about.png" alt="" />
         <div class="absolute inset-0 bg-primary/50 w-2/5 gap-y-4 flex flex-col justify-center">
-          <div v-for="(item, index) in summaries" :key="item.title" class="text-white mx-10">
+          <div v-for="item in summaries" :key="item.title" class="text-white mx-10">
             <p class="text-7xl font-bold">{{ item.value }}</p>
             <p class="text-lg">{{ item.title }}</p>
           </div>

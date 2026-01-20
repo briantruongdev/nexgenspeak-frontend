@@ -5,26 +5,26 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
-   nitro: {
-    output: {
-      publicDir: 'dist'
-    }
-  },
 
   css: ['~/assets/css/main.css'],
+  colorMode: {
+    preference: 'light',
+    fallback: 'light'
+  },
+
+  ui: {
+    colorMode: true
+  },
 
   routeRules: {
     '/': { prerender: true }
   },
 
   compatibilityDate: '2025-01-19',
-
-  ui: {
-    colorMode: true
-  },
-  colorMode: {
-    preference: 'light',
-    fallback: 'light'
+  nitro: {
+    output: {
+      publicDir: 'dist'
+    }
   },
 
   eslint: {

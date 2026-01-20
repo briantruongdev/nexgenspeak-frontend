@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
+
 <template>
   <div class="bg-[#EDEFF0] mt-32">
     <div class="container py-10">

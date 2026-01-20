@@ -20,6 +20,7 @@ const cards = [
   }
 ]
 </script>
+
 <template>
   <div class="relative">
     <div class="bg-[#FAE4D3] h-110 w-1/3 rounded-br-[82px]"></div>

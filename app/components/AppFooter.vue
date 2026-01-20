@@ -42,6 +42,7 @@ const menuSections = [
   }
 ]
 </script>
+
 <template>
   <footer class="bg-primary px-32 py-12">
     <img src="/images/logo-white.png" alt="Logo" loading="lazy" class="w-40 hover:cursor-pointer" @click="navigateTo('/')" />
@@ -99,7 +100,7 @@ const menuSections = [
         <p>Chính sách bảo mật và bảo vệ dữ liệu cá nhân</p>
       </div>
       <div class="md:text-right">
-        <p>© 2021 Bản quyền thuộc về Công ty TNHH CZen</p>
+        <p>© 2026 Bản quyền thuộc về Công ty TNHH CZen</p>
       </div>
     </div>
   </footer>
