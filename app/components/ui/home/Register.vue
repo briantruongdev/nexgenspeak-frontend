@@ -30,16 +30,10 @@ const cards = computed(() => [
       <div class="container grid grid-cols-[1fr_3fr] mx-auto max-sm:grid-cols-1">
         <div class="max-sm:absolute max-sm:top-10">
           <p class="mb-6 title">{{ $t('register.title') }}</p>
-          <UButton
-            class="rounded-xl text-primary cursor-pointer hover-scale-105 flex items-center leading-none border-2"
-            size="lg"
-            variant="outline"
-          >
-            <template #leading>
-              <BaseIcon name="arrow-right" class="shrink-0" />
-            </template>
-            <span class="leading-none">{{ $t('register.learnMore') }}</span>
-          </UButton>
+
+          <BaseButton variant="outline" class-name="border-2" :text="$t('register.learnMore')">
+            <BaseIcon name="arrow-right" class="shrink-0" />
+          </BaseButton>
         </div>
 
         <div class="grid grid-cols-3 gap-8 max-sm:grid-cols-1 tems-center max-sm:mt-8">

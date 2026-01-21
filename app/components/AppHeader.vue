@@ -29,9 +29,9 @@ const navItemsSecondary = computed(() => [
     </div>
 
     <div class="flex gap-4 items-center">
-      <UButton class="rounded-xl hover:cursor-pointer" size="lg">{{ $t('header.login') }}</UButton>
-      <BaseIcon name="phone-call" />
-      <BaseIcon name="search" />
+      <BaseButton :text="$t('header.login')" />
+      <BaseIcon name="phone-call" class="hover:text-primary hover:cursor-pointer" />
+      <BaseIcon name="search" class="hover:text-primary hover:cursor-pointer" />
 
       <USeparator orientation="vertical" class="h-8" />
 

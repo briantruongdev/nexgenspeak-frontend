@@ -40,16 +40,10 @@ const summaries = computed(() => [
             {{ $t('about.description') }}
           </p>
         </div>
-        <UButton
-          class="rounded-xl text-primary cursor-pointer hover-scale-105 flex items-center leading-none border-2"
-          size="lg"
-          variant="outline"
-        >
-          <template #leading>
-            <BaseIcon name="arrow-right" class="shrink-0" />
-          </template>
-          <span class="leading-none">{{ $t('about.viewDetails') }}</span>
-        </UButton>
+
+        <BaseButton variant="outline" class-name="border-2" :text="$t('about.viewDetails')">
+          <BaseIcon name="arrow-right" class="shrink-0" />
+        </BaseButton>
       </div>
       <div class="relative">
         <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75" />

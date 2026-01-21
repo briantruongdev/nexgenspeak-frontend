@@ -10,15 +10,9 @@
           {{ $t('banner.subtitle') }}
         </p>
 
-        <UButton
-          class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer hover-scale-105 flex items-center leading-none"
-          size="lg"
-        >
-          <template #leading>
-            <BaseIcon name="arrow-right" class="shrink-0" />
-          </template>
-          <span class="leading-none">{{ $t('banner.learnMore') }}</span>
-        </UButton>
+        <BaseButton variant="outline" :text="$t('banner.learnMore')">
+          <BaseIcon name="arrow-right" class="shrink-0" />
+        </BaseButton>
       </div>
     </div>
     <div class="absolute bottom-16 inset-x-0 max-xl:px-6 max-lg:bottom-8">
@@ -30,22 +24,10 @@
         </div>
         <USeparator orientation="horizontal" size="lg" class="w-2/6" />
 
-        <p class="gap-4 flex mt-4 max-md:grid max-md:grid-cols-2 max-md:w-fit">
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105 max-lg:text-sm w-fit"
-            size="lg"
-            >{{ $t('banner.registerTrial') }}
-          </UButton>
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105 max-lg:text-sm w-fit"
-            size="lg"
-            >{{ $t('banner.buyCourse') }}</UButton
-          >
-          <UButton
-            class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105 max-lg:text-sm w-fit"
-            size="lg"
-            >{{ $t('banner.support') }}</UButton
-          >
+        <p class="gap-4 flex mt-4 max max-md:grid max-md:grid-cols-2 max-md:w-fit">
+          <BaseButton variant="outline" class-text="text-text-primary" :text="$t('banner.registerTrial')" />
+          <BaseButton variant="outline" class-text="text-text-primary" :text="$t('banner.buyCourse')" />
+          <BaseButton variant="outline" class-text="text-text-primary" :text="$t('banner.support')" />
         </p>
       </div>
     </div>

@@ -93,15 +93,16 @@ const menuSections = computed(() => [
     </div>
     <USeparator orientation="horizontal" class="mb-8" />
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white md:justify-items-stretch">
       <div class="flex flex-wrap gap-2 justify-center">
         <span>{{ $t('footer.disclaimer') }}</span>
         <span>|</span>
         <p>{{ $t('footer.privacyDataProtection') }}</p>
       </div>
-      <div class="md:text-right max-md:text-center">
-        <p>{{ $t('footer.copyright') }} <a href="https://czen.io" class="hover:underline" target="blank">https://czen.io</a></p>
-      </div>
+      <p class="md:text-right max-md:text-center">
+        {{ $t('footer.copyright') }}
+        <a href="https://czen.io" class="hover:underline hover:opacity-80 transition-all" target="blank">https://czen.io</a>
+      </p>
     </div>
   </footer>
 </template>
