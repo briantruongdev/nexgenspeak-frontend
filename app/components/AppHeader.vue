@@ -38,43 +38,54 @@ const navItemsSecondary = [
   <div class="hidden max-xl:block mx-6">
     <div class="flex justify-between items-center">
       <img src="/images/logo.png" alt="Logo" loading="lazy" class="w-24 hover:cursor-pointer" @click="navigateTo('/')" />
+      <div class="flex justify-end items-center gap-4">
+        <BaseLanguages />
 
-      <UDrawer
-        v-model:open="open"
-        direction="right"
-        inset:dismissible="false"
-        :modal="false"
-        :handle="false"
-        should-scale-background
-        set-background-color-on-scale
-      >
-        <UIcon name="i-lucide-menu" class="size-8 hover:cursor-pointer" />
+        <UDrawer
+          v-model:open="open"
+          direction="right"
+          :modal="false"
+          :handle="false"
+          should-scale-background
+          set-background-color-on-scale
+          :ui="{
+            content: 'w-full sm:w-96 h-screen flex flex-col'
+          }"
+        >
+          <UIcon name="i-lucide-menu" class="size-8 hover:cursor-pointer" />
 
-        <template #body>
-          <div class="min-w-96">
-            <div class="flex justify-between items-center border-b border-border-primary">
-              <img src="/images/logo.png" alt="Logo" loading="lazy" class="w-16 hover:cursor-pointer" @click="navigateTo('/')" />
+          <template #body>
+            <div class="w-full">
+              <div class="flex justify-between items-center border-b border-border-primary">
+                <img
+                  src="/images/logo.png"
+                  alt="Logo"
+                  loading="lazy"
+                  class="w-16 hover:cursor-pointer"
+                  @click="navigateTo('/')"
+                />
 
-              <UIcon name="i-lucide-x" class="size-6 hover:cursor-pointer" @click="open = false" />
+                <UIcon name="i-lucide-x" class="size-6 hover:cursor-pointer" @click="open = false" />
+              </div>
+
+              <p class="space-y-3 flex flex-col my-3">
+                <span v-for="(item, index) in navItemsPrimary" :key="index" class="hover:cursor-pointer hover:text-primary">
+                  {{ item.name }}
+                </span>
+              </p>
+              <p class="space-y-3 flex flex-col">
+                <span v-for="(item, index) in navItemsSecondary" :key="index" class="hover:cursor-pointer hover:text-primary">
+                  {{ item.name }}
+                </span>
+              </p>
             </div>
+          </template>
 
-            <p class="space-y-3 flex flex-col my-3">
-              <span v-for="(item, index) in navItemsPrimary" :key="index" class="hover:cursor-pointer hover:text-primary">
-                {{ item.name }}
-              </span>
-            </p>
-            <p class="space-y-3 flex flex-col">
-              <span v-for="(item, index) in navItemsSecondary" :key="index" class="hover:cursor-pointer hover:text-primary">
-                {{ item.name }}
-              </span>
-            </p>
-          </div>
-        </template>
-
-        <template #footer>
-          <UButton class="rounded-xl hover:cursor-pointer w-full flex justify-center" size="lg">Đăng nhập</UButton>
-        </template>
-      </UDrawer>
+          <template #footer>
+            <UButton class="rounded-xl hover:cursor-pointer w-full flex justify-center" size="lg">Đăng nhập</UButton>
+          </template>
+        </UDrawer>
+      </div>
     </div>
   </div>
 </template>

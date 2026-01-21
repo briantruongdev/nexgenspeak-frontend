@@ -3,7 +3,7 @@
 <template>
   <div class="relative w-full">
     <img src="/images/banner.png" alt="Banner" loading="lazy" class="w-full h-130 sm:h-160 lg:h-190 object-cover object-center" />
-    <div class="absolute inset-0 top-1/6 max-lg:px-6 max-lg:top-1/12">
+    <div class="absolute inset-0 top-1/6 max-xl:px-6 max-lg:top-1/12">
       <div class="container">
         <p class="text-6xl font-bold text-white mb-10 max-lg:text-4xl">
           Chinh phục Tiếng Anh <br />
@@ -21,7 +21,7 @@
         </UButton>
       </div>
     </div>
-    <div class="absolute bottom-16 inset-x-0 max-lg:px-6 max-lg:bottom-8">
+    <div class="absolute bottom-16 inset-x-0 max-xl:px-6 max-lg:bottom-8">
       <div class="container">
         <div class="flex justify-start items-center gap-2 mb-4">
           <div v-for="(item, index) in 3" :key="index">

@@ -18,7 +18,7 @@ const summaries = [
 <template>
   <div class="container">
     <div class="mt-44 grid grid-cols-[1fr_1fr] gap-16 max-md:mt-24 max-lg:grid-cols-1">
-      <div class="max-lg:px-6">
+      <div class="max-xl:px-6">
         <p class="title">Về chúng tôi, NexGen Speak Online English School</p>
 
         <div class="flex items-center mt-10">
@@ -51,7 +51,7 @@ const summaries = [
         </UButton>
       </div>
       <div class="relative">
-        <img src="/images/home-about.png" alt="" />
+        <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75" />
         <div class="absolute inset-0 bg-primary/50 w-2/5 gap-y-4 flex flex-col justify-center">
           <div v-for="item in summaries" :key="item.title" class="text-white mx-10 max-lg:mx-6">
             <p class="text-7xl max-md:text-5xl max-sm:text-3xl font-bold">{{ item.value }}</p>

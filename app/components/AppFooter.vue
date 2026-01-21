@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { locale } = useI18n()
 const menuSections = [
   {
     title: 'Giới thiệu',
@@ -44,14 +45,14 @@ const menuSections = [
 </script>
 
 <template>
-  <footer class="bg-primary px-32 py-12">
+  <footer class="bg-primary px-32 py-12 max-xl:p-6">
     <img src="/images/logo-white.png" alt="Logo" loading="lazy" class="w-40 hover:cursor-pointer" @click="navigateTo('/')" />
-    <div class="grid grid-cols-[1fr_2fr] gap-8 mb-12 text-white">
+    <div class="grid grid-cols-[1fr_2fr] gap-8 mb-12 text-white max-md:grid-cols-1">
       <div>
         <div class="flex gap-2 items-center">
           <BaseIcon name="earth" />
           <p class="flex items-center">
-            <span class="text-white">VI</span>
+            <span class="text-white uppercase">{{ locale }}</span>
             <BaseIcon name="arrow-up-down" class="inline-block ml-1" size="12" />
           </p>
           <USeparator orientation="vertical" class="h-6" />
@@ -64,7 +65,7 @@ const menuSections = [
         <div class="mt-10">
           <p class="flex gap-4 items-center">
             <BaseIcon name="phone-background" size="40" />
-            <span class="text-white text-3xl font-bold">0888 884 638 </span>
+            <span class="text-white text-3xl font-bold">0888 887 798 </span>
           </p>
           <USeparator orientation="horizontal" class="w-2/3 mt-5 mb-9" />
           <p class="flex items-center gap-6">
@@ -75,7 +76,7 @@ const menuSections = [
         </div>
       </div>
 
-      <div class="grid grid-cols-4 gap-8 text-white">
+      <div class="grid grid-cols-4 gap-8 text-white max-md:grid-cols-2">
         <div v-for="(section, index) in menuSections" :key="index" class="space-y-3">
           <h3 class="font-bold text-base mb-8">{{ section.title }}</h3>
           <ul class="space-y-4 text-sm">
@@ -91,15 +92,12 @@ const menuSections = [
     <USeparator orientation="horizontal" class="mb-8" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white">
-      <div class="space-y-2">
-        <p class="flex flex-wrap gap-2">
-          <span>Số đó Website</span>
-          <span>|</span>
-          <span>Miễn trừ trách nhiệm</span>
-        </p>
+      <div class="flex flex-wrap gap-2 justify-center">
+        <span>Miễn trừ trách nhiệm</span>
+        <span>|</span>
         <p>Chính sách bảo mật và bảo vệ dữ liệu cá nhân</p>
       </div>
-      <div class="md:text-right">
+      <div class="md:text-right max-md:text-center">
         <p>© 2026 Bản quyền thuộc về Công ty TNHH CZen</p>
       </div>
     </div>

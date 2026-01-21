@@ -24,7 +24,7 @@ const cards = [
 <template>
   <div class="relative">
     <div class="bg-[#FAE4D3] h-110 w-1/3 rounded-br-[82px] max-sm:w-2/3 max-sm:h-60"></div>
-    <div class="absolute top-1/6 w-full max-sm:static max-lg:px-6">
+    <div class="absolute top-1/6 w-full max-sm:static max-xl:px-6">
       <div class="container grid grid-cols-[1fr_3fr] mx-auto max-sm:grid-cols-1">
         <div class="max-sm:absolute max-sm:top-10">
           <p class="mb-6 title">Các bước đăng kí học online</p>

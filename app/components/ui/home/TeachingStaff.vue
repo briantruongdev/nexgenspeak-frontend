@@ -34,10 +34,10 @@ const items = [
 </script>
 
 <template>
-  <div class="container max-lg:px-6">
+  <div class="container max-xl:px-6">
     <div class="mb-12 mt-32 max-md:mt-20">
       <p class="title">Đội ngũ giáo viên</p>
-      <p class="text-lg mt-2">Kinh nghiệm giảng dạy và Chuyên môn</p>
+      <p class="text-lg mt-2 max-md:text-sm">Kinh nghiệm giảng dạy và Chuyên môn</p>
     </div>
     <UCarousel
       v-slot="{ item }"

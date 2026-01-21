@@ -21,7 +21,7 @@ const data = [
 
 <template>
   <div class="container">
-    <div class="mt-32 max-md:mt-24 max-lg:px-6">
+    <div class="mt-32 max-md:mt-24 max-xl:px-6">
       <p class="title">Học Chăm Luyện Chất Cùng NexGen Speak</p>
 
       <p class="my-6 text-lg">
