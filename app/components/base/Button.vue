@@ -29,7 +29,7 @@ const emit = defineEmits<{
 const variantClasses = computed<string>(() => {
   const variants: Record<ButtonProps['variant'] & string, string> = {
     solid: '',
-    outline: 'bg-white hover:bg-white text-primary  border-primary',
+    outline: 'bg-white hover:bg-white text-primary border-primary',
     soft: 'bg-primary/10 hover:bg-primary/20 text-primary',
     subtle: 'bg-gray-100 hover:bg-gray-200 text-gray-900',
     ghost: 'bg-transparent hover:bg-gray-100 text-gray-700',
@@ -56,7 +56,8 @@ const uiConfig = computed(() => {
 })
 
 const buttonClasses = computed<string>(() => {
-  const baseClasses = 'rounded-xl cursor-pointer hover:scale-105 flex items-center transition-transform duration-200'
+  const baseClasses =
+    'rounded-xl cursor-pointer hover:scale-105 flex items-center justify-center transition-transform duration-200'
   const disabledClasses = props.disabled ? 'opacity-50 cursor-not-allowed' : ''
 
   return [baseClasses, variantClasses.value, disabledClasses, props.className].filter(Boolean).join(' ')
