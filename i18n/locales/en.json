@@ -1,3 +1,155 @@
 {
-  "hello": "Hello"
+  "header": {
+    "nav": {
+      "studyPlan": "Study Plan & Tuition",
+      "teachers": "Teachers",
+      "materials": "Materials",
+      "blog": "Blog",
+      "contact": "Contact",
+      "careers": "Careers"
+    },
+    "login": "Login"
+  },
+  "banner": {
+    "title": "Conquer English",
+    "subtitle": "With NexGen Speak",
+    "learnMore": "Learn More",
+    "registerTrial": "Register for Free Trial",
+    "buyCourse": "Buy Exam Prep Course",
+    "support": "Support"
+  },
+  "about": {
+    "title": "About Us, NexGen Speak Online English School",
+    "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally, use English fluently",
+    "viewDetails": "View Details Here",
+    "stats": {
+      "yearsExperience": "Years of Online English Training",
+      "foreignTeachers": "Foreign Teachers",
+      "satisfiedStudents": "Satisfied and Happy Students"
+    }
+  },
+  "footer": {
+    "viewWebsite": "View Website",
+    "nexgenSpeakVietnam": "NexGen Speak Vietnam",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "aboutUs": "About Us",
+        "missionVision": "Mission & Vision",
+        "teachingTeam": "Teaching Team",
+        "teachingMethod": "Teaching Method",
+        "studentStories": "Student Stories"
+      },
+      "support": {
+        "title": "Support",
+        "registrationGuide": "Registration Guide",
+        "learningPathConsultation": "Learning Path Consultation",
+        "faq": "Frequently Asked Questions (FAQ)",
+        "technicalSupport": "Technical Support",
+        "contact": "Contact"
+      },
+      "policies": {
+        "title": "Policies",
+        "tuitionPolicy": "Tuition Policy",
+        "reservationRefund": "Reservation / Refund Policy",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use",
+        "dataProtection": "Data Protection Policy"
+      },
+      "benefits": {
+        "title": "Benefits",
+        "personalizedLearning": "Personalized Learning Path",
+        "freeTrial": "Free Trial",
+        "outputCommitment": "Output Commitment",
+        "exclusiveMaterials": "Exclusive Learning Materials",
+        "studentCommunity": "Student Community"
+      }
+    },
+    "disclaimer": "Disclaimer",
+    "privacyDataProtection": "Privacy and Personal Data Protection Policy",
+    "copyright": "© 2026 Copyright belongs to"
+  },
+  "register": {
+    "title": "Steps to Register for Online Classes",
+    "learnMore": "Learn More",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Register",
+        "description": "Register by filling in your details to create an ID and secure login password"
+      },
+      "step2": {
+        "number": "02",
+        "title": "Plan Your Schedule",
+        "description": "Plan your study schedule by filling in your preferred time and class schedule"
+      },
+      "step3": {
+        "number": "03",
+        "title": "Check Schedule",
+        "description": "Check your booking history to confirm your reservation and enter your teacher's code"
+      }
+    }
+  },
+  "teachingStaff": {
+    "title": "Teaching Staff",
+    "subtitle": "Teaching Experience and Expertise",
+    "teacher": "Teacher",
+    "bookLesson": "Book a Lesson",
+    "teacher1": {
+      "name": "Nguyen Thi Anh",
+      "title": "English Instructor",
+      "description": "Expert in communication and pronunciation with over 10 years of teaching experience."
+    },
+    "teacher2": {
+      "name": "Tran Van Bao",
+      "title": "IELTS Instructor",
+      "description": "IELTS expert with the highest rate of students achieving band 7.0+."
+    },
+    "teacher3": {
+      "name": "Le Thi Chi",
+      "title": "Grammar Instructor",
+      "description": "Grammar expert with an easy-to-understand and effective teaching method."
+    },
+    "teacher4": {
+      "name": "Pham Minh Dung",
+      "title": "Business English Instructor",
+      "description": "Business English expert with experience working at multinational corporations."
+    },
+    "teacher5": {
+      "name": "Hoang Thi Em",
+      "title": "Children's Instructor",
+      "description": "Expert in teaching English to children with creative and fun methods."
+    }
+  },
+  "benefits": {
+    "title": "Benefits of Learning at NexGen Speak Online",
+    "items": {
+      "benefit1": "1:1 Tutoring with Over 100 Excellent Teachers",
+      "benefit2": "Optimized Curriculum and Methods",
+      "benefit3": "Systematic Skills Training"
+    }
+  },
+  "slogan": {
+    "title": "Study Hard, Train Smart with NexGen Speak",
+    "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way.",
+    "items": {
+      "item1": "Learning based on multi-dimensional interactive methods",
+      "item2": "Dedicated and wholehearted learning support",
+      "item3": "Master the language, confidently conquer English",
+      "item4": "Significantly improve communication skills"
+    }
+  },
+  "support": {
+    "title": "Need More Information?",
+    "description": "Still hesitant to choose the right product package? Want more detailed product consultation? Contact us now.",
+    "phone": {
+      "number": "0888.887.798 (toll-free)",
+      "hours": "Monday - Friday, 8:30 AM - 5:30 PM.",
+      "afterHours": "Outside office hours, please leave a message and we will contact you back."
+    },
+    "consultation": {
+      "title": "Want Consultation",
+      "description": "Please leave your information and we will contact you back."
+    }
+  }
 }

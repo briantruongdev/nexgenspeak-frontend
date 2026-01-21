@@ -1,32 +1,33 @@
 <script setup lang="ts">
-const data = [
+const { t } = useI18n()
+
+const data = computed(() => [
   {
-    title: 'Học tập dựa trên phương pháp tương tác đa chiều',
+    title: t('slogan.items.item1'),
     image: '/images/slogan1.png'
   },
   {
-    title: 'Hỗ trợ học tập tận tâm hết mình',
+    title: t('slogan.items.item2'),
     image: '/images/slogan2.png'
   },
   {
-    title: 'Làm chủ ngôn ngữ, tự tin chinh phục Tiếng Anh',
+    title: t('slogan.items.item3'),
     image: '/images/slogan3.png'
   },
   {
-    title: 'Cải thiện rõ rệt kỹ năng giao tiếp',
+    title: t('slogan.items.item4'),
     image: '/images/slogan4.png'
   }
-]
+])
 </script>
 
 <template>
   <div class="container">
-    <div class="mt-32 max-md:mt-24 max-xl:px-6">
-      <p class="title">Học Chăm Luyện Chất Cùng NexGen Speak</p>
+    <div class="mt-32 max-lg:mt-24 max-xl:px-6">
+      <p class="title">{{ $t('slogan.title') }}</p>
 
       <p class="my-6 text-lg">
-        Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên
-        nhất.
+        {{ $t('slogan.description') }}
       </p>
       <div class="grid grid-cols-[1fr_1fr] max-lg:grid-cols-1">
         <div class="grid grid-cols-2 gap-6 max-sm:grid-cols-1">

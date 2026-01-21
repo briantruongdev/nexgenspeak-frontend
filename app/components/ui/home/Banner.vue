@@ -6,8 +6,8 @@
     <div class="absolute inset-0 top-1/6 max-xl:px-6 max-lg:top-1/12">
       <div class="container">
         <p class="text-6xl font-bold text-white mb-10 max-lg:text-4xl">
-          Chinh phục Tiếng Anh <br />
-          Với NexGen Speak
+          {{ $t('banner.title') }} <br />
+          {{ $t('banner.subtitle') }}
         </p>
 
         <UButton
@@ -17,7 +17,7 @@
           <template #leading>
             <BaseIcon name="arrow-right" class="shrink-0" />
           </template>
-          <span class="leading-none">Tìm hiểu thêm</span>
+          <span class="leading-none">{{ $t('banner.learnMore') }}</span>
         </UButton>
       </div>
     </div>
@@ -34,17 +34,17 @@
           <UButton
             class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105 max-lg:text-sm w-fit"
             size="lg"
-            >Đăng k í học thử miễn
+            >{{ $t('banner.registerTrial') }}
           </UButton>
           <UButton
             class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105 max-lg:text-sm w-fit"
             size="lg"
-            >Mua khóa luyện thi</UButton
+            >{{ $t('banner.buyCourse') }}</UButton
           >
           <UButton
             class="rounded-xl bg-white hover:bg-white text-text-primary cursor-pointer hover-scale-105 max-lg:text-sm w-fit"
             size="lg"
-            >Hỗ trợ</UButton
+            >{{ $t('banner.support') }}</UButton
           >
         </p>
       </div>

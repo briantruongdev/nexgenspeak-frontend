@@ -1,55 +1,56 @@
 <script setup lang="ts">
-const { locale } = useI18n()
-const menuSections = [
+const { locale, t } = useI18n()
+
+const menuSections = computed(() => [
   {
-    title: 'Giới thiệu',
+    title: t('footer.sections.introduction.title'),
     links: [
-      { name: 'Về chúng tôi', link: '#' },
-      { name: 'Sứ mệnh & tầm nhìn', link: '#' },
-      { name: 'Đội ngũ giảng viên', link: '#' },
-      { name: 'Phương pháp giảng dạy', link: '#' },
-      { name: 'Câu chuyện học viên', link: '#' }
+      { name: t('footer.sections.introduction.aboutUs'), link: '#' },
+      { name: t('footer.sections.introduction.missionVision'), link: '#' },
+      { name: t('footer.sections.introduction.teachingTeam'), link: '#' },
+      { name: t('footer.sections.introduction.teachingMethod'), link: '#' },
+      { name: t('footer.sections.introduction.studentStories'), link: '#' }
     ]
   },
   {
-    title: 'Hỗ trợ',
+    title: t('footer.sections.support.title'),
     links: [
-      { name: 'Hướng dẫn đăng ký học', link: '#' },
-      { name: 'Tư vấn lộ trình học', link: '#' },
-      { name: 'Câu hỏi thường gặp (FAQ)', link: '#' },
-      { name: 'Hỗ trợ kỹ thuật', link: '#' },
-      { name: 'Liên hệ', link: '#' }
+      { name: t('footer.sections.support.registrationGuide'), link: '#' },
+      { name: t('footer.sections.support.learningPathConsultation'), link: '#' },
+      { name: t('footer.sections.support.faq'), link: '#' },
+      { name: t('footer.sections.support.technicalSupport'), link: '#' },
+      { name: t('footer.sections.support.contact'), link: '#' }
     ]
   },
   {
-    title: 'Chính sách',
+    title: t('footer.sections.policies.title'),
     links: [
-      { name: 'Chính sách học phí', link: '#' },
-      { name: 'Chính sách bảo lưu / hoàn tiền', link: '#' },
-      { name: 'Chính sách quyền riêng tư', link: '#' },
-      { name: 'Điều khoản sử dụng', link: '#' },
-      { name: 'Chính sách bảo mật thông tin', link: '#' }
+      { name: t('footer.sections.policies.tuitionPolicy'), link: '#' },
+      { name: t('footer.sections.policies.reservationRefund'), link: '#' },
+      { name: t('footer.sections.policies.privacyPolicy'), link: '#' },
+      { name: t('footer.sections.policies.termsOfUse'), link: '#' },
+      { name: t('footer.sections.policies.dataProtection'), link: '#' }
     ]
   },
   {
-    title: 'Quyền lợi',
+    title: t('footer.sections.benefits.title'),
     links: [
-      { name: 'Lộ trình học cá nhân hóa', link: '#' },
-      { name: 'Học thử miễn phí', link: '#' },
-      { name: 'Cam kết đầu ra', link: '#' },
-      { name: 'Tài liệu học độc quyền', link: '#' },
-      { name: 'Cộng đồng học viên', link: '#' }
+      { name: t('footer.sections.benefits.personalizedLearning'), link: '#' },
+      { name: t('footer.sections.benefits.freeTrial'), link: '#' },
+      { name: t('footer.sections.benefits.outputCommitment'), link: '#' },
+      { name: t('footer.sections.benefits.exclusiveMaterials'), link: '#' },
+      { name: t('footer.sections.benefits.studentCommunity'), link: '#' }
     ]
   }
-]
+])
 </script>
 
 <template>
   <footer class="bg-primary px-32 py-12 max-xl:p-6">
     <img src="/images/logo-white.png" alt="Logo" loading="lazy" class="w-40 hover:cursor-pointer" @click="navigateTo('/')" />
-    <div class="grid grid-cols-[1fr_2fr] gap-8 mb-12 text-white max-md:grid-cols-1">
+    <div class="grid grid-cols-[1fr_2fr] gap-8 mb-12 text-white max-lg:grid-cols-1">
       <div>
-        <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center w-fit">
           <BaseIcon name="earth" />
           <p class="flex items-center">
             <span class="text-white uppercase">{{ locale }}</span>
@@ -58,8 +59,8 @@ const menuSections = [
           <USeparator orientation="vertical" class="h-6" />
 
           <span class="text-white"
-            >Xem Website <br />
-            NexGen Speak Việt Nam</span
+            >{{ $t('footer.viewWebsite') }} <br />
+            {{ $t('footer.nexgenSpeakVietnam') }}</span
           >
         </div>
         <div class="mt-10">
@@ -71,7 +72,8 @@ const menuSections = [
           <p class="flex items-center gap-6">
             <BaseIcon name="face" size="40" />
             <BaseIcon name="insta" size="40" />
-            <BaseIcon name="youtube" size="40" />
+            <!-- <BaseIcon name="youtube" size="40" class="text-white" /> -->
+            <img src="/images/youtube.png" alt="" class="h-10" loading="lazy" />
           </p>
         </div>
       </div>
@@ -93,12 +95,12 @@ const menuSections = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white">
       <div class="flex flex-wrap gap-2 justify-center">
-        <span>Miễn trừ trách nhiệm</span>
+        <span>{{ $t('footer.disclaimer') }}</span>
         <span>|</span>
-        <p>Chính sách bảo mật và bảo vệ dữ liệu cá nhân</p>
+        <p>{{ $t('footer.privacyDataProtection') }}</p>
       </div>
       <div class="md:text-right max-md:text-center">
-        <p>© 2026 Bản quyền thuộc về Công ty TNHH CZen</p>
+        <p>{{ $t('footer.copyright') }} <a href="https://czen.io" class="hover:underline" target="blank">https://czen.io</a></p>
       </div>
     </div>
   </footer>

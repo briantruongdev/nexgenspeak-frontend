@@ -1,24 +1,26 @@
 <script setup lang="ts">
-const cards = [
+const { t } = useI18n()
+
+const cards = computed(() => [
   {
-    number: '01',
-    title: 'Đăng ký',
-    description: 'Đăng ký bằng cách điền thông tin chi tiết của bạn về tào ID và một khẩu đăng nhập an toàn',
+    number: t('register.steps.step1.number'),
+    title: t('register.steps.step1.title'),
+    description: t('register.steps.step1.description'),
     image: '/images/user-laptop.png'
   },
   {
-    number: '02',
-    title: 'Dự trị lập học',
-    description: 'Dự trị lập học của bạn bằng cách điền đảo vào thích và thời gian học bài',
+    number: t('register.steps.step2.number'),
+    title: t('register.steps.step2.title'),
+    description: t('register.steps.step2.description'),
     image: '/images/schedule-laptop.png'
   },
   {
-    number: '03',
-    title: 'Kiểm tra lịch',
-    description: 'Kiểm tra lịch sử đặt chỗ của bạn để xác nhận đặt chỗ của bạn và nhập mã của giáo viên của bạn',
+    number: t('register.steps.step3.number'),
+    title: t('register.steps.step3.title'),
+    description: t('register.steps.step3.description'),
     image: '/images/check-laptop.png'
   }
-]
+])
 </script>
 
 <template>
@@ -27,7 +29,7 @@ const cards = [
     <div class="absolute top-1/6 w-full max-sm:static max-xl:px-6">
       <div class="container grid grid-cols-[1fr_3fr] mx-auto max-sm:grid-cols-1">
         <div class="max-sm:absolute max-sm:top-10">
-          <p class="mb-6 title">Các bước đăng kí học online</p>
+          <p class="mb-6 title">{{ $t('register.title') }}</p>
           <UButton
             class="rounded-xl text-primary cursor-pointer hover-scale-105 flex items-center leading-none border-2"
             size="lg"
@@ -36,7 +38,7 @@ const cards = [
             <template #leading>
               <BaseIcon name="arrow-right" class="shrink-0" />
             </template>
-            <span class="leading-none">Tìm hiểu thêm</span>
+            <span class="leading-none">{{ $t('register.learnMore') }}</span>
           </UButton>
         </div>
 

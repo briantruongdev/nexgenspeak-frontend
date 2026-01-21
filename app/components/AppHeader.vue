@@ -1,15 +1,18 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const open = ref(false)
-const navItemsPrimary = [
-  { name: 'Kế hoạch học tập & Học phí', href: '/' },
-  { name: 'Giáo viên', href: '/' },
-  { name: 'Tài liệu', href: '/' }
-]
-const navItemsSecondary = [
-  { name: 'Blog', href: '/' },
-  { name: 'Liên hệ', href: '/' },
-  { name: 'Tuyển dụng', href: '/' }
-]
+
+const navItemsPrimary = computed(() => [
+  { name: t('header.nav.studyPlan'), href: '/' },
+  { name: t('header.nav.teachers'), href: '/' },
+  { name: t('header.nav.materials'), href: '/' }
+])
+
+const navItemsSecondary = computed(() => [
+  { name: t('header.nav.blog'), href: '/' },
+  { name: t('header.nav.contact'), href: '/' },
+  { name: t('header.nav.careers'), href: '/' }
+])
 </script>
 
 <template>
@@ -26,7 +29,7 @@ const navItemsSecondary = [
     </div>
 
     <div class="flex gap-4 items-center">
-      <UButton class="rounded-xl hover:cursor-pointer" size="lg">Đăng nhập</UButton>
+      <UButton class="rounded-xl hover:cursor-pointer" size="lg">{{ $t('header.login') }}</UButton>
       <BaseIcon name="phone-call" />
       <BaseIcon name="search" />
 
@@ -52,7 +55,7 @@ const navItemsSecondary = [
             content: 'w-full sm:w-96 h-screen flex flex-col'
           }"
         >
-          <UIcon name="i-lucide-menu" class="size-8 hover:cursor-pointer" />
+          <UIcon name="i-lucide-menu" class="size-8 hover:cursor-pointer hover:text-primary" />
 
           <template #body>
             <div class="w-full">
@@ -65,7 +68,7 @@ const navItemsSecondary = [
                   @click="navigateTo('/')"
                 />
 
-                <UIcon name="i-lucide-x" class="size-6 hover:cursor-pointer" @click="open = false" />
+                <UIcon name="i-lucide-x" class="size-6 hover:cursor-pointer hover:text-primary" @click="open = false" />
               </div>
 
               <p class="space-y-3 flex flex-col my-3">
@@ -82,7 +85,9 @@ const navItemsSecondary = [
           </template>
 
           <template #footer>
-            <UButton class="rounded-xl hover:cursor-pointer w-full flex justify-center" size="lg">Đăng nhập</UButton>
+            <UButton class="rounded-xl hover:cursor-pointer w-full flex justify-center" size="lg">{{
+              $t('header.login')
+            }}</UButton>
           </template>
         </UDrawer>
       </div>

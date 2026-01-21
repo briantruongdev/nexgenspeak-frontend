@@ -1,25 +1,27 @@
 <script setup lang="ts">
-const summaries = [
+const { t } = useI18n()
+
+const summaries = computed(() => [
   {
-    title: 'Năm đào tạo Tiếng Anh trực tuyến',
+    title: t('about.stats.yearsExperience'),
     value: '6+'
   },
   {
-    title: 'Giáo viên nước ngoài',
+    title: t('about.stats.foreignTeachers'),
     value: '100+'
   },
   {
-    title: 'Học viên yêu thích và hài lòng',
+    title: t('about.stats.satisfiedStudents'),
     value: '5000+'
   }
-]
+])
 </script>
 
 <template>
   <div class="container">
-    <div class="mt-44 grid grid-cols-[1fr_1fr] gap-16 max-md:mt-24 max-lg:grid-cols-1">
+    <div class="mt-44 grid grid-cols-[1fr_1fr] gap-16 max-lg:mt-24 max-lg:grid-cols-1">
       <div class="max-xl:px-6">
-        <p class="title">Về chúng tôi, NexGen Speak Online English School</p>
+        <p class="title">{{ $t('about.title') }}</p>
 
         <div class="flex items-center mt-10">
           <div class="h-1 w-56 bg-primary"></div>
@@ -35,8 +37,7 @@ const summaries = [
         </div>
         <div class="flex justify-end mt-18 mb-10">
           <p class="w-2/3 text-lg text-justify">
-            Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự
-            nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn
+            {{ $t('about.description') }}
           </p>
         </div>
         <UButton
@@ -47,7 +48,7 @@ const summaries = [
           <template #leading>
             <BaseIcon name="arrow-right" class="shrink-0" />
           </template>
-          <span class="leading-none">Xem chi tiết tại đây</span>
+          <span class="leading-none">{{ $t('about.viewDetails') }}</span>
         </UButton>
       </div>
       <div class="relative">

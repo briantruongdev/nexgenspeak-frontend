@@ -1,23 +1,25 @@
 <script setup lang="ts">
-const benefits = [
+const { t } = useI18n()
+
+const benefits = computed(() => [
   {
     image: '/images/benefit1.png',
-    title: 'Kèm 1:1 với hơn 100 Giáo viên giỏi'
+    title: t('benefits.items.benefit1')
   },
   {
     image: '/images/benefit2.png',
-    title: 'Giáo trình và phương pháp tối ưu'
+    title: t('benefits.items.benefit2')
   },
   {
     image: '/images/benefit3.png',
-    title: 'Đào tạo kỹ năng bài bản'
+    title: t('benefits.items.benefit3')
   }
-]
+])
 </script>
 
 <template>
   <div class="container max-xl:px-6">
-    <p class="title mb-12 mt-32 max-md:mt-20">Quyền lợi khi học tại NexGen Speak Online</p>
+    <p class="title mb-12 mt-32 max-lg:mt-20">{{ $t('benefits.title') }}</p>
     <div class="grid grid-cols-[1fr_1fr_1fr] gap-8 max-lg:grid-cols-2 max-lg:gap-y-18 max-sm:grid-cols-1">
       <div v-for="(item, index) in benefits" :key="index" class="relative hover-scale-105">
         <img :src="item.image" :alt="item.title" loading="lazy" class="mx-auto h-80 w-full rounded-lg" />

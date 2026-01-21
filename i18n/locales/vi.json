@@ -1,3 +1,155 @@
 {
-  "hello": "Xin chao"
+  "header": {
+    "nav": {
+      "studyPlan": "Kế hoạch học tập & Học phí",
+      "teachers": "Giáo viên",
+      "materials": "Tài liệu",
+      "blog": "Blog",
+      "contact": "Liên hệ",
+      "careers": "Tuyển dụng"
+    },
+    "login": "Đăng nhập"
+  },
+  "banner": {
+    "title": "Chinh phục Tiếng Anh",
+    "subtitle": "Với NexGen Speak",
+    "learnMore": "Tìm hiểu thêm",
+    "registerTrial": "Đăng ký học thử miễn phí",
+    "buyCourse": "Mua khóa luyện thi",
+    "support": "Hỗ trợ"
+  },
+  "about": {
+    "title": "Về chúng tôi, NexGen Speak Online English School",
+    "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+    "viewDetails": "Xem chi tiết tại đây",
+    "stats": {
+      "yearsExperience": "Năm đào tạo Tiếng Anh trực tuyến",
+      "foreignTeachers": "Giáo viên nước ngoài",
+      "satisfiedStudents": "Học viên yêu thích và hài lòng"
+    }
+  },
+  "footer": {
+    "viewWebsite": "Xem Website",
+    "nexgenSpeakVietnam": "NexGen Speak Việt Nam",
+    "sections": {
+      "introduction": {
+        "title": "Giới thiệu",
+        "aboutUs": "Về chúng tôi",
+        "missionVision": "Sứ mệnh & tầm nhìn",
+        "teachingTeam": "Đội ngũ giảng viên",
+        "teachingMethod": "Phương pháp giảng dạy",
+        "studentStories": "Câu chuyện học viên"
+      },
+      "support": {
+        "title": "Hỗ trợ",
+        "registrationGuide": "Hướng dẫn đăng ký học",
+        "learningPathConsultation": "Tư vấn lộ trình học",
+        "faq": "Câu hỏi thường gặp (FAQ)",
+        "technicalSupport": "Hỗ trợ kỹ thuật",
+        "contact": "Liên hệ"
+      },
+      "policies": {
+        "title": "Chính sách",
+        "tuitionPolicy": "Chính sách học phí",
+        "reservationRefund": "Chính sách bảo lưu / hoàn tiền",
+        "privacyPolicy": "Chính sách quyền riêng tư",
+        "termsOfUse": "Điều khoản sử dụng",
+        "dataProtection": "Chính sách bảo mật thông tin"
+      },
+      "benefits": {
+        "title": "Quyền lợi",
+        "personalizedLearning": "Lộ trình học cá nhân hóa",
+        "freeTrial": "Học thử miễn phí",
+        "outputCommitment": "Cam kết đầu ra",
+        "exclusiveMaterials": "Tài liệu học độc quyền",
+        "studentCommunity": "Cộng đồng học viên"
+      }
+    },
+    "disclaimer": "Miễn trừ trách nhiệm",
+    "privacyDataProtection": "Chính sách bảo mật và bảo vệ dữ liệu cá nhân",
+    "copyright": "© 2026 Bản quyền thuộc về"
+  },
+  "register": {
+    "title": "Các bước đăng kí học online",
+    "learnMore": "Tìm hiểu thêm",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Đăng ký",
+        "description": "Đăng ký bằng cách điền thông tin chi tiết của bạn về tạo ID và mật khẩu đăng nhập an toàn"
+      },
+      "step2": {
+        "number": "02",
+        "title": "Dự trù lịch học",
+        "description": "Dự trù lịch học của bạn bằng cách điền đầy đủ thời gian và lịch học bài"
+      },
+      "step3": {
+        "number": "03",
+        "title": "Kiểm tra lịch",
+        "description": "Kiểm tra lịch sử đặt chỗ của bạn để xác nhận đặt chỗ của bạn và nhập mã của giáo viên của bạn"
+      }
+    }
+  },
+  "teachingStaff": {
+    "title": "Đội ngũ giáo viên",
+    "subtitle": "Kinh nghiệm giảng dạy và Chuyên môn",
+    "teacher": "Giáo viên",
+    "bookLesson": "Đặt lịch học",
+    "teacher1": {
+      "name": "Nguyễn Thị Ánh",
+      "title": "Giảng viên Tiếng Anh",
+      "description": "Chuyên gia về giao tiếp và phát âm với hơn 10 năm kinh nghiệm giảng dạy."
+    },
+    "teacher2": {
+      "name": "Trần Văn Bảo",
+      "title": "Giảng viên IELTS",
+      "description": "Chuyên gia luyện thi IELTS với tỷ lệ học viên đạt band 7.0+ cao nhất."
+    },
+    "teacher3": {
+      "name": "Lê Thị Chi",
+      "title": "Giảng viên Ngữ pháp",
+      "description": "Chuyên gia ngữ pháp với phương pháp giảng dạy dễ hiểu và hiệu quả."
+    },
+    "teacher4": {
+      "name": "Phạm Minh Dũng",
+      "title": "Giảng viên Kinh doanh",
+      "description": "Chuyên gia tiếng Anh thương mại với kinh nghiệm làm việc tại các tập đoàn đa quốc gia."
+    },
+    "teacher5": {
+      "name": "Hoàng Thị Em",
+      "title": "Giảng viên Thiếu nhi",
+      "description": "Chuyên gia giảng dạy tiếng Anh cho trẻ em với phương pháp sáng tạo và vui nhộn."
+    }
+  },
+  "benefits": {
+    "title": "Quyền lợi khi học tại NexGen Speak Online",
+    "items": {
+      "benefit1": "Kèm 1:1 với hơn 100 Giáo viên giỏi",
+      "benefit2": "Giáo trình và phương pháp tối ưu",
+      "benefit3": "Đào tạo kỹ năng bài bản"
+    }
+  },
+  "slogan": {
+    "title": "Học Chăm Luyện Chất Cùng NexGen Speak",
+    "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất.",
+    "items": {
+      "item1": "Học tập dựa trên phương pháp tương tác đa chiều",
+      "item2": "Hỗ trợ học tập tận tâm hết mình",
+      "item3": "Làm chủ ngôn ngữ, tự tin chinh phục Tiếng Anh",
+      "item4": "Cải thiện rõ rệt kỹ năng giao tiếp"
+    }
+  },
+  "support": {
+    "title": "Quý Khách cần thêm thông tin?",
+    "description": "Vẫn còn phân vân để lựa chọn gói sản phẩm phù hợp? Muốn tư vấn kỹ hơn về sản phẩm? Hãy liên hệ ngay với chúng tôi.",
+    "phone": {
+      "number": "0888.887.798 (miễn cước)",
+      "hours": "Thứ 2 - Thứ 6, 8h30 - 17h30.",
+      "afterHours": "Ngoài giờ làm việc, vui lòng để lại tin nhắn, chúng tôi sẽ liên lạc lại."
+    },
+    "consultation": {
+      "title": "Muốn được tư vấn",
+      "description": "Quý Khách vui lòng để lại thông tin và chúng tôi sẽ liên lạc lại."
+    }
+  }
 }
