@@ -48,20 +48,24 @@ const items = [
       next-icon="i-lucide-chevron-right"
       :items="items"
       :ui="{
-        item: 'basis-full basis-1/3 px-4',
-        prev: 'left-0 translate-x-14 hover:cursor-pointer',
-        next: 'right-0 -translate-x-18 hover:cursor-pointer'
+        item: 'basis-full sm:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
+        prev: 'translate-x-14 hover:cursor-pointer max-sm:translate-x-0',
+        next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0'
       }"
     >
-      <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl flex">
-        <img :src="item.image" :alt="item.name" loading="lazy" class="w-48" />
-        <div class="text-white py-4 flex flex-col justify-between">
-          <div class="pr-4 -ml-4">
-            <p class="mb-2 text-xl">Giáo viên: {{ item.name }}</p>
-            <p class="text-lg">{{ item.description }}</p>
+      <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl flex flex-col sm:flex-row gap-4 p-4 h-full">
+        <img :src="item.image" :alt="item.name" loading="lazy" class="w-full sm:w-40 md:w-48 object-cover rounded-xl" />
+
+        <div class="text-white flex flex-col justify-between">
+          <div>
+            <p class="mb-2 text-base sm:text-lg lg:text-xl">Giáo viên: {{ item.name }}</p>
+            <p class="text-sm sm:text-base lg:text-lg line-clamp-3">
+              {{ item.description }}
+            </p>
           </div>
-          <UButton class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer hover-scale-105 w-fit" size="lg"
-            >Đặt lịch học
+
+          <UButton class="rounded-xl bg-white hover:bg-white text-primary cursor-pointer hover-scale-105 w-fit mt-4" size="lg">
+            Đặt lịch học
           </UButton>
         </div>
       </div>
