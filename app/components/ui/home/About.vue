@@ -4,15 +4,15 @@ const { t } = useI18n()
 const summaries = computed(() => [
   {
     title: t('about.stats.yearsExperience'),
-    value: '6+'
+    value: 6
   },
   {
     title: t('about.stats.foreignTeachers'),
-    value: '100+'
+    value: 100
   },
   {
     title: t('about.stats.satisfiedStudents'),
-    value: '5000+'
+    value: 5000
   }
 ])
 </script>
@@ -49,7 +49,9 @@ const summaries = computed(() => [
         <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75" />
         <div class="absolute inset-0 bg-primary/50 w-2/5 gap-y-4 flex flex-col justify-center">
           <div v-for="item in summaries" :key="item.title" class="text-white mx-10 max-lg:mx-6">
-            <p class="text-7xl max-md:text-5xl max-sm:text-3xl font-bold">{{ item.value }}</p>
+            <p class="text-7xl max-md:text-5xl max-sm:text-3xl font-bold">
+              <BaseCounterUp :end="item.value" />
+            </p>
             <p class="text-lg max-sm:text-sm">{{ item.title }}</p>
           </div>
         </div>

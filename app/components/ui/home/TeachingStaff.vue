@@ -55,7 +55,7 @@ const items = computed(() => [
         next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0'
       }"
     >
-      <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] h-60 max-md:h-5">
+      <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] h-60">
         <div class="flex items-end">
           <img :src="item.image" :alt="item.name" loading="lazy" class="flex items-end" />
         </div>
