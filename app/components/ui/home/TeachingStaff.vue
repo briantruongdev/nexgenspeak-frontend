@@ -34,8 +34,8 @@ const items = [
 </script>
 
 <template>
-  <div class="container">
-    <div class="mb-12 mt-32">
+  <div class="container max-lg:px-6">
+    <div class="mb-12 mt-32 max-md:mt-20">
       <p class="title">Đội ngũ giáo viên</p>
       <p class="text-lg mt-2">Kinh nghiệm giảng dạy và Chuyên môn</p>
     </div>
@@ -48,7 +48,7 @@ const items = [
       next-icon="i-lucide-chevron-right"
       :items="items"
       :ui="{
-        item: 'basis-full sm:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
+        item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
         prev: 'translate-x-14 hover:cursor-pointer max-sm:translate-x-0',
         next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0'
       }"
