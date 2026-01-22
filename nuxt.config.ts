@@ -6,6 +6,44 @@ export default defineNuxtConfig({
     enabled: true
   },
 
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      title: 'NexGen Speak - Học Tiếng Anh Trực Tuyến',
+      titleTemplate: '%s | NexGen Speak',
+      meta: [
+        {
+          name: 'format-detection',
+          content: 'telephone=no'
+        },
+        {
+          name: 'robots',
+          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+        },
+        {
+          name: 'googlebot',
+          content: 'index, follow'
+        },
+        {
+          name: 'author',
+          content: 'NexGen Speak'
+        }
+      ],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/images/logo.png'
+        },
+        {
+          rel: 'canonical',
+          href: 'https://nexgenspeak.com'
+        }
+      ]
+    }
+  },
+
   css: ['~/assets/css/main.css'],
   colorMode: {
     preference: 'light',
@@ -14,6 +52,12 @@ export default defineNuxtConfig({
 
   ui: {
     colorMode: true
+  },
+
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nexgenspeak.com'
+    }
   },
 
   routeRules: {
