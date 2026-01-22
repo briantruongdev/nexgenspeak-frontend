@@ -161,10 +161,18 @@
   "validation":{
     "password": "Password must be at least 8 characters, include uppercase, lowercase, number, and special character",
     "usernameRequired": "Username is required",
-    "maxLength100": "Username must not exceed 100 characters"
+    "maxLength100": "Username must not exceed 100 characters",
+    "passwordMismatch": "Confirm password does not match new password"
   },
   "auth":{
     "userName":"username",
-    "password":"password"
+    "password":"password",
+    "oldPassword":"Old password",
+    "newPassword":"New password",
+    "confirmNewPassword":"Confirm new password",
+    "changePassword":"Change password",
+    "forgotPassword":"Forgot password",
+    "confirm":"Confirm",
+    "cancel":"Cancel"
   }
 }
