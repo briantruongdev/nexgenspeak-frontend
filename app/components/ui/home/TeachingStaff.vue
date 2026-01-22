@@ -51,8 +51,8 @@ const items = computed(() => [
       :items="items"
       :ui="{
         item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
-        prev: 'translate-x-14 hover:cursor-pointer max-sm:-translate-x-2',
-        next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0'
+        prev: 'translate-x-14 hover:cursor-pointer max-sm:-translate-x-2 text-primary bg-white/60',
+        next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0 text-primary bg-white/50'
       }"
     >
       <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] h-60">

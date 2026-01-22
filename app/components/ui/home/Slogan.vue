@@ -29,7 +29,7 @@ const data = computed(() => [
       <p class="my-6 text-lg">
         {{ $t('slogan.description') }}
       </p>
-      <div class="grid grid-cols-[1fr_1fr] max-lg:grid-cols-1">
+      <div class="grid grid-cols-[1fr_1fr] max-lg:grid-cols-1 items-center">
         <div class="grid grid-cols-2 gap-6 max-sm:grid-cols-1">
           <div v-for="(item, index) in data" :key="index">
             <div class="relative">

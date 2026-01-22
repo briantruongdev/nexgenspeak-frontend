@@ -25,9 +25,14 @@
         <USeparator orientation="horizontal" size="lg" class="w-2/6" />
 
         <p class="gap-4 flex mt-4 max max-md:grid max-md:grid-cols-2 max-md:w-fit">
-          <BaseButton variant="outline" class-text="text-text-primary" :text="$t('banner.registerTrial')" />
-          <BaseButton variant="outline" class-text="text-text-primary" :text="$t('banner.buyCourse')" />
-          <BaseButton variant="outline" class-text="text-text-primary" :text="$t('banner.support')" />
+          <BaseButton
+            variant="outline"
+            class-text="text-text-primary"
+            class-name="bg-white/60"
+            :text="$t('banner.registerTrial')"
+          />
+          <BaseButton variant="outline" class-text="text-text-primary" class-name="bg-white/60" :text="$t('banner.buyCourse')" />
+          <BaseButton variant="outline" class-text="text-text-primary" class-name="bg-white/60" :text="$t('banner.support')" />
         </p>
       </div>
     </div>

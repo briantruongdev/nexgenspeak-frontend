@@ -1,15 +1,10 @@
 <script setup lang="ts">
 interface ButtonProps {
   variant?: 'solid' | 'outline' | 'soft' | 'subtle' | 'ghost' | 'link'
-
   text?: string
-
   className?: string
-
   classText?: string
-
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
   disabled?: boolean
 }
 
@@ -71,7 +66,7 @@ const handleClick = (event: MouseEvent) => {
 </script>
 
 <template>
-  <UButton :class="buttonClasses" :size="size" :ui="uiConfig" :disabled="disabled" @click="handleClick">
+  <UButton :class="buttonClasses" class="test" :size="size" :ui="uiConfig" :disabled="disabled" @click="handleClick">
     <template v-if="$slots.default" #leading>
       <slot />
     </template>
