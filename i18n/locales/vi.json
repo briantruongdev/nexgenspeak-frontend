@@ -152,6 +152,20 @@
     "consultation": {
       "title": "Muốn được tư vấn",
       "description": "Quý Khách vui lòng để lại thông tin và chúng tôi sẽ liên lạc lại."
+    },
+    "email":{
+      "email":"Email",
+      "description": "Quý Khách vui lòng gửi Email đến NexGen",
+      "weWillGetBackToYou":"Chúng tôi sẽ liên hệ lại."
     }
+  },
+  "validation":{
+    "password": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
+    "usernameRequired":"Tên người dùng là bắt buộc",
+    "maxLength100":"Tên người dùng không qúa 100 kí tự"
+  },
+  "auth":{
+    "userName":"Tên đăng nhập",
+    "password":"Mật khẩu"
   }
 }

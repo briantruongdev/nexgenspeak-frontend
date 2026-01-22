@@ -151,6 +151,20 @@
     "consultation": {
       "title": "Want Consultation",
       "description": "Please leave your information and we will contact you back."
+    },
+    "email":{
+      "email":"Email",
+      "description": "Please send an email to NexGen at",
+      "weWillGetBackToYou":" We will get back to you."
     }
+  },
+  "validation":{
+    "password": "Password must be at least 8 characters, include uppercase, lowercase, number, and special character",
+    "usernameRequired": "Username is required",
+    "maxLength100": "Username must not exceed 100 characters"
+  },
+  "auth":{
+    "userName":"username",
+    "password":"password"
   }
 }

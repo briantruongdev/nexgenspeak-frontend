@@ -84,7 +84,7 @@ onUnmounted(() => {
     </div>
 
     <div class="flex gap-4 items-center">
-      <BaseButton :text="$t('header.login')" />
+      <BaseButton :text="$t('header.login')" @click="navigateTo('/login')" />
       <BaseIcon
         name="phone-call"
         class="hover:text-primary hover:cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-12"
