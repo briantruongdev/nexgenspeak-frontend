@@ -162,17 +162,20 @@
     "password": "Password must be at least 8 characters, include uppercase, lowercase, number, and special character",
     "usernameRequired": "Username is required",
     "maxLength100": "Username must not exceed 100 characters",
-    "passwordMismatch": "Confirm password does not match new password"
+    "passwordMismatch": "Confirm password does not match new password",
+    "phoneOrEmailRequired": "Phone number or email is required",
+    "phoneOrEmailInvalid": "Please enter a valid phone number or email"
   },
   "auth":{
-    "userName":"username",
-    "password":"password",
+    "userName":"Username",
+    "password":"Password",
     "oldPassword":"Old password",
     "newPassword":"New password",
     "confirmNewPassword":"Confirm new password",
     "changePassword":"Change password",
     "forgotPassword":"Forgot password",
     "confirm":"Confirm",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "phoneOrEmail":"Enter phone number or email"
   }
 }

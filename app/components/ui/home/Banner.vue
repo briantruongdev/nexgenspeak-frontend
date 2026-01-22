@@ -10,7 +10,7 @@
           {{ $t('banner.subtitle') }}
         </p>
 
-        <BaseButton variant="outline" class-name="bg-white" :text="$t('banner.learnMore')">
+        <BaseButton variant="outline" class-name="bg-white border-none" :text="$t('banner.learnMore')">
           <BaseIcon name="arrow-right" class="shrink-0" />
         </BaseButton>
       </div>
@@ -28,11 +28,21 @@
           <BaseButton
             variant="outline"
             class-text="text-text-primary"
-            class-name="bg-white/60"
+            class-name="bg-white/60 border-none"
             :text="$t('banner.registerTrial')"
           />
-          <BaseButton variant="outline" class-text="text-text-primary" class-name="bg-white/60" :text="$t('banner.buyCourse')" />
-          <BaseButton variant="outline" class-text="text-text-primary" class-name="bg-white/60" :text="$t('banner.support')" />
+          <BaseButton
+            variant="outline"
+            class-text="text-text-primary"
+            class-name="bg-white/60 border-none"
+            :text="$t('banner.buyCourse')"
+          />
+          <BaseButton
+            variant="outline"
+            class-text="text-text-primary"
+            class-name="bg-white/60 border-none"
+            :text="$t('banner.support')"
+          />
         </p>
       </div>
     </div>

@@ -15,7 +15,7 @@ const form = ref<IFormLogin>({
 
 <template>
   <UiAuthLayout sub-title="Đăng nhập vào NexGen Speak">
-    <UForm ref="formRef" :schema :state="form" class="space-y-10">
+    <UForm ref="formRef" :schema :state="form" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
       <UFormField name="userName">
         <UInput v-model="form.userName" :placeholder="t('auth.userName')" :ui="{ base: 'h-12 bg-transparent' }" class="w-full" />
       </UFormField>
@@ -47,7 +47,8 @@ const form = ref<IFormLogin>({
         <span class="text-primary hover:cursor-pointer hover:underline" @click="navigateTo('/forgot-password')">Mật Khẩu?</span>
       </p>
       <p class="text-sm font-bold">
-        Bạn chưa đăng ký tài khoản? <span class="text-primary hover:cursor-pointer hover:underline">Đăng ký</span>
+        Bạn chưa đăng ký tài khoản?
+        <span class="text-primary hover:cursor-pointer hover:underline" @click="navigateTo('/register')">Đăng ký</span>
       </p>
     </div>
     <div class="flex justify-between items-center mt-12 max-xl:flex-col max-xl:gap-8">

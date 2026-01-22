@@ -14,7 +14,7 @@ const bannerImageSrc = '/images/banner-auth.png'
 <template>
   <div>
     <div class="grid grid-cols-[2fr_1fr] max-md:grid-cols-1">
-      <div class="mx-[135px] my-20 max-lg:mx-20">
+      <div class="mx-[135px] my-20 max-lg:mx-20 max-sm:mx-10 max-sm:my-10">
         <p class="title">NGS</p>
         <p class="text-xl font-bold my-10">{{ subTitle }}</p>
 

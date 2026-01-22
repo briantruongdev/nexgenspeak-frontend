@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="bg-[#EDEFF0] px-[135px] max-lg:px-20">
+  <div class="bg-[#EDEFF0] px-[135px] max-lg:px-20 max-sm:px-10">
     <div class="container py-10">
       <p class="text-5xl text-primary font-bold max-md:text-3xl">{{ $t('support.title') }}</p>
       <p class="mt-4 text-lg font-medium max-md:text-sm">
