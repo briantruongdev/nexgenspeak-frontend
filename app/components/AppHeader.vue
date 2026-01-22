@@ -2,10 +2,11 @@
 const { t } = useI18n()
 const open = ref(false)
 const isScrolled = ref(false)
+const route = useRoute()
 
 const navItemsPrimary = computed(() => [
   { name: t('header.nav.studyPlan'), href: '/' },
-  { name: t('header.nav.teachers'), href: '/' },
+  { name: t('header.nav.teachers'), href: '/teachers' },
   { name: t('header.nav.materials'), href: '/' }
 ])
 
@@ -14,6 +15,8 @@ const navItemsSecondary = computed(() => [
   { name: t('header.nav.contact'), href: '/' },
   { name: t('header.nav.careers'), href: '/' }
 ])
+
+const pathActive = computed(() => route.path !== '/' && route.path)
 
 const handleScroll = () => {
   const currentScrollY = window.scrollY
@@ -47,7 +50,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="flex justify-between items-center h-24 mx-10 max-xl:hidden sticky top-0 z-50"
+    class="flex justify-between items-center h-24 px-10 max-xl:hidden sticky top-0 z-50 bg-white"
     :class="{
       'header-sticky': isScrolled,
       'header-normal': !isScrolled
@@ -66,9 +69,14 @@ onUnmounted(() => {
         v-for="(item, index) in navItemsPrimary"
         :key="index"
         class="font-bold text-text-primary hover:cursor-pointer relative group transition-all duration-300"
+        :class="{ 'text-primary!': pathActive === item.href }"
+        @click="navigateTo(item.href)"
       >
         {{ item.name }}
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+        <span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          :class="{ 'w-full': pathActive === item.href }"
+        />
       </span>
 
       <USeparator orientation="vertical" :class="isScrolled ? 'h-6' : 'h-8'" class="transition-all duration-300" />
@@ -77,9 +85,13 @@ onUnmounted(() => {
         v-for="(item, index) in navItemsSecondary"
         :key="index"
         class="font-bold text-[#B4ADAD] hover:cursor-pointer hover:text-primary transition-all duration-300 relative group"
+        :class="{ 'text-primary!': pathActive === item.href }"
       >
         {{ item.name }}
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+        <span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+          :class="{ 'w-full': pathActive === item.href }"
+        />
       </span>
     </div>
 
