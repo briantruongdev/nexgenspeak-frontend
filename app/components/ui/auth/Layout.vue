@@ -7,16 +7,21 @@ const prop = withDefaults(defineProps<IProp>(), {
   subTitle: ''
 })
 
-// Ensure image path is always resolved correctly
 const bannerImageSrc = '/images/banner-auth.png'
 </script>
 
 <template>
   <div>
     <div class="grid grid-cols-[2fr_1fr] max-md:grid-cols-1">
-      <div class="mx-[135px] my-20 max-lg:mx-20 max-sm:mx-10 max-sm:my-10">
-        <p class="title">NGS</p>
-        <p class="text-xl font-bold my-10">{{ subTitle }}</p>
+      <div class="mx-[135px] my-10 max-lg:mx-20 max-sm:mx-10 max-sm:my-10">
+        <img
+          src="/images/logo.png"
+          alt="Logo"
+          loading="lazy"
+          class="hover:cursor-pointer transition-all duration-300 hover:scale-110 w-24"
+          @click="navigateTo('/')"
+        />
+        <p class="text-xl font-bold my-8">{{ subTitle }}</p>
 
         <slot />
       </div>

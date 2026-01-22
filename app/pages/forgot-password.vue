@@ -91,6 +91,7 @@ const form = ref<IFormForgotPassword>({
         variant="outline"
         class-name="h-10 max-sm:h-11 max-md:h-12"
         class-text="text-base max-sm:text-lg"
+        @click="navigateTo('/login')"
       />
     </UForm>
   </UiAuthLayout>

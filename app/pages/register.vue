@@ -15,7 +15,7 @@ const otp = ref('')
 </script>
 
 <template>
-  <UiAuthLayout sub-title="Đăng ký tài khoản">
+  <UiAuthLayout :sub-title="t('auth.registerAccount')">
     <UForm ref="formRef" :schema :state="form" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
       <UFormField name="phoneOrEmail">
         <UInput
@@ -45,14 +45,15 @@ const otp = ref('')
           </template>
         </UInput>
       </UFormField>
-      <p class="font-bold">Vui lòng nhập mã từ Email hoặc Số điện thoại</p>
+      <p class="font-bold">{{ t('auth.enterOtp') }}</p>
       <UFormField>
         <UInput v-model="otp" :ui="{ base: 'h-12 bg-transparent' }" />
       </UFormField>
       <BaseButton :text="$t('auth.confirm')" class="w-full" class-name="h-12" class-text="text-lg" />
     </UForm>
     <p class="text-sm font-bold mt-4 text-end">
-      Bạn đã có tài khoản? <span class="text-primary hover:cursor-pointer hover:underline">Đăng nhập</span>
+      {{ t('auth.haveAccount') }}
+      <span class="text-primary hover:cursor-pointer hover:underline" @click="navigateTo('/login')">{{ t('auth.login') }}</span>
     </p>
   </UiAuthLayout>
 </template>

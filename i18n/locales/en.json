@@ -176,6 +176,17 @@
     "forgotPassword":"Forgot password",
     "confirm":"Confirm",
     "cancel":"Cancel",
-    "phoneOrEmail":"Enter phone number or email"
-  }
+    "phoneOrEmail":"Enter phone number or email",
+    "loginToNGS": "Log in to NexGen Speak",
+    "forgotUserName": "Forgot your username?",
+    "haveNotAccount": "Don’t have an account?",
+    "register": "Sign up",
+    "loginByGG": "Sign in with Google",
+    "loginByFace": "Sign in with Facebook",
+    "registerAccount": "Create an account",
+    "enterOtp": "Please enter the code sent to your email or phone number",
+    "haveAccount": "Already have an account?",
+    "login": "Log in"
+  },
+  "or": "or"
 }

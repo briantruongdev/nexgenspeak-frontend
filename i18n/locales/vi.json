@@ -177,6 +177,17 @@
     "forgotPassword":"Quên mật khẩu",
     "confirm":"Xác nhận",
     "cancel":"Hủy bỏ",
-    "phoneOrEmail":"Nhập số điện thoại hoặc email"
-  }
+    "phoneOrEmail":"Nhập số điện thoại hoặc email",
+    "loginToNGS":"Đăng nhập vào NexGen Speak",
+    "forgotUserName":"Quên Tên đăng nhập?",
+    "haveNotAccount":"Bạn chưa đăng ký tài khoản?",
+    "register":"Đăng ký",
+    "loginByGG":"Đăng nhập bằng Google",
+    "loginByFace":"Đăng nhập bằng Facebook",
+    "registerAccount":"Đăng ký tài khoản",
+    "enterOtp":"Vui lòng nhập mã từ Email hoặc Số điện thoại",
+    "haveAccount":"Bạn đã có tài khoản?",
+    "login":"Đăng nhập"
+  },
+  "or":"hoặc"
 }
