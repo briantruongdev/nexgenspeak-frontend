@@ -4,6 +4,7 @@
   <div>
     <UiTeacherBanner />
     <UiTeacherStaff />
+    <UiMap />
   </div>
 </template>
 
