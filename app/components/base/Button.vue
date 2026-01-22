@@ -24,7 +24,7 @@ const emit = defineEmits<{
 const variantClasses = computed<string>(() => {
   const variants: Record<ButtonProps['variant'] & string, string> = {
     solid: '',
-    outline: 'bg-white hover:bg-white text-primary border-primary',
+    outline: 'bg-transparent hover:bg-white text-primary border-primary',
     soft: 'bg-primary/10 hover:bg-primary/20 text-primary',
     subtle: 'bg-gray-100 hover:bg-gray-200 text-gray-900',
     ghost: 'bg-transparent hover:bg-gray-100 text-gray-700',

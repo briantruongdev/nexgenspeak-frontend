@@ -10,7 +10,7 @@
           {{ $t('banner.subtitle') }}
         </p>
 
-        <BaseButton variant="outline" :text="$t('banner.learnMore')">
+        <BaseButton variant="outline" class-name="bg-white" :text="$t('banner.learnMore')">
           <BaseIcon name="arrow-right" class="shrink-0" />
         </BaseButton>
       </div>

@@ -51,8 +51,8 @@ const items = computed(() => [
       :items="items"
       :ui="{
         item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
-        prev: 'translate-x-14 hover:cursor-pointer max-sm:-translate-x-2 text-primary bg-white/60',
-        next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0 text-primary bg-white/50'
+        prev: 'translate-x-14 hover:cursor-pointer max-sm:-translate-x-2 text-primary bg-white/60 shadow-none ring-0 focus:ring-0',
+        next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0 text-primary bg-white/50 shadow-none ring-0 focus:ring-0'
       }"
     >
       <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] h-60">
@@ -69,7 +69,7 @@ const items = computed(() => [
           </div>
 
           <div class="flex justify-end mt-4 mr-4">
-            <BaseButton variant="outline" :text="$t('teachingStaff.bookLesson')" />
+            <BaseButton variant="outline" class-name="bg-white" :text="$t('teachingStaff.bookLesson')" />
           </div>
         </div>
       </div>
