@@ -100,7 +100,7 @@ watch(
 
         <div>
           <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
-            <button
+            <div
               v-for="t in pagedTeachers"
               :key="t.id"
               type="button"
@@ -112,7 +112,7 @@ watch(
                 <img :src="t.image" :alt="t.name" loading="lazy" class="object-cover h-[75px]" />
               </div>
               <p class="font-bold text-sm mt-2 truncate text-center">{{ t.name }}</p>
-            </button>
+            </div>
           </div>
 
           <div class="mt-8 flex justify-center">

@@ -34,15 +34,7 @@ const data = computed(() => [
           <div v-for="(item, index) in data" :key="index">
             <div class="relative">
               <img :src="item.image" :alt="item.title" class="rounded-lg aspect-3/2" loading="lazy" />
-              <div class="absolute inset-0 flex justify-center items-center">
-                <div
-                  class="w-20 h-20 rounded-full bg-white/60 flex items-center justify-center hover:cursor-pointer hover-scale-105"
-                >
-                  <div
-                    class="ml-1 w-0 h-0 border-t-14 border-t-transparent border-b-14 border-b-transparent border-l-22 border-l-[#E87722]"
-                  ></div>
-                </div>
-              </div>
+              <UiButtonPlay />
             </div>
             <p class="text-lg font-medium mt-5 max-md:text-sm">{{ item.title }}</p>
           </div>
