@@ -3,6 +3,7 @@
 <template>
   <div>
     <UiTeacherBanner />
+    <UiTeacherStaff />
   </div>
 </template>
 
