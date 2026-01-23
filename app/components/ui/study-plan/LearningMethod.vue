@@ -22,13 +22,13 @@ const items = computed(() => [
 
 <template>
   <section class="bg-[#EEF0F1] pt-16 py-24">
-    <div class="container">
+    <div class="container max-xl:px-6">
       <p class="title">{{ $t('studyPlan.learningMethod.title') }}</p>
       <p class="text-lg my-4">
         {{ $t('studyPlan.learningMethod.description') }}
       </p>
-      <div class="grid grid-cols-[1fr_2fr] gap-8">
-        <img src="/images/benefit3.png" alt="" loading="lazy" class="h-full object-cover" />
+      <div class="grid grid-cols-[1fr_2fr] gap-8 max-md:grid-cols-1">
+        <img src="/images/benefit3.png" alt="" loading="lazy" class="h-full object-cover max-md:hidden" />
         <div class="space-y-6">
           <div v-for="(item, index) in items" :key="index" class="grid grid-cols-[1fr_1.5fr] gap-6">
             <img :src="item.image" alt="" loading="lazy" class="h-44 w-full object-cover" />

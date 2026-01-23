@@ -5,7 +5,7 @@
     value-key="value"
     :avatar="avatar"
     :ui="{
-      base: 'w-36 h-10 hover:cursor-pointer',
+      base: 'w-36 h-10 hover:cursor-pointer bg-transparent',
       value: 'ml-2 hover:cursor-pointer',
       content: 'hover:cursor-pointer'
     }"
