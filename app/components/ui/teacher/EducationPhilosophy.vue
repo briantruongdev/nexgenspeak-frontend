@@ -30,7 +30,7 @@ const items = [
 <template>
   <section class="bg-[#EEF0F1] pt-10">
     <div class="container max-xl:px-6">
-      <UiTeacherTitle title="Triết lý giáo dục của NexGen" />
+      <UiTeacherTitle :title="$t('teacher.educationPhilosophy.title')" />
       <div class="grid grid-cols-3 gap-x-6 gap-y-12">
         <div v-for="(item, index) in items" :key="index">
           <div class="relative">
@@ -40,7 +40,9 @@ const items = [
           <p class="text-xl font-bold mt-2">{{ item.name }}</p>
         </div>
       </div>
-      <div class="py-10"><BaseButton text="Xem thêm video" variant="outline" class="mx-auto w-40" /></div>
+      <div class="py-10">
+        <BaseButton :text="$t('teacher.educationPhilosophy.viewMore')" variant="outline" class="mx-auto w-40" />
+      </div>
     </div>
   </section>
 </template>

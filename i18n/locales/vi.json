@@ -1,6 +1,6 @@
 {
-  "pageTitle":"Chinh phục Tiếng Anh với NexGen Speak",
-  "pageDescription":"Học Tiếng Anh trực tuyến với giáo viên bản xứ. Môi trường học tập tối ưu, phương pháp hiện đại, cam kết đầu ra.",
+  "pageTitle": "Chinh phục Tiếng Anh với NexGen Speak",
+  "pageDescription": "Học Tiếng Anh trực tuyến với giáo viên bản xứ. Môi trường học tập tối ưu, phương pháp hiện đại, cam kết đầu ra.",
   "header": {
     "nav": {
       "studyPlan": "Kế hoạch học tập & Học phí",
@@ -153,41 +153,123 @@
       "title": "Muốn được tư vấn",
       "description": "Quý Khách vui lòng để lại thông tin và chúng tôi sẽ liên lạc lại."
     },
-    "email":{
-      "email":"Email",
+    "email": {
+      "email": "Email",
       "description": "Quý Khách vui lòng gửi Email đến NexGen",
-      "weWillGetBackToYou":"Chúng tôi sẽ liên hệ lại."
+      "weWillGetBackToYou": "Chúng tôi sẽ liên hệ lại."
     }
   },
-  "validation":{
+  "validation": {
     "password": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
-    "usernameRequired":"Tên người dùng là bắt buộc",
-    "maxLength100":"Tên người dùng không qúa 100 kí tự",
-    "passwordMismatch":"Mật khẩu xác nhận không khớp với mật khẩu mới",
-    "phoneOrEmailRequired":"Số điện thoại hoặc email là bắt buộc",
-    "phoneOrEmailInvalid":"Vui lòng nhập số điện thoại hoặc email hợp lệ"
+    "usernameRequired": "Tên người dùng là bắt buộc",
+    "maxLength100": "Tên người dùng không qúa 100 kí tự",
+    "passwordMismatch": "Mật khẩu xác nhận không khớp với mật khẩu mới",
+    "phoneOrEmailRequired": "Số điện thoại hoặc email là bắt buộc",
+    "phoneOrEmailInvalid": "Vui lòng nhập số điện thoại hoặc email hợp lệ"
   },
-  "auth":{
-    "userName":"Tên đăng nhập",
-    "password":"Mật khẩu",
-    "oldPassword":"Mật khẩu cũ",
-    "newPassword":"Mật khẩu mới",
-    "confirmNewPassword":"Xác nhận mật khẩu mới",
-    "changePassword":"Đổi mật khẩu",
-    "forgotPassword":"Quên mật khẩu",
-    "confirm":"Xác nhận",
-    "cancel":"Hủy bỏ",
-    "phoneOrEmail":"Nhập số điện thoại hoặc email",
-    "loginToNGS":"Đăng nhập vào NexGen Speak",
-    "forgotUserName":"Quên Tên đăng nhập?",
-    "haveNotAccount":"Bạn chưa đăng ký tài khoản?",
-    "register":"Đăng ký",
-    "loginByGG":"Đăng nhập bằng Google",
-    "loginByFace":"Đăng nhập bằng Facebook",
-    "registerAccount":"Đăng ký tài khoản",
-    "enterOtp":"Vui lòng nhập mã từ Email hoặc Số điện thoại",
-    "haveAccount":"Bạn đã có tài khoản?",
-    "login":"Đăng nhập"
+  "auth": {
+    "userName": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "oldPassword": "Mật khẩu cũ",
+    "newPassword": "Mật khẩu mới",
+    "confirmNewPassword": "Xác nhận mật khẩu mới",
+    "changePassword": "Đổi mật khẩu",
+    "forgotPassword": "Quên mật khẩu",
+    "confirm": "Xác nhận",
+    "cancel": "Hủy bỏ",
+    "phoneOrEmail": "Nhập số điện thoại hoặc email",
+    "loginToNGS": "Đăng nhập vào NexGen Speak",
+    "forgotUserName": "Quên Tên đăng nhập?",
+    "haveNotAccount": "Bạn chưa đăng ký tài khoản?",
+    "register": "Đăng ký",
+    "loginByGG": "Đăng nhập bằng Google",
+    "loginByFace": "Đăng nhập bằng Facebook",
+    "registerAccount": "Đăng ký tài khoản",
+    "enterOtp": "Vui lòng nhập mã từ Email hoặc Số điện thoại",
+    "haveAccount": "Bạn đã có tài khoản?",
+    "login": "Đăng nhập"
   },
-  "or":"hoặc"
+  "or": "hoặc",
+  "studyPlan": {
+    "about": {
+      "title": "NexGen Speak",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+    },
+    "learningMethod": {
+      "title": "Phương pháp học và giao tiếp",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường.",
+      "items": {
+        "item1": {
+          "title": "Tập chung vào giao tiếp phản xạ",
+          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+        },
+        "item2": {
+          "title": "Hiệu quả trong thời gian nhanh nhất",
+          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+        },
+        "item3": {
+          "title": "Lộ trình học tập rõ ràng theo khung Châu Âu",
+          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+        }
+      },
+      "footer": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+    },
+    "trialRegistration": {
+      "title": "Đăng ký học thử khóa học tiếng Anh online"
+    }
+  },
+  "teacher": {
+    "banner": {
+      "title": "Đội ngũ giáo viên tại Nexgen",
+      "description": "Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Rất tận tâm với học viên, đi dạy vì cái tâm và luôn khát khao cải tiến việc học Tiếng Anh ở Việt Nam.",
+      "bookNow": "Nhắn tin đặt lịch ngay",
+      "highlights": {
+        "item1": {
+          "title": "Kỹ năng sư phạm tốt",
+          "description": "Đội ngũ giáo viên nhiều năm kinh nghiệm, là Thạc sĩ, Thủ khoa, Á khoa,Giảng viên các trường Đại học danh tiếng. Có chứng chỉ giảng dạy quốc tế và được đào tạo bài bản."
+        },
+        "item2": {
+          "title": "Dạy học có tâm",
+          "description": "Đội ngũ giáo viên luôn đặt học viên của mình lên hàng đầu. Không chỉ giảng dạy và truyền đạt kiến thức tại lớp, giáo viên còn sẵn sàng hỗ trợ học viên ngoài giờ học thông qua Fanpage."
+        },
+        "item3": {
+          "title": "Linearthinking Ambassador",
+          "description": "Linearthinking là Hệ phương pháp học Tiếng Anh độc quyền của Nexgen. Đội ngũ của chúng tôi được đào tạo bài bản để giúp học viên tiếp thu trọn vẹn và vận dụng được Linearthinking thành thạo nhất."
+        }
+      }
+    },
+    "educationPhilosophy": {
+      "title": "Triết lý giáo dục của NexGen",
+      "viewMore": "Xem thêm video"
+    },
+    "expertAdvisors": {
+      "title": "Đội ngũ cố vấn chuyên môn",
+      "experience": {
+        "item1": "Cử nhân Ngôn Ngữ Anh - ĐH Ngoại Ngữ",
+        "item2": "Cử nhân Đại học Thương Mại",
+        "item3": "Chứng chỉ TOEIC 920",
+        "item4": "6+ năm kinh nghiệm giảng dạy tại Langmaster"
+      }
+    },
+    "staff": {
+      "title": "Đội ngũ Giáo Viên",
+      "viewInfo": "Xem thông tin giảng viên",
+      "positions": {
+        "academicDirector": "Academic Director tại Nexgen",
+        "englishTeacher": "Giảng viên Tiếng Anh"
+      },
+      "achievements": {
+        "linearthinkingAmbassador": "Linearthinking Ambassador",
+        "ieltsOverall85": "8.5 IELTS Overall",
+        "ieltsSpeaking85": "8.5 IELTS Speaking",
+        "masterDegree": "Thạc sĩ Giảng dạy ngôn ngữ",
+        "rmitGraduate": "Cử nhân RMIT",
+        "ieltsMusketeer": "IELTS Musketeer — The IELTS Face-off mùa 4",
+        "ieltsOverall75": "7.5 IELTS Overall"
+      }
+    }
+  },
+  "common": {
+    "practice": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+  }
 }

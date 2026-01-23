@@ -1,4 +1,5 @@
-{ "pageTitle": "Master English with NexGen Speak",
+{
+  "pageTitle": "Master English with NexGen Speak",
   "pageDescription": "Learn English online with native-speaking teachers. An optimal learning environment, modern methods, and guaranteed outcomes.",
   "header": {
     "nav": {
@@ -152,13 +153,13 @@
       "title": "Want Consultation",
       "description": "Please leave your information and we will contact you back."
     },
-    "email":{
-      "email":"Email",
+    "email": {
+      "email": "Email",
       "description": "Please send an email to NexGen at",
-      "weWillGetBackToYou":" We will get back to you."
+      "weWillGetBackToYou": " We will get back to you."
     }
   },
-  "validation":{
+  "validation": {
     "password": "Password must be at least 8 characters, include uppercase, lowercase, number, and special character",
     "usernameRequired": "Username is required",
     "maxLength100": "Username must not exceed 100 characters",
@@ -166,17 +167,17 @@
     "phoneOrEmailRequired": "Phone number or email is required",
     "phoneOrEmailInvalid": "Please enter a valid phone number or email"
   },
-  "auth":{
-    "userName":"Username",
-    "password":"Password",
-    "oldPassword":"Old password",
-    "newPassword":"New password",
-    "confirmNewPassword":"Confirm new password",
-    "changePassword":"Change password",
-    "forgotPassword":"Forgot password",
-    "confirm":"Confirm",
-    "cancel":"Cancel",
-    "phoneOrEmail":"Enter phone number or email",
+  "auth": {
+    "userName": "Username",
+    "password": "Password",
+    "oldPassword": "Old password",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "changePassword": "Change password",
+    "forgotPassword": "Forgot password",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "phoneOrEmail": "Enter phone number or email",
     "loginToNGS": "Log in to NexGen Speak",
     "forgotUserName": "Forgot your username?",
     "haveNotAccount": "Don’t have an account?",
@@ -188,5 +189,87 @@
     "haveAccount": "Already have an account?",
     "login": "Log in"
   },
-  "or": "or"
+  "or": "or",
+  "studyPlan": {
+    "about": {
+      "title": "NexGen Speak",
+      "description": "We create an environment where each student can practice more - communicate, chat. We create an environment where each student can practice more - communicate, chat"
+    },
+    "learningMethod": {
+      "title": "Learning and Communication Methods",
+      "description": "We create an environment where each student can practice more - communicate, chat. We create an environment.",
+      "items": {
+        "item1": {
+          "title": "Focus on Reflexive Communication",
+          "description": "We create an environment where each student can practice more - communicate, chat"
+        },
+        "item2": {
+          "title": "Effective in the Shortest Time",
+          "description": "We create an environment where each student can practice more - communicate, chat"
+        },
+        "item3": {
+          "title": "Clear Learning Roadmap According to European Framework",
+          "description": "We create an environment where each student can practice more - communicate, chat"
+        }
+      },
+      "footer": "We create an environment where each student can practice more - communicate, chat. We create an environment where each student can practice more - communicate, chat"
+    },
+    "trialRegistration": {
+      "title": "Register for Online English Course Trial"
+    }
+  },
+  "teacher": {
+    "banner": {
+      "title": "Teaching Staff at Nexgen",
+      "description": "Teachers who are knowledgeable and good at teaching. Very dedicated to students, teaching with heart and always eager to improve English learning in Vietnam.",
+      "bookNow": "Message to book now",
+      "highlights": {
+        "item1": {
+          "title": "Good Pedagogical Skills",
+          "description": "Teaching staff with many years of experience, including Masters, Valedictorians, Salutatorians, and Lecturers from prestigious Universities. Holding international teaching certificates and professionally trained."
+        },
+        "item2": {
+          "title": "Teaching with Heart",
+          "description": "The teaching staff always puts their students first. Not only teaching and imparting knowledge in class, teachers are also ready to support students outside of class hours through Fanpage."
+        },
+        "item3": {
+          "title": "Linearthinking Ambassador",
+          "description": "Linearthinking is Nexgen's exclusive English learning method system. Our team is professionally trained to help students fully absorb and apply Linearthinking most proficiently."
+        }
+      }
+    },
+    "educationPhilosophy": {
+      "title": "NexGen's Educational Philosophy",
+      "viewMore": "View more videos"
+    },
+    "expertAdvisors": {
+      "title": "Expert Advisory Team",
+      "experience": {
+        "item1": "Bachelor of English Language - Foreign Language University",
+        "item2": "Bachelor of Commerce University",
+        "item3": "TOEIC 920 Certificate",
+        "item4": "6+ years of teaching experience at Langmaster"
+      }
+    },
+    "staff": {
+      "title": "Teaching Staff",
+      "viewInfo": "View teacher information",
+      "positions": {
+        "academicDirector": "Academic Director at Nexgen",
+        "englishTeacher": "English Instructor"
+      },
+      "achievements": {
+        "linearthinkingAmbassador": "Linearthinking Ambassador",
+        "ieltsOverall85": "8.5 IELTS Overall",
+        "ieltsSpeaking85": "8.5 IELTS Speaking",
+        "masterDegree": "Master of Language Teaching",
+        "rmitGraduate": "RMIT Graduate",
+        "ieltsMusketeer": "IELTS Musketeer — The IELTS Face-off Season 4",
+        "ieltsOverall75": "7.5 IELTS Overall"
+      }
+    }
+  },
+  "common": {
+    "practice": "We create an environment where each student can practice more - communicate, chat"
+  }
 }

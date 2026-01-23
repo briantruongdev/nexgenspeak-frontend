@@ -1,20 +1,24 @@
 <script setup lang="ts">
-const items = Array.from({ length: 9 }, () => ({
-  image: '/images/avatar-teacher.png',
-  name: 'Nguyễn Mỹ Anh',
-  exp: [
-    'Cử nhân Ngôn Ngữ Anh - ĐH Ngoại Ngữ',
-    'Cử nhân Đại học Thương Mại',
-    'Chứng chỉ TOEIC 920',
-    '6+ năm kinh nghiệm giảng dạy tại Langmaster'
-  ]
-}))
+const { t } = useI18n()
+
+const items = computed(() =>
+  Array.from({ length: 9 }, () => ({
+    image: '/images/avatar-teacher.png',
+    name: 'Nguyễn Mỹ Anh',
+    exp: [
+      t('teacher.expertAdvisors.experience.item1'),
+      t('teacher.expertAdvisors.experience.item2'),
+      t('teacher.expertAdvisors.experience.item3'),
+      t('teacher.expertAdvisors.experience.item4')
+    ]
+  }))
+)
 </script>
 
 <template>
   <section class="bg-[#EEF0F1] pt-10">
     <div class="container max-xl:px-6">
-      <UiTeacherTitle title="Đội ngũ cố vấn chuyên môn" />
+      <UiTeacherTitle :title="$t('teacher.expertAdvisors.title')" />
       <UCarousel
         v-slot="{ item }"
         loop

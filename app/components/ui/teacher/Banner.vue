@@ -1,36 +1,34 @@
 <script setup lang="ts">
-const data = [
+const { t } = useI18n()
+
+const data = computed(() => [
   {
     icon: 'line',
-    title: 'Kỹ năng sư phạm tốt',
-    description:
-      'Đội ngũ giáo viên nhiều năm kinh nghiệm, là Thạc sĩ, Thủ khoa, Á khoa,Giảng viên các trường Đại học danh tiếng. Có chứng chỉ giảng dạy quốc tế và được đào tạo bài bản.'
+    title: t('teacher.banner.highlights.item1.title'),
+    description: t('teacher.banner.highlights.item1.description')
   },
   {
     icon: 'heart',
-    title: 'Dạy học có tâm',
-    description:
-      'Đội ngũ giáo viên luôn đặt học viên của mình lên hàng đầu. Không chỉ giảng dạy và truyền đạt kiến thức tại lớp, giáo viên còn sẵn sàng hỗ trợ học viên ngoài giờ học thông qua Fanpage.'
+    title: t('teacher.banner.highlights.item2.title'),
+    description: t('teacher.banner.highlights.item2.description')
   },
   {
     icon: 'award',
-    title: 'Linearthinking Ambassador',
-    description:
-      'Linearthinking là Hệ phương pháp học Tiếng Anh độc quyền của Nexgen. Đội ngũ của chúng tôi được đào tạo bài bản để giúp học viên tiếp thu trọn vẹn và vận dụng được Linearthinking thành thạo nhất.'
+    title: t('teacher.banner.highlights.item3.title'),
+    description: t('teacher.banner.highlights.item3.description')
   }
-]
+])
 </script>
 
 <template>
   <div class="container relative">
     <div class="flex justify-between h-[80vh]">
       <div class="mt-12 relative">
-        <p class="title mb-5">Đội ngũ giáo viên tại Nexgen</p>
+        <p class="title mb-5">{{ $t('teacher.banner.title') }}</p>
         <p class="text-xl">
-          Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Rất tận tâm với học viên, đi dạy vì cái tâm và luôn khát khao cải
-          tiến việc học Tiếng Anh ở Việt Nam.
+          {{ $t('teacher.banner.description') }}
         </p>
-        <BaseButton text="Nhắn tin đặt lịch ngay" class="absolute top-2/5" />
+        <BaseButton :text="$t('teacher.banner.bookNow')" class="absolute top-2/5" />
       </div>
       <img src="/images/teacher-banner.png" alt="Banner" class="w-100 h-100" />
     </div>

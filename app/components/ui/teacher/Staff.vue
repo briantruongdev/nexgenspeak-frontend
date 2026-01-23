@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 interface Teacher {
   id: number
   name: string
@@ -7,30 +9,30 @@ interface Teacher {
   highlights: { icon: string; text: string }[]
 }
 
-const teachers = ref<Teacher[]>([
+const teachers = computed<Teacher[]>(() => [
   {
     id: 1,
     name: 'Trần Thanh Tâm',
-    title: 'Academic Director tại Nexgen',
+    title: t('teacher.staff.positions.academicDirector'),
     image: '/images/teacher-default.png',
     highlights: [
-      { icon: 'award-2', text: 'Linearthinking Ambassador' },
-      { icon: 'line-2', text: '8.5 IELTS Overall' },
-      { icon: 'line-2', text: '8.5 IELTS Speaking' },
-      { icon: 'graduation', text: 'Thạc sĩ Giảng dạy ngôn ngữ' },
-      { icon: 'graduation', text: 'Cử nhân RMIT' },
-      { icon: 'play', text: 'IELTS Musketeer — The IELTS Face-off mùa 4' }
+      { icon: 'award-2', text: t('teacher.staff.achievements.linearthinkingAmbassador') },
+      { icon: 'line-2', text: t('teacher.staff.achievements.ieltsOverall85') },
+      { icon: 'line-2', text: t('teacher.staff.achievements.ieltsSpeaking85') },
+      { icon: 'graduation', text: t('teacher.staff.achievements.masterDegree') },
+      { icon: 'graduation', text: t('teacher.staff.achievements.rmitGraduate') },
+      { icon: 'play', text: t('teacher.staff.achievements.ieltsMusketeer') }
     ]
   },
   ...Array.from({ length: 17 }).map((_, idx) => ({
     id: idx + 2,
     name: 'Nguyễn Mỹ Anh',
-    title: 'Giảng viên Tiếng Anh',
+    title: t('teacher.staff.positions.englishTeacher'),
     image: '/images/teacher-default.png',
     highlights: [
-      { icon: 'award', text: 'Linearthinking Ambassador' },
-      { icon: 'line', text: '7.5 IELTS Overall' },
-      { icon: 'heart', text: 'Thạc sĩ Giảng dạy ngôn ngữ' }
+      { icon: 'award', text: t('teacher.staff.achievements.linearthinkingAmbassador') },
+      { icon: 'line', text: t('teacher.staff.achievements.ieltsOverall75') },
+      { icon: 'heart', text: t('teacher.staff.achievements.masterDegree') }
     ]
   }))
 ])
@@ -57,7 +59,7 @@ watch(
 <template>
   <section class="bg-[#EEF0F1] pt-40">
     <div class="container py-16 max-lg:py-12 max-md:py-10 max-xl:px-6">
-      <UiTeacherTitle title="Đội ngũ Giáo Viên" />
+      <UiTeacherTitle :title="$t('teacher.staff.title')" />
 
       <div class="grid grid-cols-[420px_1fr] gap-10 max-lg:grid-cols-[360px_1fr] max-md:grid-cols-1">
         <div class="bg-white rounded-2xl p-6 max-sm:p-4 shadow-sm border border-black/5">
@@ -82,7 +84,7 @@ watch(
             </div>
 
             <BaseButton
-              text="Xem thông tin giảng viên"
+              :text="$t('teacher.staff.viewInfo')"
               variant="outline"
               class="w-full"
               class-name="h-11 max-sm:h-10"
@@ -94,17 +96,17 @@ watch(
         <div>
           <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
             <div
-              v-for="t in pagedTeachers"
-              :key="t.id"
+              v-for="teacher in pagedTeachers"
+              :key="teacher.id"
               type="button"
               class="bg-white rounded-[10px] hover:cursor-pointer border border-black/5 shadow-sm p-4 text-left transition-all duration-200 hover:border-primary"
-              :class="selectedTeacherId === t.id ? 'ring-2 ring-primary border-primary/30' : ''"
-              @click="selectedTeacherId = t.id"
+              :class="selectedTeacherId === teacher.id ? 'ring-2 ring-primary border-primary/30' : ''"
+              @click="selectedTeacherId = teacher.id"
             >
               <div class="w-2/3 h-16 rounded-lg bg-[#F6E5D5] overflow-hidden shrink-0 mx-auto flex justify-center">
-                <img :src="t.image" :alt="t.name" loading="lazy" class="object-cover h-[75px]" />
+                <img :src="teacher.image" :alt="teacher.name" loading="lazy" class="object-cover h-[75px]" />
               </div>
-              <p class="font-bold text-sm mt-2 truncate text-center">{{ t.name }}</p>
+              <p class="font-bold text-sm mt-2 truncate text-center">{{ teacher.name }}</p>
             </div>
           </div>
 

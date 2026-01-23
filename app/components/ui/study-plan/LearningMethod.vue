@@ -1,30 +1,31 @@
 <script setup lang="ts">
-const items = [
+const { t } = useI18n()
+
+const items = computed(() => [
   {
     image: '/images/study-plan-5.png',
-    title: 'Tập chung vào giao tiếp phản xạ',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện'
+    title: t('studyPlan.learningMethod.items.item1.title'),
+    des: t('studyPlan.learningMethod.items.item1.description')
   },
   {
     image: '/images/benefit2.png',
-    title: 'Hiệu quả trong thời gian nhanh nhất',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện'
+    title: t('studyPlan.learningMethod.items.item2.title'),
+    des: t('studyPlan.learningMethod.items.item2.description')
   },
   {
     image: '/images/study-plan-6.png',
-    title: 'Lộ trình học tập rõ ràng theo khung Châu Âu',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện'
+    title: t('studyPlan.learningMethod.items.item3.title'),
+    des: t('studyPlan.learningMethod.items.item3.description')
   }
-]
+])
 </script>
 
 <template>
   <section class="bg-[#EEF0F1] pt-16 py-24">
     <div class="container">
-      <p class="title">Phương pháp học và giao tiếp</p>
+      <p class="title">{{ $t('studyPlan.learningMethod.title') }}</p>
       <p class="text-lg my-4">
-        Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi
-        trường.
+        {{ $t('studyPlan.learningMethod.description') }}
       </p>
       <div class="grid grid-cols-[1fr_2fr] gap-8">
         <img src="/images/benefit3.png" alt="" loading="lazy" class="h-full object-cover" />
@@ -40,8 +41,7 @@ const items = [
       </div>
       <div class="flex justify-center mt-24">
         <p class="w-2/3 justify-center text-lg font-medium text-center">
-          Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi
-          trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện
+          {{ $t('studyPlan.learningMethod.footer') }}
         </p>
       </div>
     </div>

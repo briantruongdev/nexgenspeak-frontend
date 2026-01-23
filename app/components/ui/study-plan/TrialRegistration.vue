@@ -4,7 +4,7 @@
   <section class="bg-[#EEF0F1]">
     <div class="container">
       <p class="bg-primary text-white py-7 w-full px-20 -mt-1 rounded-br-[20px] rounded-bl-[20px] text-center font-bold text-4xl">
-        Đăng ký học thử khóa học tiếng Anh online
+        {{ $t('studyPlan.trialRegistration.title') }}
       </p>
       <div class="grid grid-cols-4 gap-x-8 mt-16">
         <div>
