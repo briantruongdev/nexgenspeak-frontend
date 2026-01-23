@@ -5,6 +5,7 @@
     <UiTeacherBanner />
     <UiTeacherStaff />
     <UiTeacherExpertAdvisors />
+    <UiTeacherEducationPhilosophy />
     <UiMap />
   </div>
 </template>
