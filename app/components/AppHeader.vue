@@ -5,7 +5,7 @@ const isScrolled = ref(false)
 const route = useRoute()
 
 const navItemsPrimary = computed(() => [
-  { name: t('header.nav.studyPlan'), href: '/' },
+  { name: t('header.nav.studyPlan'), href: '/study-plan' },
   { name: t('header.nav.teachers'), href: '/teachers' },
   { name: t('header.nav.materials'), href: '/' }
 ])
