@@ -4,6 +4,7 @@
   <div>
     <UiHomeBanner />
     <UiStudyPlanTrialRegistration />
+    <UiStudyPlanLearningMethod />
   </div>
 </template>
 
