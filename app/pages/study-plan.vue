@@ -6,6 +6,7 @@
     <UiStudyPlanTrialRegistration />
     <UiStudyPlanLearningMethod />
     <UiStudyPlanAbout />
+    <UiHomeSupport />
   </div>
 </template>
 

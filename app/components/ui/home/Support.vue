@@ -1,14 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="bg-[#EDEFF0] mt-32 max-lg:mt-24 max-xl:px-6">
+  <div class="bg-[#EDEFF0] mt-12 max-lg:mt-24 max-xl:px-6">
     <div class="container py-10">
       <p class="text-5xl text-primary font-bold max-md:text-3xl">{{ $t('support.title') }}</p>
       <p class="mt-4 text-lg font-medium max-md:text-sm">
         {{ $t('support.description') }}
       </p>
 
-      <div class="grid grid-cols-[3fr_1fr_3fr] mt-16 w-4/5 mx-auto max-md:w-full max-sm:grid-cols-1 max-sm:gap-8">
+      <div class="grid grid-cols-[3fr_1fr_3fr] mt-16 mx-auto max-md:w-full max-sm:grid-cols-1 max-sm:gap-8">
         <div class="flex justify-start items-start gap-4">
           <BaseIcon name="phone" size="36" />
           <div>

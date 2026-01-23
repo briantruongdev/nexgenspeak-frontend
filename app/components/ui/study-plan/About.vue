@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section class="bg-primary h-[80vh] flex items-center">
+  <section class="bg-primary h-[90vh] flex items-center">
     <div class="container grid grid-cols-[1fr_1.5fr] gap-24 items-center">
       <img src="/images/about-study.png" alt="" loading="lazy" class="w-[380px] h-[380px] rounded-full object-cover" />
       <div class="text-white">
@@ -18,7 +18,7 @@
     </div>
   </section>
   <section class="bg-white">
-    <div class="container grid grid-cols-2 gap-8">
+    <div class="container grid grid-cols-2 gap-8 items-end">
       <div>
         <p class="text-4xl font-bold mt-20">NexGen Speak</p>
         <p class="mb-20 mt-4">Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện</p>
