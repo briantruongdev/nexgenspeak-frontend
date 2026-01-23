@@ -110,7 +110,7 @@ onUnmounted(() => {
   </div>
 
   <div
-    class="hidden max-xl:block mx-6 sticky top-0 z-50"
+    class="hidden max-xl:block px-6 sticky top-0 z-50 bg-white"
     :class="{
       'header-sticky-mobile': isScrolled,
       'header-normal-mobile': !isScrolled
