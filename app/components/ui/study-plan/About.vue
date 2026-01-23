@@ -17,6 +17,17 @@
       </div>
     </div>
   </section>
+  <section class="bg-white">
+    <div class="container grid grid-cols-2 gap-8">
+      <div>
+        <p class="text-4xl font-bold mt-20">NexGen Speak</p>
+        <p class="mb-20 mt-4">Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện</p>
+        <img src="/images/study-7.png" alt="" loading="lazy" class="mb-8" />
+        <img src="/images/study-8.png" alt="" loading="lazy" />
+      </div>
+      <img src="/images/people1.png" loading="lazy" alt="" class="h-[110%] object-cover -mt-20" />
+    </div>
+  </section>
 </template>
 
 <style scoped></style>
