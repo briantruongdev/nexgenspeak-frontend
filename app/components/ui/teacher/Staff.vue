@@ -57,14 +57,7 @@ watch(
 <template>
   <section class="bg-[#EEF0F1] pt-40">
     <div class="container py-16 max-lg:py-12 max-md:py-10 max-xl:px-6">
-      <div class="text-center mb-10 max-md:mb-8">
-        <p class="text-4xl font-extrabold max-md:text-3xl max-sm:text-2xl">Đội ngũ Giáo Viên</p>
-        <div class="mt-3 flex items-center justify-center gap-4">
-          <span class="h-[2px] w-8 bg-primary rounded-full" />
-          <span class="h-[2px] w-8 bg-primary rounded-full" />
-          <span class="h-[2px] w-8 bg-primary rounded-full" />
-        </div>
-      </div>
+      <UiTeacherTitle title="Đội ngũ Giáo Viên" />
 
       <div class="grid grid-cols-[420px_1fr] gap-10 max-lg:grid-cols-[360px_1fr] max-md:grid-cols-1">
         <div class="bg-white rounded-2xl p-6 max-sm:p-4 shadow-sm border border-black/5">
