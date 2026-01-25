@@ -1,0 +1,63 @@
+<script setup lang="ts"></script>
+
+<template>
+  <div class="bg-[#EDEFF0] px-[135px] max-lg:px-20 max-sm:px-10">
+    <div class="container py-10">
+      <p class="text-5xl text-primary font-bold max-md:text-3xl">{{ $t('support.title') }}</p>
+      <p class="mt-4 text-lg font-medium max-md:text-sm">
+        {{ $t('support.description') }}
+      </p>
+
+      <div class="flex mt-16 gap-8 max-md:block max-md:space-y-6">
+        <div class="flex justify-start items-start gap-4">
+          <BaseIcon name="phone" size="36" />
+          <div>
+            <p class="text-primary text-lg font-bold">{{ $t('support.phone.number') }}</p>
+            <p class="font-medium max-md:text-sm">{{ $t('support.phone.hours') }}</p>
+            <p class="font-medium mt-6 max-md:text-sm">
+              {{ $t('support.phone.afterHours') }}
+            </p>
+          </div>
+        </div>
+        <div class="max-md:hidden">
+          <USeparator
+            orientation="vertical"
+            size="sm"
+            :ui="{
+              border: 'border-[#D9D9D9]'
+            }"
+          />
+        </div>
+        <div class="flex justify-start items-start gap-4">
+          <BaseIcon name="mail" size="44" />
+          <div>
+            <p class="text-primary text-lg font-bold">{{ $t('support.email.email') }}</p>
+            <p class="font-medium max-md:text-sm">
+              {{ $t('support.email.description') }}
+              <a href="mailto:info@czen.io" class="hover:text-primary hover:underline">info@czen.io.</a>
+              {{ $t('support.email.weWillGetBackToYou') }}
+            </p>
+          </div>
+        </div>
+        <div class="max-md:hidden">
+          <USeparator
+            orientation="vertical"
+            size="sm"
+            :ui="{
+              border: 'border-[#D9D9D9]'
+            }"
+          />
+        </div>
+        <div class="flex justify-start items-start gap-4">
+          <BaseIcon name="advise" size="44" />
+          <div>
+            <p class="text-primary text-lg font-bold">{{ $t('support.consultation.title') }}</p>
+            <p class="font-medium max-md:text-sm">{{ $t('support.consultation.description') }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>

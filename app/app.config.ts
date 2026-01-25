@@ -22,6 +22,9 @@ export default defineAppConfig({
       a: {
         base: 'wrap-break-word'
       }
+    },
+    font: {
+      sans: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
     }
   }
 })

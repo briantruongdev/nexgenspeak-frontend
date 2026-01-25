@@ -11,14 +11,14 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": ["vue", "javascript", "typescript"],
-  "vue.suggest.componentNameCasing": "alwaysPascalCase",
+  "vue.suggest.componentNameCasing": "alwaysPascalCase"
 
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "editor.quickSuggestions": {
-    "strings": "on"
-  },
-  "tailwindCSS.classAttributes": ["class", "ui"],
-  "tailwindCSS.experimental.classRegex": [["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
+  // "files.associations": {
+  //   "*.css": "tailwindcss"
+  // },
+  // "editor.quickSuggestions": {
+  //   "strings": "on"
+  // },
+  // "tailwindCSS.classAttributes": ["class", "ui"],
+  // "tailwindCSS.experimental.classRegex": [["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
 }

@@ -1,3 +1,275 @@
 {
-  "hello": "Xin chao"
+  "pageTitle": "Chinh phục Tiếng Anh với NexGen Speak",
+  "pageDescription": "Học Tiếng Anh trực tuyến với giáo viên bản xứ. Môi trường học tập tối ưu, phương pháp hiện đại, cam kết đầu ra.",
+  "header": {
+    "nav": {
+      "studyPlan": "Kế hoạch học tập & Học phí",
+      "teachers": "Giáo viên",
+      "materials": "Tài liệu",
+      "blog": "Blog",
+      "contact": "Liên hệ",
+      "careers": "Tuyển dụng"
+    },
+    "login": "Đăng nhập"
+  },
+  "banner": {
+    "title": "Chinh phục Tiếng Anh",
+    "subtitle": "Với NexGen Speak",
+    "learnMore": "Tìm hiểu thêm",
+    "registerTrial": "Đăng ký học thử miễn phí",
+    "buyCourse": "Mua khóa luyện thi",
+    "support": "Hỗ trợ"
+  },
+  "about": {
+    "title": "Về chúng tôi, NexGen Speak Online English School",
+    "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+    "viewDetails": "Xem chi tiết tại đây",
+    "stats": {
+      "yearsExperience": "Năm đào tạo Tiếng Anh trực tuyến",
+      "foreignTeachers": "Giáo viên nước ngoài",
+      "satisfiedStudents": "Học viên yêu thích và hài lòng"
+    }
+  },
+  "footer": {
+    "viewWebsite": "Xem Website",
+    "nexgenSpeakVietnam": "NexGen Speak Việt Nam",
+    "sections": {
+      "introduction": {
+        "title": "Giới thiệu",
+        "aboutUs": "Về chúng tôi",
+        "missionVision": "Sứ mệnh & tầm nhìn",
+        "teachingTeam": "Đội ngũ giảng viên",
+        "teachingMethod": "Phương pháp giảng dạy",
+        "studentStories": "Câu chuyện học viên"
+      },
+      "support": {
+        "title": "Hỗ trợ",
+        "registrationGuide": "Hướng dẫn đăng ký học",
+        "learningPathConsultation": "Tư vấn lộ trình học",
+        "faq": "Câu hỏi thường gặp (FAQ)",
+        "technicalSupport": "Hỗ trợ kỹ thuật",
+        "contact": "Liên hệ"
+      },
+      "policies": {
+        "title": "Chính sách",
+        "tuitionPolicy": "Chính sách học phí",
+        "reservationRefund": "Chính sách bảo lưu / hoàn tiền",
+        "privacyPolicy": "Chính sách quyền riêng tư",
+        "termsOfUse": "Điều khoản sử dụng",
+        "dataProtection": "Chính sách bảo mật thông tin"
+      },
+      "benefits": {
+        "title": "Quyền lợi",
+        "personalizedLearning": "Lộ trình học cá nhân hóa",
+        "freeTrial": "Học thử miễn phí",
+        "outputCommitment": "Cam kết đầu ra",
+        "exclusiveMaterials": "Tài liệu học độc quyền",
+        "studentCommunity": "Cộng đồng học viên"
+      }
+    },
+    "disclaimer": "Miễn trừ trách nhiệm",
+    "privacyDataProtection": "Chính sách bảo mật và bảo vệ dữ liệu cá nhân",
+    "copyright": "© 2026 Bản quyền thuộc về"
+  },
+  "register": {
+    "title": "Các bước đăng kí học online",
+    "learnMore": "Tìm hiểu thêm",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Đăng ký",
+        "description": "Đăng ký bằng cách điền thông tin chi tiết của bạn về tạo ID và mật khẩu đăng nhập an toàn"
+      },
+      "step2": {
+        "number": "02",
+        "title": "Dự trù lịch học",
+        "description": "Dự trù lịch học của bạn bằng cách điền đầy đủ thời gian và lịch học bài"
+      },
+      "step3": {
+        "number": "03",
+        "title": "Kiểm tra lịch",
+        "description": "Kiểm tra lịch sử đặt chỗ của bạn để xác nhận đặt chỗ của bạn và nhập mã của giáo viên của bạn"
+      }
+    }
+  },
+  "teachingStaff": {
+    "title": "Đội ngũ giáo viên",
+    "subtitle": "Kinh nghiệm giảng dạy và Chuyên môn",
+    "teacher": "Giáo viên",
+    "bookLesson": "Đặt lịch học",
+    "teacher1": {
+      "name": "Nguyễn Thị Ánh",
+      "title": "Giảng viên Tiếng Anh",
+      "description": "Chuyên gia về giao tiếp và phát âm với hơn 10 năm kinh nghiệm giảng dạy."
+    },
+    "teacher2": {
+      "name": "Trần Văn Bảo",
+      "title": "Giảng viên IELTS",
+      "description": "Chuyên gia luyện thi IELTS với tỷ lệ học viên đạt band 7.0+ cao nhất."
+    },
+    "teacher3": {
+      "name": "Lê Thị Chi",
+      "title": "Giảng viên Ngữ pháp",
+      "description": "Chuyên gia ngữ pháp với phương pháp giảng dạy dễ hiểu và hiệu quả."
+    },
+    "teacher4": {
+      "name": "Phạm Minh Dũng",
+      "title": "Giảng viên Kinh doanh",
+      "description": "Chuyên gia tiếng Anh thương mại với kinh nghiệm làm việc tại các tập đoàn đa quốc gia."
+    },
+    "teacher5": {
+      "name": "Hoàng Thị Em",
+      "title": "Giảng viên Thiếu nhi",
+      "description": "Chuyên gia giảng dạy tiếng Anh cho trẻ em với phương pháp sáng tạo và vui nhộn."
+    }
+  },
+  "benefits": {
+    "title": "Quyền lợi khi học tại NexGen Speak Online",
+    "items": {
+      "benefit1": "Kèm 1:1 với hơn 100 Giáo viên giỏi",
+      "benefit2": "Giáo trình và phương pháp tối ưu",
+      "benefit3": "Đào tạo kỹ năng bài bản"
+    }
+  },
+  "slogan": {
+    "title": "Học Chăm Luyện Chất Cùng NexGen Speak",
+    "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất.",
+    "items": {
+      "item1": "Học tập dựa trên phương pháp tương tác đa chiều",
+      "item2": "Hỗ trợ học tập tận tâm hết mình",
+      "item3": "Làm chủ ngôn ngữ, tự tin chinh phục Tiếng Anh",
+      "item4": "Cải thiện rõ rệt kỹ năng giao tiếp"
+    }
+  },
+  "support": {
+    "title": "Quý Khách cần thêm thông tin?",
+    "description": "Vẫn còn phân vân để lựa chọn gói sản phẩm phù hợp? Muốn tư vấn kỹ hơn về sản phẩm? Hãy liên hệ ngay với chúng tôi.",
+    "phone": {
+      "number": "0888.887.798 (miễn cước)",
+      "hours": "Thứ 2 - Thứ 6, 8h30 - 17h30.",
+      "afterHours": "Ngoài giờ làm việc, vui lòng để lại tin nhắn, chúng tôi sẽ liên lạc lại."
+    },
+    "consultation": {
+      "title": "Muốn được tư vấn",
+      "description": "Quý Khách vui lòng để lại thông tin và chúng tôi sẽ liên lạc lại."
+    },
+    "email": {
+      "email": "Email",
+      "description": "Quý Khách vui lòng gửi Email đến NexGen",
+      "weWillGetBackToYou": "Chúng tôi sẽ liên hệ lại."
+    }
+  },
+  "validation": {
+    "password": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
+    "usernameRequired": "Tên người dùng là bắt buộc",
+    "maxLength100": "Tên người dùng không qúa 100 kí tự",
+    "passwordMismatch": "Mật khẩu xác nhận không khớp với mật khẩu mới",
+    "phoneOrEmailRequired": "Số điện thoại hoặc email là bắt buộc",
+    "phoneOrEmailInvalid": "Vui lòng nhập số điện thoại hoặc email hợp lệ"
+  },
+  "auth": {
+    "userName": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "oldPassword": "Mật khẩu cũ",
+    "newPassword": "Mật khẩu mới",
+    "confirmNewPassword": "Xác nhận mật khẩu mới",
+    "changePassword": "Đổi mật khẩu",
+    "forgotPassword": "Quên mật khẩu",
+    "confirm": "Xác nhận",
+    "cancel": "Hủy bỏ",
+    "phoneOrEmail": "Nhập số điện thoại hoặc email",
+    "loginToNGS": "Đăng nhập vào NexGen Speak",
+    "forgotUserName": "Quên Tên đăng nhập?",
+    "haveNotAccount": "Bạn chưa đăng ký tài khoản?",
+    "register": "Đăng ký",
+    "loginByGG": "Đăng nhập bằng Google",
+    "loginByFace": "Đăng nhập bằng Facebook",
+    "registerAccount": "Đăng ký tài khoản",
+    "enterOtp": "Vui lòng nhập mã từ Email hoặc Số điện thoại",
+    "haveAccount": "Bạn đã có tài khoản?",
+    "login": "Đăng nhập"
+  },
+  "or": "hoặc",
+  "studyPlan": {
+    "about": {
+      "title": "NexGen Speak",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+    },
+    "learningMethod": {
+      "title": "Phương pháp học và giao tiếp",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường.",
+      "items": {
+        "item1": {
+          "title": "Tập chung vào giao tiếp phản xạ",
+          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+        },
+        "item2": {
+          "title": "Hiệu quả trong thời gian nhanh nhất",
+          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+        },
+        "item3": {
+          "title": "Lộ trình học tập rõ ràng theo khung Châu Âu",
+          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+        }
+      },
+      "footer": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+    },
+    "trialRegistration": {
+      "title": "Đăng ký học thử khóa học tiếng Anh online"
+    }
+  },
+  "teacher": {
+    "banner": {
+      "title": "Đội ngũ giáo viên tại Nexgen",
+      "description": "Là những giáo viên giỏi kiến thức và giỏi truyền đạt. Rất tận tâm với học viên, đi dạy vì cái tâm và luôn khát khao cải tiến việc học Tiếng Anh ở Việt Nam.",
+      "bookNow": "Nhắn tin đặt lịch ngay",
+      "highlights": {
+        "item1": {
+          "title": "Kỹ năng sư phạm tốt",
+          "description": "Đội ngũ giáo viên nhiều năm kinh nghiệm, là Thạc sĩ, Thủ khoa, Á khoa,Giảng viên các trường Đại học danh tiếng. Có chứng chỉ giảng dạy quốc tế và được đào tạo bài bản."
+        },
+        "item2": {
+          "title": "Dạy học có tâm",
+          "description": "Đội ngũ giáo viên luôn đặt học viên của mình lên hàng đầu. Không chỉ giảng dạy và truyền đạt kiến thức tại lớp, giáo viên còn sẵn sàng hỗ trợ học viên ngoài giờ học thông qua Fanpage."
+        },
+        "item3": {
+          "title": "Linearthinking Ambassador",
+          "description": "Linearthinking là Hệ phương pháp học Tiếng Anh độc quyền của Nexgen. Đội ngũ của chúng tôi được đào tạo bài bản để giúp học viên tiếp thu trọn vẹn và vận dụng được Linearthinking thành thạo nhất."
+        }
+      }
+    },
+    "educationPhilosophy": {
+      "title": "Triết lý giáo dục của NexGen",
+      "viewMore": "Xem thêm video"
+    },
+    "expertAdvisors": {
+      "title": "Đội ngũ cố vấn chuyên môn",
+      "experience": {
+        "item1": "Cử nhân Ngôn Ngữ Anh - ĐH Ngoại Ngữ",
+        "item2": "Cử nhân Đại học Thương Mại",
+        "item3": "Chứng chỉ TOEIC 920",
+        "item4": "6+ năm kinh nghiệm giảng dạy tại Langmaster"
+      }
+    },
+    "staff": {
+      "title": "Đội ngũ Giáo Viên",
+      "viewInfo": "Xem thông tin giảng viên",
+      "positions": {
+        "academicDirector": "Academic Director tại Nexgen",
+        "englishTeacher": "Giảng viên Tiếng Anh"
+      },
+      "achievements": {
+        "linearthinkingAmbassador": "Linearthinking Ambassador",
+        "ieltsOverall85": "8.5 IELTS Overall",
+        "ieltsSpeaking85": "8.5 IELTS Speaking",
+        "masterDegree": "Thạc sĩ Giảng dạy ngôn ngữ",
+        "rmitGraduate": "Cử nhân RMIT",
+        "ieltsMusketeer": "IELTS Musketeer — The IELTS Face-off mùa 4",
+        "ieltsOverall75": "7.5 IELTS Overall"
+      }
+    }
+  },
+  "common": {
+    "practice": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+  }
 }

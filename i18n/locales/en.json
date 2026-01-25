@@ -1,3 +1,275 @@
 {
-  "hello": "Hello"
+  "pageTitle": "Master English with NexGen Speak",
+  "pageDescription": "Learn English online with native-speaking teachers. An optimal learning environment, modern methods, and guaranteed outcomes.",
+  "header": {
+    "nav": {
+      "studyPlan": "Study Plan & Tuition",
+      "teachers": "Teachers",
+      "materials": "Materials",
+      "blog": "Blog",
+      "contact": "Contact",
+      "careers": "Careers"
+    },
+    "login": "Login"
+  },
+  "banner": {
+    "title": "Conquer English",
+    "subtitle": "With NexGen Speak",
+    "learnMore": "Learn More",
+    "registerTrial": "Register for Free Trial",
+    "buyCourse": "Buy Exam Prep Course",
+    "support": "Support"
+  },
+  "about": {
+    "title": "About Us, NexGen Speak Online English School",
+    "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally, use English fluently",
+    "viewDetails": "View Details Here",
+    "stats": {
+      "yearsExperience": "Years of Online English Training",
+      "foreignTeachers": "Foreign Teachers",
+      "satisfiedStudents": "Satisfied and Happy Students"
+    }
+  },
+  "footer": {
+    "viewWebsite": "View Website",
+    "nexgenSpeakVietnam": "NexGen Speak Vietnam",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "aboutUs": "About Us",
+        "missionVision": "Mission & Vision",
+        "teachingTeam": "Teaching Team",
+        "teachingMethod": "Teaching Method",
+        "studentStories": "Student Stories"
+      },
+      "support": {
+        "title": "Support",
+        "registrationGuide": "Registration Guide",
+        "learningPathConsultation": "Learning Path Consultation",
+        "faq": "Frequently Asked Questions (FAQ)",
+        "technicalSupport": "Technical Support",
+        "contact": "Contact"
+      },
+      "policies": {
+        "title": "Policies",
+        "tuitionPolicy": "Tuition Policy",
+        "reservationRefund": "Reservation / Refund Policy",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use",
+        "dataProtection": "Data Protection Policy"
+      },
+      "benefits": {
+        "title": "Benefits",
+        "personalizedLearning": "Personalized Learning Path",
+        "freeTrial": "Free Trial",
+        "outputCommitment": "Output Commitment",
+        "exclusiveMaterials": "Exclusive Learning Materials",
+        "studentCommunity": "Student Community"
+      }
+    },
+    "disclaimer": "Disclaimer",
+    "privacyDataProtection": "Privacy and Personal Data Protection Policy",
+    "copyright": "© 2026 Copyright belongs to"
+  },
+  "register": {
+    "title": "Steps to Register for Online Classes",
+    "learnMore": "Learn More",
+    "steps": {
+      "step1": {
+        "number": "01",
+        "title": "Register",
+        "description": "Register by filling in your details to create an ID and secure login password"
+      },
+      "step2": {
+        "number": "02",
+        "title": "Plan Your Schedule",
+        "description": "Plan your study schedule by filling in your preferred time and class schedule"
+      },
+      "step3": {
+        "number": "03",
+        "title": "Check Schedule",
+        "description": "Check your booking history to confirm your reservation and enter your teacher's code"
+      }
+    }
+  },
+  "teachingStaff": {
+    "title": "Teaching Staff",
+    "subtitle": "Teaching Experience and Expertise",
+    "teacher": "Teacher",
+    "bookLesson": "Book a Lesson",
+    "teacher1": {
+      "name": "Nguyen Thi Anh",
+      "title": "English Instructor",
+      "description": "Expert in communication and pronunciation with over 10 years of teaching experience."
+    },
+    "teacher2": {
+      "name": "Tran Van Bao",
+      "title": "IELTS Instructor",
+      "description": "IELTS expert with the highest rate of students achieving band 7.0+."
+    },
+    "teacher3": {
+      "name": "Le Thi Chi",
+      "title": "Grammar Instructor",
+      "description": "Grammar expert with an easy-to-understand and effective teaching method."
+    },
+    "teacher4": {
+      "name": "Pham Minh Dung",
+      "title": "Business English Instructor",
+      "description": "Business English expert with experience working at multinational corporations."
+    },
+    "teacher5": {
+      "name": "Hoang Thi Em",
+      "title": "Children's Instructor",
+      "description": "Expert in teaching English to children with creative and fun methods."
+    }
+  },
+  "benefits": {
+    "title": "Benefits of Learning at NexGen Speak Online",
+    "items": {
+      "benefit1": "1:1 Tutoring with Over 100 Excellent Teachers",
+      "benefit2": "Optimized Curriculum and Methods",
+      "benefit3": "Systematic Skills Training"
+    }
+  },
+  "slogan": {
+    "title": "Study Hard, Train Smart with NexGen Speak",
+    "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way.",
+    "items": {
+      "item1": "Learning based on multi-dimensional interactive methods",
+      "item2": "Dedicated and wholehearted learning support",
+      "item3": "Master the language, confidently conquer English",
+      "item4": "Significantly improve communication skills"
+    }
+  },
+  "support": {
+    "title": "Need More Information?",
+    "description": "Still hesitant to choose the right product package? Want more detailed product consultation? Contact us now.",
+    "phone": {
+      "number": "0888.887.798 (toll-free)",
+      "hours": "Monday - Friday, 8:30 AM - 5:30 PM.",
+      "afterHours": "Outside office hours, please leave a message and we will contact you back."
+    },
+    "consultation": {
+      "title": "Want Consultation",
+      "description": "Please leave your information and we will contact you back."
+    },
+    "email": {
+      "email": "Email",
+      "description": "Please send an email to NexGen at",
+      "weWillGetBackToYou": " We will get back to you."
+    }
+  },
+  "validation": {
+    "password": "Password must be at least 8 characters, include uppercase, lowercase, number, and special character",
+    "usernameRequired": "Username is required",
+    "maxLength100": "Username must not exceed 100 characters",
+    "passwordMismatch": "Confirm password does not match new password",
+    "phoneOrEmailRequired": "Phone number or email is required",
+    "phoneOrEmailInvalid": "Please enter a valid phone number or email"
+  },
+  "auth": {
+    "userName": "Username",
+    "password": "Password",
+    "oldPassword": "Old password",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "changePassword": "Change password",
+    "forgotPassword": "Forgot password",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "phoneOrEmail": "Enter phone number or email",
+    "loginToNGS": "Log in to NexGen Speak",
+    "forgotUserName": "Forgot your username?",
+    "haveNotAccount": "Don’t have an account?",
+    "register": "Sign up",
+    "loginByGG": "Sign in with Google",
+    "loginByFace": "Sign in with Facebook",
+    "registerAccount": "Create an account",
+    "enterOtp": "Please enter the code sent to your email or phone number",
+    "haveAccount": "Already have an account?",
+    "login": "Log in"
+  },
+  "or": "or",
+  "studyPlan": {
+    "about": {
+      "title": "NexGen Speak",
+      "description": "We create an environment where each student can practice more - communicate, chat. We create an environment where each student can practice more - communicate, chat"
+    },
+    "learningMethod": {
+      "title": "Learning and Communication Methods",
+      "description": "We create an environment where each student can practice more - communicate, chat. We create an environment.",
+      "items": {
+        "item1": {
+          "title": "Focus on Reflexive Communication",
+          "description": "We create an environment where each student can practice more - communicate, chat"
+        },
+        "item2": {
+          "title": "Effective in the Shortest Time",
+          "description": "We create an environment where each student can practice more - communicate, chat"
+        },
+        "item3": {
+          "title": "Clear Learning Roadmap According to European Framework",
+          "description": "We create an environment where each student can practice more - communicate, chat"
+        }
+      },
+      "footer": "We create an environment where each student can practice more - communicate, chat. We create an environment where each student can practice more - communicate, chat"
+    },
+    "trialRegistration": {
+      "title": "Register for Online English Course Trial"
+    }
+  },
+  "teacher": {
+    "banner": {
+      "title": "Teaching Staff at Nexgen",
+      "description": "Teachers who are knowledgeable and good at teaching. Very dedicated to students, teaching with heart and always eager to improve English learning in Vietnam.",
+      "bookNow": "Message to book now",
+      "highlights": {
+        "item1": {
+          "title": "Good Pedagogical Skills",
+          "description": "Teaching staff with many years of experience, including Masters, Valedictorians, Salutatorians, and Lecturers from prestigious Universities. Holding international teaching certificates and professionally trained."
+        },
+        "item2": {
+          "title": "Teaching with Heart",
+          "description": "The teaching staff always puts their students first. Not only teaching and imparting knowledge in class, teachers are also ready to support students outside of class hours through Fanpage."
+        },
+        "item3": {
+          "title": "Linearthinking Ambassador",
+          "description": "Linearthinking is Nexgen's exclusive English learning method system. Our team is professionally trained to help students fully absorb and apply Linearthinking most proficiently."
+        }
+      }
+    },
+    "educationPhilosophy": {
+      "title": "NexGen's Educational Philosophy",
+      "viewMore": "View more videos"
+    },
+    "expertAdvisors": {
+      "title": "Expert Advisory Team",
+      "experience": {
+        "item1": "Bachelor of English Language - Foreign Language University",
+        "item2": "Bachelor of Commerce University",
+        "item3": "TOEIC 920 Certificate",
+        "item4": "6+ years of teaching experience at Langmaster"
+      }
+    },
+    "staff": {
+      "title": "Teaching Staff",
+      "viewInfo": "View teacher information",
+      "positions": {
+        "academicDirector": "Academic Director at Nexgen",
+        "englishTeacher": "English Instructor"
+      },
+      "achievements": {
+        "linearthinkingAmbassador": "Linearthinking Ambassador",
+        "ieltsOverall85": "8.5 IELTS Overall",
+        "ieltsSpeaking85": "8.5 IELTS Speaking",
+        "masterDegree": "Master of Language Teaching",
+        "rmitGraduate": "RMIT Graduate",
+        "ieltsMusketeer": "IELTS Musketeer — The IELTS Face-off Season 4",
+        "ieltsOverall75": "7.5 IELTS Overall"
+      }
+    }
+  },
+  "common": {
+    "practice": "We create an environment where each student can practice more - communicate, chat"
+  }
 }

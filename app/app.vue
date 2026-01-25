@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-const appConfig = useAppConfig()
-useHead({
-  meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-  link: [{ rel: 'icon', href: '/images/icon.png' }],
-  htmlAttrs: {
-    lang: 'en'
-  }
+const { t } = useI18n()
+
+useSeo({
+  title: t('pageTitle') || 'Chinh phục Tiếng Anh với NexGen Speak',
+  description:
+    t('pageDescription') ||
+    'Học Tiếng Anh trực tuyến với giáo viên bản xứ. Môi trường học tập tối ưu, phương pháp hiện đại, cam kết đầu ra.',
+  image: '/images/banner.png'
 })
 </script>
 
