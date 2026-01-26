@@ -24,7 +24,7 @@
             orientation="vertical"
             size="sm"
             :ui="{
-              border: 'border-[#D9D9D9]'
+              border: 'border-bg-primary'
             }"
           />
         </div>
@@ -44,7 +44,7 @@
             orientation="vertical"
             size="sm"
             :ui="{
-              border: 'border-[#D9D9D9]'
+              border: 'border-bg-primary'
             }"
           />
         </div>
