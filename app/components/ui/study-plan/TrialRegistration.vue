@@ -11,19 +11,19 @@
       <div class="grid grid-cols-4 gap-x-8 mt-16 max-md:grid-cols-2 max-md:gap-y-8">
         <div>
           <img src="/images/study-plan-1.png" alt="Plan1" class="h-80 object-cover" />
-          <div class="bg-[#D9D9D9] h-10 mt-4"></div>
+          <div class="bg-bg-primary h-10 mt-4"></div>
         </div>
         <div>
           <img src="/images/study-plan-2.png" alt="Plan2" class="h-80 object-cover" />
-          <div class="bg-[#D9D9D9] h-10 mt-4"></div>
+          <div class="bg-bg-primary h-10 mt-4"></div>
         </div>
         <div>
           <img src="/images/study-plan-3.png" alt="Plan3" class="h-80 object-cover" />
-          <div class="bg-[#D9D9D9] h-10 mt-4"></div>
+          <div class="bg-bg-primary h-10 mt-4"></div>
         </div>
         <div>
           <img src="/images/study-plan-4.png" alt="Plan4" class="h-80 object-cover" />
-          <div class="bg-[#D9D9D9] h-10 mt-4"></div>
+          <div class="bg-bg-primary h-10 mt-4"></div>
         </div>
       </div>
     </div>

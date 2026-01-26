@@ -40,7 +40,13 @@ const data = computed(() => [
           </div>
         </div>
 
-        <img src="/images/laptop.png" alt="" />
+        <div class="relative max-lg:hidden">
+          <div class="absolute -top-10 right-40 w-64 h-64 rounded-full bg-[#EDEFF0] z-0"></div>
+          <div class="absolute bottom-4 right-40 h-80 w-80 rounded-full bg-[#EDEFF0] z-0"></div>
+
+          <img src="/images/laptop.png" alt="" loading="lazy" class="relative z-10" />
+        </div>
+        <img src="/images/laptop.png" alt="" loading="lazy" class="relative z-10 hidden max-lg:block" />
       </div>
     </div>
   </div>

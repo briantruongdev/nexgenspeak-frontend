@@ -102,7 +102,7 @@ watch(
               :key="teacher.id"
               type="button"
               class="bg-white rounded-[10px] hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-200 hover:border-primary"
-              :class="selectedTeacherId === teacher.id ? 'ring-2 ring-primary border-primary/30' : ''"
+              :class="selectedTeacherId === teacher.id ? 'ring-1 ring-primary ' : ''"
               @click="selectedTeacherId = teacher.id"
             >
               <div class="w-2/3 h-16 max-sm:h-14 rounded-lg bg-[#F6E5D5] overflow-hidden shrink-0 mx-auto flex justify-center">
@@ -121,7 +121,12 @@ watch(
               active-color="primary"
               :ui="{
                 root: 'select-none',
-                list: 'gap-2 max-sm:gap-1'
+                list: 'gap-2 max-sm:gap-1',
+                next: 'hover:cursor-pointer',
+                prev: 'hover:cursor-pointer',
+                last: 'hover:cursor-pointer',
+                first: 'hover:cursor-pointer',
+                item: 'hover:cursor-pointer'
               }"
             />
           </div>

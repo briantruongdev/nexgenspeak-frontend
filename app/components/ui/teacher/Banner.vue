@@ -35,7 +35,11 @@ const data = computed(() => [
           </div>
         </div>
       </div>
-      <img src="/images/teacher-banner.png" alt="Banner" class="w-100 h-100 max-lg:h-72 max-lg:w-72 max-lg:hidden" />
+      <div class="w-200 relative max-lg:hidden">
+        <img src="/images/teacher-banner.png" alt="Banner" class="w-100 h-100" />
+        <BaseIcon name="star2" class="absolute top-6" size="80" />
+        <BaseIcon name="star" class="absolute top-1/2 right-16" size="120" />
+      </div>
 
       <div class="max-lg:flex max-lg:justify-center hidden max-lg:visible">
         <img src="/images/teacher-banner.png" alt="Banner" class="h-72 w-72" />

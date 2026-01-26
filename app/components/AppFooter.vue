@@ -66,7 +66,7 @@ const menuSections = computed(() => [
         <div class="mt-10">
           <p class="flex gap-4 items-center">
             <BaseIcon name="phone-background" size="40" />
-            <span class="text-white text-3xl font-bold">0888 887 798 </span>
+            <a href="tel:+84 888 887 798" class="text-white text-3xl font-bold">0888 887 798</a>
           </p>
           <USeparator orientation="horizontal" class="w-2/3 mt-5 mb-9" />
           <p class="flex items-center gap-6">

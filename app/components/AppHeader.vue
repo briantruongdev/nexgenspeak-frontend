@@ -86,6 +86,7 @@ onUnmounted(() => {
         :key="index"
         class="font-bold text-[#B4ADAD] hover:cursor-pointer hover:text-primary transition-all duration-300 relative group"
         :class="{ 'text-primary!': pathActive === item.href }"
+        @click="navigateTo(item.href)"
       >
         {{ item.name }}
         <span
@@ -131,7 +132,6 @@ onUnmounted(() => {
         <UDrawer
           v-model:open="open"
           direction="right"
-          :modal="false"
           :handle="false"
           should-scale-background
           set-background-color-on-scale
@@ -153,7 +153,11 @@ onUnmounted(() => {
                   alt="Logo"
                   loading="lazy"
                   class="w-16 hover:cursor-pointer transition-all duration-300 hover:scale-110"
-                  @click="navigateTo('/')"
+                  @click="
+                    () => {
+                      ;(navigateTo('/'), (open = false))
+                    }
+                  "
                 />
 
                 <UIcon
@@ -168,6 +172,11 @@ onUnmounted(() => {
                   v-for="(item, index) in navItemsPrimary"
                   :key="index"
                   class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 border-b border-gray-100 font-semibold"
+                  @click="
+                    () => {
+                      ;(navigateTo(item.href), (open = false))
+                    }
+                  "
                 >
                   {{ item.name }}
                 </span>
@@ -178,6 +187,11 @@ onUnmounted(() => {
                   v-for="(item, index) in navItemsSecondary"
                   :key="index"
                   class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 text-[#B4ADAD]"
+                  @click="
+                    () => {
+                      ;(navigateTo(item.href), (open = false))
+                    }
+                  "
                 >
                   {{ item.name }}
                 </span>
