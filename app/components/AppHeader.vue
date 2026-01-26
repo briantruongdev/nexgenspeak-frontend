@@ -132,7 +132,6 @@ onUnmounted(() => {
         <UDrawer
           v-model:open="open"
           direction="right"
-          :modal="false"
           :handle="false"
           should-scale-background
           set-background-color-on-scale
@@ -154,7 +153,11 @@ onUnmounted(() => {
                   alt="Logo"
                   loading="lazy"
                   class="w-16 hover:cursor-pointer transition-all duration-300 hover:scale-110"
-                  @click="navigateTo('/')"
+                  @click="
+                    () => {
+                      ;(navigateTo('/'), (open = false))
+                    }
+                  "
                 />
 
                 <UIcon
