@@ -1,12 +1,13 @@
 <script setup lang="ts">
-const items = ['/images/banner.png', '/images/banner2.jpg']
+// const items = ['/images/banner.png', '/images/banner2.jpg']
+const img = '/images/banner.png'
 </script>
 
 <template>
   <div class="relative w-full">
-    <UCarousel v-slot="{ item }" :items="items" loop :autoplay="{ delay: 5000 }">
-      <img :src="item" alt="Banner" loading="lazy" class="w-full h-130 sm:h-160 lg:h-190 object-cover object-center" />
-    </UCarousel>
+    <!-- <UCarousel v-slot="{ item }" :items="items" loop :autoplay="{ delay: 5000 }">
+    </UCarousel> -->
+    <img :src="img" alt="Banner" loading="lazy" class="w-full h-130 sm:h-160 lg:h-190 object-cover object-center" />
     <div class="absolute inset-0 top-1/6 max-xl:px-6 max-lg:top-1/12">
       <div class="container">
         <p class="text-6xl font-bold text-white mb-10 max-lg:text-4xl">

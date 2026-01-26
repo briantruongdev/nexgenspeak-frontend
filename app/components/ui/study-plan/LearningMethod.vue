@@ -31,7 +31,7 @@ const items = computed(() => [
         <img src="/images/benefit3.png" alt="" loading="lazy" class="h-full object-cover max-md:hidden" />
         <div class="space-y-6">
           <div v-for="(item, index) in items" :key="index" class="grid grid-cols-[1fr_1.5fr] gap-6">
-            <img :src="item.image" alt="" loading="lazy" class="h-44 w-full object-cover" />
+            <img :src="item.image" alt="" loading="lazy" class="h-44 w-full object-cover hover-scale-105" />
             <div>
               <p class="text-primary text-2xl font-bold">{{ item.title }}</p>
               <p class="mt-1 line-clamp-4">{{ item.des }}</p>
