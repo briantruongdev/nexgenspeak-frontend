@@ -13,7 +13,7 @@ const navItemsPrimary = computed(() => [
 const navItemsSecondary = computed(() => [
   { name: t('header.nav.blog'), href: '/' },
   { name: t('header.nav.contact'), href: '/contact' },
-  { name: t('header.nav.careers'), href: '/' }
+  { name: t('header.nav.recruitment'), href: '/recruitment' }
 ])
 
 const pathActive = computed(() => route.path !== '/' && route.path)
