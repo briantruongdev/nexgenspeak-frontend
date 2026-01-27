@@ -1,7 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>document</div>
+  <div>
+    <UiDocumentBanner />
+    <UiDocumentArchive />
+  </div>
 </template>
 
 <style scoped></style>

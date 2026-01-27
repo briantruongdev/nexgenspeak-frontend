@@ -7,7 +7,7 @@ const route = useRoute()
 const navItemsPrimary = computed(() => [
   { name: t('header.nav.studyPlan'), href: '/study-plan' },
   { name: t('header.nav.teachers'), href: '/teachers' },
-  { name: t('header.nav.document'), href: '/' }
+  { name: t('header.nav.document'), href: '/document' }
 ])
 
 const navItemsSecondary = computed(() => [
