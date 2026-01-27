@@ -29,11 +29,11 @@ const items = [
     </p>
     <div class="grid grid-cols-3 gap-16 mt-10">
       <div v-for="(item, index) in items" :key="index">
-        <div class="bg-white box-shadow h-full flex flex-col">
-          <img :src="item.image" alt="" loading="lazy" class="w-full object-cover" />
+        <div class="bg-white box-shadow h-full flex flex-col rounded-xl">
+          <img :src="item.image" alt="" loading="lazy" class="w-full object-cover rounded-tl-xl rounded-tr-xl" />
 
           <div class="p-4 flex flex-col flex-1">
-            <p class="mb-10">
+            <p class="mb-10 text-lg">
               {{ item.title }}
             </p>
 

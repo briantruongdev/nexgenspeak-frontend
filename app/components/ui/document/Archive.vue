@@ -22,7 +22,7 @@ const value = ref('Kỹ năng nói')
         }"
       >
         <template #trailing>
-          <BaseButton text="Tìm kiếm" />
+          <BaseButton text="Tìm kiếm" class="rounded" />
         </template>
       </UInput>
     </div>
