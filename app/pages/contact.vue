@@ -6,6 +6,7 @@
     <UiContactIntro />
     <UiContactDepartment />
     <UiContact />
+    <UiContactMission />
   </div>
 </template>
 
