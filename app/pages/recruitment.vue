@@ -3,6 +3,7 @@
 <template>
   <div>
     <UiRecruitmentBanner />
+    <UiRecruitmentDifference />
   </div>
 </template>
 
