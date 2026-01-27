@@ -3,7 +3,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 </script>
 
 <template>
-  <div class="container">
+  <div class="container pt-10">
     <p class="title">Hôm nay Bạn có gì vui?</p>
     <p class="mt-8 w-2/3">
       Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên

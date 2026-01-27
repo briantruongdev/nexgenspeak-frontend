@@ -5,6 +5,7 @@
     <UiBlogBanner />
     <UiBlogToday />
     <UiBlogMomentShared />
+    <UiBlogShared />
   </div>
 </template>
 
