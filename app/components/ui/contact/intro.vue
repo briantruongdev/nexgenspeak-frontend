@@ -7,7 +7,7 @@ const bannerImageSrc = '/images/banner-auth.png'
     <div class="aspect-3/4">
       <img :src="bannerImageSrc" class="w-full h-full object-cover" />
     </div>
-    <div class="bg-bg-primary h-[80%] self-center p-10 flex flex-col justify-between">
+    <div class="bg-bg-primary h-[80%] self-center p-10 pr-20 flex flex-col justify-between">
       <div>
         <p class="text-4xl font-bold">Giới thiệu về NexGen Speak</p>
         <p class="text-xl mt-10">

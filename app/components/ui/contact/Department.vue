@@ -1,0 +1,29 @@
+<script setup lang="ts"></script>
+
+<template>
+  <div class="relative">
+    <div class="bg-primary h-240 w-150 justify-self-end mt-32 max-lg:mt-20"></div>
+
+    <div class="container absolute top-0 left-0 right-0">
+      <div class="w-1/2">
+        <p class="title">Phòng ban của NexGen Speak</p>
+        <p class="text-xl mt-5">
+          Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát
+          huy huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.
+        </p>
+      </div>
+      <div class="grid grid-cols-[1fr_3fr] gap-8 mt-24">
+        <div class="flex-col gap-6 flex">
+          <div class="bg-bg-primary h-16"></div>
+          <img src="/images/contact-banner.png" alt="" class="h-[469px] object-cover" loading="lazy" />
+        </div>
+        <div class="flex-col gap-6 flex">
+          <img src="/images/people2.png" alt="" class="h-[469px] object-cover" loading="lazy" />
+          <div class="bg-bg-primary h-16 w-104"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped></style>

@@ -7,7 +7,7 @@
         src="/images/about-study.png"
         alt=""
         loading="lazy"
-        class="w-[380px] h-[380px] rounded-full object-cover max-lg:w-72 max-lg:h-72 justify-self-end max-md:justify-self-center"
+        class="w-95 h-95 rounded-full object-cover max-lg:w-72 max-lg:h-72 justify-self-end max-md:justify-self-center"
       />
       <div class="text-white">
         <p class="font-bold text-5xl my-6">{{ $t('studyPlan.about.title') }}</p>

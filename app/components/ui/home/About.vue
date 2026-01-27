@@ -46,7 +46,7 @@ const summaries = computed(() => [
         </BaseButton>
       </div>
       <div class="relative">
-        <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75 h-[520px]" />
+        <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75 h-130" />
         <div class="absolute inset-0 bg-primary/50 w-2/5 gap-y-4 flex flex-col justify-center">
           <div v-for="item in summaries" :key="item.title" class="text-white mx-10 max-lg:mx-6">
             <p class="text-5xl max-md:text-5xl max-sm:text-3xl font-bold">

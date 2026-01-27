@@ -4,6 +4,7 @@
   <div>
     <UiContactBanner />
     <UiContactIntro />
+    <UiContactDepartment />
   </div>
 </template>
 
