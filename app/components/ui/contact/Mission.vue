@@ -3,7 +3,7 @@ const src = '/images/contact-banner2.png'
 </script>
 
 <template>
-  <div class="relative pt-32 max-lg:pt-20">
+  <div class="relative pt-24 max-lg:pt-20 container">
     <img :src alt="Banner" loading="lazy" class="h-screen w-screen object-cover" />
     <div class="absolute w-2/5 bg-primary rounded-tr-[50px] rounded-br-[50px] text-white top-50 px-10 py-16">
       <p class="text-3xl font-bold">Sứ mệnh</p>

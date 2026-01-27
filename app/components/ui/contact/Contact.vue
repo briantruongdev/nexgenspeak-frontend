@@ -22,7 +22,7 @@ const items = [
 </script>
 
 <template>
-  <div class="container pt-32 max-lg:pt-20">
+  <div class="container pt-24 max-lg:pt-20">
     <p class="title">Liên hệ với Chúng Tôi</p>
     <p class="text-xl mt-7">
       Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy

@@ -3,7 +3,7 @@ const bannerImageSrc = '/images/banner-auth.png'
 </script>
 
 <template>
-  <div class="container grid grid-cols-[1fr_1.5fr] pt-32 max-lg:pt-20">
+  <div class="container grid grid-cols-[1fr_1.5fr] pt-24 max-lg:pt-20">
     <div class="aspect-3/4">
       <img :src="bannerImageSrc" class="w-full h-full object-cover" />
     </div>
