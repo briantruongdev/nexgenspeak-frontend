@@ -9,9 +9,11 @@
           Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát
           huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.
         </p>
-        <BaseButton text="Câu chuyện Thương Hiệu" class-name="rounded">
-          <BaseIcon name="arrow-right-white" class="shrink-0 text-white" />
-        </BaseButton>
+        <div>
+          <BaseButton text="Câu chuyện Thương Hiệu" class-name="rounded">
+            <BaseIcon name="arrow-right-white" class="shrink-0 text-white" />
+          </BaseButton>
+        </div>
       </div>
       <img src="/images/people2.png" alt="" class="h-[343px] w-full object-cover rounded-2xl" />
     </div>

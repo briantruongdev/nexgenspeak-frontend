@@ -4,6 +4,9 @@
   <div>
     <UiRecruitmentBanner />
     <UiRecruitmentDifference />
+    <UiRecruitmentCultureAndCoreValues />
+    <UiRecruitmentDevelopment />
+    <UiRecruitmentEvent />
   </div>
 </template>
 
