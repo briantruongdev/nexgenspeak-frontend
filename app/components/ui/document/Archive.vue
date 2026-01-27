@@ -35,7 +35,7 @@ const value = ref('Kỹ năng nói')
         </p>
       </div>
     </div>
-    <div class="flex justify-center items-center gap-10 mb-10">
+    <div class="flex justify-center items-center gap-10">
       <USelectMenu
         v-model="value"
         :items="skills"

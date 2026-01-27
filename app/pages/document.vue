@@ -4,6 +4,7 @@
   <div>
     <UiDocumentBanner />
     <UiDocumentArchive />
+    <UiDocumentFamilyAndFriend />
   </div>
 </template>
 
