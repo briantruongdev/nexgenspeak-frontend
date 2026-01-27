@@ -5,6 +5,7 @@
     <UiRecruitmentBanner />
     <UiRecruitmentDifference />
     <UiRecruitmentCultureAndCoreValues />
+    <UiRecruitmentShare />
     <UiRecruitmentDevelopment />
     <UiRecruitmentEvent />
   </div>
