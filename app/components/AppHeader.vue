@@ -11,7 +11,7 @@ const navItemsPrimary = computed(() => [
 ])
 
 const navItemsSecondary = computed(() => [
-  { name: t('header.nav.blog'), href: '/' },
+  { name: t('header.nav.blog'), href: '/blog' },
   { name: t('header.nav.contact'), href: '/contact' },
   { name: t('header.nav.recruitment'), href: '/recruitment' }
 ])

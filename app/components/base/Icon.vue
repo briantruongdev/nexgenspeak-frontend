@@ -2,9 +2,11 @@
 interface Props {
   name?: string
   size?: number | string
+  color?: string
+  hoverColor?: string
 }
 
-const { size = 24, name } = defineProps<Props>()
+const { size = 24, name, color, hoverColor } = defineProps<Props>()
 
 const emit = defineEmits<{ click: [] }>()
 
@@ -12,24 +14,54 @@ const iconStyles = computed(() => {
   return {
     fontSize: `${size}px`,
     width: `${size}px`,
-    height: `${size}px`
+    height: `${size}px`,
+    color: color || 'currentColor'
   }
 })
 
 const icons = import.meta.glob<string>('~/assets/icons/*.svg', {
   eager: true,
-  query: '?url',
+  query: '?raw',
   import: 'default'
 })
 
-const iconUrl = computed<string>(() => {
+const iconContent = computed<string>(() => {
   const key = `/assets/icons/${name}.svg`
   return icons[key] || ''
 })
 </script>
 
 <template>
-  <img v-if="iconUrl" :src="iconUrl" class="base-icon" :style="iconStyles" @click="emit('click')" />
+  <div
+    v-if="iconContent"
+    class="base-icon"
+    :class="{ 'has-hover': hoverColor }"
+    :style="iconStyles"
+    @click="emit('click')"
+    v-html="iconContent"
+  />
 </template>
 
-<style scoped></style>
+<style scoped>
+.base-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.base-icon.has-hover {
+  cursor: pointer;
+}
+
+.base-icon.has-hover:hover {
+  color: v-bind(hoverColor);
+}
+
+.base-icon :deep(svg) {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+</style>
