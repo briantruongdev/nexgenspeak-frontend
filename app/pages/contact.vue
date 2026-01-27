@@ -5,6 +5,7 @@
     <UiContactBanner />
     <UiContactIntro />
     <UiContactDepartment />
+    <UiContact />
   </div>
 </template>
 
