@@ -3,7 +3,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 </script>
 
 <template>
-  <div class="container pt-10">
+  <div class="container pt-10 max-xl:px-6">
     <p class="title">{{ $t('blog.today.title') }}</p>
     <p class="mt-8 w-2/3">
       {{ $t('blog.today.description') }}

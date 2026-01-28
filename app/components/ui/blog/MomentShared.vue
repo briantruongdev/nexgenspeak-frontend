@@ -3,7 +3,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 </script>
 
 <template>
-  <div class="container pt-24">
+  <div class="container pt-24 max-xl:px-6">
     <p class="title mb-10">{{ $t('blog.momentShared.title') }}</p>
     <UCarousel
       v-slot="{ item }"

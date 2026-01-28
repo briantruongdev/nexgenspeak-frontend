@@ -38,7 +38,7 @@ const items = computed(() => [
 </script>
 
 <template>
-  <div class="container pt-24">
+  <div class="container pt-24 max-xl:px-6">
     <p class="title mb-10">{{ $t('blog.shared.title') }}</p>
     <UCarousel
       v-slot="{ item }"
