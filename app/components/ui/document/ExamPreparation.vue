@@ -1,4 +1,39 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const items = [
+  {
+    image: '/images/book1.png',
+    title: '14 NGÀY ÔN CẤP TỐC TẤT CẢ CÁC NGỮ PHÁP QUAN TRỌNG NHẤT VỚI PHIẾU BÀI TẬP ĐƯỢC THIẾT KẾ ĐẸP MẮT'
+  },
+  {
+    image: '/images/book2.png',
+    title: 'English for Project Management - Luyện Đọc'
+  },
+  {
+    image: '/images/book3.png',
+    title: 'Luyện nghe hội thoại các tình huống thường gặp khi giao tiếp'
+  },
+  {
+    image: '/images/book3.png',
+    title: 'Luyện nghe hội thoại các tình huống thường gặp khi giao tiếp'
+  },
+  {
+    image: '/images/book1.png',
+    title: '14 NGÀY ÔN CẤP TỐC TẤT CẢ CÁC NGỮ PHÁP QUAN TRỌNG NHẤT VỚI PHIẾU BÀI TẬP ĐƯỢC THIẾT KẾ ĐẸP MẮT'
+  },
+  {
+    image: '/images/book2.png',
+    title: 'English for Project Management - Luyện Đọc'
+  }
+]
+
+const page = ref(1)
+const pageSize = 3
+
+const paged = computed(() => {
+  const start = (page.value - 1) * pageSize
+  return items.slice(start, start + pageSize)
+})
+</script>
 
 <template>
   <div class="container pt-24">
@@ -11,6 +46,39 @@
       bán kèm với sách, có kỹ năng nghe ở tất cả các học phần), một tập lệnh âm thanh bao gồm tất cả các tài liệu được ghi lại ở
       Complete Audio Program.
     </p>
+    <div class="grid grid-cols-3 gap-16 mt-10">
+      <div v-for="(item, index) in paged" :key="index">
+        <div class="bg-white box-shadow h-full flex flex-col rounded-xl">
+          <img :src="item.image" alt="" loading="lazy" class="w-full object-cover rounded-tl-xl rounded-tr-xl" />
+
+          <div class="p-4 flex flex-col flex-1">
+            <p class="mb-10 text-lg">
+              {{ item.title }}
+            </p>
+
+            <BaseButton text="Tìm hiểu thêm" class="mx-auto mt-auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-8 flex justify-center">
+      <UPagination
+        v-model:page="page"
+        :total="items.length"
+        :items-per-page="pageSize"
+        color="primary"
+        active-color="primary"
+        :ui="{
+          root: 'select-none',
+          list: 'gap-2 max-sm:gap-1',
+          next: 'hover:cursor-pointer',
+          prev: 'hover:cursor-pointer',
+          last: 'hover:cursor-pointer',
+          first: 'hover:cursor-pointer',
+          item: 'hover:cursor-pointer'
+        }"
+      />
+    </div>
   </div>
 </template>
 

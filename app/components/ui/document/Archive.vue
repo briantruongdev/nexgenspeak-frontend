@@ -47,7 +47,7 @@ const value = ref('Kỹ năng nói')
           content: 'hover:cursor-pointer'
         }"
       />
-      <BaseButton text="Làm mới" variant="outline" />
+      <BaseButton text="Làm mới" variant="outline" class="rounded" />
     </div>
   </div>
 </template>
