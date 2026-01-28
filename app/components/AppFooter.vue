@@ -94,7 +94,7 @@ const menuSections = computed(() => [
     <USeparator orientation="horizontal" class="mb-8" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white md:justify-items-stretch">
-      <div class="flex flex-wrap gap-2 justify-center">
+      <div class="flex flex-wrap gap-2 justify-start">
         <span>{{ $t('footer.disclaimer') }}</span>
         <span>|</span>
         <p>{{ $t('footer.privacyDataProtection') }}</p>
