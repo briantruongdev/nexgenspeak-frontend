@@ -15,9 +15,12 @@ const img = '/images/banner.png'
           {{ $t('banner.subtitle') }}
         </p>
 
-        <BaseButton variant="outline" class-name="bg-white border-none" :text="$t('banner.learnMore')">
-          <BaseIcon name="arrow-right" class="shrink-0" />
-        </BaseButton>
+        <BaseButton
+          variant="outline"
+          class-name="bg-white border-none"
+          :text="$t('banner.learnMore')"
+          icon="i-lucide-move-right"
+        />
       </div>
     </div>
     <div class="absolute bottom-16 inset-x-0 max-xl:px-6 max-lg:bottom-8">

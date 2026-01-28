@@ -69,7 +69,7 @@ const items = computed(() => [
           </div>
 
           <div class="flex justify-end mt-4 mr-4">
-            <BaseButton variant="outline" class-name="bg-white border-none" :text="$t('teachingStaff.bookLesson')" />
+            <BaseButton variant="outline" class-name="bg-white border-none rounded-xl" :text="$t('teachingStaff.bookLesson')" />
           </div>
         </div>
       </div>

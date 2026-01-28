@@ -41,9 +41,7 @@ const summaries = computed(() => [
           </p>
         </div>
 
-        <BaseButton variant="outline" class-name="border-2" :text="$t('about.viewDetails')">
-          <BaseIcon name="arrow-right" class="shrink-0" />
-        </BaseButton>
+        <BaseButton variant="outline" class-name="border-2" :text="$t('about.viewDetails')" icon="i-lucide-move-right" />
       </div>
       <div class="relative">
         <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75 h-130" />

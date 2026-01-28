@@ -8,6 +8,10 @@ const props = withDefaults(defineProps<Props>(), {
   size: 24,
   name: 'loading'
 })
+//  ngăn attributes tự động áp dụng lên root element
+defineOptions({
+  inheritAttrs: false
+})
 
 const emit = defineEmits<{ click: [] }>()
 
@@ -24,8 +28,9 @@ const iconComponent = computed(() => {
 })
 </script>
 
+<!-- v-bind="$attrs" vào component SVG - truyền tất cả attributes (bao gồm class) từ parent xuống SVG -->
 <template>
-  <component :is="iconComponent" class="base-icon" :style="iconStyles" @click="emit('click')" />
+  <component :is="iconComponent" class="base-icon" :style="iconStyles" v-bind="$attrs" @click="emit('click')" />
 </template>
 
 <style scoped></style>

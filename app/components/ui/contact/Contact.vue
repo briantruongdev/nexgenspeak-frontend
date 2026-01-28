@@ -37,13 +37,13 @@ const items = computed(() => [
           <a
             v-if="item.type === 'tel'"
             :href="`tel:+84 ${item.value}`"
-            class="text-2xl font-medium hover:underline max-lg:text-lg"
+            class="text-2xl font-medium hover:underline max-lg:text-lg hover:text-primary"
             >{{ item.value }}</a
           >
           <a
             v-else-if="item.type === 'mail'"
             :href="`mailto:${item.value}`"
-            class="text-2xl font-medium hover:underline max-lg:text-lg"
+            class="text-2xl font-medium hover:underline max-lg:text-lg hover:text-primary"
             >{{ item.value }}</a
           >
           <p v-else class="text-2xl font-medium max-lg:text-lg">{{ item.value }}</p>

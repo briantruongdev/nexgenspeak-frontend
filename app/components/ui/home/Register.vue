@@ -31,9 +31,12 @@ const cards = computed(() => [
         <div class="max-sm:absolute max-sm:top-10">
           <p class="mb-6 title">{{ $t('register.title') }}</p>
 
-          <BaseButton variant="outline" class-name="border-2 bg-transparent" :text="$t('register.learnMore')">
-            <BaseIcon name="arrow-right" class="shrink-0" />
-          </BaseButton>
+          <BaseButton
+            variant="outline"
+            class-name="border-2 bg-transparent"
+            :text="$t('register.learnMore')"
+            icon="i-lucide-move-right"
+          />
         </div>
 
         <div class="grid grid-cols-3 gap-8 max-sm:grid-cols-1 tems-center max-sm:mt-8">

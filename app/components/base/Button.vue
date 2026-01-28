@@ -55,8 +55,7 @@ const uiConfig = computed(() => {
 })
 
 const buttonClasses = computed<string>(() => {
-  const baseClasses =
-    'rounded-xl cursor-pointer hover:scale-102 flex items-center justify-center transition-transform duration-200'
+  const baseClasses = 'rounded cursor-pointer hover:scale-102 flex items-center justify-center transition-transform duration-200'
   const disabledClasses = props.disabled ? 'opacity-50 cursor-not-allowed' : ''
 
   return [baseClasses, variantClasses.value, disabledClasses, props.className].filter(Boolean).join(' ')

@@ -18,12 +18,12 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
           </div>
           <div class="flex justify-between gap-8">
             <p
-              class="bg-[#EDEFF0] w-full rounded-2xl text-center py-2 font-bold hover:cursor-pointer hover-scale-105 hover:text-primary"
+              class="bg-[#EDEFF0] w-full rounded text-center py-2 font-bold hover:cursor-pointer hover-scale-105 hover:text-primary"
             >
               {{ $t('blog.today.photo') }}
             </p>
             <p
-              class="bg-[#EDEFF0] w-full rounded-2xl text-center py-2 font-bold hover:cursor-pointer hover-scale-105 hover:text-primary"
+              class="bg-[#EDEFF0] w-full rounded text-center py-2 font-bold hover:cursor-pointer hover-scale-105 hover:text-primary"
             >
               {{ $t('blog.today.video') }}
             </p>

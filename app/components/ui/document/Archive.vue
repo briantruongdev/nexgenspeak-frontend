@@ -44,7 +44,7 @@ const value = ref(t('document.archive.skills.speaking'))
         </p>
       </div>
     </div>
-    <div class="flex justify-center items-center gap-10">
+    <div class="flex justify-center items-center gap-6">
       <USelectMenu
         v-model="value"
         :items="skills"

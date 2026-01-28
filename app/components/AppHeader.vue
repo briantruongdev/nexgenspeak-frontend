@@ -98,12 +98,15 @@ onUnmounted(() => {
 
     <div class="flex gap-4 items-center">
       <BaseButton :text="$t('header.login')" @click="navigateTo('/login')" />
-      <BaseIcon
-        name="phone-call"
-        class="hover:text-primary hover:cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-12"
-      />
-      <BaseIcon name="search" class="hover:text-primary hover:cursor-pointer transition-all duration-300 hover:scale-110" />
 
+      <UIcon
+        name="i-lucide-phone-call"
+        class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
+      />
+      <UIcon
+        name="i-lucide-search"
+        class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
+      />
       <USeparator orientation="vertical" :class="isScrolled ? 'h-6' : 'h-8'" class="transition-all duration-300" />
 
       <BaseLanguages class="transition-all duration-300" />
