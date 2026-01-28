@@ -1,28 +1,37 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const input = useTemplateRef('input')
-const skills = ref(['Kỹ năng nói', 'Kỹ năng đọc', 'Kỹ năng viết', 'Kỹ năng nghe', 'Từ vựng', 'Ngữ pháp'])
-const value = ref('Kỹ năng nói')
+const skills = computed(() => [
+  t('document.archive.skills.speaking'),
+  t('document.archive.skills.reading'),
+  t('document.archive.skills.writing'),
+  t('document.archive.skills.listening'),
+  t('document.archive.skills.vocabulary'),
+  t('document.archive.skills.grammar')
+])
+const value = ref(t('document.archive.skills.speaking'))
 </script>
 
 <template>
   <div class="container pt-24">
-    <p class="title text-center">Kho tài liệu Tiếng Anh NexGen</p>
+    <p class="title text-center">{{ $t('document.archive.title') }}</p>
     <p class="text-lg font-medium mt-10 text-center">
-      NexGen có một kho tàng lớn về tài liệu học Tiếng Anh, cập nhật thường xuyên từ cơ bản đến nâng cao.
+      {{ $t('document.archive.description1') }}
     </p>
-    <p class="text-lg font-medium text-center">Đăng ký ngay để bắt đầu hành trình chinh phục tiếng Anh giao tiếp!</p>
+    <p class="text-lg font-medium text-center">{{ $t('document.archive.description2') }}</p>
     <div class="flex justify-center mt-8">
       <UInput
         ref="input"
         icon="i-lucide-search"
-        placeholder="Nhập chủ đề"
+        :placeholder="$t('document.archive.searchPlaceholder')"
         class="w-2/3"
         :ui="{
           base: 'h-16'
         }"
       >
         <template #trailing>
-          <BaseButton text="Tìm kiếm" class="rounded" />
+          <BaseButton :text="$t('document.archive.search')" class="rounded" />
         </template>
       </UInput>
     </div>
@@ -47,7 +56,7 @@ const value = ref('Kỹ năng nói')
           content: 'hover:cursor-pointer'
         }"
       />
-      <BaseButton text="Làm mới" variant="outline" class="rounded" />
+      <BaseButton :text="$t('document.archive.refresh')" variant="outline" class="rounded" />
     </div>
   </div>
 </template>

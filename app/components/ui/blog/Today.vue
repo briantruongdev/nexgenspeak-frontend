@@ -4,32 +4,31 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 
 <template>
   <div class="container pt-10">
-    <p class="title">Hôm nay Bạn có gì vui?</p>
+    <p class="title">{{ $t('blog.today.title') }}</p>
     <p class="mt-8 w-2/3">
-      Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên
-      nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn
+      {{ $t('blog.today.description') }}
     </p>
     <div class="grid grid-cols-2 mt-20 gap-24">
       <div>
         <div class="space-y-10">
-          <p class="text-2xl font-bold">Chia sẻ khoảnh khắc của bạn</p>
+          <p class="text-2xl font-bold">{{ $t('blog.today.shareYourMoment') }}</p>
           <div class="flex justify-start gap-9 items-center">
-            <div class="bg-[#EDEFF0] w-[100px] h-[100px] rounded-full"></div>
-            <p class="text-xl font-bold opacity-50">Viết cảm nhận của bạn</p>
+            <div class="bg-[#EDEFF0] w-25 h-25 rounded-full"></div>
+            <p class="text-xl font-bold opacity-50">{{ $t('blog.today.writeYourFeelings') }}</p>
           </div>
           <div class="flex justify-between gap-8">
             <p
               class="bg-[#EDEFF0] w-full rounded-2xl text-center py-2 font-bold hover:cursor-pointer hover-scale-105 hover:text-primary"
             >
-              Ảnh
+              {{ $t('blog.today.photo') }}
             </p>
             <p
               class="bg-[#EDEFF0] w-full rounded-2xl text-center py-2 font-bold hover:cursor-pointer hover-scale-105 hover:text-primary"
             >
-              Video
+              {{ $t('blog.today.video') }}
             </p>
           </div>
-          <BaseButton text="Xác nhận" class="w-full" />
+          <BaseButton :text="$t('auth.confirm')" class="w-full" />
         </div>
         <UCarousel
           v-slot="{ item }"
@@ -49,7 +48,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
           <img :src="item" width="320" height="320" class="object-cover" />
         </UCarousel>
       </div>
-      <img src="/images/people2.png" alt="" class="h-[700px] object-cover" />
+      <img src="/images/people2.png" alt="" class="h-175 object-cover" />
     </div>
   </div>
 </template>

@@ -1,43 +1,45 @@
 <script setup lang="ts">
-const items = [
+const { t } = useI18n()
+
+const items = computed(() => [
   {
     image: '/images/people2.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people3.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people4.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people5.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people2.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people3.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people4.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   },
   {
     image: '/images/people5.png',
-    des: 'Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn'
+    des: t('about.description')
   }
-]
+])
 </script>
 
 <template>
   <div class="container pt-24">
-    <p class="title mb-10">Các bài viết được chia sẻ</p>
+    <p class="title mb-10">{{ $t('blog.shared.title') }}</p>
     <UCarousel
       v-slot="{ item }"
       :items="items"
@@ -57,7 +59,7 @@ const items = [
       <p class="mt-8 text-lg">{{ item.des }}</p>
     </UCarousel>
     <div class="flex justify-center my-20">
-      <BaseButton text="Xem thêm" icon="i-lucide-plus" variant="outline" class="w-40" />
+      <BaseButton :text="$t('blog.shared.viewMore')" icon="i-lucide-plus" variant="outline" class="w-40" />
     </div>
   </div>
 </template>

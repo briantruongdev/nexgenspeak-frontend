@@ -6,10 +6,9 @@
 
     <div class="container absolute top-0 left-0 right-0">
       <div class="w-1/2">
-        <p class="title">Phòng ban của NexGen Speak</p>
+        <p class="title">{{ $t('contact.department.title') }}</p>
         <p class="text-xl mt-5">
-          Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát
-          huy huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.
+          {{ $t('contact.department.description') }}
         </p>
       </div>
       <div class="grid grid-cols-[1fr_3fr] gap-8 mt-24">

@@ -240,7 +240,12 @@
     },
     "educationPhilosophy": {
       "title": "Triết lý giáo dục của NexGen",
-      "viewMore": "Xem thêm video"
+      "viewMore": "Xem thêm video",
+      "teachers": {
+        "teacher1": "Nguyễn Đặng Như Quỳnh",
+        "teacher2": "Trần Phan Quỳnh Trang",
+        "teacher3": "Đinh Hoàng Tiến Linh"
+      }
     },
     "expertAdvisors": {
       "title": "Đội ngũ cố vấn chuyên môn",
@@ -271,5 +276,155 @@
   },
   "common": {
     "practice": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+  },
+  "blog": {
+    "today": {
+      "title": "Hôm nay Bạn có gì vui?",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "shareYourMoment": "Chia sẻ khoảnh khắc của bạn",
+      "writeYourFeelings": "Viết cảm nhận của bạn",
+      "photo": "Ảnh",
+      "video": "Video"
+    },
+    "momentShared": {
+      "title": "Các khoảnh khắc được chia sẻ"
+    },
+    "shared": {
+      "title": "Các bài viết được chia sẻ",
+      "viewMore": "Xem thêm"
+    }
+  },
+  "contact": {
+    "intro": {
+      "title": "Giới thiệu về NexGen Speak",
+      "description1": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "description2": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "brandStory": "Câu chuyện Thương Hiệu"
+    },
+    "department": {
+      "title": "Phòng ban của NexGen Speak",
+      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối."
+    },
+    "contactUs": {
+      "title": "Liên hệ với Chúng Tôi",
+      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "companyName": "Công Ty TNHH NexGen Speak",
+      "address": "Tòa nhà Suced 108 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội",
+      "facebook": "NexGen Speak Việt Nam"
+    },
+    "mission": {
+      "title": "Sứ mệnh",
+      "description": "Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới. Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý. Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới. Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý.",
+      "trainingMotto": "Phương châm đào tạo",
+      "mottos": {
+        "compact": {
+          "title": "Tinh gọn",
+          "description": "Lộ trình không chia nhỏ, đáp ứng nhu cầu học lấy chứng chỉ cấp tốc trong thời gian ngắn."
+        },
+        "economical": {
+          "title": "Tiết kiệm",
+          "description": "Mức học phí phù hợp với đa số đối tượng người học là học sinh, sinh viên, người mới ra trường."
+        },
+        "quality": {
+          "title": "Chất lượng",
+          "description": "Giáo trình độc quyền. Đội ngũ giáo viên chuyên môn cao, giàu kinh nghiệm."
+        }
+      }
+    }
+  },
+  "document": {
+    "archive": {
+      "title": "Kho tài liệu Tiếng Anh NexGen",
+      "description1": "NexGen có một kho tàng lớn về tài liệu học Tiếng Anh, cập nhật thường xuyên từ cơ bản đến nâng cao.",
+      "description2": "Đăng ký ngay để bắt đầu hành trình chinh phục tiếng Anh giao tiếp!",
+      "searchPlaceholder": "Nhập chủ đề",
+      "search": "Tìm kiếm",
+      "refresh": "Làm mới",
+      "skills": {
+        "speaking": "Kỹ năng nói",
+        "reading": "Kỹ năng đọc",
+        "writing": "Kỹ năng viết",
+        "listening": "Kỹ năng nghe",
+        "vocabulary": "Từ vựng",
+        "grammar": "Ngữ pháp"
+      }
+    },
+    "familyAndFriend": {
+      "title": "Family and Friends",
+      "description": "Family and Friends là khóa giảng dạy tiếng Anh căn bản bán chạy nhất mọi thời đại của nhà xuất bản Oxford, đã giúp hàng triệu học sinh trên toàn thế giới thành công với tiếng Anh. Chương trình bao gồm các học phần mới giới thiệu ngôn ngữ chức năng được sử dụng hàng ngày để học sinh có thể tạo dựng những cuộc hội thoại ngay từ khi bắt đầu học. Đó thường là những dự án thực tế, hoạt động thủ công thú vị, khuyến khích người tham gia thực hành kỹ năng nói. Học sinh có thể thực hành tương tác với nhau sử dụng các cấu trúc ngữ pháp, từ vựng và cả 4 kỹ năng. Family and Friends - ấn bản thứ 2 bao gồm các nội dung giúp nâng cao sự thông thạo tiếng Anh thực hành với sự hỗ trợ của đĩa DVD, thực hành tương tác trực tuyến, cập nhật tài liệu đánh giá và kiểm tra năng lực và các học phần bổ sung tập trung vào văn hóa",
+      "learnMore": "Tìm hiểu thêm",
+      "books": {
+        "book1": "14 NGÀY ÔN CẤP TỐC TẤT CẢ CÁC NGỮ PHÁP QUAN TRỌNG NHẤT VỚI PHIẾU BÀI TẬP ĐƯỢC THIẾT KẾ ĐẸP MẮT",
+        "book2": "English for Project Management - Luyện Đọc",
+        "book3": "Luyện nghe hội thoại các tình huống thường gặp khi giao tiếp"
+      }
+    },
+    "examPreparation": {
+      "title": "Luyện thi TOEIC",
+      "description": "Đây là bộ tài liệu luyện thi mới theo cấu trúc đề thi của TOEIC® mới, bao gồm các chiến lược và kỹ năng ôn thi chi tiết để thí sinh có thể cải thiện điểm số của từng phần thi, hơn 1000 bài tập thực hành, 2 bài kiểm tra năng lực về kỹ năng Nghe hiểu và Đọc TOEIC®, 2 bài kiểm tra hoàn chỉnh với các phiếu trả lời kiểu TOEIC® để thí sinh có thể đánh giá và chuẩn bị cho các điều kiện của bài thi TOEIC®, 1 Audio CD đi kèm với sách có học phần về kỹ năng Nghe hiểu, 1 Complete Audio Program (không bán kèm với sách, có kỹ năng nghe ở tất cả các học phần), một tập lệnh âm thanh bao gồm tất cả các tài liệu được ghi lại ở Complete Audio Program.",
+      "learnMore": "Tìm hiểu thêm",
+      "books": {
+        "book1": "14 NGÀY ÔN CẤP TỐC TẤT CẢ CÁC NGỮ PHÁP QUAN TRỌNG NHẤT VỚI PHIẾU BÀI TẬP ĐƯỢC THIẾT KẾ ĐẸP MẮT",
+        "book2": "English for Project Management - Luyện Đọc",
+        "book3": "Luyện nghe hội thoại các tình huống thường gặp khi giao tiếp"
+      }
+    }
+  },
+  "recruitment": {
+    "banner": {
+      "title": "Chọn một công việc bạn yêu thích và kiến tạo tương lai theo ý bạn"
+    },
+    "difference": {
+      "title": "NexGen Speak và sự khác biệt",
+      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "brandStory": "Câu chuyện Thương Hiệu"
+    },
+    "culture": {
+      "title": "Văn hoá tạo nên giá trị cốt lõi",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "values": {
+        "commitment": {
+          "title": "Cam kết",
+          "item1": "Chúng tôi thực thi lời hứa của mình.",
+          "item2": "Chúng tôi đáng tin cậy và trung thành.",
+          "item3": "Chúng tôi cam kết trở nên tốt nhất có thể."
+        },
+        "improvement": {
+          "title": "Cải tiến",
+          "item1": "Chúng tôi tham vọng và có khả năng thích nghi.",
+          "item2": "Chúng tôi đón đầu các cơ hội và thử thách phía trước với khát vọng luôn luôn cải tiến để trở nên tốt hơn."
+        },
+        "proactive": {
+          "title": "Chủ động",
+          "item1": "Chúng tôi được trao quyền để hành động và giải quyết vấn đề nhanh chóng.",
+          "item2": "Chúng tôi quyết đoán. Chúng tôi luôn hướng về phía trước."
+        },
+        "openness": {
+          "title": "Cởi mở",
+          "item1": "Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới.",
+          "item2": "Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý."
+        }
+      }
+    },
+    "share": {
+      "title": "Chia sẻ trải nghiệm từ",
+      "titleHighlight": "Giáo viên và Founder",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "ceo": {
+        "name": "Trương Bá Chính",
+        "position": "Tổng Giám Đốc, Sáng lập NexGen Speak",
+        "quote1": "NG.Speak trao cho nhân viên cơ hội được tiếp cận với những công nghệ mới nhất đồng thời đầu tư vào việc phát triển tư duy và kỹ năng. Nhờ vậy, chúng tôi được trang bị để vượt qua thử thách trước mắt và đón đầu những cơ hội sắp đến.",
+        "quote2": "Một trong những chiến lược của NexGen là phát triển nhân tài nội bộ. Bản thân tôi vô cùng cảm kích vì được trải nghiệm chương trình Futurewise nơi rèn giũa và giúp tôi hoàn thiện bản thân cho vai trò lãnh đạo.",
+        "quote3": "Nếu bạn quan tâm đến cơ hội phát triển sự nghiệp và tưởng thưởng xứng đáng NexGen chính là câu trả lời."
+      }
+    },
+    "development": {
+      "title": "Phát triển sự nghiệp cùng chúng tôi",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "openPositions": "Các vị trí đang tuyển dụng"
+    },
+    "event": {
+      "title": "Các Sự kiện tại NexGen Speak"
+    }
   }
 }

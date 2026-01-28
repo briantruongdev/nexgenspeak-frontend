@@ -1,8 +1,10 @@
 <script setup lang="ts">
-const items = [
+const { t } = useI18n()
+
+const items = computed(() => [
   {
     icon: 'location',
-    value: 'Tòa nhà Suced 108 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội'
+    value: t('contact.contactUs.address')
   },
   {
     icon: 'tel',
@@ -16,20 +18,19 @@ const items = [
   },
   {
     icon: 'face-bg',
-    value: 'NexGen Speak Việt Nam'
+    value: t('contact.contactUs.facebook')
   }
-]
+])
 </script>
 
 <template>
   <div class="container pt-24 max-lg:pt-20">
-    <p class="title">Liên hệ với Chúng Tôi</p>
+    <p class="title">{{ $t('contact.contactUs.title') }}</p>
     <p class="text-xl mt-7">
-      Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy
-      được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.
+      {{ $t('contact.contactUs.description') }}
     </p>
     <div class="mt-16 w-full">
-      <p class="text-[42px] font-bold text-primary">Công Ty TNHH NexGen Speak</p>
+      <p class="text-[42px] font-bold text-primary">{{ $t('contact.contactUs.companyName') }}</p>
       <div class="space-y-8 mt-10">
         <div v-for="(item, index) in items" :key="index" class="flex justify-start gap-2.5 items-center">
           <BaseIcon :name="item.icon" size="45" />

@@ -4,10 +4,11 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 
 <template>
   <div class="container pt-24">
-    <p class="title">Chia sẻ trải nghiệm từ <span class="text-primary">Giáo viên và Founder</span></p>
+    <p class="title">
+      {{ $t('recruitment.share.title') }} <span class="text-primary">{{ $t('recruitment.share.titleHighlight') }}</span>
+    </p>
     <p class="mt-9">
-      Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn. trò chuyện với giáo viên bản xứ một cách tự nhiên
-      nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn
+      {{ $t('recruitment.share.description') }}
     </p>
     <div class="mt-20 grid grid-cols-2 gap-13">
       <div class="grid grid-cols-[1fr_1.5fr] gap-8">
@@ -30,21 +31,19 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
         >
           <img :src="item" width="320" height="320" class="object-cover" />
         </UCarousel>
-        <img src="/images/ceo.png" alt="" class="h-[510px] object-cover" loading="lazy" />
+        <img src="/images/ceo.png" alt="" class="h-127.5 object-cover" loading="lazy" />
       </div>
       <div>
-        <p class="text-3xl font-bold">Trương Bá Chính</p>
-        <p class="mt-1 font-medium">Tổng Giám Đốc, Sáng lập NexGen Speak</p>
+        <p class="text-3xl font-bold">{{ $t('recruitment.share.ceo.name') }}</p>
+        <p class="mt-1 font-medium">{{ $t('recruitment.share.ceo.position') }}</p>
         <div class="space-y-3 mt-10">
           <p>
-            NG.Speak trao cho nhân viên cơ hội được tiếp cận với những công nghệ mới nhất đồng thời đầu tư vào việc phát triển tư
-            duy và kỹ năng. Nhờ vậy, chúng tôi được trang bị để vượt qua thử thách trước mắt và đón đầu những cơ hội sắp đến.
+            {{ $t('recruitment.share.ceo.quote1') }}
           </p>
           <p>
-            Một trong những chiến lược của NexGen là phát triển nhân tài nội bộ. Bản thân tôi vô cùng cảm kích vì được trải nghiệm
-            chương trình Futurewise nơi rèn giũa và giúp tôi hoàn thiện bản thân cho vai trò lãnh đạo.
+            {{ $t('recruitment.share.ceo.quote2') }}
           </p>
-          <p>Nếu bạn quan tâm đến cơ hội phát triển sự nghiệp và tưởng thưởng xứng đáng NexGenN chính là câu trả lời.</p>
+          <p>{{ $t('recruitment.share.ceo.quote3') }}</p>
         </div>
       </div>
     </div>

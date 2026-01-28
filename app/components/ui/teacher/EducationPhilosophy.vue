@@ -1,30 +1,32 @@
 <script setup lang="ts">
-const items = [
+const { t } = useI18n()
+
+const items = computed(() => [
   {
-    name: 'Nguyễn Đặng Như Quỳnh',
+    name: t('teacher.educationPhilosophy.teachers.teacher1'),
     image: '/images/teacher1.jpg'
   },
   {
-    name: 'Trần Phan Quỳnh Trang',
+    name: t('teacher.educationPhilosophy.teachers.teacher2'),
     image: '/images/teacher2.jpg'
   },
   {
-    name: 'Đinh Hoàng Tiến Linh',
+    name: t('teacher.educationPhilosophy.teachers.teacher3'),
     image: '/images/teacher2.jpg'
   },
   {
-    name: 'Nguyễn Đặng Như Quỳnh',
+    name: t('teacher.educationPhilosophy.teachers.teacher1'),
     image: '/images/teacher1.jpg'
   },
   {
-    name: 'Trần Phan Quỳnh Trang',
+    name: t('teacher.educationPhilosophy.teachers.teacher2'),
     image: '/images/teacher2.jpg'
   },
   {
-    name: 'Đinh Hoàng Tiến Linh',
+    name: t('teacher.educationPhilosophy.teachers.teacher3'),
     image: '/images/teacher2.jpg'
   }
-]
+])
 </script>
 
 <template>
