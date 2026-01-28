@@ -18,6 +18,18 @@ const navItemsSecondary = computed(() => [
 
 const pathActive = computed(() => route.path !== '/' && route.path)
 
+watch(open, isOpen => {
+  if (import.meta.client) {
+    if (isOpen) {
+      document.documentElement.style.overflowX = 'hidden'
+      document.body.style.overflowX = 'hidden'
+    } else {
+      document.documentElement.style.overflowX = ''
+      document.body.style.overflowX = ''
+    }
+  }
+})
+
 const handleScroll = () => {
   const currentScrollY = window.scrollY
 
@@ -98,11 +110,11 @@ onUnmounted(() => {
 
     <div class="flex gap-4 items-center">
       <BaseButton :text="$t('header.login')" @click="navigateTo('/login')" />
-
-      <UIcon
-        name="i-lucide-phone-call"
-        class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
-      />
+      <a href="tel:+84 888 887 798">
+        <UIcon
+          name="i-lucide-phone-call"
+          class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
+      /></a>
       <UIcon
         name="i-lucide-search"
         class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
@@ -130,7 +142,15 @@ onUnmounted(() => {
       />
 
       <div class="flex justify-end items-center gap-4">
-        <BaseLanguages class="transition-all duration-300" />
+        <a href="tel:+84 888 887 798">
+          <UIcon
+            name="i-lucide-phone-call"
+            class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
+        /></a>
+        <UIcon
+          name="i-lucide-search"
+          class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
+        />
 
         <UDrawer
           v-model:open="open"
@@ -206,6 +226,7 @@ onUnmounted(() => {
 
           <template #footer>
             <BaseButton :text="$t('header.login')" class="w-full" />
+            <BaseLanguages class="transition-all duration-300 w-full mt-4" />
           </template>
         </UDrawer>
       </div>

@@ -74,7 +74,11 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    plugins: [svgLoader()]
+    plugins: [
+      svgLoader({
+        defaultImport: 'component'
+      })
+    ]
   },
 
   eslint: {
