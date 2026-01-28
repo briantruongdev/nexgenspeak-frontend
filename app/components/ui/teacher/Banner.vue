@@ -31,14 +31,14 @@ const data = computed(() => [
         <div class="absolute top-2/5 max-lg:relative max-lg:top-0 max-lg:mt-6">
           <div class="relative">
             <BaseButton :text="$t('teacher.banner.bookNow')" />
-            <BaseIcon name="arrow" class="absolute -right-20 max-lg:hidden!" size="100" />
+            <BaseIcon name="arrow" class="absolute -right-20 max-lg:hidden!" :size="100" />
           </div>
         </div>
       </div>
       <div class="w-200 relative max-lg:hidden">
         <img src="/images/teacher-banner.png" alt="Banner" class="w-100 h-100" />
-        <BaseIcon name="star2" class="absolute top-6" size="80" />
-        <BaseIcon name="star" class="absolute top-1/2 right-16" size="120" />
+        <BaseIcon name="star2" class="absolute top-6" :size="80" />
+        <BaseIcon name="star" class="absolute top-1/2 right-16" :size="120" />
       </div>
 
       <div class="max-lg:flex max-lg:justify-center hidden max-lg:visible">
@@ -49,7 +49,7 @@ const data = computed(() => [
       class="grid grid-cols-3 gap-14 bg-white p-10 rounded-4xl box-shadow absolute -bottom-1/4 max-lg:grid-cols-1 max-lg:gap-6 max-lg:p-6 max-lg:relative max-lg:bottom-0 max-lg:mb-6"
     >
       <div v-for="(item, index) in data" :key="index">
-        <BaseIcon :name="item.icon" size="40" class="max-sm:w-8 max-sm:h-8" />
+        <BaseIcon :name="item.icon" :size="40" class="max-sm:w-8 max-sm:h-8" />
         <p class="text-xl font-medium my-4 max-md:text-lg max-md:my-3">{{ item.title }}</p>
         <p class="text-justify max-md:text-sm">
           {{ item.description }}

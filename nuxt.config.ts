@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import svgLoader from 'vite-svg-loader'
+
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
 
@@ -69,6 +71,10 @@ export default defineNuxtConfig({
     output: {
       publicDir: 'dist'
     }
+  },
+
+  vite: {
+    plugins: [svgLoader()]
   },
 
   eslint: {

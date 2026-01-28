@@ -9,9 +9,11 @@
           {{ $t('recruitment.difference.description') }}
         </p>
         <div>
-          <BaseButton :text="$t('recruitment.difference.brandStory')" class-name="rounded">
-            <BaseIcon name="arrow-right-white" class="shrink-0 text-white" />
-          </BaseButton>
+          <BaseButton
+            :text="$t('recruitment.difference.brandStory')"
+            class-name="rounded flex items-center"
+            icon="i-lucide-move-right"
+          />
         </div>
       </div>
       <img src="/images/people2.png" alt="" class="h-[343px] w-full object-cover rounded-2xl" />

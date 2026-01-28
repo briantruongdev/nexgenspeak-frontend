@@ -59,13 +59,13 @@ const form = ref<IFormLogin>({
       <div
         class="py-4 px-8 flex items-center w-fit gap-4 bg-[#EDEFF0] rounded-2xl hover:scale-102 transform duration-200 hover:cursor-pointer hover:text-primary"
       >
-        <BaseIcon name="google" size="28" />
+        <BaseIcon name="google" :size="28" />
         <p class="text-lg font-bold max-xl:text-base">{{ t('auth.loginByGG') }}</p>
       </div>
       <div
         class="py-4 px-8 flex w-fit items-center gap-4 bg-[#EDEFF0] rounded-2xl hover:scale-102 transform duration-200 hover:cursor-pointer hover:text-primary"
       >
-        <BaseIcon name="face" size="28" />
+        <BaseIcon name="face" :size="28" />
         <p class="text-lg font-bold max-xl:text-base">{{ t('auth.loginByFace') }}</p>
       </div>
     </div>

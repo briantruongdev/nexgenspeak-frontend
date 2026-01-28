@@ -43,7 +43,7 @@ const paged = computed(() => {
     <p class="mt-8">
       {{ $t('document.examPreparation.description') }}
     </p>
-    <div class="grid grid-cols-3 gap-16 mt-10 max-md:grid-cols-2">
+    <div class="grid grid-cols-3 gap-16 mt-10 max-md:grid-cols-2 max-md:gap-10 max-sm:gap-6">
       <div v-for="(item, index) in paged" :key="index">
         <div class="bg-white box-shadow h-full flex flex-col rounded-xl">
           <img :src="item.image" alt="" loading="lazy" class="w-full object-cover rounded-tl-xl rounded-tr-xl" />

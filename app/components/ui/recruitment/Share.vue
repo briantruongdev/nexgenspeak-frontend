@@ -15,7 +15,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
     <p class="mt-9">
       {{ $t('recruitment.share.description') }}
     </p>
-    <div class="mt-20 grid grid-cols-2 gap-13 max-sm:grid-cols-1! max-sm:mt-10">
+    <div class="mt-20 grid grid-cols-2 gap-13 max-sm:grid-cols-1! max-sm:mt-10 max-sm:gap-6">
       <div class="grid grid-cols-[1fr_1.5fr] gap-8 max-md:grid-cols-1">
         <UCarousel
           v-if="widthScreen > 768"

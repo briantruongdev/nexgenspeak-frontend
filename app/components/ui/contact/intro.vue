@@ -18,9 +18,7 @@ const bannerImageSrc = '/images/banner-auth.png'
         </p>
       </div>
       <div class="max-lg:mt-6">
-        <BaseButton :text="$t('contact.intro.brandStory')" class-name="rounded">
-          <BaseIcon name="arrow-right-white" class="shrink-0 text-white" />
-        </BaseButton>
+        <BaseButton :text="$t('contact.intro.brandStory')" class-name="rounded" icon="i-lucide-move-right" />
       </div>
     </div>
   </div>

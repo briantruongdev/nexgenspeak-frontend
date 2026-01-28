@@ -3,21 +3,21 @@ const { t } = useI18n()
 
 const items = computed(() => [
   {
-    icon: 'location',
+    icon: '/images/map.png',
     value: t('contact.contactUs.address')
   },
   {
-    icon: 'tel',
+    icon: '/images/phone-call.png',
     value: '0888887798',
     type: 'tel'
   },
   {
-    icon: 'mail-bg',
+    icon: '/images/mail.png',
     value: 'info@czen.io',
     type: 'mail'
   },
   {
-    icon: 'face-bg',
+    icon: '/images/facebook.png',
     value: t('contact.contactUs.facebook')
   }
 ])
@@ -33,7 +33,7 @@ const items = computed(() => [
       <p class="text-[42px] font-bold text-primary max-sm:text-3xl">{{ $t('contact.contactUs.companyName') }}</p>
       <div class="space-y-8 mt-10">
         <div v-for="(item, index) in items" :key="index" class="flex justify-start gap-2.5 items-center">
-          <BaseIcon :name="item.icon" size="45" />
+          <img :src="item.icon" alt="" class="w-10 h-10 object-cover" loading="lazy" />
           <a
             v-if="item.type === 'tel'"
             :href="`tel:+84 ${item.value}`"

@@ -10,9 +10,7 @@
         </p>
       </div>
       <div>
-        <BaseButton :text="$t('recruitment.development.openPositions')" class-name="rounded">
-          <BaseIcon name="arrow-right-white" class="shrink-0 text-white" />
-        </BaseButton>
+        <BaseButton :text="$t('recruitment.development.openPositions')" class-name="rounded" icon="i-lucide-move-right" />
       </div>
     </div>
     <img src="/images/people2.png" alt="" loading="lazy" class="h-80 w-full object-cover" />
