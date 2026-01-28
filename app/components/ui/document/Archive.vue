@@ -14,7 +14,7 @@ const value = ref(t('document.archive.skills.speaking'))
 </script>
 
 <template>
-  <div class="container pt-24 max-xl:px-6">
+  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
     <p class="title text-center">{{ $t('document.archive.title') }}</p>
     <p class="text-lg font-medium mt-10 text-center max-sm:text-sm">
       {{ $t('document.archive.description1') }}

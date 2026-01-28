@@ -22,8 +22,8 @@
   </section>
   <section class="container grid grid-cols-2 gap-8 items-end max-xl:px-6 max-md:grid-cols-1">
     <div>
-      <p class="text-4xl font-bold mt-20">{{ $t('studyPlan.about.title') }}</p>
-      <p class="mb-20 mt-4">{{ $t('common.practice') }}</p>
+      <p class="text-4xl font-bold mt-20 max-sm:mt-12">{{ $t('studyPlan.about.title') }}</p>
+      <p class="mb-20 max-sm:mb-10 mt-4">{{ $t('common.practice') }}</p>
       <img src="/images/study-7.png" alt="" loading="lazy" class="mb-8" />
       <img src="/images/study-8.png" alt="" loading="lazy" />
     </div>

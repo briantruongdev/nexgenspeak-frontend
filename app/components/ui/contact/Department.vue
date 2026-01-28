@@ -2,7 +2,7 @@
 
 <template>
   <div class="relative">
-    <div class="bg-primary h-240 w-150 justify-self-end mt-24 max-lg:mt-20 max-lg:w-100 max-md:w-1/3"></div>
+    <div class="bg-primary h-240 w-150 justify-self-end mt-24 max-lg:mt-20 max-lg:w-100 max-md:w-1/3 max-sm:mt-12"></div>
 
     <div class="container absolute top-0 left-0 right-0">
       <div class="w-1/2 max-xl:px-6">

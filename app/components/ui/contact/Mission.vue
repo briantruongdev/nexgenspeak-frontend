@@ -6,7 +6,7 @@ const src = '/images/contact-banner2.png'
   <div class="relative pt-24 max-lg:pt-20 container">
     <img :src alt="Banner" loading="lazy" class="h-screen w-screen object-cover" />
     <div
-      class="absolute w-2/5 bg-primary rounded-tr-[50px] rounded-br-[50px] text-white top-50 px-10 py-16 max-[900px]:top-36 max-md:top-20 max-md:w-1/2"
+      class="absolute w-2/5 bg-primary rounded-tr-[50px] rounded-br-[50px] text-white top-50 px-10 py-16 max-[900px]:top-36 max-md:top-20 max-md:w-1/2 max-sm:w-2/3"
     >
       <p class="text-3xl font-bold max-lg:text-xl">{{ $t('contact.mission.title') }}</p>
       <p class="mt-2 max-lg:text-sm">

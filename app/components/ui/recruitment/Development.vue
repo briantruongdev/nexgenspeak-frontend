@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container pt-24 grid grid-cols-[2fr_1fr] gap-16">
-    <div class="flex flex-col justify-between">
+  <div class="container pt-24 grid grid-cols-[2fr_1fr] gap-16 max-xl:px-6 max-sm:pt-12 max-sm:grid-cols-1 max-sm:gap-8">
+    <div class="flex flex-col justify-between max-sm:gap-8">
       <div>
         <p class="title">{{ $t('recruitment.development.title') }}</p>
         <p class="mt-10">

@@ -18,7 +18,7 @@ const items = computed(() => [
 </script>
 
 <template>
-  <div class="container pt-24 max-xl:px-6">
+  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
     <p class="title">{{ $t('document.familyAndFriend.title') }}</p>
     <p class="mt-8">
       {{ $t('document.familyAndFriend.description') }}

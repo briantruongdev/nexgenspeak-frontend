@@ -7,7 +7,7 @@
     <UiContactDepartment />
     <UiContact />
     <UiContactMission />
-    <UiAuthSupport class="mt-24" />
+    <UiAuthSupport class="mt-24 max-sm:mt-12" />
   </div>
 </template>
 

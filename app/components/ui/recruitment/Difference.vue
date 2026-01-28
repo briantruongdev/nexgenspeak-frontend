@@ -1,10 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container pt-24">
+  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
     <p class="title">{{ $t('recruitment.difference.title') }}</p>
-    <div class="grid grid-cols-[1fr_2fr] gap-11 mt-12">
-      <div class="flex flex-col justify-between">
+    <div class="grid grid-cols-[1fr_2fr] gap-11 mt-12 max-md:grid-cols-[1fr_1fr] max-[600px]:grid-cols-1!">
+      <div class="flex flex-col justify-between max-[600px]:gap-4">
         <p class="bg-bg-primary p-6 rounded-2xl">
           {{ $t('recruitment.difference.description') }}
         </p>

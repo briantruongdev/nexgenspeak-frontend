@@ -30,7 +30,7 @@ const items = computed(() => [
       {{ $t('contact.contactUs.description') }}
     </p>
     <div class="mt-16 w-full">
-      <p class="text-[42px] font-bold text-primary">{{ $t('contact.contactUs.companyName') }}</p>
+      <p class="text-[42px] font-bold text-primary max-sm:text-3xl">{{ $t('contact.contactUs.companyName') }}</p>
       <div class="space-y-8 mt-10">
         <div v-for="(item, index) in items" :key="index" class="flex justify-start gap-2.5 items-center">
           <BaseIcon :name="item.icon" size="45" />
