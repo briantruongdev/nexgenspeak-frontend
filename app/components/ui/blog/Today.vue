@@ -8,7 +8,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
     <p class="mt-8 w-2/3">
       {{ $t('blog.today.description') }}
     </p>
-    <div class="grid grid-cols-2 mt-20 gap-24">
+    <div class="grid grid-cols-2 mt-20 gap-24 max-lg:gap-12 max-sm:grid-cols-1 max-sm:mt-10">
       <div>
         <div class="space-y-10">
           <p class="text-2xl font-bold">{{ $t('blog.today.shareYourMoment') }}</p>
@@ -40,15 +40,15 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
           next-icon="i-lucide-chevron-right"
           :ui="{
             item: 'basis-full basis-1/2',
-            prev: 'hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60',
-            next: 'hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
+            prev: 'max-xl:translate-x-14 max-sm:-translate-x-2 hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60',
+            next: 'max-xl:-translate-x-14 hover:cursor-pointer max-sm:translate-x-2 bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
           }"
-          class="w-full mt-32"
+          class="w-full mt-32 max-sm:mt-10"
         >
-          <img :src="item" width="320" height="320" class="object-cover" />
+          <img :src="item" class="object-cover max-sm:h-60 max-sm:w-60" />
         </UCarousel>
       </div>
-      <img src="/images/people2.png" alt="" class="h-175 object-cover" />
+      <img src="/images/people2.png" alt="" class="h-175 max-sm:h-100 object-cover" />
     </div>
   </div>
 </template>

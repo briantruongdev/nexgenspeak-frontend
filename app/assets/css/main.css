@@ -46,7 +46,7 @@ body {
 }
 
 .title {
-  @apply text-4xl text-text-primary font-bold;
+  @apply text-4xl text-text-primary font-bold max-sm:text-2xl;
 }
 .box-shadow {
   box-shadow:
