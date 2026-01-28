@@ -24,9 +24,9 @@ const items = computed(() => [
 </script>
 
 <template>
-  <div class="container pt-24 max-lg:pt-20">
+  <div class="container pt-24 max-lg:pt-20 max-xl:px-6">
     <p class="title">{{ $t('contact.contactUs.title') }}</p>
-    <p class="text-xl mt-7">
+    <p class="text-xl mt-7 max-lg:text-base">
       {{ $t('contact.contactUs.description') }}
     </p>
     <div class="mt-16 w-full">
@@ -34,13 +34,19 @@ const items = computed(() => [
       <div class="space-y-8 mt-10">
         <div v-for="(item, index) in items" :key="index" class="flex justify-start gap-2.5 items-center">
           <BaseIcon :name="item.icon" size="45" />
-          <a v-if="item.type === 'tel'" :href="`tel:+84 ${item.value}`" class="text-2xl font-medium hover:underline">{{
-            item.value
-          }}</a>
-          <a v-else-if="item.type === 'mail'" :href="`mailto:${item.value}`" class="text-2xl font-medium hover:underline">{{
-            item.value
-          }}</a>
-          <p v-else class="text-2xl font-medium">{{ item.value }}</p>
+          <a
+            v-if="item.type === 'tel'"
+            :href="`tel:+84 ${item.value}`"
+            class="text-2xl font-medium hover:underline max-lg:text-lg"
+            >{{ item.value }}</a
+          >
+          <a
+            v-else-if="item.type === 'mail'"
+            :href="`mailto:${item.value}`"
+            class="text-2xl font-medium hover:underline max-lg:text-lg"
+            >{{ item.value }}</a
+          >
+          <p v-else class="text-2xl font-medium max-lg:text-lg">{{ item.value }}</p>
         </div>
       </div>
     </div>
