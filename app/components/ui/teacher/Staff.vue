@@ -89,7 +89,7 @@ watch(
               :text="$t('teacher.staff.viewInfo')"
               variant="outline"
               class="w-full"
-              class-name="h-11 max-sm:h-10"
+              class-name="h-11 max-sm:h-10 rounded-xl"
               class-text="font-semibold max-sm:text-sm"
             />
           </div>

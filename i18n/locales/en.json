@@ -5,10 +5,10 @@
     "nav": {
       "studyPlan": "Study Plan & Tuition",
       "teachers": "Teachers",
-      "materials": "Materials",
+      "document": "Document",
       "blog": "Blog",
       "contact": "Contact",
-      "careers": "Careers"
+      "recruitment": "Recruitment"
     },
     "login": "Login"
   },
@@ -240,7 +240,12 @@
     },
     "educationPhilosophy": {
       "title": "NexGen's Educational Philosophy",
-      "viewMore": "View more videos"
+      "viewMore": "View more videos",
+      "teachers": {
+        "teacher1": "Nguyen Dang Nhu Quynh",
+        "teacher2": "Tran Phan Quynh Trang",
+        "teacher3": "Dinh Hoang Tien Linh"
+      }
     },
     "expertAdvisors": {
       "title": "Expert Advisory Team",
@@ -271,5 +276,155 @@
   },
   "common": {
     "practice": "We create an environment where each student can practice more - communicate, chat"
+  },
+  "blog": {
+    "today": {
+      "title": "What Makes You Happy Today?",
+      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "shareYourMoment": "Share Your Moment",
+      "writeYourFeelings": "Write Your Feelings",
+      "photo": "Photo",
+      "video": "Video"
+    },
+    "momentShared": {
+      "title": "Shared Moments"
+    },
+    "shared": {
+      "title": "Shared Posts",
+      "viewMore": "View More"
+    }
+  },
+  "contact": {
+    "intro": {
+      "title": "About NexGen Speak",
+      "description1": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
+      "description2": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
+      "brandStory": "Brand Story"
+    },
+    "department": {
+      "title": "NexGen Speak Departments",
+      "description": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers."
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "description": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
+      "companyName": "NexGen Speak Company Limited",
+      "address": "Suced Building 108 Nguyen Hoang, Nam Tu Liem, Hanoi",
+      "facebook": "NexGen Speak Vietnam"
+    },
+    "mission": {
+      "title": "Mission",
+      "description": "We share knowledge and are open to new ways of thinking. We make the right decisions with proper consideration. We share knowledge and are open to new ways of thinking. We make the right decisions with proper consideration.",
+      "trainingMotto": "Training Motto",
+      "mottos": {
+        "compact": {
+          "title": "Compact",
+          "description": "Streamlined curriculum, meeting the need for quick certification in a short time."
+        },
+        "economical": {
+          "title": "Economical",
+          "description": "Tuition fees suitable for most learners including students and fresh graduates."
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "Exclusive curriculum. Highly professional and experienced teaching staff."
+        }
+      }
+    }
+  },
+  "document": {
+    "archive": {
+      "title": "NexGen English Document Library",
+      "description1": "NexGen has a large repository of English learning materials, regularly updated from basic to advanced.",
+      "description2": "Register now to start your journey to conquer conversational English!",
+      "searchPlaceholder": "Enter topic",
+      "search": "Search",
+      "refresh": "Refresh",
+      "skills": {
+        "speaking": "Speaking Skills",
+        "reading": "Reading Skills",
+        "writing": "Writing Skills",
+        "listening": "Listening Skills",
+        "vocabulary": "Vocabulary",
+        "grammar": "Grammar"
+      }
+    },
+    "familyAndFriend": {
+      "title": "Family and Friends",
+      "description": "Family and Friends is Oxford's best-selling basic English teaching course of all time, helping millions of students worldwide succeed with English. The program includes new sections introducing functional language used daily so students can build conversations from the start. These are often practical projects, fun craft activities that encourage participants to practice speaking skills. Students can practice interacting with each other using grammar structures, vocabulary, and all 4 skills. Family and Friends - 2nd edition includes content to enhance English fluency practice with DVD support, online interactive practice, updated assessment and competency testing materials, and supplementary sections focusing on culture",
+      "learnMore": "Learn More",
+      "books": {
+        "book1": "14 DAYS INTENSIVE REVIEW OF ALL THE MOST IMPORTANT GRAMMAR WITH BEAUTIFULLY DESIGNED WORKSHEETS",
+        "book2": "English for Project Management - Reading Practice",
+        "book3": "Listening practice for common communication scenarios"
+      }
+    },
+    "examPreparation": {
+      "title": "TOEIC Exam Preparation",
+      "description": "This is a new exam preparation set following the new TOEIC® test structure, including detailed test strategies and skills for candidates to improve scores for each test section, over 1000 practice exercises, 2 competency tests on TOEIC® Listening and Reading skills, 2 complete tests with TOEIC®-style answer sheets for candidates to evaluate and prepare for TOEIC® test conditions, 1 Audio CD included with the book containing the Listening section, 1 Complete Audio Program (not sold with the book, includes listening in all sections), an audio script including all materials recorded in the Complete Audio Program.",
+      "learnMore": "Learn More",
+      "books": {
+        "book1": "14 DAYS INTENSIVE REVIEW OF ALL THE MOST IMPORTANT GRAMMAR WITH BEAUTIFULLY DESIGNED WORKSHEETS",
+        "book2": "English for Project Management - Reading Practice",
+        "book3": "Listening practice for common communication scenarios"
+      }
+    }
+  },
+  "recruitment": {
+    "banner": {
+      "title": "Choose a job you love and create your future the way you want"
+    },
+    "difference": {
+      "title": "NexGen Speak and the Difference",
+      "description": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
+      "brandStory": "Brand Story"
+    },
+    "culture": {
+      "title": "Culture Creates Core Values",
+      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "values": {
+        "commitment": {
+          "title": "Commitment",
+          "item1": "We execute our promises.",
+          "item2": "We are reliable and loyal.",
+          "item3": "We commit to becoming the best we can be."
+        },
+        "improvement": {
+          "title": "Improvement",
+          "item1": "We are ambitious and adaptable.",
+          "item2": "We embrace opportunities and challenges ahead with the aspiration to always improve to become better."
+        },
+        "proactive": {
+          "title": "Proactive",
+          "item1": "We are empowered to act and solve problems quickly.",
+          "item2": "We are decisive. We always move forward."
+        },
+        "openness": {
+          "title": "Openness",
+          "item1": "We share knowledge and are open to new ways of working.",
+          "item2": "We make the right decisions with proper consideration."
+        }
+      }
+    },
+    "share": {
+      "title": "Experience Sharing from",
+      "titleHighlight": "Teachers and Founder",
+      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "ceo": {
+        "name": "Truong Ba Chinh",
+        "position": "CEO, Founder of NexGen Speak",
+        "quote1": "NG.Speak gives employees the opportunity to access the latest technologies while investing in developing mindset and skills. As a result, we are equipped to overcome immediate challenges and seize upcoming opportunities.",
+        "quote2": "One of NexGen's strategies is to develop internal talent. I am extremely grateful to have experienced the Futurewise program which honed and helped me perfect myself for a leadership role.",
+        "quote3": "If you are interested in career development opportunities and worthy rewards, NexGen is the answer."
+      }
+    },
+    "development": {
+      "title": "Develop Your Career With Us",
+      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "openPositions": "Open Positions"
+    },
+    "event": {
+      "title": "Events at NexGen Speak"
+    }
   }
 }

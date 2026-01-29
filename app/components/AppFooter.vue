@@ -54,7 +54,7 @@ const menuSections = computed(() => [
           <BaseIcon name="earth" />
           <p class="flex items-center">
             <span class="text-white uppercase">{{ locale }}</span>
-            <BaseIcon name="arrow-up-down" class="inline-block ml-1" size="12" />
+            <BaseIcon name="arrow-up-down" class="inline-block ml-1" :size="12" />
           </p>
           <USeparator orientation="vertical" class="h-6" />
 
@@ -65,13 +65,13 @@ const menuSections = computed(() => [
         </div>
         <div class="mt-10">
           <p class="flex gap-4 items-center">
-            <BaseIcon name="phone-background" size="40" />
+            <BaseIcon name="phone-background" :size="40" />
             <a href="tel:+84 888 887 798" class="text-white text-3xl font-bold">0888 887 798</a>
           </p>
           <USeparator orientation="horizontal" class="w-2/3 mt-5 mb-9" />
           <p class="flex items-center gap-6">
-            <BaseIcon name="face" size="40" />
-            <BaseIcon name="insta" size="40" />
+            <BaseIcon name="face" :size="40" />
+            <BaseIcon name="insta" :size="40" />
             <!-- <BaseIcon name="youtube" size="40" class="text-white" /> -->
             <img src="/images/youtube.png" alt="" class="h-10" loading="lazy" />
           </p>
@@ -94,7 +94,7 @@ const menuSections = computed(() => [
     <USeparator orientation="horizontal" class="mb-8" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white md:justify-items-stretch">
-      <div class="flex flex-wrap gap-2 justify-center">
+      <div class="flex flex-wrap gap-2 justify-start">
         <span>{{ $t('footer.disclaimer') }}</span>
         <span>|</span>
         <p>{{ $t('footer.privacyDataProtection') }}</p>

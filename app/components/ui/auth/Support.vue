@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="bg-[#EDEFF0] px-[135px] max-lg:px-20 max-sm:px-10">
-    <div class="container py-10">
+  <div class="bg-[#EDEFF0]">
+    <div class="container py-10 max-xl:px-6">
       <p class="text-5xl text-primary font-bold max-md:text-3xl">{{ $t('support.title') }}</p>
       <p class="mt-4 text-lg font-medium max-md:text-sm">
         {{ $t('support.description') }}
@@ -10,7 +10,7 @@
 
       <div class="flex mt-16 gap-8 max-md:block max-md:space-y-6">
         <div class="flex justify-start items-start gap-4">
-          <BaseIcon name="phone" size="36" />
+          <img src="/images/phone-no-bg.png" alt="" class="w-10 h-10 object-cover" loading="lazy" />
           <div>
             <p class="text-primary text-lg font-bold">{{ $t('support.phone.number') }}</p>
             <p class="font-medium max-md:text-sm">{{ $t('support.phone.hours') }}</p>
@@ -29,7 +29,8 @@
           />
         </div>
         <div class="flex justify-start items-start gap-4">
-          <BaseIcon name="mail" size="44" />
+          <img src="/images/mail-no-bg.png" alt="" class="w-10 h-10 object-cover" loading="lazy" />
+
           <div>
             <p class="text-primary text-lg font-bold">{{ $t('support.email.email') }}</p>
             <p class="font-medium max-md:text-sm">
@@ -49,7 +50,8 @@
           />
         </div>
         <div class="flex justify-start items-start gap-4">
-          <BaseIcon name="advise" size="44" />
+          <img src="/images/contact-no-bg.png" alt="" class="w-10 h-10 object-cover" loading="lazy" />
+
           <div>
             <p class="text-primary text-lg font-bold">{{ $t('support.consultation.title') }}</p>
             <p class="font-medium max-md:text-sm">{{ $t('support.consultation.description') }}</p>

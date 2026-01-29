@@ -11,9 +11,9 @@ useSeo({
 </script>
 
 <template>
-  <NuxtLayout>
-    <UApp>
+  <UApp>
+    <NuxtLayout>
       <NuxtPage />
-    </UApp>
-  </NuxtLayout>
+    </NuxtLayout>
+  </UApp>
 </template>

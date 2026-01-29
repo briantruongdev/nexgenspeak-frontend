@@ -7,16 +7,28 @@ const route = useRoute()
 const navItemsPrimary = computed(() => [
   { name: t('header.nav.studyPlan'), href: '/study-plan' },
   { name: t('header.nav.teachers'), href: '/teachers' },
-  { name: t('header.nav.materials'), href: '/' }
+  { name: t('header.nav.document'), href: '/document' }
 ])
 
 const navItemsSecondary = computed(() => [
-  { name: t('header.nav.blog'), href: '/' },
-  { name: t('header.nav.contact'), href: '/' },
-  { name: t('header.nav.careers'), href: '/' }
+  { name: t('header.nav.blog'), href: '/blog' },
+  { name: t('header.nav.contact'), href: '/contact' },
+  { name: t('header.nav.recruitment'), href: '/recruitment' }
 ])
 
 const pathActive = computed(() => route.path !== '/' && route.path)
+
+watch(open, isOpen => {
+  if (import.meta.client) {
+    if (isOpen) {
+      document.documentElement.style.overflowX = 'hidden'
+      document.body.style.overflowX = 'hidden'
+    } else {
+      document.documentElement.style.overflowX = ''
+      document.body.style.overflowX = ''
+    }
+  }
+})
 
 const handleScroll = () => {
   const currentScrollY = window.scrollY
@@ -98,12 +110,15 @@ onUnmounted(() => {
 
     <div class="flex gap-4 items-center">
       <BaseButton :text="$t('header.login')" @click="navigateTo('/login')" />
-      <BaseIcon
-        name="phone-call"
-        class="hover:text-primary hover:cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-12"
+      <a href="tel:+84 888 887 798">
+        <UIcon
+          name="i-lucide-phone-call"
+          class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
+      /></a>
+      <UIcon
+        name="i-lucide-search"
+        class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
       />
-      <BaseIcon name="search" class="hover:text-primary hover:cursor-pointer transition-all duration-300 hover:scale-110" />
-
       <USeparator orientation="vertical" :class="isScrolled ? 'h-6' : 'h-8'" class="transition-all duration-300" />
 
       <BaseLanguages class="transition-all duration-300" />
@@ -127,7 +142,15 @@ onUnmounted(() => {
       />
 
       <div class="flex justify-end items-center gap-4">
-        <BaseLanguages class="transition-all duration-300" />
+        <a href="tel:+84 888 887 798">
+          <UIcon
+            name="i-lucide-phone-call"
+            class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
+        /></a>
+        <UIcon
+          name="i-lucide-search"
+          class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
+        />
 
         <UDrawer
           v-model:open="open"
@@ -172,6 +195,7 @@ onUnmounted(() => {
                   v-for="(item, index) in navItemsPrimary"
                   :key="index"
                   class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 border-b border-gray-100 font-semibold"
+                  :class="{ 'text-primary!': pathActive === item.href }"
                   @click="
                     () => {
                       ;(navigateTo(item.href), (open = false))
@@ -187,6 +211,7 @@ onUnmounted(() => {
                   v-for="(item, index) in navItemsSecondary"
                   :key="index"
                   class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 text-[#B4ADAD]"
+                  :class="{ 'text-primary! font-bold': pathActive === item.href }"
                   @click="
                     () => {
                       ;(navigateTo(item.href), (open = false))
@@ -201,6 +226,7 @@ onUnmounted(() => {
 
           <template #footer>
             <BaseButton :text="$t('header.login')" class="w-full" />
+            <BaseLanguages class="transition-all duration-300 w-full mt-4" />
           </template>
         </UDrawer>
       </div>

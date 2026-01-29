@@ -39,7 +39,7 @@ const items = computed(() => [
           </div>
         </div>
       </div>
-      <div class="flex justify-center mt-24">
+      <div class="flex justify-center mt-24 max-sm:mt-12">
         <p class="w-2/3 justify-center text-lg font-medium text-center">
           {{ $t('studyPlan.learningMethod.footer') }}
         </p>

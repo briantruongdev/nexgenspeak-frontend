@@ -1,6 +1,8 @@
 <script setup lang="ts">
 interface ButtonProps {
   variant?: 'solid' | 'outline' | 'soft' | 'subtle' | 'ghost' | 'link'
+  icon?: string
+  trailingIcon?: string
   text?: string
   className?: string
   classText?: string
@@ -10,6 +12,8 @@ interface ButtonProps {
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'solid',
+  icon: '',
+  trailingIcon: '',
   text: '',
   className: '',
   classText: '',
@@ -51,8 +55,7 @@ const uiConfig = computed(() => {
 })
 
 const buttonClasses = computed<string>(() => {
-  const baseClasses =
-    'rounded-xl cursor-pointer hover:scale-102 flex items-center justify-center transition-transform duration-200'
+  const baseClasses = 'rounded cursor-pointer hover:scale-102 flex items-center justify-center transition-transform duration-200'
   const disabledClasses = props.disabled ? 'opacity-50 cursor-not-allowed' : ''
 
   return [baseClasses, variantClasses.value, disabledClasses, props.className].filter(Boolean).join(' ')
@@ -66,7 +69,16 @@ const handleClick = (event: MouseEvent) => {
 </script>
 
 <template>
-  <UButton :class="buttonClasses" class="test" :size="size" :ui="uiConfig" :disabled="disabled" @click="handleClick">
+  <UButton
+    :class="buttonClasses"
+    class="test"
+    :size="size"
+    :ui="uiConfig"
+    :disabled="disabled"
+    :icon
+    :trailing-icon="trailingIcon"
+    @click="handleClick"
+  >
     <template v-if="$slots.default" #leading>
       <slot />
     </template>
