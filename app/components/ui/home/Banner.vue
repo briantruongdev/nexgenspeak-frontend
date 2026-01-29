@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
 // const items = ['/images/banner.png', '/images/banner2.jpg']
 const img = '/images/banner.png'
+const isVisible = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isVisible.value = true
+  }, 100)
+})
 </script>
 
 <template>
@@ -10,7 +19,7 @@ const img = '/images/banner.png'
     <img :src="img" alt="Banner" loading="lazy" class="w-full h-130 sm:h-160 lg:h-190 object-cover object-center" />
     <div class="absolute inset-0 top-1/6 max-xl:px-6 max-lg:top-1/12">
       <div class="container">
-        <p class="text-6xl font-bold text-white mb-10 max-lg:text-4xl">
+        <p class="text-6xl font-bold text-white mb-10 max-lg:text-4xl animate-1" :class="{ active: isVisible }">
           {{ $t('banner.title') }} <br />
           {{ $t('banner.subtitle') }}
         </p>
