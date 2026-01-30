@@ -37,9 +37,9 @@ const items = computed(() => [
 
 <template>
   <div class="container max-xl:px-6">
-    <div class="mb-8 mt-32 max-lg:mt-20">
+    <div class="mb-8 mt-20 max-lg:mt-12 max-[400px]:mt-8! max-[400px]:mb-6!">
       <p class="title">{{ $t('teachingStaff.title') }}</p>
-      <p class="text-lg mt-2 max-md:text-sm">{{ $t('teachingStaff.subtitle') }}</p>
+      <p class="text-lg mt-2 max-sm:text-sm">{{ $t('teachingStaff.subtitle') }}</p>
     </div>
     <UCarousel
       v-slot="{ item }"
@@ -55,20 +55,22 @@ const items = computed(() => [
         next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0 text-primary bg-white/50 shadow-none ring-0 focus:ring-0'
       }"
     >
-      <div class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] h-60">
-        <div class="flex items-end">
-          <img :src="item.image" :alt="item.name" loading="lazy" class="flex items-end" />
+      <div
+        class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] xl:h-60! max-md:h-fit items-stretch"
+      >
+        <div class="flex items-end h-full">
+          <img :src="item.image" :alt="item.name" loading="lazy" class="object-cover h-[80%]" />
         </div>
 
-        <div class="text-white flex py-4 flex-col justify-between">
-          <div class="">
-            <p class="mb-2 text-base sm:text-base lg:text-lg">{{ $t('teachingStaff.teacher') }}: {{ item.name }}</p>
-            <p class="text-sm sm:text-sm lg:text-base line-clamp-5">
+        <div class="text-white flex flex-col justify-between h-full">
+          <div class="py-4 pr-4">
+            <p class="mb-2 text-base lg:text-lg max-[400px]:text-sm">{{ $t('teachingStaff.teacher') }}: {{ item.name }}</p>
+            <p class="text-sm lg:text-base line-clamp-3 max-[400px]:text-xs">
               {{ item.description }}
             </p>
           </div>
 
-          <div class="flex justify-end mt-4 mr-4">
+          <div class="flex justify-end mr-4 mb-4">
             <BaseButton variant="outline" class-name="bg-white border-none rounded-xl" :text="$t('teachingStaff.bookLesson')" />
           </div>
         </div>

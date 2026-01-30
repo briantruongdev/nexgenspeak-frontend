@@ -19,7 +19,7 @@ const summaries = computed(() => [
 
 <template>
   <div class="container">
-    <div class="mt-44 grid grid-cols-[1fr_1.5fr] gap-16 max-lg:mt-24 max-lg:grid-cols-1">
+    <div class="mt-32 grid grid-cols-[1fr_1.5fr] gap-16 max-lg:mt-24 max-lg:grid-cols-1">
       <div class="max-xl:px-6">
         <p class="title">{{ $t('about.title') }}</p>
 
@@ -36,16 +36,17 @@ const summaries = computed(() => [
           </div>
         </div>
         <div class="flex justify-end mt-18 mb-10">
-          <p class="w-2/3 text-lg text-justify">
+          <p class="w-2/3 text-lg text-justify max-[400px]:text-base">
             {{ $t('about.description') }}
           </p>
         </div>
 
         <BaseButton variant="outline" class-name="border-2" :text="$t('about.viewDetails')" icon="i-lucide-move-right" />
       </div>
-      <div class="relative">
-        <img src="/images/home-about.png" alt="" loading="lazy" class="max-[420px]:h-75 h-130" />
-        <div class="absolute inset-0 bg-primary/50 w-2/5 gap-y-4 flex flex-col justify-center">
+      <div class="relative h-130 max-[420px]:h-75 max-lg:h-100 max-sm:h-80">
+        <img src="/images/home-about.png" alt="" loading="lazy" class="w-full h-full object-cover" />
+
+        <div class="absolute inset-0 bg-primary/50 w-2/5 gap-y-4 flex flex-col justify-center max-[400px]:w-3/5">
           <div v-for="item in summaries" :key="item.title" class="text-white mx-10 max-lg:mx-6">
             <p class="text-5xl max-md:text-5xl max-sm:text-3xl font-bold">
               <BaseCounterUp :end="item.value" />

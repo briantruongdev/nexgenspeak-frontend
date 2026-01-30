@@ -83,7 +83,7 @@ const handleClick = (event: MouseEvent) => {
       <slot />
     </template>
 
-    <span v-if="text" :class="classText">
+    <span v-if="text" :class="`${classText} max-[400px]:text-xs`">
       {{ text }}
     </span>
 

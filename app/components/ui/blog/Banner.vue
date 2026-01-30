@@ -4,7 +4,7 @@ const src = '/images/people4.png'
 
 <template>
   <div>
-    <img :src alt="Banner" class="h-screen w-screen object-cover max-lg:h-[60vh]" />
+    <img :src alt="Banner" class="h-[70vh] w-screen object-cover max-lg:h-[60vh]" />
   </div>
 </template>
 

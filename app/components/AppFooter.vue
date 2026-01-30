@@ -47,7 +47,13 @@ const menuSections = computed(() => [
 
 <template>
   <footer class="bg-primary px-32 py-12 max-xl:p-6">
-    <img src="/images/logo-white.png" alt="Logo" loading="lazy" class="w-40 hover:cursor-pointer" @click="navigateTo('/')" />
+    <img
+      src="/images/logo-white.png"
+      alt="Logo"
+      loading="lazy"
+      class="w-40 hover:cursor-pointer max-[400px]:w-32"
+      @click="navigateTo('/')"
+    />
     <div class="grid grid-cols-[1fr_2fr] gap-8 mb-12 text-white max-lg:grid-cols-1">
       <div>
         <div class="flex gap-2 items-center w-fit">
@@ -64,11 +70,14 @@ const menuSections = computed(() => [
           >
         </div>
         <div class="mt-10">
-          <p class="flex gap-4 items-center">
-            <BaseIcon name="phone-background" :size="40" />
-            <a href="tel:+84 888 887 798" class="text-white text-3xl font-bold">0888 887 798</a>
-          </p>
-          <USeparator orientation="horizontal" class="w-2/3 mt-5 mb-9" />
+          <div class="inline-flex flex-col">
+            <p class="flex gap-4 items-center">
+              <BaseIcon name="phone-background" :size="40" />
+              <a href="tel:+84 888 887 798" class="text-white text-3xl font-bold max-[400px]:text-xl"> 0888 887 798 </a>
+            </p>
+
+            <USeparator orientation="horizontal" class="w-full mt-5 mb-9" />
+          </div>
           <p class="flex items-center gap-6">
             <BaseIcon name="face" :size="40" />
             <BaseIcon name="insta" :size="40" />
