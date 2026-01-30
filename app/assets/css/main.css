@@ -60,7 +60,7 @@ body {
   @apply mt-20 max-lg:mt-12 max-[400px]:mt-8!;
 }
 .section-responsive-pt {
-  @apply mt-20 max-lg:mt-12 max-[400px]:mt-8!;
+  @apply pt-20 max-lg:pt-12 max-[400px]:pt-8!;
 }
 .box-shadow {
   box-shadow:
