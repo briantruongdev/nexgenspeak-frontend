@@ -57,7 +57,7 @@ watch(
 </script>
 
 <template>
-  <section class="bg-[#EEF0F1] pt-40 max-lg:pt-0">
+  <section class="bg-[#EEF0F1] pt-36 max-lg:pt-0">
     <div class="container py-16 max-lg:py-12 max-md:py-10 max-xl:px-6">
       <UiTeacherTitle :title="$t('teacher.staff.title')" />
 

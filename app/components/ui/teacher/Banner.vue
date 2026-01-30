@@ -25,7 +25,7 @@ const data = computed(() => [
     <div class="flex h-[80vh] max-lg:flex-col max-lg:gap-8 max-[560px]:h-[600px] max-[400px]:h-[88vh]">
       <div class="mt-12 relative">
         <p class="title mb-5 max-md:text-3xl max-sm:text-2xl">{{ $t('teacher.banner.title') }}</p>
-        <p class="text-xl max-md:text-lg max-sm:text-base">
+        <p class="text-xl max-md:text-lg max-sm:text-base max-[400px]:text-sm!">
           {{ $t('teacher.banner.description') }}
         </p>
         <div class="absolute top-2/5 max-lg:relative max-lg:top-0 max-lg:mt-6">
@@ -46,7 +46,7 @@ const data = computed(() => [
       </div>
     </div>
     <div
-      class="grid grid-cols-3 gap-14 bg-white p-10 rounded-4xl box-shadow absolute -bottom-1/4 max-lg:grid-cols-1 max-lg:gap-6 max-lg:p-6 max-lg:relative max-lg:bottom-0 max-lg:mb-6"
+      class="grid grid-cols-3 gap-14 bg-white p-8 rounded-4xl box-shadow absolute -bottom-1/4 max-lg:grid-cols-1 max-lg:gap-6 max-lg:p-6 max-lg:relative max-lg:bottom-0 max-lg:mb-6 max-xl:mr-6 max-lg:mr-0"
     >
       <div v-for="(item, index) in data" :key="index">
         <BaseIcon :name="item.icon" :size="40" class="max-sm:w-8 max-sm:h-8" />
