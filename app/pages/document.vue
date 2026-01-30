@@ -4,7 +4,7 @@ import { UiDocumentFamilyAndFriend } from '#components'
 
 <template>
   <div>
-    <UiDocumentBanner />
+    <!-- <UiDocumentBanner /> -->
     <UiDocumentArchive />
     <UiDocumentFamilyAndFriend />
     <UiDocumentExamPreparation />

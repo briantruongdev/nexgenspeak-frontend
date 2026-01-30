@@ -38,15 +38,17 @@ const paged = computed(() => {
 </script>
 
 <template>
-  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
+  <div class="container section-responsive-pt max-xl:px-6">
     <p class="title">{{ $t('document.examPreparation.title') }}</p>
     <p class="mt-8">
       {{ $t('document.examPreparation.description') }}
     </p>
-    <div class="grid grid-cols-3 gap-16 mt-10 max-md:grid-cols-2 max-md:gap-10 max-sm:gap-6">
+    <div
+      class="grid grid-cols-3 gap-16 mt-10 max-md:grid-cols-2 max-md:gap-10 max-sm:gap-6 max-lg:gap-6 max-[400px]:grid-cols-1!"
+    >
       <div v-for="(item, index) in paged" :key="index">
         <div class="bg-white box-shadow h-full flex flex-col rounded-xl">
-          <img :src="item.image" alt="" loading="lazy" class="w-full object-cover rounded-tl-xl rounded-tr-xl" />
+          <img :src="item.image" alt="" loading="lazy" class="w-full h-80 max-lg:h-64 object-cover rounded-tl-xl rounded-tr-xl" />
 
           <div class="p-4 flex flex-col flex-1">
             <p class="mb-10 text-lg max-sm:text-sm">
