@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-
 // const items = ['/images/banner.png', '/images/banner2.jpg']
 const img = '/images/banner.png'
 const isVisible = ref(false)

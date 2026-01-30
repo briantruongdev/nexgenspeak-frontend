@@ -6,8 +6,8 @@
     <UiRecruitmentDifference />
     <UiRecruitmentCultureAndCoreValues />
     <UiRecruitmentShare />
-    <UiRecruitmentDevelopment />
-    <UiRecruitmentEvent />
+    <UiRecruitmentDevelopment class="mb-12!" />
+    <!-- <UiRecruitmentEvent /> -->
   </div>
 </template>
 

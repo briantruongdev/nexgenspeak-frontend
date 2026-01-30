@@ -137,7 +137,7 @@ onUnmounted(() => {
         src="/images/logo.png"
         alt="Logo"
         loading="lazy"
-        class="hover:cursor-pointer transition-all duration-300 hover:scale-110 w-24"
+        class="hover:cursor-pointer transition-all duration-300 hover:scale-110 w-20"
         @click="navigateTo('/')"
       />
 
@@ -175,7 +175,7 @@ onUnmounted(() => {
                   src="/images/logo.png"
                   alt="Logo"
                   loading="lazy"
-                  class="w-16 hover:cursor-pointer transition-all duration-300 hover:scale-110"
+                  class="w-14 hover:cursor-pointer transition-all duration-300 hover:scale-110"
                   @click="
                     () => {
                       ;(navigateTo('/'), (open = false))

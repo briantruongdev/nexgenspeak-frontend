@@ -8,14 +8,14 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 </script>
 
 <template>
-  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
+  <div class="container max-xl:px-6 section-responsive-pt">
     <p class="title">
       {{ $t('recruitment.share.title') }} <span class="text-primary">{{ $t('recruitment.share.titleHighlight') }}</span>
     </p>
-    <p class="mt-9">
+    <p class="mt-6">
       {{ $t('recruitment.share.description') }}
     </p>
-    <div class="mt-20 grid grid-cols-2 gap-13 max-sm:grid-cols-1! max-sm:mt-10 max-sm:gap-6">
+    <div class="mt-20 grid grid-cols-2 gap-13 max-sm:grid-cols-1! max-sm:mt-10 max-sm:gap-6 max-md:mt-12">
       <div class="grid grid-cols-[1fr_1.5fr] gap-8 max-md:grid-cols-1">
         <UCarousel
           v-if="widthScreen > 768"
@@ -35,19 +35,14 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
           }"
           class="w-full"
         >
-          <img :src="item" class="object-cover" />
+          <img :src="item" class="object-cover h-40" />
         </UCarousel>
-        <img
-          src="/images/ceo.png"
-          alt=""
-          class="h-127.5 max-lg:h-[420px] object-cover max-md:h-127 max-sm:w-full"
-          loading="lazy"
-        />
+        <img src="/images/ceo.png" alt="" class="object-cover max-md:h-127 max-sm:w-full h-full" loading="lazy" />
       </div>
       <div>
         <p class="text-3xl font-bold">{{ $t('recruitment.share.ceo.name') }}</p>
         <p class="mt-1 font-medium">{{ $t('recruitment.share.ceo.position') }}</p>
-        <div class="space-y-3 mt-10">
+        <div class="space-y-3 mt-8 max-sm:mt-4">
           <p>
             {{ $t('recruitment.share.ceo.quote1') }}
           </p>
