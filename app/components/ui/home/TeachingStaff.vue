@@ -37,7 +37,7 @@ const items = computed(() => [
 
 <template>
   <div class="container max-xl:px-6">
-    <div class="mb-8 mt-20 max-lg:mt-12 max-[400px]:mt-8! max-[400px]:mb-6!">
+    <div class="mb-8 section-responsive max-[400px]:mb-6!">
       <p class="title">{{ $t('teachingStaff.title') }}</p>
       <p class="text-lg mt-2 max-sm:text-sm">{{ $t('teachingStaff.subtitle') }}</p>
     </div>

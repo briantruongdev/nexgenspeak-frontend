@@ -6,7 +6,7 @@
     <UiStudyPlanTrialRegistration />
     <UiStudyPlanLearningMethod />
     <UiStudyPlanAbout />
-    <UiHomeSupport />
+    <UiHomeSupport class="max-md:mt-0!" />
   </div>
 </template>
 
