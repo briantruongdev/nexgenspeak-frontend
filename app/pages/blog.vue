@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <UiBlogBanner />
+    <!-- <UiBlogBanner /> -->
     <UiBlogToday />
     <UiBlogMomentShared />
     <UiBlogShared />
