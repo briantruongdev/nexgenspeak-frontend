@@ -3,7 +3,7 @@ import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
 
-const height = computed(() => (width.value > 640 ? 50 : 300))
+const height = computed(() => (width.value > 640 ? 500 : 300))
 </script>
 
 <template>

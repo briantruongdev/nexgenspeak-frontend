@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
+
 const { t } = useI18n()
 
+const { width } = useWindowSize()
 interface Teacher {
   id: number
   name: string
@@ -24,7 +27,7 @@ const teachers = computed<Teacher[]>(() => [
       { icon: 'play', text: t('teacher.staff.achievements.ieltsMusketeer') }
     ]
   },
-  ...Array.from({ length: 17 }).map((_, idx) => ({
+  ...Array.from({ length: 10 }).map((_, idx) => ({
     id: idx + 2,
     name: 'Nguyễn Mỹ Anh',
     title: t('teacher.staff.positions.englishTeacher'),
@@ -38,13 +41,13 @@ const teachers = computed<Teacher[]>(() => [
 ])
 
 const page = ref(1)
-const pageSize = 9
+const pageSize = computed(() => (width.value > 640 ? 6 : 4))
 const selectedTeacherId = ref<Teacher['id']>(teachers.value[0]?.id ?? 1)
 const selectedTeacher = computed(() => teachers.value.find(t => t.id === selectedTeacherId.value) ?? teachers.value[0])
 
 const pagedTeachers = computed(() => {
-  const start = (page.value - 1) * pageSize
-  return teachers.value.slice(start, start + pageSize)
+  const start = (page.value - 1) * pageSize.value
+  return teachers.value.slice(start, start + pageSize.value)
 })
 
 watch(

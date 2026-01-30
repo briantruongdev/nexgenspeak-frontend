@@ -17,25 +17,13 @@ const items = computed(() => [
   {
     name: t('teacher.educationPhilosophy.teachers.teacher3'),
     image: '/images/teacher2.jpg'
-  },
-  {
-    name: t('teacher.educationPhilosophy.teachers.teacher1'),
-    image: '/images/teacher1.jpg'
-  },
-  {
-    name: t('teacher.educationPhilosophy.teachers.teacher2'),
-    image: '/images/teacher2.jpg'
-  },
-  {
-    name: t('teacher.educationPhilosophy.teachers.teacher3'),
-    image: '/images/teacher2.jpg'
   }
 ])
 const itemCopy = computed(() => {
   if (width.value > 1024) {
     return items.value
   }
-  return items.value.slice(0, 4)
+  return items.value.slice(0, 2)
 })
 </script>
 
