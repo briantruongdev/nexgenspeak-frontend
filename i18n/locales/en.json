@@ -165,7 +165,11 @@
     "maxLength100": "Username must not exceed 100 characters",
     "passwordMismatch": "Confirm password does not match new password",
     "phoneOrEmailRequired": "Phone number or email is required",
-    "phoneOrEmailInvalid": "Please enter a valid phone number or email"
+    "phoneOrEmailInvalid": "Please enter a valid phone number or email",
+    "nameRequired": "Full name is required",
+    "emailInvalid": "Invalid email address",
+    "phoneInvalid": "Invalid phone number",
+    "englishLevelRequired": "Please select your English level"
   },
   "auth": {
     "userName": "Username",
@@ -187,7 +191,11 @@
     "registerAccount": "Create an account",
     "enterOtp": "Please enter the code sent to your email or phone number",
     "haveAccount": "Already have an account?",
-    "login": "Log in"
+    "login": "Log in",
+    "invalid-email": "Invalid email address",
+    "email-is-required": "Email is required",
+    "email": "Email",
+    "messageLoginFail": "Login failed. Please check your email or password."
   },
   "or": "or",
   "studyPlan": {

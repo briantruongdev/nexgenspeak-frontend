@@ -1,9 +1,9 @@
 import { z } from 'zod'
-import { PASSWORD_REGEX, EMAIL_REGEX, PHONE_REGEX } from '~/constants'
+import { PASSWORD_REGEX } from '~/constants'
 
 export function loginSchema(t: (key: string) => string) {
   return z.object({
-    userName: z.string().min(1, t('validation.usernameRequired')).max(100, t('validation.maxLength100')),
+    email: z.email({ message: t('auth.invalid-email') }).min(1, { message: t('auth.email-is-required') }),
     password: z.string().regex(PASSWORD_REGEX, {
       message: t('validation.password')
     })
@@ -13,9 +13,7 @@ export function loginSchema(t: (key: string) => string) {
 export function forgotPassword(t: (key: string) => string) {
   return z
     .object({
-      oldPassword: z.string().regex(PASSWORD_REGEX, {
-        message: t('validation.password')
-      }),
+      email: z.email({ message: t('auth.invalid-email') }).min(1, { message: t('auth.email-is-required') }),
       newPassword: z.string().regex(PASSWORD_REGEX, {
         message: t('validation.password')
       }),
@@ -30,12 +28,7 @@ export function forgotPassword(t: (key: string) => string) {
 }
 export function registerSchema(t: (key: string) => string) {
   return z.object({
-    phoneOrEmail: z
-      .string()
-      .min(1, t('validation.phoneOrEmailRequired'))
-      .refine(value => EMAIL_REGEX.test(value) || PHONE_REGEX.test(value), {
-        message: t('validation.phoneOrEmailInvalid')
-      }),
+    email: z.email({ message: t('auth.invalid-email') }).min(1, { message: t('auth.email-is-required') }),
     password: z.string().regex(PASSWORD_REGEX, {
       message: t('validation.password')
     })

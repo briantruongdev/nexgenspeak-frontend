@@ -1,32 +1,37 @@
 <script setup lang="ts">
-import { loginSchema, type IFormLogin } from '~/schemas/auth.schema'
+import { loginSchema } from '~/schemas/auth.schema'
 
 definePageMeta({ layout: 'auth' })
 const { t } = useI18n()
 
 const { schema } = useSchema(loginSchema)
+const { isProcessing, formLogin, handleLogin } = useAuth()
 const showPass = ref(false)
+const formRef = ref()
 
-const form = ref<IFormLogin>({
-  userName: '',
-  password: ''
-})
+const login = async () => {
+  const isValid = await formRef.value?.validate()
+  if (isValid) {
+    await handleLogin()
+  }
+}
 </script>
 
 <template>
   <UiAuthLayout :sub-title="t('auth.loginToNGS')">
-    <UForm ref="formRef" :schema :state="form" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
-      <UFormField name="userName">
-        <UInput v-model="form.userName" :placeholder="t('auth.userName')" :ui="{ base: 'h-12 bg-transparent' }" class="w-full" />
+    <UForm ref="formRef" :schema :state="formLogin" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
+      <UFormField name="email">
+        <UInput v-model="formLogin.email" :placeholder="t('auth.email')" :ui="{ base: 'h-12 bg-transparent' }" class="w-full" />
       </UFormField>
 
       <UFormField name="password" class="w-full">
         <UInput
-          v-model="form.password"
+          v-model="formLogin.password"
           :placeholder="t('auth.password')"
           :type="showPass ? 'text' : 'password'"
           class="w-full"
           :ui="{ trailing: 'pe-1', base: 'h-12 bg-transparent' }"
+          @keyup.enter="login"
         >
           <template #trailing>
             <UButton
@@ -39,7 +44,15 @@ const form = ref<IFormLogin>({
           </template>
         </UInput>
       </UFormField>
-      <BaseButton :text="$t('header.login')" class="w-full" class-name="h-12" class-text="text-lg" />
+      <BaseButton
+        :text="$t('header.login')"
+        class="w-full"
+        class-name="h-12"
+        :loading="isProcessing"
+        :disabled="isProcessing"
+        class-text="text-lg"
+        @click="login"
+      />
     </UForm>
     <div class="mt-4 flex justify-between items-center max-xl:flex-col max-xl:gap-4">
       <p class="font-bold text-sm">

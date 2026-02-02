@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { email, isAuthenticated } = storeToRefs(useAuthStore())
+
 const open = ref(false)
 const isScrolled = ref(false)
 const route = useRoute()
@@ -109,7 +111,8 @@ onUnmounted(() => {
     </div>
 
     <div class="flex gap-4 items-center">
-      <BaseButton :text="$t('header.login')" @click="navigateTo('/login')" />
+      <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" @click="navigateTo('/login')" />
+      <p v-else class="text-primary font-medium">{{ email }}</p>
       <a href="tel:+84 888 887 798">
         <UIcon
           name="i-lucide-phone-call"
@@ -225,7 +228,10 @@ onUnmounted(() => {
           </template>
 
           <template #footer>
-            <BaseButton :text="$t('header.login')" class="w-full" />
+            <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" class="w-full" />
+            <UBadge color="primary" variant="subtle" class="h-10 text-center flex justify-center text-base font-medium">{{
+              email
+            }}</UBadge>
             <BaseLanguages class="transition-all duration-300 w-full mt-4" />
           </template>
         </UDrawer>

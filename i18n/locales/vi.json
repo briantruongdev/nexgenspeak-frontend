@@ -165,7 +165,11 @@
     "maxLength100": "Tên người dùng không qúa 100 kí tự",
     "passwordMismatch": "Mật khẩu xác nhận không khớp với mật khẩu mới",
     "phoneOrEmailRequired": "Số điện thoại hoặc email là bắt buộc",
-    "phoneOrEmailInvalid": "Vui lòng nhập số điện thoại hoặc email hợp lệ"
+    "phoneOrEmailInvalid": "Vui lòng nhập số điện thoại hoặc email hợp lệ",
+    "nameRequired": "Họ và tên là bắt buộc",
+    "emailInvalid": "Email không hợp lệ",
+    "phoneInvalid": "Số điện thoại không hợp lệ",
+    "englishLevelRequired": "Vui lòng chọn trình độ Tiếng Anh"
   },
   "auth": {
     "userName": "Tên đăng nhập",
@@ -187,7 +191,11 @@
     "registerAccount": "Đăng ký tài khoản",
     "enterOtp": "Vui lòng nhập mã từ Email hoặc Số điện thoại",
     "haveAccount": "Bạn đã có tài khoản?",
-    "login": "Đăng nhập"
+    "login": "Đăng nhập",
+    "email": "Email",
+    "invalid-email": "Email không hợp lệ",
+    "email-is-required": "Email là bắt buộc",
+    "messageLoginFail": "Đăng nhập không thành công. Vui lòng kiểm tra lại email hoặc mật khẩu."
   },
   "or": "hoặc",
   "studyPlan": {
