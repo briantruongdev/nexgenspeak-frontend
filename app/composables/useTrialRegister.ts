@@ -1,9 +1,11 @@
 import type { IFormTrialRegister } from '~/schemas/trial-register.schema'
+import { apiTrialRegister } from '~/services'
 
 export const useTrialRegister = () => {
   const { t } = useI18n()
   const isTrialRegisterModalVisible = useState<boolean>('trial-register-modal', () => false)
   const isProcessing = useState<boolean>('is-processing-trial-register', () => false)
+  const { showSuccess, showError } = useNotification()
 
   const englishLevelOptions = computed(() => [
     { label: t('trialRegister.beginner'), value: 'BEGINNER' },
@@ -25,7 +27,7 @@ export const useTrialRegister = () => {
   const toggleTrialRegisterModal = () => {
     isTrialRegisterModalVisible.value = !isTrialRegisterModalVisible.value
   }
-  const formRef = ref()
+
   const form = ref<IFormTrialRegister>({
     name: '',
     email: '',
@@ -35,13 +37,23 @@ export const useTrialRegister = () => {
 
   const onSubmit = async () => {
     try {
-      const isValid = await formRef.value?.validate()
-      if (!isValid) {
-        return
-      }
       isProcessing.value = true
+      const data = {
+        ...form.value,
+        englishLevel: englishLevelOptions.value.find(item => item.value === form.value.englishLevel)?.label || ''
+      }
+      const { message } = await apiTrialRegister.register(data)
+      showSuccess(message)
+      form.value = {
+        name: '',
+        email: '',
+        phone: '',
+        englishLevel: ''
+      }
+      closeTrialRegisterModal()
     } catch (error) {
       console.error(error)
+      showError(t('trialRegister.messageError'))
     } finally {
       isProcessing.value = false
     }
@@ -50,7 +62,6 @@ export const useTrialRegister = () => {
   return {
     isTrialRegisterModalVisible,
     isProcessing,
-    formRef,
     form,
     englishLevelOptions,
 

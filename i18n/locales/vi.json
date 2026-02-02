@@ -444,6 +444,13 @@
     "email": "Email",
     "englishLevel": "Trình độ Tiếng anh",
     "submit": "Đăng kí ngay",
-    "title": "Đăng kí học thử"
+    "title": "Đăng kí học thử",
+    "messageError": "Không thể hoàn tất đăng ký học thử. Vui lòng thử lại sau."
+  },
+  "notification": {
+    "error": "Lỗi",
+    "success": "Thành công",
+    "warning": "Cảnh báo",
+    "info": "Thông báo"
   }
 }

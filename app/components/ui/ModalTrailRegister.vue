@@ -3,8 +3,17 @@ import { trialRegisterSchema } from '~/schemas/trial-register.schema'
 
 const { isTrialRegisterModalVisible, isProcessing, form, englishLevelOptions, onSubmit } = useTrialRegister()
 
+const formRef = ref()
+
 const { schema } = useSchema(trialRegisterSchema)
 const { t } = useI18n()
+
+const handleSubmit = async () => {
+  const isValid = await formRef.value?.validate()
+  if (isValid) {
+    await onSubmit()
+  }
+}
 </script>
 
 <template>
@@ -44,7 +53,7 @@ const { t } = useI18n()
           :disabled="isProcessing"
           class="w-full"
           trailing-icon="i-lucide-move-right"
-          @click="onSubmit"
+          @click="handleSubmit"
         />
       </div>
     </template>

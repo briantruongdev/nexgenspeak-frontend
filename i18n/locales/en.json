@@ -444,6 +444,13 @@
     "email": "Email",
     "englishLevel": "English level",
     "submit": "Register now",
-    "title": "Register for a trial lesson"
+    "title": "Register for a trial lesson",
+    "messageError": "Unable to complete trial registration. Please try again later."
+  },
+  "notification": {
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
   }
 }
