@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section class="bg-primary h-[90vh] flex items-center max-xl:px-6 max-lg:h-[56vh] max-md:h-[60vh] max-xl:h-[70vh]">
+  <section
+    class="bg-primary h-[80vh] flex items-center max-xl:px-6 max-lg:h-[56vh] max-md:h-[68vh] max-xl:h-[70vh] max-[500px]:[60vh]!"
+  >
     <div class="container grid grid-cols-[1fr_1.5fr] gap-24 items-center max-lg:gap-10 max-md:grid-cols-1 max-md:gap-6">
       <img
         src="/images/about-study.png"
@@ -10,10 +12,12 @@
         class="w-95 h-95 max-md:w-52 max-md:h-52 rounded-full object-cover max-lg:w-72 max-lg:h-72 justify-self-end max-md:justify-self-center"
       />
       <div class="text-white">
-        <p class="font-bold text-5xl my-6 max-md:text-4xl max-md:text-center max-[400px]:text-3xl! max-[400px]:mb-4!">
+        <p
+          class="font-bold text-5xl my-6 max-md:text-4xl max-md:text-center max-[400px]:text-3xl! max-[400px]:mb-4! max-[400px]:my-0"
+        >
           {{ $t('studyPlan.about.title') }}
         </p>
-        <p class="text-lg mb-4 max-md:text-base max-md:text-center">
+        <p class="text-lg mb-4 max-md:text-base max-md:text-center max-sm:text-sm">
           {{ $t('studyPlan.about.description') }}
         </p>
         <!-- <p class="text-lg max-md:text-base">

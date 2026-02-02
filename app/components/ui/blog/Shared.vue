@@ -52,11 +52,11 @@ const items = computed(() => [
       :ui="{
         item: 'basis-full basis-1/3 max-sm:basis-1/2',
         prev: 'max-xl:translate-x-14 max-sm:-translate-x-2  hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60',
-        next: 'max-xl:-translate-x-14 max-lg:-translate-x-20 max-md:-translate-x-16  max-sm:translate-x-2 hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
+        next: 'max-xl:-translate-x-14 max-lg:-translate-x-16 max-md:-translate-x-16  max-sm:translate-x-2 hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
       }"
       class="w-full"
     >
-      <img :src="item.image" class="object-cover h-100 w-100 max-sm:h-40 max-lg:h-70 max-lg:w-70 max-md:h-60" />
+      <img :src="item.image" class="object-cover h-72 w-100 max-sm:h-40 max-lg:h-60 max-lg:w-70 max-md:h-40 max-[500px]:h-30!" />
       <p class="mt-8 text-lg max-sm:text-sm max-md:text-base">{{ item.des }}</p>
     </UCarousel>
     <div class="flex justify-center my-12 max-sm:my-6">
