@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { openTrialRegisterModal } = useTrialRegister()
 // const items = ['/images/banner.png', '/images/banner2.jpg']
 const img = '/images/banner.png'
 const isVisible = ref(false)
@@ -31,6 +32,7 @@ onMounted(() => {
           class-text="max-[400px]:text-xs"
           :text="$t('banner.learnMore')"
           icon="i-lucide-move-right"
+          @click="openTrialRegisterModal"
         />
       </div>
     </div>

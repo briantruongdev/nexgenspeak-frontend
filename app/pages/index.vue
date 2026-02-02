@@ -19,6 +19,7 @@ useSeo({
     <UiHomeAbout keepalive />
     <UiHomeSlogan keepalive />
     <UiHomeSupport keepalive />
+    <UiModalTrailRegister keepalive />
   </div>
 </template>
 

@@ -426,5 +426,24 @@
     "event": {
       "title": "Các Sự kiện tại NexGen Speak"
     }
+  },
+
+  "trialRegister": {
+    "beginner": "A1 - Mới bắt đầu",
+    "elementary": "A2 - Sơ cấp",
+    "intermediate": "B1 - Trung cấp",
+    "upperIntermediate": "B2 - Trung cấp trên",
+    "advanced": "C1 - Cao cấp",
+    "proficient": "C2 - Thành thạo",
+    "namePlaceholder": "Nhập họ và tên của bạn",
+    "phonePlaceholder": "Nhập số điện thoại của bạn",
+    "emailPlaceholder": "Nhập địa chỉ email của bạn",
+    "englishLevelPlaceholder": "Chọn trình độ Tiếng anh",
+    "name": "Họ và Tên",
+    "phone": "Số điện thoại",
+    "email": "Email",
+    "englishLevel": "Trình độ Tiếng anh",
+    "submit": "Đăng kí ngay",
+    "title": "Đăng kí học thử"
   }
 }

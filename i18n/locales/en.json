@@ -426,5 +426,24 @@
     "event": {
       "title": "Events at NexGen Speak"
     }
+  },
+
+  "trialRegister": {
+    "beginner": "A1 - Beginner",
+    "elementary": "A2 - Elementary",
+    "intermediate": "B1 - Intermediate",
+    "upperIntermediate": "B2 - Upper intermediate",
+    "advanced": "C1 - Advanced",
+    "proficient": "C2 - Proficient",
+    "namePlaceholder": "Enter your full name",
+    "phonePlaceholder": "Enter your phone number",
+    "emailPlaceholder": "Enter your email address",
+    "englishLevelPlaceholder": "Select your English level",
+    "name": "Full name",
+    "phone": "Phone number",
+    "email": "Email",
+    "englishLevel": "English level",
+    "submit": "Register now",
+    "title": "Register for a trial lesson"
   }
 }

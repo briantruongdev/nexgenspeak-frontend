@@ -8,6 +8,8 @@ interface ButtonProps {
   classText?: string
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   disabled?: boolean
+  loading?: boolean
+  loadingIcon?: string
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -18,7 +20,9 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   className: '',
   classText: '',
   size: 'lg',
-  disabled: false
+  disabled: false,
+  loading: false,
+  loadingIcon: 'i-lucide-loader'
 })
 
 const emit = defineEmits<{
@@ -77,6 +81,8 @@ const handleClick = (event: MouseEvent) => {
     :disabled="disabled"
     :icon
     :trailing-icon="trailingIcon"
+    :loading="loading"
+    :loading-icon="loadingIcon"
     @click="handleClick"
   >
     <template v-if="$slots.default" #leading>
