@@ -17,10 +17,10 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <UModal v-model:open="isTrialRegisterModalVisible" :title="t('trialRegister.title')" class="w-1/2">
+  <UModal v-model:open="isTrialRegisterModalVisible" :title="t('trialRegister.title')" class="w-1/2 max-lg:w-10/12">
     <template #body>
       <UForm ref="formRef" :schema="schema" :state="form" @submit="onSubmit">
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid grid-cols-2 gap-6 max-md:grid-cols-1">
           <UFormField :label="t('trialRegister.name')" name="name" required>
             <BaseInput v-model="form.name" :placeholder="t('trialRegister.namePlaceholder')" class="w-full" />
           </UFormField>
