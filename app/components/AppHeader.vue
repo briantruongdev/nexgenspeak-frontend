@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { email, isAuthenticated } = storeToRefs(useAuthStore())
-
+const { handleLogout } = useAuth()
 const open = ref(false)
 const isScrolled = ref(false)
 const route = useRoute()
@@ -112,7 +112,22 @@ onUnmounted(() => {
 
     <div class="flex gap-4 items-center">
       <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" @click="navigateTo('/login')" />
-      <p v-else class="text-primary font-medium">{{ email }}</p>
+
+      <UPopover v-else>
+        <BaseIcon name="avatar-default" color="#ddd" size="36" class="hover:cursor-pointer" />
+
+        <template #content>
+          <div class="p-4 space-y-2">
+            <p class="text-primary font-medium">
+              {{ email }}
+            </p>
+            <p class="hover:underline hover:text-primary hover:cursor-pointer" @click="handleLogout">
+              {{ $t('auth.logout') }}
+            </p>
+          </div>
+        </template>
+      </UPopover>
+
       <a href="tel:+84 888 887 798">
         <UIcon
           name="i-lucide-phone-call"
@@ -229,9 +244,13 @@ onUnmounted(() => {
 
           <template #footer>
             <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" class="w-full" />
-            <UBadge color="primary" variant="subtle" class="h-10 text-center flex justify-center text-base font-medium">{{
-              email
-            }}</UBadge>
+            <div v-else class="space-y-4">
+              <UBadge color="primary" variant="subtle" class="h-10 text-center flex justify-center text-base font-medium">{{
+                email
+              }}</UBadge>
+              <BaseButton :text="$t('auth.logout')" class="w-full" />
+            </div>
+
             <BaseLanguages class="transition-all duration-300 w-full mt-4" />
           </template>
         </UDrawer>

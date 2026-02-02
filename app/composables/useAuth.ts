@@ -100,7 +100,7 @@ export const useAuth = () => {
 
   const handleLogout = () => {
     accessTokenCookie.value = null
-    localStorage.removeItem('email')
+    email.value = ''
     navigateTo('/')
   }
 

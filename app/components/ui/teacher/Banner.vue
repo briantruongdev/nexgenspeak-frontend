@@ -23,7 +23,7 @@ const data = computed(() => [
 
 <template>
   <div class="container relative max-xl:px-6">
-    <div class="flex h-[80vh] max-lg:flex-col max-lg:gap-8 max-[560px]:h-[600px] max-[400px]:h-[88vh]">
+    <div class="flex h-[76vh] max-lg:flex-col max-lg:gap-8 max-[560px]:h-[600px] max-[400px]:h-[88vh]">
       <div class="mt-12 relative">
         <p class="title mb-5 max-md:text-3xl max-sm:text-2xl">{{ $t('teacher.banner.title') }}</p>
         <p class="text-xl max-md:text-lg max-sm:text-base max-[400px]:text-sm!">
