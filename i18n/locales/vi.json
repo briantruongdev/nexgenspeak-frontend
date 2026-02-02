@@ -215,7 +215,8 @@
     "strong-password": "Mật khẩu mạnh",
     "mustContain": "Phải bao gồm",
     "createAccountFail": "Tạo tài khoản thất bại. Vui lòng thử lại sau!",
-    "resetPasswordFail": "Đặt lại mật khẩu thất bại. Vui lòng thử lại sau!"
+    "resetPasswordFail": "Đặt lại mật khẩu thất bại. Vui lòng thử lại sau!",
+    "logout": "Đăng xuất"
   },
   "or": "hoặc",
   "studyPlan": {

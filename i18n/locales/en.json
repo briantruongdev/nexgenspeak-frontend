@@ -215,7 +215,8 @@
     "strong-password": "Strong password",
     "mustContain": "Must contain",
     "createAccountFail": "Failed to create account. Please try again later!",
-    "resetPasswordFail": "Password reset failed. Please try again later!"
+    "resetPasswordFail": "Password reset failed. Please try again later!",
+    "logout": "Logout"
   },
   "or": "or",
   "studyPlan": {

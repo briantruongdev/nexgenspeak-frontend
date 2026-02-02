@@ -1,4 +1,3 @@
-import { form } from '#build/ui'
 import { storeToRefs } from 'pinia'
 import type { IFormForgotPassword, IFormLogin, IFormRegister } from '~/schemas/auth.schema'
 import { apiAuth } from '~/services'
@@ -6,7 +5,7 @@ import { useAuthStore } from '~/stores/auth.store'
 
 export const useAuth = () => {
   const { showSuccess, showError } = useNotification()
-  const { accessTokenCookie } = storeToRefs(useAuthStore())
+  const { accessTokenCookie, email } = storeToRefs(useAuthStore())
   const { t } = useI18n()
 
   const isProcessing = ref(false)
@@ -23,7 +22,7 @@ export const useAuth = () => {
       const data = await apiAuth.login(formLogin.value)
       showSuccess(data.message)
       accessTokenCookie.value = data.token
-      localStorage.setItem('email', data.user.email)
+      email.value = data.user.email
 
       formLogin.value = {
         email: '',
@@ -99,6 +98,12 @@ export const useAuth = () => {
     }
   }
 
+  const handleLogout = () => {
+    accessTokenCookie.value = null
+    localStorage.removeItem('email')
+    navigateTo('/')
+  }
+
   return {
     isProcessing,
     formLogin,
@@ -109,6 +114,7 @@ export const useAuth = () => {
     canResetPassword,
     handleLogin,
     handleRegister,
-    handleResetPassword
+    handleResetPassword,
+    handleLogout
   }
 }

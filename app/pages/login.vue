@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { loginSchema } from '~/schemas/auth.schema'
 
-definePageMeta({ layout: 'auth' })
+definePageMeta({ layout: 'auth', middleware: 'guest' })
 const { t } = useI18n()
 
 const { schema } = useSchema(loginSchema)

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { registerSchema } from '~/schemas/auth.schema'
 
-definePageMeta({ layout: 'auth' })
+definePageMeta({ layout: 'auth', middleware: 'guest' })
 const { t } = useI18n()
 const { isProcessing, formRegister, canRegister, handleRegister } = useAuth()
 const { schema } = useSchema(registerSchema)

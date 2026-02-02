@@ -5,10 +5,17 @@ export const useAuthStore = defineStore('auth', () => {
     maxAge: 60 * 60 * 24 * 7,
     sameSite: 'lax'
   })
-  const email = computed(() => localStorage.getItem('email'))
-  const isAuthenticated = computed(() => {
-    return !!accessTokenCookie.value
+
+  const emailCookie = useCookie('email', {
+    maxAge: 60 * 60 * 24 * 7,
+    sameSite: 'lax'
   })
 
-  return { accessTokenCookie, isAuthenticated, email }
+  const isAuthenticated = computed(() => !!accessTokenCookie.value)
+
+  return {
+    accessTokenCookie,
+    isAuthenticated,
+    email: emailCookie
+  }
 })
