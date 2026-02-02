@@ -24,7 +24,7 @@ const items = computed(() => [
 </script>
 
 <template>
-  <div class="container pt-30 max-lg:pt-20 max-xl:px-6">
+  <div class="container pt-16 max-xl:px-6 max-[500px]:pt-12!">
     <p class="title">{{ $t('contact.contactUs.title') }}</p>
     <p class="text-xl mt-7 max-sm:mt-4 max-lg:text-base">
       {{ $t('contact.contactUs.description') }}
