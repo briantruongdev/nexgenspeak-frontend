@@ -34,13 +34,7 @@ const login = async () => {
           @keyup.enter="login"
         >
           <template #trailing>
-            <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showPass ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-              @click="showPass = !showPass"
-            />
+            <UButton color="neutral" variant="link" size="sm" @click="showPass = !showPass" />
           </template>
         </UInput>
       </UFormField>

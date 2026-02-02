@@ -1,11 +1,11 @@
 import { storeToRefs } from 'pinia'
-import type { IFormLogin } from '~/schemas/auth.schema'
+import type { IFormLogin, IFormRegister } from '~/schemas/auth.schema'
 import { apiAuth } from '~/services'
 import { useAuthStore } from '~/stores/auth.store'
 
 export const useAuth = () => {
   const { showSuccess, showError } = useNotification()
-  const { email, accessTokenCookie } = storeToRefs(useAuthStore())
+  const { accessTokenCookie } = storeToRefs(useAuthStore())
   const { t } = useI18n()
 
   const isProcessing = ref(false)
@@ -30,11 +30,40 @@ export const useAuth = () => {
       navigateTo('/')
     } catch (error) {
       console.error(error)
-      showError(t('trialRegister.messageError'))
+      showError(t('auth.messageLoginFail'))
     } finally {
       isProcessing.value = false
     }
   }
 
-  return { isProcessing, formLogin, handleLogin }
+  const formRegister = ref<IFormRegister>({
+    email: '',
+    phone: '',
+    password: '',
+    confirmPassword: ''
+  })
+
+  const handleRegister = async () => {
+    try {
+      isProcessing.value = true
+
+      const data = await apiAuth.register(formRegister.value)
+      showSuccess(data.message)
+
+      formRegister.value = {
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
+      }
+      navigateTo('/login')
+    } catch (error) {
+      console.error(error)
+      showError(t('auth.createAccountFail'))
+    } finally {
+      isProcessing.value = false
+    }
+  }
+
+  return { isProcessing, formLogin, formRegister, handleLogin, handleRegister }
 }
