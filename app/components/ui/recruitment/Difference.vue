@@ -7,7 +7,7 @@
       class="grid grid-cols-[1fr_2fr] gap-10 max-sm:gap-4 mt-8 max-sm:mt-4 max-md:grid-cols-[1fr_1fr] max-[600px]:grid-cols-1!"
     >
       <div class="flex flex-col justify-between max-[600px]:gap-4">
-        <p class="bg-bg-primary p-6 rounded-2xl">
+        <p class="bg-bg-primary p-6 rounded-2xl text-lg max-lg:text-base">
           {{ $t('recruitment.difference.description') }}
         </p>
         <div>

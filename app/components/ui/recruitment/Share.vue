@@ -12,7 +12,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
     <p class="title">
       {{ $t('recruitment.share.title') }} <span class="text-primary">{{ $t('recruitment.share.titleHighlight') }}</span>
     </p>
-    <p class="mt-6">
+    <p class="mt-6 text-lg max-lg:text-base">
       {{ $t('recruitment.share.description') }}
     </p>
     <div class="mt-20 grid grid-cols-2 gap-13 max-sm:grid-cols-1! max-sm:mt-10 max-sm:gap-6 max-md:mt-12">
@@ -42,7 +42,7 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
       <div>
         <p class="text-3xl font-bold">{{ $t('recruitment.share.ceo.name') }}</p>
         <p class="mt-1 font-medium">{{ $t('recruitment.share.ceo.position') }}</p>
-        <div class="space-y-3 mt-8 max-sm:mt-4">
+        <div class="space-y-3 mt-8 max-sm:mt-4 text-lg max-lg:text-base">
           <p>
             {{ $t('recruitment.share.ceo.quote1') }}
           </p>

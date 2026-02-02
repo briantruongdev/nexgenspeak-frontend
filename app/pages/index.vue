@@ -12,13 +12,13 @@ useSeo({
 
 <template>
   <div>
-    <UiHomeBanner />
-    <UiHomeRegister />
-    <UiHomeTeachingStaff />
-    <UiHomeBenefits />
-    <UiHomeAbout />
-    <UiHomeSlogan />
-    <UiHomeSupport />
+    <UiHomeBanner keepalive />
+    <UiHomeRegister keepalive />
+    <UiHomeTeachingStaff keepalive />
+    <UiHomeBenefits keepalive />
+    <UiHomeAbout keepalive />
+    <UiHomeSlogan keepalive />
+    <UiHomeSupport keepalive />
   </div>
 </template>
 

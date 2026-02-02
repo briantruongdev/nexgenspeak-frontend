@@ -2,11 +2,11 @@
 
 <template>
   <div>
-    <UiHomeBanner />
-    <UiStudyPlanTrialRegistration />
-    <UiStudyPlanLearningMethod />
-    <UiStudyPlanAbout />
-    <UiHomeSupport class="max-md:mt-0!" />
+    <UiHomeBanner keepalive />
+    <UiStudyPlanTrialRegistration keepalive />
+    <UiStudyPlanLearningMethod keepalive />
+    <UiStudyPlanAbout keepalive />
+    <UiHomeSupport class="max-md:mt-0!" keepalive />
   </div>
 </template>
 

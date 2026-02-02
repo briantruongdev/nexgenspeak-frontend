@@ -3,9 +3,9 @@
 <template>
   <div>
     <!-- <UiBlogBanner /> -->
-    <UiBlogToday />
-    <UiBlogMomentShared />
-    <UiBlogShared />
+    <UiBlogToday keepalive />
+    <UiBlogMomentShared keepalive />
+    <UiBlogShared keepalive />
   </div>
 </template>
 

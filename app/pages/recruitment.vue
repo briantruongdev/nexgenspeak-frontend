@@ -2,11 +2,11 @@
 
 <template>
   <div>
-    <UiRecruitmentBanner />
-    <UiRecruitmentDifference />
-    <UiRecruitmentCultureAndCoreValues />
-    <UiRecruitmentShare />
-    <UiRecruitmentDevelopment class="mb-12!" />
+    <UiRecruitmentBanner keepalive />
+    <UiRecruitmentDifference keepalive />
+    <UiRecruitmentCultureAndCoreValues keepalive />
+    <UiRecruitmentShare keepalive />
+    <UiRecruitmentDevelopment class="mb-12!" keepalive />
     <!-- <UiRecruitmentEvent /> -->
   </div>
 </template>

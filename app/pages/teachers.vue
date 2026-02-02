@@ -2,11 +2,11 @@
 
 <template>
   <div>
-    <UiTeacherBanner />
-    <UiTeacherStaff />
-    <UiTeacherExpertAdvisors />
-    <UiTeacherEducationPhilosophy />
-    <UiMap />
+    <UiTeacherBanner keepalive />
+    <UiTeacherStaff keepalive />
+    <UiTeacherExpertAdvisors keepalive />
+    <UiTeacherEducationPhilosophy keepalive />
+    <UiMap keepalive />
   </div>
 </template>
 

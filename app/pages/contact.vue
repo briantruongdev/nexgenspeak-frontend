@@ -3,11 +3,11 @@
 <template>
   <div>
     <!-- <UiContactBanner /> -->
-    <UiContactIntro />
-    <UiContactDepartment />
-    <UiContact />
-    <UiContactMission />
-    <UiAuthSupport />
+    <UiContactIntro keepalive />
+    <UiContactDepartment keepalive />
+    <UiContact keepalive />
+    <UiContactMission keepalive />
+    <UiAuthSupport keepalive />
   </div>
 </template>
 

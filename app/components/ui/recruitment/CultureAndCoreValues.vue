@@ -4,7 +4,7 @@
   <div class="mt-20 max-sm:mt-0">
     <div class="container max-xl:px-6 max-sm:pt-12">
       <p class="title">{{ $t('recruitment.culture.title') }}</p>
-      <p class="mt-6 w-2/3 text-lg max-lg:w-full max-sm:mt-4 max-sm:text-base">
+      <p class="mt-6 w-2/3 text-lg max-lg:w-full max-sm:mt-4 max-lg:text-base">
         {{ $t('recruitment.culture.description') }}
       </p>
     </div>

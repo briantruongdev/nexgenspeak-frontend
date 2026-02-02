@@ -13,7 +13,7 @@ useSeo({
 <template>
   <UApp>
     <NuxtLayout>
-      <NuxtPage />
+      <NuxtPage keepalive />
     </NuxtLayout>
   </UApp>
 </template>

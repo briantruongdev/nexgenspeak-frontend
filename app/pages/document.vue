@@ -5,9 +5,9 @@ import { UiDocumentFamilyAndFriend } from '#components'
 <template>
   <div>
     <!-- <UiDocumentBanner /> -->
-    <UiDocumentArchive />
-    <UiDocumentFamilyAndFriend />
-    <UiDocumentExamPreparation />
+    <UiDocumentArchive keepalive />
+    <UiDocumentFamilyAndFriend keepalive />
+    <UiDocumentExamPreparation keepalive />
   </div>
 </template>
 
