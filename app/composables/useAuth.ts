@@ -1,5 +1,5 @@
 import { storeToRefs } from 'pinia'
-import type { IFormLogin, IFormRegister } from '~/schemas/auth.schema'
+import type { IFormForgotPassword, IFormLogin, IFormRegister } from '~/schemas/auth.schema'
 import { apiAuth } from '~/services'
 import { useAuthStore } from '~/stores/auth.store'
 
@@ -65,5 +65,31 @@ export const useAuth = () => {
     }
   }
 
-  return { isProcessing, formLogin, formRegister, handleLogin, handleRegister }
+  const formResetPassword = ref<IFormForgotPassword>({
+    email: '',
+    newPassword: '',
+    confirmNewPassword: ''
+  })
+
+  const handleResetPassword = async () => {
+    try {
+      isProcessing.value = true
+
+      const data = await apiAuth.resetPassword(formResetPassword.value)
+      showSuccess(data.message)
+      formResetPassword.value = {
+        email: '',
+        newPassword: '',
+        confirmNewPassword: ''
+      }
+      navigateTo('/login')
+    } catch (error) {
+      console.error(error)
+      showError(t('auth.createAccountFail'))
+    } finally {
+      isProcessing.value = false
+    }
+  }
+
+  return { isProcessing, formLogin, formRegister, formResetPassword, handleLogin, handleRegister, handleResetPassword }
 }

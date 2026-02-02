@@ -1,80 +1,115 @@
 <script setup lang="ts">
-import { forgotPassword, type IFormForgotPassword } from '~/schemas/auth.schema'
+import { forgotPassword } from '~/schemas/auth.schema'
 
 definePageMeta({ layout: 'auth' })
 const { t } = useI18n()
 
 const { schema } = useSchema(forgotPassword)
-const showOldPass = ref(false)
-const showNewPass = ref(false)
+const { isProcessing, formResetPassword, handleResetPassword } = useAuth()
+const showPass = ref(false)
 const showConfirmPass = ref(false)
+const passwordFocused = ref(false)
+const formRef = ref()
 
-const form = ref<IFormForgotPassword>({
-  oldPassword: '',
-  newPassword: '',
-  confirmNewPassword: ''
+function checkStrength(str: string) {
+  const requirements = [
+    { regex: /.{8,}/, text: t('auth.atLeast8Characters') },
+    { regex: /\d/, text: t('auth.atLeast1Number') },
+    { regex: /[a-z]/, text: t('auth.atLeast1LowercaseLetter') },
+    { regex: /[A-Z]/, text: t('auth.atLeast1UppercaseLetter') },
+    { regex: /[^A-Za-z0-9]/, text: t('auth.atLeast1SpecialCharacter') }
+  ]
+
+  return requirements.map(req => ({ met: req.regex.test(str), text: req.text }))
+}
+
+const strength = computed(() => checkStrength(formResetPassword.value.newPassword as string))
+const score = computed(() => strength.value.filter(req => req.met).length)
+
+const color = computed(() => {
+  if (score.value === 0) return 'neutral'
+  if (score.value < 3) return 'error'
+  if (score.value < 5) return 'warning'
+  return 'success'
 })
+
+const text = computed(() => {
+  if (score.value === 0) return t('auth.enter-a-password')
+  if (score.value < 3) return t('auth.weak-password')
+  if (score.value < 5) return t('auth.medium-password')
+  return t('auth.strong-password')
+})
+
+async function resetPassword() {
+  const isValid = await formRef.value?.validate()
+  if (isValid) {
+    await handleResetPassword()
+  }
+}
 </script>
 
 <template>
   <UiAuthLayout :sub-title="t('auth.forgotPassword')">
-    <UForm ref="formRef" :schema :state="form" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
-      <UFormField name="oldPassword" class="w-full">
+    <UForm ref="formRef" :schema :state="formResetPassword" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
+      <UFormField name="email">
         <UInput
-          v-model="form.oldPassword"
-          :placeholder="t('auth.oldPassword')"
-          :type="showOldPass ? 'text' : 'password'"
+          v-model="formResetPassword.email"
+          :placeholder="t('auth.email')"
+          :ui="{ base: 'h-12 bg-transparent' }"
           class="w-full"
-          :ui="{ trailing: 'pe-1', base: 'h-10 max-sm:h-11 max-md:h-12 bg-transparent' }"
-        >
-          <template #trailing>
-            <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showOldPass ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-              @click="showOldPass = !showOldPass"
-            />
-          </template>
-        </UInput>
+        />
       </UFormField>
 
+      <!-- Password -->
       <UFormField name="newPassword" class="w-full">
         <UInput
-          v-model="form.newPassword"
+          ref="passwordRef"
+          v-model="formResetPassword.newPassword"
           :placeholder="t('auth.newPassword')"
-          :type="showNewPass ? 'text' : 'password'"
+          :type="showPass ? 'text' : 'password'"
           class="w-full"
-          :ui="{ trailing: 'pe-1', base: 'h-10 max-sm:h-11 max-md:h-12 bg-transparent' }"
+          :ui="{ trailing: 'pe-1', base: 'h-12 bg-transparent' }"
+          @focus="passwordFocused = true"
+          @blur="passwordFocused = false"
         >
           <template #trailing>
-            <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showNewPass ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-              @click="showNewPass = !showNewPass"
-            />
+            <UButton color="neutral" variant="link" size="sm" @click="showPass = !showPass" />
           </template>
         </UInput>
       </UFormField>
 
+      <div v-if="passwordFocused && formResetPassword.newPassword" class="space-y-2">
+        <UProgress :color="color" :indicator="text" :model-value="score" :max="5" size="sm" />
+
+        <p id="password-strength" class="text-sm font-medium">{{ text }}. {{ t('auth.mustContain') }}:</p>
+
+        <ul class="space-y-1">
+          <li
+            v-for="(req, index) in strength"
+            :key="index"
+            class="flex items-center gap-0.5"
+            :class="req.met ? 'text-success' : 'text-error'"
+          >
+            <UIcon :name="req.met ? 'i-lucide-circle-check' : 'i-lucide-circle-x'" class="size-4 shrink-0" />
+            <span class="text-xs font-light">{{ req.text }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Confirm Password -->
       <UFormField name="confirmNewPassword" class="w-full">
         <UInput
-          v-model="form.confirmNewPassword"
+          id="confirmNewPassword"
+          ref="confirmPasswordRef"
+          v-model="formResetPassword.confirmNewPassword"
           :placeholder="t('auth.confirmNewPassword')"
           :type="showConfirmPass ? 'text' : 'password'"
           class="w-full"
-          :ui="{ trailing: 'pe-1', base: 'h-10 max-sm:h-11 max-md:h-12 bg-transparent' }"
+          :ui="{ trailing: 'pe-1', base: 'h-12 bg-transparent' }"
+          @keyup.enter="resetPassword"
         >
           <template #trailing>
-            <UButton
-              color="neutral"
-              variant="link"
-              size="sm"
-              :icon="showConfirmPass ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-              @click="showConfirmPass = !showConfirmPass"
-            />
+            <UButton color="neutral" variant="link" size="sm" @click="showPass = !showPass" />
           </template>
         </UInput>
       </UFormField>
@@ -84,6 +119,9 @@ const form = ref<IFormForgotPassword>({
         class="w-full"
         class-name="h-10 max-sm:h-11 max-md:h-12"
         class-text="text-base max-sm:text-lg"
+        :loading="isProcessing"
+        :disabled="isProcessing"
+        @click="resetPassword"
       />
       <BaseButton
         :text="t('auth.cancel')"

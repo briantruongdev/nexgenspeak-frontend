@@ -3,7 +3,7 @@ import { PASSWORD_REGEX, PHONE_REGEX } from '~/constants'
 
 export function loginSchema(t: (key: string) => string) {
   return z.object({
-    email: z.email({ message: t('auth.invalid-email') }).min(1, { message: t('auth.email-is-required') }),
+    email: z.email({ message: t('auth.invalidEmail') }).min(1, { message: t('auth.emailIsRequired') }),
     password: z.string().regex(PASSWORD_REGEX, {
       message: t('validation.password')
     })
@@ -13,34 +13,33 @@ export function loginSchema(t: (key: string) => string) {
 export function forgotPassword(t: (key: string) => string) {
   return z
     .object({
-      email: z.email({ message: t('auth.invalid-email') }).min(1, { message: t('auth.email-is-required') }),
+      email: z.email({ message: t('auth.invalidEmail') }).min(1, { message: t('auth.emailIsRequired') }),
+
       newPassword: z.string().regex(PASSWORD_REGEX, {
-        message: t('validation.password')
+        message: t('validation.newPassword')
       }),
-      confirmNewPassword: z.string().regex(PASSWORD_REGEX, {
-        message: t('validation.password')
-      })
+      confirmNewPassword: z.string().min(1, t('auth.confirmNewPasswordIsRequired'))
     })
     .refine(data => data.newPassword === data.confirmNewPassword, {
-      message: t('validation.passwordMismatch'),
-      path: ['confirmNewPassword']
+      path: ['confirmNewPassword'],
+      message: t('auth.newPasswordsDoNotMatch')
     })
 }
 
 export function registerSchema(t: (key: string) => string) {
   return z
     .object({
-      email: z.email({ message: t('auth.invalid-email') }).min(1, { message: t('auth.email-is-required') }),
-      phone: z.string().min(1, t('auth.phone-number-is-required')).regex(PHONE_REGEX, t('auth.phone-number-invalid')),
+      email: z.email({ message: t('auth.invalidEmail') }).min(1, { message: t('auth.emailIsRequired') }),
+      phone: z.string().min(1, t('auth.phoneNumberIsRequired')).regex(PHONE_REGEX, t('auth.phoneNumberInvalid')),
 
       password: z.string().regex(PASSWORD_REGEX, {
         message: t('validation.password')
       }),
-      confirmPassword: z.string().min(1, t('auth.confirm-password-is-required'))
+      confirmPassword: z.string().min(1, t('auth.confirmPasswordIsRequired'))
     })
     .refine(data => data.password === data.confirmPassword, {
       path: ['confirmPassword'],
-      message: t('auth.passwords-do-not-match')
+      message: t('auth.passwordsDoNotMatch')
     })
 }
 

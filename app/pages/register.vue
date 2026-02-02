@@ -12,11 +12,11 @@ const formRef = ref()
 
 function checkStrength(str: string) {
   const requirements = [
-    { regex: /.{8,}/, text: t('auth.at-least-8-characters') },
-    { regex: /\d/, text: t('auth.at-least-1-number') },
-    { regex: /[a-z]/, text: t('auth.at-least-1-lowercase-letter') },
-    { regex: /[A-Z]/, text: t('auth.at-least-1-uppercase-letter') },
-    { regex: /[^A-Za-z0-9]/, text: t('auth.at-least-1-special-character') }
+    { regex: /.{8,}/, text: t('auth.atLeast8Characters') },
+    { regex: /\d/, text: t('auth.atLeast1Number') },
+    { regex: /[a-z]/, text: t('auth.atLeast1LowercaseLetter') },
+    { regex: /[A-Z]/, text: t('auth.atLeast1UppercaseLetter') },
+    { regex: /[^A-Za-z0-9]/, text: t('auth.atLeast1SpecialCharacter') }
   ]
 
   return requirements.map(req => ({ met: req.regex.test(str), text: req.text }))
@@ -89,9 +89,9 @@ async function register() {
       <div v-if="passwordFocused && formRegister.password" class="space-y-2">
         <UProgress :color="color" :indicator="text" :model-value="score" :max="5" size="sm" />
 
-        <p id="password-strength" class="text-sm font-medium">{{ text }}. {{ t('auth.must-contain') }}:</p>
+        <p id="password-strength" class="text-sm font-medium">{{ text }}. {{ t('auth.mustContain') }}:</p>
 
-        <ul class="space-y-1" :aria-label="t('password-requirements')">
+        <ul class="space-y-1">
           <li
             v-for="(req, index) in strength"
             :key="index"
@@ -107,10 +107,10 @@ async function register() {
       <!-- Confirm Password -->
       <UFormField name="confirmPassword" class="w-full">
         <UInput
-          id="confirm-password"
+          id="confirmPassword"
           ref="confirmPasswordRef"
           v-model="formRegister.confirmPassword"
-          :placeholder="t('auth.confirm-password')"
+          :placeholder="t('auth.confirmPassword')"
           :type="showConfirmPass ? 'text' : 'password'"
           class="w-full"
           :ui="{ trailing: 'pe-1', base: 'h-12 bg-transparent' }"
