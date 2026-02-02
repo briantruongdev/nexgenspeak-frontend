@@ -35,6 +35,7 @@ export const useTrialRegister = () => {
     englishLevel: ''
   })
 
+  const canTrailRegister = computed(() => form.value.name && form.value.email && form.value.phone && form.value.englishLevel)
   const onSubmit = async () => {
     try {
       isProcessing.value = true
@@ -64,7 +65,7 @@ export const useTrialRegister = () => {
     isProcessing,
     form,
     englishLevelOptions,
-
+    canTrailRegister,
     openTrialRegisterModal,
     closeTrialRegisterModal,
     toggleTrialRegisterModal,

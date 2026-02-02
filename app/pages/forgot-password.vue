@@ -5,7 +5,7 @@ definePageMeta({ layout: 'auth' })
 const { t } = useI18n()
 
 const { schema } = useSchema(forgotPassword)
-const { isProcessing, formResetPassword, handleResetPassword } = useAuth()
+const { isProcessing, formResetPassword, canResetPassword, handleResetPassword } = useAuth()
 const showPass = ref(false)
 const showConfirmPass = ref(false)
 const passwordFocused = ref(false)
@@ -42,7 +42,7 @@ const text = computed(() => {
 
 async function resetPassword() {
   const isValid = await formRef.value?.validate()
-  if (isValid) {
+  if (isValid && canResetPassword.value) {
     await handleResetPassword()
   }
 }
@@ -120,7 +120,7 @@ async function resetPassword() {
         class-name="h-10 max-sm:h-11 max-md:h-12"
         class-text="text-base max-sm:text-lg"
         :loading="isProcessing"
-        :disabled="isProcessing"
+        :disabled="isProcessing || !canResetPassword"
         @click="resetPassword"
       />
       <BaseButton

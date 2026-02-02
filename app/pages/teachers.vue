@@ -7,6 +7,7 @@
     <UiTeacherExpertAdvisors keepalive />
     <UiTeacherEducationPhilosophy keepalive />
     <UiMap keepalive />
+    <UiModalTrailRegister keepalive />
   </div>
 </template>
 

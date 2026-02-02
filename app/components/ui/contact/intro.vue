@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { openTrialRegisterModal } = useTrialRegister()
+
 const bannerImageSrc = '/images/banner-auth.png'
 </script>
 
@@ -18,7 +20,12 @@ const bannerImageSrc = '/images/banner-auth.png'
         </p>
       </div>
       <div class="max-lg:mt-6">
-        <BaseButton :text="$t('contact.intro.brandStory')" class-name="rounded" icon="i-lucide-move-right" />
+        <BaseButton
+          :text="$t('contact.intro.brandStory')"
+          class-name="rounded"
+          icon="i-lucide-move-right"
+          @click="openTrialRegisterModal"
+        />
       </div>
     </div>
   </div>

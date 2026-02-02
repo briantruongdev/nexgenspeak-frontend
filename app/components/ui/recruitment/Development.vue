@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { openTrialRegisterModal } = useTrialRegister()
+</script>
 
 <template>
   <div
@@ -12,7 +14,12 @@
         </p>
       </div>
       <div class="mt-4">
-        <BaseButton :text="$t('recruitment.development.openPositions')" class-name="rounded" icon="i-lucide-move-right" />
+        <BaseButton
+          :text="$t('recruitment.development.openPositions')"
+          class-name="rounded"
+          icon="i-lucide-move-right"
+          @click="openTrialRegisterModal"
+        />
       </div>
     </div>
     <img src="/images/people2.png" alt="" loading="lazy" class="h-60 w-full object-cover max-sm:hidden" />

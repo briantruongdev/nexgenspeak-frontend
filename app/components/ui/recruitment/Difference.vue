@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { openTrialRegisterModal } = useTrialRegister()
+</script>
 
 <template>
   <div class="container section-responsive-pt max-xl:px-6">
@@ -15,6 +17,7 @@
             :text="$t('recruitment.difference.brandStory')"
             class-name="rounded flex items-center"
             icon="i-lucide-move-right"
+            @click="openTrialRegisterModal"
           />
         </div>
       </div>

@@ -6,6 +6,7 @@
     <UiBlogToday keepalive />
     <UiBlogMomentShared keepalive />
     <UiBlogShared keepalive />
+    <UiModalTrailRegister keepalive />
   </div>
 </template>
 

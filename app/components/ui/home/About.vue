@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const summaries = computed(() => [
   {
@@ -41,7 +42,13 @@ const summaries = computed(() => [
           </p>
         </div>
 
-        <BaseButton variant="outline" class-name="border-2" :text="$t('about.viewDetails')" icon="i-lucide-move-right" />
+        <BaseButton
+          variant="outline"
+          class-name="border-2"
+          :text="$t('about.viewDetails')"
+          icon="i-lucide-move-right"
+          @click="openTrialRegisterModal"
+        />
       </div>
       <div class="relative h-130 max-[420px]:h-75 max-lg:h-100 max-sm:h-80">
         <img src="/images/home-about.png" alt="" loading="lazy" class="w-full h-full object-cover" />

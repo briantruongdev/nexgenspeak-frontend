@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const items = computed(() => [
   {
@@ -71,7 +72,12 @@ const items = computed(() => [
           </div>
 
           <div class="flex justify-end mr-4 mb-4">
-            <BaseButton variant="outline" class-name="bg-white border-none rounded-xl" :text="$t('teachingStaff.bookLesson')" />
+            <BaseButton
+              variant="outline"
+              class-name="bg-white border-none rounded-xl"
+              :text="$t('teachingStaff.bookLesson')"
+              @click="openTrialRegisterModal"
+            />
           </div>
         </div>
       </div>

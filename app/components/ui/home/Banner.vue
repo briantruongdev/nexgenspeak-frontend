@@ -51,18 +51,21 @@ onMounted(() => {
             class-text="text-text-primary max-[400px]:text-xs"
             class-name="bg-white/60 border-none"
             :text="$t('banner.registerTrial')"
+            @click="openTrialRegisterModal"
           />
           <BaseButton
             variant="outline"
             class-text="text-text-primary"
             class-name="bg-white/60 border-none"
             :text="$t('banner.buyCourse')"
+            @click="openTrialRegisterModal"
           />
           <BaseButton
             variant="outline"
             class-text="text-text-primary"
             class-name="bg-white/60 border-none"
             :text="$t('banner.support')"
+            @click="openTrialRegisterModal"
           />
         </p>
       </div>

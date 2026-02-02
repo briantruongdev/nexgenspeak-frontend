@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core'
 
+const { openTrialRegisterModal } = useTrialRegister()
+
 const { width } = useWindowSize()
 
 const widthScreen = computed(() => width.value)

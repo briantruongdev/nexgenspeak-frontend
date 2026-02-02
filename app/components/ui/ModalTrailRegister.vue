@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { trialRegisterSchema } from '~/schemas/trial-register.schema'
 
-const { isTrialRegisterModalVisible, isProcessing, form, englishLevelOptions, onSubmit } = useTrialRegister()
+const { isTrialRegisterModalVisible, isProcessing, form, englishLevelOptions, canTrailRegister, onSubmit } = useTrialRegister()
 
 const formRef = ref()
 
@@ -10,7 +10,7 @@ const { t } = useI18n()
 
 const handleSubmit = async () => {
   const isValid = await formRef.value?.validate()
-  if (isValid) {
+  if (isValid && canTrailRegister.value) {
     await onSubmit()
   }
 }
@@ -50,7 +50,7 @@ const handleSubmit = async () => {
           type="submit"
           :text="t('trialRegister.submit')"
           :loading="isProcessing"
-          :disabled="isProcessing"
+          :disabled="isProcessing || !canTrailRegister"
           class="w-full"
           trailing-icon="i-lucide-move-right"
           @click="handleSubmit"

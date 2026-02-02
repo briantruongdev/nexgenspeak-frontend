@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core'
 
+const { openTrialRegisterModal } = useTrialRegister()
+
 const { t } = useI18n()
 
 const { width } = useWindowSize()
@@ -94,6 +96,7 @@ watch(
               class="w-full"
               class-name="h-11 max-sm:h-10 rounded-xl"
               class-text="font-semibold max-sm:text-sm"
+              @click="openTrialRegisterModal"
             />
           </div>
         </div>

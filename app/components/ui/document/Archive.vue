@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const input = useTemplateRef('input')
 const skills = computed(() => [

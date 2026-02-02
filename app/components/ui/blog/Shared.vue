@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const items = computed(() => [
   {
@@ -59,7 +60,13 @@ const items = computed(() => [
       <p class="mt-8 text-lg max-sm:text-sm max-md:text-base">{{ item.des }}</p>
     </UCarousel>
     <div class="flex justify-center my-12 max-sm:my-6">
-      <BaseButton :text="$t('blog.shared.viewMore')" icon="i-lucide-plus" variant="outline" class="w-40" />
+      <BaseButton
+        :text="$t('blog.shared.viewMore')"
+        icon="i-lucide-plus"
+        variant="outline"
+        class="w-40"
+        @click="openTrialRegisterModal"
+      />
     </div>
   </div>
 </template>

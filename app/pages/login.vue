@@ -5,13 +5,13 @@ definePageMeta({ layout: 'auth' })
 const { t } = useI18n()
 
 const { schema } = useSchema(loginSchema)
-const { isProcessing, formLogin, handleLogin } = useAuth()
+const { isProcessing, formLogin, canLogin, handleLogin } = useAuth()
 const showPass = ref(false)
 const formRef = ref()
 
 const login = async () => {
   const isValid = await formRef.value?.validate()
-  if (isValid) {
+  if (isValid && canLogin.value) {
     await handleLogin()
   }
 }
@@ -43,7 +43,7 @@ const login = async () => {
         class="w-full"
         class-name="h-12"
         :loading="isProcessing"
-        :disabled="isProcessing"
+        :disabled="isProcessing || !canLogin"
         class-text="text-lg"
         @click="login"
       />

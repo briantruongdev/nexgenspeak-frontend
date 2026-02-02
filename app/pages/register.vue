@@ -3,7 +3,7 @@ import { registerSchema } from '~/schemas/auth.schema'
 
 definePageMeta({ layout: 'auth' })
 const { t } = useI18n()
-const { isProcessing, formRegister, handleRegister } = useAuth()
+const { isProcessing, formRegister, canRegister, handleRegister } = useAuth()
 const { schema } = useSchema(registerSchema)
 const showPass = ref(false)
 const showConfirmPass = ref(false)
@@ -41,7 +41,7 @@ const text = computed(() => {
 
 async function register() {
   const isValid = await formRef.value?.validate()
-  if (isValid) {
+  if (isValid && canRegister.value) {
     await handleRegister()
   }
 }
@@ -128,7 +128,7 @@ async function register() {
         class-name="h-12"
         class-text="text-lg"
         :loading="isProcessing"
-        :disabled="isProcessing"
+        :disabled="isProcessing || !canRegister"
         @click="register"
       />
     </UForm>

@@ -24,3 +24,5 @@ useSeo({
 </template>
 
 <style scoped></style>
+
+<!-- validate router and check again icon eye for input password -->

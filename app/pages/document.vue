@@ -8,6 +8,7 @@ import { UiDocumentFamilyAndFriend } from '#components'
     <UiDocumentArchive keepalive />
     <UiDocumentFamilyAndFriend keepalive />
     <UiDocumentExamPreparation keepalive />
+    <UiModalTrailRegister keepalive />
   </div>
 </template>
 

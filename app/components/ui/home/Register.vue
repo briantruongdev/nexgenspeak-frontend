@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-
+const { openTrialRegisterModal } = useTrialRegister()
 const cards = computed(() => [
   {
     number: t('register.steps.step1.number'),
@@ -36,6 +36,7 @@ const cards = computed(() => [
             class-name="border-2 bg-transparent"
             :text="$t('register.learnMore')"
             icon="i-lucide-move-right"
+            @click="openTrialRegisterModal"
           />
         </div>
 

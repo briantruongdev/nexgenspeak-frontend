@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const data = computed(() => [
   {
@@ -30,7 +31,7 @@ const data = computed(() => [
         </p>
         <div class="absolute top-2/5 max-lg:relative max-lg:top-0 max-lg:mt-6">
           <div class="relative">
-            <BaseButton :text="$t('teacher.banner.bookNow')" />
+            <BaseButton :text="$t('teacher.banner.bookNow')" @click="openTrialRegisterModal" />
             <BaseIcon name="arrow" class="absolute -right-20 max-lg:hidden!" :size="100" />
           </div>
         </div>

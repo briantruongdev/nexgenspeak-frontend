@@ -1,3 +1,4 @@
+import { form } from '#build/ui'
 import { storeToRefs } from 'pinia'
 import type { IFormForgotPassword, IFormLogin, IFormRegister } from '~/schemas/auth.schema'
 import { apiAuth } from '~/services'
@@ -13,6 +14,7 @@ export const useAuth = () => {
     email: '',
     password: ''
   })
+  const canLogin = computed(() => formLogin.value.email && formLogin.value.password)
 
   const handleLogin = async () => {
     try {
@@ -42,7 +44,10 @@ export const useAuth = () => {
     password: '',
     confirmPassword: ''
   })
-
+  const canRegister = computed(
+    () =>
+      formRegister.value.email && formRegister.value.phone && formRegister.value.password && formRegister.value.confirmPassword
+  )
   const handleRegister = async () => {
     try {
       isProcessing.value = true
@@ -70,6 +75,9 @@ export const useAuth = () => {
     newPassword: '',
     confirmNewPassword: ''
   })
+  const canResetPassword = computed(
+    () => formResetPassword.value.email && formResetPassword.value.newPassword && formResetPassword.value.confirmNewPassword
+  )
 
   const handleResetPassword = async () => {
     try {
@@ -91,5 +99,16 @@ export const useAuth = () => {
     }
   }
 
-  return { isProcessing, formLogin, formRegister, formResetPassword, handleLogin, handleRegister, handleResetPassword }
+  return {
+    isProcessing,
+    formLogin,
+    formRegister,
+    formResetPassword,
+    canLogin,
+    canRegister,
+    canResetPassword,
+    handleLogin,
+    handleRegister,
+    handleResetPassword
+  }
 }

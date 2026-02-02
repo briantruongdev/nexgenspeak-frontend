@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const items = computed(() => [
   {
@@ -35,7 +36,11 @@ const items = computed(() => [
               {{ item.title }}
             </p>
 
-            <BaseButton :text="$t('document.familyAndFriend.learnMore')" class="mx-auto mt-auto" />
+            <BaseButton
+              :text="$t('document.familyAndFriend.learnMore')"
+              class="mx-auto mt-auto"
+              @click="openTrialRegisterModal"
+            />
           </div>
         </div>
       </div>

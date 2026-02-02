@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core'
 
+const { openTrialRegisterModal } = useTrialRegister()
+
 const { t } = useI18n()
 
 const { width } = useWindowSize()
@@ -46,7 +48,12 @@ const itemCopy = computed(() => {
         </div>
       </div>
       <div class="py-10 max-md:py-6">
-        <BaseButton :text="$t('teacher.educationPhilosophy.viewMore')" variant="outline" class="mx-auto w-40 max-sm:w-full" />
+        <BaseButton
+          :text="$t('teacher.educationPhilosophy.viewMore')"
+          variant="outline"
+          class="mx-auto w-40 max-sm:w-full"
+          @click="openTrialRegisterModal"
+        />
       </div>
     </div>
   </section>
