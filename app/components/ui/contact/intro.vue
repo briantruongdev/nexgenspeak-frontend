@@ -1,10 +1,12 @@
 <script setup lang="ts">
+const { openTrialRegisterModal } = useTrialRegister()
+
 const bannerImageSrc = '/images/banner-auth.png'
 </script>
 
 <template>
-  <div class="container grid grid-cols-[1fr_1.5fr] pt-24 max-lg:pt-20 max-sm:grid-cols-1">
-    <div class="aspect-3/4 max-lg:aspect-auto">
+  <div class="container grid grid-cols-[1fr_1.5fr] pt-0 max-sm:grid-cols-1">
+    <div class="h-150 max-lg:aspect-auto max-sm:h-80">
       <img :src="bannerImageSrc" class="w-full h-full object-cover" />
     </div>
     <div class="bg-bg-primary h-[80%] max-lg:h-full self-center p-10 pr-20 flex flex-col justify-between">
@@ -18,7 +20,12 @@ const bannerImageSrc = '/images/banner-auth.png'
         </p>
       </div>
       <div class="max-lg:mt-6">
-        <BaseButton :text="$t('contact.intro.brandStory')" class-name="rounded" icon="i-lucide-move-right" />
+        <BaseButton
+          :text="$t('contact.intro.brandStory')"
+          class-name="rounded"
+          icon="i-lucide-move-right"
+          @click="openTrialRegisterModal"
+        />
       </div>
     </div>
   </div>

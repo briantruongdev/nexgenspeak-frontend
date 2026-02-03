@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BackToTop from '~/components/ui/BackToTop.vue'
+
 const { t } = useI18n()
 
 useSeo({
@@ -12,13 +14,15 @@ useSeo({
 
 <template>
   <div>
-    <UiHomeBanner />
-    <UiHomeRegister />
-    <UiHomeTeachingStaff />
-    <UiHomeBenefits />
-    <UiHomeAbout />
-    <UiHomeSlogan />
-    <UiHomeSupport />
+    <UiHomeBanner keepalive />
+    <UiHomeRegister keepalive />
+    <UiHomeTeachingStaff keepalive />
+    <UiHomeBenefits keepalive />
+    <UiHomeAbout keepalive />
+    <UiHomeSlogan keepalive />
+    <UiAuthSupport keepalive />
+    <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 

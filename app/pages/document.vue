@@ -4,10 +4,12 @@ import { UiDocumentFamilyAndFriend } from '#components'
 
 <template>
   <div>
-    <UiDocumentBanner />
-    <UiDocumentArchive />
-    <UiDocumentFamilyAndFriend />
-    <UiDocumentExamPreparation />
+    <!-- <UiDocumentBanner /> -->
+    <UiDocumentArchive keepalive />
+    <UiDocumentFamilyAndFriend keepalive />
+    <UiDocumentExamPreparation keepalive />
+    <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 

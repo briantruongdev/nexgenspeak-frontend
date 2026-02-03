@@ -165,7 +165,12 @@
     "maxLength100": "Username must not exceed 100 characters",
     "passwordMismatch": "Confirm password does not match new password",
     "phoneOrEmailRequired": "Phone number or email is required",
-    "phoneOrEmailInvalid": "Please enter a valid phone number or email"
+    "phoneOrEmailInvalid": "Please enter a valid phone number or email",
+    "nameRequired": "Full name is required",
+    "emailInvalid": "Invalid email address",
+    "phoneInvalid": "Invalid phone number",
+    "englishLevelRequired": "Please select your English level",
+    "newPassword": "New password must be at least 8 characters, include uppercase, lowercase, number, and special character"
   },
   "auth": {
     "userName": "Username",
@@ -187,32 +192,57 @@
     "registerAccount": "Create an account",
     "enterOtp": "Please enter the code sent to your email or phone number",
     "haveAccount": "Already have an account?",
-    "login": "Log in"
+    "login": "Log in",
+    "invalidEmail": "Invalid email address",
+    "emailIsRequired": "Email is required",
+    "email": "Email",
+    "messageLoginFail": "Login failed. Please check your email or password.",
+    "confirmPasswordIsRequired": "Confirm password is required",
+    "confirmNewPasswordIsRequired": "Confirm new password is required",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "newPasswordsDoNotMatch": "New passwords do not match",
+    "confirmPassword": "Confirm Password",
+    "phone": "Phone number",
+    "phoneNumberIsRequired": "Phone number is required",
+    "phoneNumberInvalid": "Invalid phone number format",
+    "atLeast8Characters": "At least 8 characters",
+    "atLeast1Number": "At least 1 number",
+    "atLeast1LowercaseLetter": "At least 1 lowercase letter",
+    "atLeast1UppercaseLetter": "At least 1 uppercase letter",
+    "atLeast1SpecialCharacter": "At least 1 special character",
+    "weak-password": "Weak password",
+    "medium-password": "Medium password",
+    "strong-password": "Strong password",
+    "mustContain": "Must contain",
+    "createAccountFail": "Failed to create account. Please try again later!",
+    "resetPasswordFail": "Password reset failed. Please try again later!",
+    "logout": "Logout"
   },
   "or": "or",
   "studyPlan": {
     "about": {
       "title": "NexGen Speak",
-      "description": "We create an environment where each student can practice more - communicate, chat. We create an environment where each student can practice more - communicate, chat"
+      "description": "We create an environment where each learner can practice more through real communication and conversations. With flexible schedules and interactive learning methods, you can easily book suitable time slots to improve your speaking reflexes and gain confidence in using English every day."
     },
+    "sloganAbout": "Through active learning and personalized pathways, we are committed to being your partner in turning English into an instinct for confident communication in any situation.",
     "learningMethod": {
       "title": "Learning and Communication Methods",
-      "description": "We create an environment where each student can practice more - communicate, chat. We create an environment.",
+      "description": "We create an environment where each student can practice more - communicate, chat.",
       "items": {
         "item1": {
           "title": "Focus on Reflexive Communication",
-          "description": "We create an environment where each student can practice more - communicate, chat"
+          "description": "Instead of rote learning, students engage in real-life scenarios to activate English thinking, enabling fast and natural reflexes."
         },
         "item2": {
           "title": "Effective in the Shortest Time",
-          "description": "We create an environment where each student can practice more - communicate, chat"
+          "description": "Our streamlined curriculum focuses on practical knowledge, ensuring you reach your language goals efficiently and rapidly."
         },
         "item3": {
           "title": "Clear Learning Roadmap According to European Framework",
-          "description": "We create an environment where each student can practice more - communicate, chat"
+          "description": "Our lessons are meticulously designed following the Common European Framework of Reference for Languages (CEFR), ensuring academic rigor and global recognition."
         }
       },
-      "footer": "We create an environment where each student can practice more - communicate, chat. We create an environment where each student can practice more - communicate, chat"
+      "footer": "Building a solid foundation for your global journey."
     },
     "trialRegistration": {
       "title": "Register for Online English Course Trial"
@@ -280,12 +310,15 @@
   "blog": {
     "today": {
       "title": "What Makes You Happy Today?",
-      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "description": "Every day at NexGen Speak is a journey of discovery and laughter, where lessons are no longer a pressure but a joy as you freely express your unique identity and connect with like-minded friends.",
       "shareYourMoment": "Share Your Moment",
       "writeYourFeelings": "Write Your Feelings",
       "photo": "Photo",
       "video": "Video"
     },
+    "blog1": "English is not just an academic subject; it is a tool to unleash your mindset and access global knowledge. At NexGen Speak, we help you dissolve language barriers to become the trailblazer of your own future.",
+    "blog2": "We believe that every individual becomes more excellent when leveraging collective strength in a connected environment. The resonance between personalized pathways and team spirit at NexGen Speak is the key to your breakthrough.",
+    "blog3": "Eliminating outdated rote learning, NexGen Speak focuses on practical reflex skills and problem-solving mindsets in English. This is the solid foundation for you to confidently assert your position in a professional international work environment.",
     "momentShared": {
       "title": "Shared Moments"
     },
@@ -298,23 +331,23 @@
     "intro": {
       "title": "About NexGen Speak",
       "description1": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
-      "description2": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
+      "description2": "We believe that every individual reaches their professional peak when nurtured within a cohesive community, where groundbreaking mindsets serve as the compass for exploring new horizons together.",
       "brandStory": "Brand Story"
     },
     "department": {
       "title": "NexGen Speak Departments",
-      "description": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers."
+      "description": "At NexGen Speak, we forge a disruptive brand where collective strength elevates individual value, together cultivating a leading mindset to become trailblazers in the new era of language."
     },
     "contactUs": {
       "title": "Contact Us",
-      "description": "We create distinction with a breakthrough brand. We believe that each individual will become more excellent when leveraging the power of the collective. Breakthrough thinking will help us become pioneers.",
+      "description": "Connect with NexGen Speak today to explore breakthrough mindsets, where your every inquiry marks the beginning of a personalized journey toward excellence and global success.",
       "companyName": "NexGen Speak Company Limited",
       "address": "Suced Building 108 Nguyen Hoang, Nam Tu Liem, Hanoi",
       "facebook": "NexGen Speak Vietnam"
     },
     "mission": {
       "title": "Mission",
-      "description": "We share knowledge and are open to new ways of thinking. We make the right decisions with proper consideration. We share knowledge and are open to new ways of thinking. We make the right decisions with proper consideration.",
+      "description": "NexGen Speak’s mission is to cultivate a disruptive educational environment where every individual's language potential is awakened and equipped with a trailblazing mindset, empowering you to break boundaries and achieve excellence within communities and society.",
       "trainingMotto": "Training Motto",
       "mottos": {
         "compact": {
@@ -426,5 +459,35 @@
     "event": {
       "title": "Events at NexGen Speak"
     }
+  },
+
+  "trialRegister": {
+    "beginner": "A1 - Beginner",
+    "elementary": "A2 - Elementary",
+    "intermediate": "B1 - Intermediate",
+    "upperIntermediate": "B2 - Upper intermediate",
+    "advanced": "C1 - Advanced",
+    "proficient": "C2 - Proficient",
+    "namePlaceholder": "Enter your full name",
+    "phonePlaceholder": "Enter your phone number",
+    "emailPlaceholder": "Enter your email address",
+    "englishLevelPlaceholder": "Select your English level",
+    "name": "Full name",
+    "phone": "Phone number",
+    "email": "Email",
+    "englishLevel": "English level",
+    "submit": "Register now",
+    "title": "Register for a trial lesson",
+    "messageError": "Unable to complete trial registration. Please try again later.",
+    "iAgree": "I agree to allow NexGen Speak to contact me by",
+    "contact": "phone, text, and email",
+    "purpose": "for English course consultation and market research.",
+    "policy": "Please agree to our Terms & Policies"
+  },
+  "notification": {
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
   }
 }

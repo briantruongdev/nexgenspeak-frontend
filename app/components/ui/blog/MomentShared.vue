@@ -3,8 +3,8 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 </script>
 
 <template>
-  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
-    <p class="title mb-10">{{ $t('blog.momentShared.title') }}</p>
+  <div class="container section-responsive-pt max-xl:px-6">
+    <p class="title mb-10 max-sm:mb-6">{{ $t('blog.momentShared.title') }}</p>
     <UCarousel
       v-slot="{ item }"
       :items="items"
@@ -16,11 +16,11 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
       :ui="{
         item: 'basis-full basis-1/3 max-sm:basis-1/2',
         prev: 'max-xl:translate-x-14 max-sm:-translate-x-2  hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60',
-        next: 'max-xl:-translate-x-14 max-sm:translate-x-2 hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
+        next: 'max-xl:-translate-x-14 max-lg:-translate-x-16 max-md:-translate-x-16  max-sm:translate-x-2 hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
       }"
       class="w-full"
     >
-      <img :src="item" class="object-cover h-100 w-100 max-sm:h-60 max-sm:w-60" />
+      <img :src="item" class="object-cover h-72 w-100 max-sm:h-40 max-lg:h-60 max-lg:w-70 max-md:h-40 max-[500px]:h-30!" />
     </UCarousel>
   </div>
 </template>

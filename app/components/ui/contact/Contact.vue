@@ -24,15 +24,17 @@ const items = computed(() => [
 </script>
 
 <template>
-  <div class="container pt-24 max-lg:pt-20 max-xl:px-6">
+  <div class="container pt-16 max-xl:px-6 max-[500px]:pt-12!">
     <p class="title">{{ $t('contact.contactUs.title') }}</p>
-    <p class="text-xl mt-7 max-lg:text-base">
+    <p class="text-xl mt-7 max-sm:mt-4 max-lg:text-base">
       {{ $t('contact.contactUs.description') }}
     </p>
-    <div class="mt-16 w-full">
-      <p class="text-[42px] font-bold text-primary max-sm:text-3xl">{{ $t('contact.contactUs.companyName') }}</p>
-      <div class="space-y-8 mt-10">
-        <div v-for="(item, index) in items" :key="index" class="flex justify-start gap-4 items-center">
+    <div class="mt-12 max-sm:mt-6 w-full">
+      <p class="text-[42px] font-bold text-primary max-sm:text-3xl max-[500px]:text-2xl!">
+        {{ $t('contact.contactUs.companyName') }}
+      </p>
+      <div class="space-y-8 mt-10 max-sm:space-y-4">
+        <div v-for="(item, index) in items" :key="index" class="flex justify-start gap-4 items-start">
           <img :src="item.icon" alt="" class="w-10 h-10 object-cover" loading="lazy" />
           <a
             v-if="item.type === 'tel'"

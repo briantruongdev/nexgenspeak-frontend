@@ -2,10 +2,12 @@
 
 <template>
   <div>
-    <UiBlogBanner />
-    <UiBlogToday />
-    <UiBlogMomentShared />
-    <UiBlogShared />
+    <!-- <UiBlogBanner /> -->
+    <UiBlogToday keepalive />
+    <UiBlogMomentShared keepalive />
+    <UiBlogShared keepalive />
+    <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 

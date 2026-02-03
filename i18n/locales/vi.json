@@ -162,20 +162,26 @@
   "validation": {
     "password": "Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt",
     "usernameRequired": "Tên người dùng là bắt buộc",
-    "maxLength100": "Tên người dùng không qúa 100 kí tự",
+    "maxLength100": "Tên người dùng không quá 100 kí tự",
     "passwordMismatch": "Mật khẩu xác nhận không khớp với mật khẩu mới",
     "phoneOrEmailRequired": "Số điện thoại hoặc email là bắt buộc",
-    "phoneOrEmailInvalid": "Vui lòng nhập số điện thoại hoặc email hợp lệ"
+    "phoneOrEmailInvalid": "Vui lòng nhập số điện thoại hoặc email hợp lệ",
+    "nameRequired": "Họ và tên là bắt buộc",
+    "emailInvalid": "Email không hợp lệ",
+    "phoneInvalid": "Số điện thoại không hợp lệ",
+    "englishLevelRequired": "Vui lòng chọn trình độ Tiếng Anh",
+    "newPassword": "Mật khẩu mới phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt"
   },
   "auth": {
     "userName": "Tên đăng nhập",
     "password": "Mật khẩu",
     "oldPassword": "Mật khẩu cũ",
     "newPassword": "Mật khẩu mới",
-    "confirmNewPassword": "Xác nhận mật khẩu mới",
+    "confirmNewPassword": "Nhập lại mật khẩu mới",
     "changePassword": "Đổi mật khẩu",
     "forgotPassword": "Quên mật khẩu",
     "confirm": "Xác nhận",
+    "confirmPassword": "Xác nhận mật khẩu",
     "cancel": "Hủy bỏ",
     "phoneOrEmail": "Nhập số điện thoại hoặc email",
     "loginToNGS": "Đăng nhập vào NexGen Speak",
@@ -187,32 +193,56 @@
     "registerAccount": "Đăng ký tài khoản",
     "enterOtp": "Vui lòng nhập mã từ Email hoặc Số điện thoại",
     "haveAccount": "Bạn đã có tài khoản?",
-    "login": "Đăng nhập"
+    "login": "Đăng nhập",
+    "email": "Email",
+    "invalidEmail": "Email không hợp lệ",
+    "emailIsRequired": "Email là bắt buộc",
+    "messageLoginFail": "Đăng nhập không thành công. Vui lòng kiểm tra lại email hoặc mật khẩu.",
+    "confirmPasswordIsRequired": "Nhập lại mật khẩu là bắt buộc",
+    "confirmNewPasswordIsRequired": "Nhập lại mật khẩu mới là bắt buộc",
+    "passwordsDoNotMatch": "Mật khẩu không khớp",
+    "newPasswordsDoNotMatch": "Mật khẩu mới không khớp",
+    "phone": "Số điện thoại",
+    "phoneNumberIsRequired": "Số điện thoại là bắt buộc",
+    "phoneNumberInvalid": "Số điện thoại không hợp lệ",
+    "atLeast8Characters": "Ít nhất 8 ký tự",
+    "atLeast1Number": "Ít nhất 1 chữ số",
+    "atLeast1LowercaseLetter": "Ít nhất 1 chữ thường",
+    "atLeast1UppercaseLetter": "Ít nhất 1 chữ hoa",
+    "atLeast1SpecialCharacter": "Ít nhất 1 ký tự đặc biệt",
+    "weak-password": "Mật khẩu yếu",
+    "medium-password": "Mật khẩu trung bình",
+    "strong-password": "Mật khẩu mạnh",
+    "mustContain": "Phải bao gồm",
+    "createAccountFail": "Tạo tài khoản thất bại. Vui lòng thử lại sau!",
+    "resetPasswordFail": "Đặt lại mật khẩu thất bại. Vui lòng thử lại sau!",
+    "logout": "Đăng xuất"
   },
   "or": "hoặc",
   "studyPlan": {
     "about": {
       "title": "NexGen Speak",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn thông qua giao tiếp và trò chuyện thực tế. Với lịch học linh hoạt và phương pháp học tập tương tác, bạn có thể chủ động đăng ký khung giờ phù hợp để nâng cao khả năng phản xạ và tự tin sử dụng tiếng Anh mỗi ngày."
     },
+    "sloganAbout": "Bằng phương pháp học chủ động và lộ trình cá nhân hóa, chúng tôi cam kết đồng hành cùng bạn biến tiếng Anh thành bản năng để tự tin giao tiếp trong mọi tình huống.",
     "learningMethod": {
       "title": "Phương pháp học và giao tiếp",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường.",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện.",
       "items": {
         "item1": {
           "title": "Tập chung vào giao tiếp phản xạ",
-          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+          "description": "Thay vì học vẹt, học viên được tham gia vào các tình huống thực tế để kích hoạt tư duy bằng tiếng Anh, giúp phản xạ nhanh và tự nhiên."
         },
         "item2": {
           "title": "Hiệu quả trong thời gian nhanh nhất",
-          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+          "description": "Giáo trình được tinh gọn, tập trung vào những kiến thức thực tiễn nhất, giúp bạn đạt được mục tiêu ngôn ngữ một cách lộ trình và nhanh chóng."
         },
         "item3": {
           "title": "Lộ trình học tập rõ ràng theo khung Châu Âu",
-          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+          "description": "Hệ thống bài học được thiết kế bám sát Khung tham chiếu trình độ ngôn ngữ chung Châu Âu (CEFR), đảm bảo tính học thuật và sự công nhận toàn cầu."
         }
       },
-      "footer": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+      "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới."
     },
     "trialRegistration": {
       "title": "Đăng ký học thử khóa học tiếng Anh online"
@@ -280,12 +310,15 @@
   "blog": {
     "today": {
       "title": "Hôm nay Bạn có gì vui?",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "description": "Mỗi ngày tại NexGen Speak là một hành trình khám phá đầy tiếng cười, nơi những bài học không còn là áp lực mà trở thành niềm vui khi bạn được tự do thể hiện bản sắc riêng và kết nối với những người bạn đồng điệu.",
       "shareYourMoment": "Chia sẻ khoảnh khắc của bạn",
       "writeYourFeelings": "Viết cảm nhận của bạn",
       "photo": "Ảnh",
       "video": "Video"
     },
+    "blog1": "Tiếng Anh không chỉ là học thuật, mà là công cụ để bạn khai phóng tư duy và tiếp cận tri thức toàn cầu. Tại NexGen Speak, chúng tôi giúp bạn phá bỏ rào cản ngôn ngữ để trở thành người mở lối cho chính tương lai của mình.",
+    "blog2": "Chúng tôi tin rằng mỗi cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể trong một môi trường kết nối. Sự cộng hưởng giữa lộ trình cá nhân hóa và tinh thần đồng đội tại NexGen Speak chính là chìa khóa cho sự bứt phá của bạn.",
+    "blog3": "Loại bỏ phương pháp học vẹt lỗi thời, NexGen Speak tập trung vào kỹ năng phản xạ thực tế và tư duy giải quyết vấn đề bằng tiếng Anh. Đây là nền tảng vững chắc để bạn tự tin khẳng định vị thế trong môi trường làm việc quốc tế chuyên nghiệp.",
     "momentShared": {
       "title": "Các khoảnh khắc được chia sẻ"
     },
@@ -298,23 +331,23 @@
     "intro": {
       "title": "Giới thiệu về NexGen Speak",
       "description1": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
-      "description2": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "description2": "Chúng tôi tin rằng mỗi cá nhân sẽ đạt đến đỉnh cao sự nghiệp khi được tôi luyện trong một tập thể gắn kết, nơi tư duy đột phá là kim chỉ nam để chúng ta cùng nhau khai phá những hành trình mới.",
       "brandStory": "Câu chuyện Thương Hiệu"
     },
     "department": {
       "title": "Phòng ban của NexGen Speak",
-      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối."
+      "description": "Tại NexGen Speak, chúng tôi xây dựng một thương hiệu đột phá nơi sức mạnh tập thể nâng tầm giá trị cá nhân, cùng nhau kiến tạo tư duy dẫn đầu để trở thành người mở lối trong kỷ nguyên ngôn ngữ mới."
     },
     "contactUs": {
       "title": "Liên hệ với Chúng Tôi",
-      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "description": "Hãy kết nối với NexGen Speak ngay hôm nay để cùng chúng tôi khai phá những tư duy đột phá, nơi mọi thắc mắc của bạn đều là khởi đầu cho một hành trình cá nhân hóa hướng tới sự xuất sắc và thành công toàn cầu.",
       "companyName": "Công Ty TNHH NexGen Speak",
       "address": "Tòa nhà Suced 108 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội",
       "facebook": "NexGen Speak Việt Nam"
     },
     "mission": {
       "title": "Sứ mệnh",
-      "description": "Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới. Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý. Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới. Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý.",
+      "description": "Sứ mệnh của NexGen Speak là tạo dựng một môi trường giáo dục đột phá, nơi mỗi cá nhân được khơi dậy tiềm năng ngôn ngữ và trang bị tư duy của người mở lối, giúp bạn tự tin bứt phá giới hạn để trở nên xuất sắc hơn trong tập thể và xã hội.",
       "trainingMotto": "Phương châm đào tạo",
       "mottos": {
         "compact": {
@@ -426,5 +459,35 @@
     "event": {
       "title": "Các Sự kiện tại NexGen Speak"
     }
+  },
+
+  "trialRegister": {
+    "beginner": "A1 - Mới bắt đầu",
+    "elementary": "A2 - Sơ cấp",
+    "intermediate": "B1 - Trung cấp",
+    "upperIntermediate": "B2 - Trung cấp trên",
+    "advanced": "C1 - Cao cấp",
+    "proficient": "C2 - Thành thạo",
+    "namePlaceholder": "Nhập họ và tên của bạn",
+    "phonePlaceholder": "Nhập số điện thoại của bạn",
+    "emailPlaceholder": "Nhập địa chỉ email của bạn",
+    "englishLevelPlaceholder": "Chọn trình độ Tiếng anh",
+    "name": "Họ và Tên",
+    "phone": "Số điện thoại",
+    "email": "Email",
+    "englishLevel": "Trình độ Tiếng anh",
+    "submit": "Đăng kí ngay",
+    "title": "Đăng kí học thử",
+    "messageError": "Không thể hoàn tất đăng ký học thử. Vui lòng thử lại sau.",
+    "iAgree": "Tôi đồng ý cho phép NexGen Speak liên lạc thông qua các hình thức",
+    "contact": "gọi điện thoại, gửi tin nhắn và email",
+    "purpose": "nhằm mục đích tư vấn các chương trình Anh ngữ.",
+    "policy": "Vui lòng đồng ý với Điều khoản & Chính sách của chúng tôi"
+  },
+  "notification": {
+    "error": "Lỗi",
+    "success": "Thành công",
+    "warning": "Cảnh báo",
+    "info": "Thông báo"
   }
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { openTrialRegisterModal } = useTrialRegister()
 
 const input = useTemplateRef('input')
 const skills = computed(() => [
@@ -14,9 +15,9 @@ const value = ref(t('document.archive.skills.speaking'))
 </script>
 
 <template>
-  <div class="container pt-24 max-xl:px-6 max-sm:pt-12">
+  <div class="container section-responsive-pt max-xl:px-6">
     <p class="title text-center">{{ $t('document.archive.title') }}</p>
-    <p class="text-lg font-medium mt-10 text-center max-sm:text-sm">
+    <p class="text-lg font-medium mt-10 text-center max-sm:text-sm max-md:mt-6">
       {{ $t('document.archive.description1') }}
     </p>
     <p class="text-lg font-medium text-center max-sm:text-sm">{{ $t('document.archive.description2') }}</p>
@@ -25,9 +26,9 @@ const value = ref(t('document.archive.skills.speaking'))
         ref="input"
         icon="i-lucide-search"
         :placeholder="$t('document.archive.searchPlaceholder')"
-        class="w-2/3"
+        class="w-2/3 max-sm:w-full"
         :ui="{
-          base: 'h-16'
+          base: 'h-16 max-sm:h-14'
         }"
       >
         <template #trailing>
@@ -35,16 +36,16 @@ const value = ref(t('document.archive.skills.speaking'))
         </template>
       </UInput>
     </div>
-    <div class="flex flex-wrap gap-12 my-10 justify-center max-sm:gap-8 max-sm:my-6">
+    <div class="flex flex-wrap gap-6 my-6 justify-center max-sm:my-6 max-sm:gap-4">
       <div v-for="(item, index) in skills" :key="index">
         <p
-          class="bg-white border border-solid border-primary rounded-full py-2 px-4 whitespace-nowrap hover-scale-105 hover:cursor-pointer"
+          class="bg-white border border-solid max-sm:text-sm border-primary rounded-full py-2 px-4 whitespace-nowrap hover-scale-105 hover:cursor-pointer"
         >
           {{ item }}
         </p>
       </div>
     </div>
-    <div class="flex justify-center items-center gap-6">
+    <div class="flex justify-center items-center gap-6 max-sm:gap-4">
       <USelectMenu
         v-model="value"
         :items="skills"

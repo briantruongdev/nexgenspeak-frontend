@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-
+const { openTrialRegisterModal } = useTrialRegister()
 const cards = computed(() => [
   {
     number: t('register.steps.step1.number'),
@@ -36,10 +36,11 @@ const cards = computed(() => [
             class-name="border-2 bg-transparent"
             :text="$t('register.learnMore')"
             icon="i-lucide-move-right"
+            @click="openTrialRegisterModal"
           />
         </div>
 
-        <div class="grid grid-cols-3 gap-8 max-sm:grid-cols-1 tems-center max-sm:mt-8">
+        <div class="grid grid-cols-3 gap-8 max-sm:grid-cols-1 tems-center max-sm:-mt-20 max-[360px]:-mt-10!">
           <div
             v-for="(card, index) in cards"
             :key="index"
@@ -49,7 +50,7 @@ const cards = computed(() => [
               {{ card.number }}
             </div>
 
-            <img :src="card.image" alt="Card Image" class="mx-auto w-48" loading="lazy" />
+            <img :src="card.image" alt="Card Image" class="mx-auto w-48 max-sm:w-36 max-[400px]:w-28!" loading="lazy" />
 
             <p class="text-sm leading-relaxed">{{ card.description }}</p>
           </div>

@@ -2,12 +2,15 @@
 
 <template>
   <div>
-    <UiRecruitmentBanner />
-    <UiRecruitmentDifference />
-    <UiRecruitmentCultureAndCoreValues />
-    <UiRecruitmentShare />
-    <UiRecruitmentDevelopment />
-    <UiRecruitmentEvent />
+    <UiRecruitmentBanner keepalive />
+    <UiRecruitmentDifference keepalive />
+    <UiRecruitmentCultureAndCoreValues keepalive />
+    <UiRecruitmentShare keepalive />
+    <UiRecruitmentDevelopment class="mb-12!" keepalive />
+    <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
+
+    <!-- <UiRecruitmentEvent /> -->
   </div>
 </template>
 

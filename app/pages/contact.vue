@@ -2,12 +2,14 @@
 
 <template>
   <div>
-    <UiContactBanner />
-    <UiContactIntro />
-    <UiContactDepartment />
-    <UiContact />
-    <UiContactMission />
-    <UiAuthSupport class="mt-24 max-sm:mt-12" />
+    <!-- <UiContactBanner /> -->
+    <UiContactIntro keepalive />
+    <UiContactDepartment keepalive />
+    <UiContact keepalive />
+    <UiContactMission keepalive />
+    <UiAuthSupport keepalive />
+    <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 
