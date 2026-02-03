@@ -49,7 +49,7 @@ async function register() {
 
 <template>
   <UiAuthLayout :sub-title="t('auth.registerAccount')">
-    <UForm ref="formRef" :schema :state="formRegister" class="space-y-6 max-sm:space-y-8 max-md:space-y-10">
+    <UForm ref="formRef" :schema :state="formRegister" class="space-y-6 max-sm:space-y-4">
       <UFormField name="email">
         <UInput
           v-model="formRegister.email"
@@ -132,7 +132,7 @@ async function register() {
         @click="register"
       />
     </UForm>
-    <p class="text-sm font-bold mt-4 text-end">
+    <p class="text-sm font-bold mt-4 text-center">
       {{ t('auth.haveAccount') }}
       <span class="text-primary hover:cursor-pointer hover:underline" @click="navigateTo('/login')">{{ t('auth.login') }}</span>
     </p>

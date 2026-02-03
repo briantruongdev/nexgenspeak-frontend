@@ -21,7 +21,7 @@ const bannerImageSrc = '/images/banner-auth.png'
           class="hover:cursor-pointer transition-all duration-300 hover:scale-110 w-24"
           @click="navigateTo('/')"
         />
-        <p class="text-xl font-bold my-8">{{ subTitle }}</p>
+        <p class="text-xl font-bold my-6">{{ subTitle }}</p>
 
         <slot />
       </div>

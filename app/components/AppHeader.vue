@@ -243,7 +243,7 @@ onUnmounted(() => {
           </template>
 
           <template #footer>
-            <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" class="w-full" />
+            <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" class="w-full" @click="navigateTo('/login')" />
             <div v-else class="space-y-4">
               <UBadge color="primary" variant="subtle" class="h-10 text-center flex justify-center text-base font-medium">{{
                 email
