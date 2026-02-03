@@ -8,6 +8,7 @@
     <UiStudyPlanAbout keepalive />
     <UiHomeSupport class="max-md:mt-0!" keepalive />
     <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 

@@ -8,6 +8,7 @@
     <UiTeacherEducationPhilosophy keepalive />
     <UiMap keepalive />
     <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 

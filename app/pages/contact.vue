@@ -9,6 +9,7 @@
     <UiContactMission keepalive />
     <UiAuthSupport keepalive />
     <UiModalTrailRegister keepalive />
+    <UiBackToTop keepalive />
   </div>
 </template>
 
