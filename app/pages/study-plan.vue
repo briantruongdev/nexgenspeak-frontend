@@ -6,7 +6,7 @@
     <UiStudyPlanTrialRegistration keepalive />
     <UiStudyPlanLearningMethod keepalive />
     <UiStudyPlanAbout keepalive />
-    <UiHomeSupport class="max-md:mt-0!" keepalive />
+    <UiAuthSupport keepalive />
     <UiModalTrailRegister keepalive />
     <UiBackToTop keepalive />
   </div>

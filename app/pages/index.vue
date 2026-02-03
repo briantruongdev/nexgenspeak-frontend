@@ -20,7 +20,7 @@ useSeo({
     <UiHomeBenefits keepalive />
     <UiHomeAbout keepalive />
     <UiHomeSlogan keepalive />
-    <UiHomeSupport keepalive />
+    <UiAuthSupport keepalive />
     <UiModalTrailRegister keepalive />
     <UiBackToTop keepalive />
   </div>

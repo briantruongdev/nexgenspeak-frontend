@@ -5,6 +5,8 @@ export const useTrialRegister = () => {
   const { t } = useI18n()
   const isTrialRegisterModalVisible = useState<boolean>('trial-register-modal', () => false)
   const isProcessing = useState<boolean>('is-processing-trial-register', () => false)
+  const agreePolicy = useState<boolean>('agree-policy', () => false)
+  const showPolicy = useState<boolean>('show-policy', () => false)
   const { showSuccess, showError } = useNotification()
 
   const englishLevelOptions = computed(() => [
@@ -35,8 +37,19 @@ export const useTrialRegister = () => {
     englishLevel: ''
   })
 
+  watch(agreePolicy, value => {
+    if (value) {
+      showPolicy.value = false
+    }
+  })
+
   const canTrailRegister = computed(() => form.value.name && form.value.email && form.value.phone && form.value.englishLevel)
   const onSubmit = async () => {
+    if (!agreePolicy.value) {
+      showPolicy.value = true
+      return
+    }
+
     try {
       isProcessing.value = true
       const data = {
@@ -45,13 +58,8 @@ export const useTrialRegister = () => {
       }
       const { message } = await apiTrialRegister.register(data)
       showSuccess(message)
-      form.value = {
-        name: '',
-        email: '',
-        phone: '',
-        englishLevel: ''
-      }
       closeTrialRegisterModal()
+      resetForm()
     } catch (error) {
       console.error(error)
       showError(t('trialRegister.messageError'))
@@ -60,15 +68,29 @@ export const useTrialRegister = () => {
     }
   }
 
+  const resetForm = () => {
+    form.value = {
+      name: '',
+      email: '',
+      phone: '',
+      englishLevel: ''
+    }
+    agreePolicy.value = false
+    showPolicy.value = false
+  }
+
   return {
     isTrialRegisterModalVisible,
     isProcessing,
     form,
     englishLevelOptions,
     canTrailRegister,
+    agreePolicy,
+    showPolicy,
     openTrialRegisterModal,
     closeTrialRegisterModal,
     toggleTrialRegisterModal,
-    onSubmit
+    onSubmit,
+    resetForm
   }
 }

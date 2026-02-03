@@ -23,7 +23,7 @@ const data = computed(() => [
 
 <template>
   <div class="container">
-    <div class="mt-20 max-lg:mt-12 max-xl:px-6 max-[400px]:mt-8!">
+    <div class="my-20 max-lg:mt-12 max-xl:px-6 max-[400px]:mt-8! max-lg:mb-0">
       <p class="title">{{ $t('slogan.title') }}</p>
 
       <p class="my-6 text-lg max-sm:text-sm">

@@ -474,7 +474,11 @@
     "englishLevel": "English level",
     "submit": "Register now",
     "title": "Register for a trial lesson",
-    "messageError": "Unable to complete trial registration. Please try again later."
+    "messageError": "Unable to complete trial registration. Please try again later.",
+    "iAgree": "I agree to allow NexGen Speak to contact me by",
+    "contact": "phone, text, and email",
+    "purpose": "for English course consultation and market research.",
+    "policy": "Please agree to our Terms & Policies"
   },
   "notification": {
     "error": "Error",

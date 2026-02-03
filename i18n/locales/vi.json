@@ -474,7 +474,11 @@
     "englishLevel": "Trình độ Tiếng anh",
     "submit": "Đăng kí ngay",
     "title": "Đăng kí học thử",
-    "messageError": "Không thể hoàn tất đăng ký học thử. Vui lòng thử lại sau."
+    "messageError": "Không thể hoàn tất đăng ký học thử. Vui lòng thử lại sau.",
+    "iAgree": "Tôi đồng ý cho phép NexGen Speak liên lạc thông qua các hình thức",
+    "contact": "gọi điện thoại, gửi tin nhắn và email",
+    "purpose": "nhằm mục đích tư vấn các chương trình Anh ngữ.",
+    "policy": "Vui lòng đồng ý với Điều khoản & Chính sách của chúng tôi"
   },
   "notification": {
     "error": "Lỗi",
