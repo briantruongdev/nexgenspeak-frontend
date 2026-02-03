@@ -86,3 +86,7 @@ body {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
+
+::-ms-reveal {
+  display: none;
+}

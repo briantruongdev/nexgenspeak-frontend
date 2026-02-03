@@ -81,7 +81,16 @@ async function register() {
           @blur="passwordFocused = false"
         >
           <template #trailing>
-            <UButton color="neutral" variant="link" size="sm" @click="showPass = !showPass" />
+            <UButton
+              color="neutral"
+              variant="link"
+              size="sm"
+              :icon="showPass ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+              :aria-label="showPass ? 'Hide password' : 'Show password'"
+              :aria-pressed="showPass"
+              aria-controls="password"
+              @click="showPass = !showPass"
+            />
           </template>
         </UInput>
       </UFormField>
@@ -117,7 +126,16 @@ async function register() {
           @keyup.enter="register"
         >
           <template #trailing>
-            <UButton color="neutral" variant="link" size="sm" @click="showPass = !showPass" />
+            <UButton
+              color="neutral"
+              variant="link"
+              size="sm"
+              :icon="showConfirmPass ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+              :aria-label="showConfirmPass ? 'Hide password' : 'Show password'"
+              :aria-pressed="showConfirmPass"
+              aria-controls="password"
+              @click="showConfirmPass = !showConfirmPass"
+            />
           </template>
         </UInput>
       </UFormField>
