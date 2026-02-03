@@ -26,10 +26,12 @@
       </div>
     </div>
   </section>
-  <section class="container grid grid-cols-2 gap-8 items-end max-xl:px-6 max-md:grid-cols-1 max-md:hidden">
+  <section class="container grid grid-cols-2 gap-8 items-end max-xl:px-6 max-md:grid-cols-1">
     <div>
       <p class="text-4xl font-bold section-responsive">{{ $t('studyPlan.about.title') }}</p>
-      <p class="mb-20 max-lg:mb-10 text-lg mt-4">{{ $t('common.practice') }}</p>
+      <p class="mb-20 max-lg:mb-10 text-lg mt-4 max-md:text-base max-sm:text-sm">
+        {{ $t('studyPlan.sloganAbout') }}
+      </p>
       <img
         src="/images/study-7.png"
         alt=""

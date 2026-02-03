@@ -8,13 +8,13 @@
         {{ $t('support.description') }}
       </p>
 
-      <div class="flex mt-16 gap-8 max-md:block max-md:space-y-6">
+      <div class="flex mt-16 gap-4 max-md:block max-md:space-y-6">
         <div class="flex justify-start items-start gap-4">
           <img src="/images/phone-no-bg.png" alt="" class="w-10 h-10 object-cover" loading="lazy" />
           <div>
             <p class="text-primary text-lg font-bold">{{ $t('support.phone.number') }}</p>
             <p class="font-medium max-md:text-sm">{{ $t('support.phone.hours') }}</p>
-            <p class="font-medium mt-6 max-md:text-sm">
+            <p class="font-medium mt-2 max-md:text-sm">
               {{ $t('support.phone.afterHours') }}
             </p>
           </div>

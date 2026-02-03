@@ -224,24 +224,25 @@
       "title": "NexGen Speak",
       "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn thông qua giao tiếp và trò chuyện thực tế. Với lịch học linh hoạt và phương pháp học tập tương tác, bạn có thể chủ động đăng ký khung giờ phù hợp để nâng cao khả năng phản xạ và tự tin sử dụng tiếng Anh mỗi ngày."
     },
+    "sloganAbout": "Bằng phương pháp học chủ động và lộ trình cá nhân hóa, chúng tôi cam kết đồng hành cùng bạn biến tiếng Anh thành bản năng để tự tin giao tiếp trong mọi tình huống.",
     "learningMethod": {
       "title": "Phương pháp học và giao tiếp",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện. Chúng tôi tạo ra môi trường.",
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện.",
       "items": {
         "item1": {
           "title": "Tập chung vào giao tiếp phản xạ",
-          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+          "description": "Thay vì học vẹt, học viên được tham gia vào các tình huống thực tế để kích hoạt tư duy bằng tiếng Anh, giúp phản xạ nhanh và tự nhiên."
         },
         "item2": {
           "title": "Hiệu quả trong thời gian nhanh nhất",
-          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+          "description": "Giáo trình được tinh gọn, tập trung vào những kiến thức thực tiễn nhất, giúp bạn đạt được mục tiêu ngôn ngữ một cách lộ trình và nhanh chóng."
         },
         "item3": {
           "title": "Lộ trình học tập rõ ràng theo khung Châu Âu",
-          "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện"
+          "description": "Hệ thống bài học được thiết kế bám sát Khung tham chiếu trình độ ngôn ngữ chung Châu Âu (CEFR), đảm bảo tính học thuật và sự công nhận toàn cầu."
         }
       },
-      "footer": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn - giao tiếp, trò chuyện."
+      "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới."
     },
     "trialRegistration": {
       "title": "Đăng ký học thử khóa học tiếng Anh online"
@@ -309,12 +310,15 @@
   "blog": {
     "today": {
       "title": "Hôm nay Bạn có gì vui?",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "description": "Mỗi ngày tại NexGen Speak là một hành trình khám phá đầy tiếng cười, nơi những bài học không còn là áp lực mà trở thành niềm vui khi bạn được tự do thể hiện bản sắc riêng và kết nối với những người bạn đồng điệu.",
       "shareYourMoment": "Chia sẻ khoảnh khắc của bạn",
       "writeYourFeelings": "Viết cảm nhận của bạn",
       "photo": "Ảnh",
       "video": "Video"
     },
+    "blog1": "Tiếng Anh không chỉ là học thuật, mà là công cụ để bạn khai phóng tư duy và tiếp cận tri thức toàn cầu. Tại NexGen Speak, chúng tôi giúp bạn phá bỏ rào cản ngôn ngữ để trở thành người mở lối cho chính tương lai của mình.",
+    "blog2": "Chúng tôi tin rằng mỗi cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể trong một môi trường kết nối. Sự cộng hưởng giữa lộ trình cá nhân hóa và tinh thần đồng đội tại NexGen Speak chính là chìa khóa cho sự bứt phá của bạn.",
+    "blog3": "Loại bỏ phương pháp học vẹt lỗi thời, NexGen Speak tập trung vào kỹ năng phản xạ thực tế và tư duy giải quyết vấn đề bằng tiếng Anh. Đây là nền tảng vững chắc để bạn tự tin khẳng định vị thế trong môi trường làm việc quốc tế chuyên nghiệp.",
     "momentShared": {
       "title": "Các khoảnh khắc được chia sẻ"
     },
@@ -327,23 +331,23 @@
     "intro": {
       "title": "Giới thiệu về NexGen Speak",
       "description1": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
-      "description2": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "description2": "Chúng tôi tin rằng mỗi cá nhân sẽ đạt đến đỉnh cao sự nghiệp khi được tôi luyện trong một tập thể gắn kết, nơi tư duy đột phá là kim chỉ nam để chúng ta cùng nhau khai phá những hành trình mới.",
       "brandStory": "Câu chuyện Thương Hiệu"
     },
     "department": {
       "title": "Phòng ban của NexGen Speak",
-      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối."
+      "description": "Tại NexGen Speak, chúng tôi xây dựng một thương hiệu đột phá nơi sức mạnh tập thể nâng tầm giá trị cá nhân, cùng nhau kiến tạo tư duy dẫn đầu để trở thành người mở lối trong kỷ nguyên ngôn ngữ mới."
     },
     "contactUs": {
       "title": "Liên hệ với Chúng Tôi",
-      "description": "Chúng tôi tạo khác biệt bằng một thương hiệu đột phá. Chúng tôi tin rằng từng cá nhân sẽ trở nên xuất sắc hơn khi phát huy được sức mạnh của tập thể. Tư duy đột phá sẽ giúp chúng tôi trở thành người mở lối.",
+      "description": "Hãy kết nối với NexGen Speak ngay hôm nay để cùng chúng tôi khai phá những tư duy đột phá, nơi mọi thắc mắc của bạn đều là khởi đầu cho một hành trình cá nhân hóa hướng tới sự xuất sắc và thành công toàn cầu.",
       "companyName": "Công Ty TNHH NexGen Speak",
       "address": "Tòa nhà Suced 108 Nguyễn Hoàng, Nam Từ Liêm, Hà Nội",
       "facebook": "NexGen Speak Việt Nam"
     },
     "mission": {
       "title": "Sứ mệnh",
-      "description": "Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới. Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý. Chúng tôi chia sẻ kiến thức và cởi mở với tư duy làm việc mới. Chúng tôi đưa ra quyết định đúng đắn với sự cân nhắc hợp lý.",
+      "description": "Sứ mệnh của NexGen Speak là tạo dựng một môi trường giáo dục đột phá, nơi mỗi cá nhân được khơi dậy tiềm năng ngôn ngữ và trang bị tư duy của người mở lối, giúp bạn tự tin bứt phá giới hạn để trở nên xuất sắc hơn trong tập thể và xã hội.",
       "trainingMotto": "Phương châm đào tạo",
       "mottos": {
         "compact": {

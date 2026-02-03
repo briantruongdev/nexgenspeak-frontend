@@ -5,35 +5,27 @@ const { openTrialRegisterModal } = useTrialRegister()
 const items = computed(() => [
   {
     image: '/images/people2.png',
-    des: t('about.description')
+    des: t('blog.blog1')
   },
   {
     image: '/images/people3.png',
-    des: t('about.description')
+    des: t('blog.blog2')
   },
   {
     image: '/images/people4.png',
-    des: t('about.description')
-  },
-  {
-    image: '/images/people5.png',
-    des: t('about.description')
+    des: t('blog.blog3')
   },
   {
     image: '/images/people2.png',
-    des: t('about.description')
+    des: t('blog.blog1')
   },
   {
     image: '/images/people3.png',
-    des: t('about.description')
+    des: t('blog.blog2')
   },
   {
     image: '/images/people4.png',
-    des: t('about.description')
-  },
-  {
-    image: '/images/people5.png',
-    des: t('about.description')
+    des: t('blog.blog3')
   }
 ])
 </script>

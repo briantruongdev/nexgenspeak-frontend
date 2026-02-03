@@ -13,7 +13,7 @@ const src = '/images/contact-banner2.png'
         {{ $t('contact.mission.description') }}
       </p>
       <p class="text-3xl font-bold my-4 max-lg:text-xl">{{ $t('contact.mission.trainingMotto') }}</p>
-      <div class="space-x-3">
+      <div class="space-y-3">
         <div>
           <p class="text-xl font-bold max-lg:text-base">{{ $t('contact.mission.mottos.compact.title') }}</p>
           <p class="mt-2 max-lg:text-sm">{{ $t('contact.mission.mottos.compact.description') }}</p>
