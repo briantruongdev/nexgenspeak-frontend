@@ -49,7 +49,7 @@ async function resetPassword() {
 </script>
 
 <template>
-  <UiAuthLayout :sub-title="t('auth.forgotPassword')">
+  <UiAuthLayout :sub-title="t('auth.forgotPassword')" height-img="h-[90vh]!">
     <UForm ref="formRef" :schema :state="formResetPassword" class="space-y-6 max-sm:space-y-4">
       <UFormField name="email">
         <UInput

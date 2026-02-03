@@ -121,7 +121,10 @@ onUnmounted(() => {
             <p class="text-primary font-medium">
               {{ email }}
             </p>
-            <p class="hover:underline hover:text-primary hover:cursor-pointer" @click="handleLogout">
+            <p
+              class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
+              @click="handleLogout"
+            >
               {{ $t('auth.logout') }}
             </p>
           </div>

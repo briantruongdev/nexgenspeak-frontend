@@ -3,7 +3,7 @@
 <template>
   <div class="bg-[#EDEFF0]">
     <div class="container py-10 max-xl:px-6">
-      <p class="text-5xl text-primary font-bold max-md:text-3xl">{{ $t('support.title') }}</p>
+      <p class="text-4xl text-primary font-bold max-md:text-3xl">{{ $t('support.title') }}</p>
       <p class="mt-4 text-lg font-medium max-md:text-sm">
         {{ $t('support.description') }}
       </p>

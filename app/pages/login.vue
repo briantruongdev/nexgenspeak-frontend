@@ -18,7 +18,7 @@ const login = async () => {
 </script>
 
 <template>
-  <UiAuthLayout :sub-title="t('auth.loginToNGS')">
+  <UiAuthLayout :sub-title="t('auth.loginToNGS')" height-img="h-[70vh]!">
     <UForm ref="formRef" :schema :state="formLogin" class="space-y-6 max-sm:space-y-4">
       <UFormField name="email">
         <UInput v-model="formLogin.email" :placeholder="t('auth.email')" :ui="{ base: 'h-12 bg-transparent' }" class="w-full" />
