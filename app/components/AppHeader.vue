@@ -131,7 +131,7 @@ onUnmounted(() => {
         </template>
       </UPopover>
 
-      <a href="tel:+84 888 887 798">
+      <!-- <a href="tel:+84888887798">
         <UIcon
           name="i-lucide-phone-call"
           class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
@@ -139,7 +139,7 @@ onUnmounted(() => {
       <UIcon
         name="i-lucide-search"
         class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
-      />
+      /> -->
       <USeparator orientation="vertical" :class="isScrolled ? 'h-6' : 'h-8'" class="transition-all duration-300" />
 
       <BaseLanguages class="transition-all duration-300" />
