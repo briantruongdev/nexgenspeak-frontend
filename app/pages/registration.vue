@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import { shallowRef } from 'vue'
-import { CalendarDate } from '@internationalized/date'
+import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import { useTeacher } from '@/composables/useTeacher'
 import type { ITeacher } from '~/types/teacher.type'
 import { useWindowSize } from '@vueuse/core'
 import dayjs from 'dayjs'
 
+definePageMeta({
+  middleware: 'auth'
+})
+
 const { width } = useWindowSize()
 const config = useRuntimeConfig()
 const { showError } = useNotification()
+const { t: $t } = useI18n()
 
 const now = new Date()
 
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
+const minDate = today(getLocalTimeZone())
 const { data, pending, slots, isGettingSlots, getSlotByDate } = useTeacher()
 const { isBooking, booking } = useBooking()
 
@@ -48,7 +54,7 @@ const handleSelectSlot = (slotId: number) => {
     if (selectedSlotIds.value.length < maxSlots) {
       selectedSlotIds.value.push(slotId)
     } else {
-      showError(`Bạn chỉ có thể chọn tối đa ${maxSlots} slots`)
+      showError($t('booking.maxSlotsError', { max: maxSlots }))
     }
   }
 }
@@ -80,14 +86,15 @@ const handleBooking = async () => {
           :ui="{
             cell: 'hover:cursor-pointer'
           }"
+          :min-value="minDate"
           @update:model-value="getSlots"
         />
       </div>
     </div>
-    <p class="title mb-8">Danh sách giáo viên</p>
+    <p class="title mb-8">{{ $t('booking.teacherList') }}</p>
     <div v-if="pending" class="flex flex-col space-y-4 items-center my-8">
       <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
-      <span class="text-gray-500">Đang tải danh sách giáo viên</span>
+      <span class="text-gray-500">{{ $t('booking.loadingTeachers') }}</span>
     </div>
     <template v-else>
       <div class="grid grid-cols-4 gap-4 max-xl:gap-3 max-lg:grid-cols-2 max-md:grid-cols-3 max-sm:grid-cols-2">
@@ -152,11 +159,13 @@ const handleBooking = async () => {
     </template>
     <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8">
       <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
-      <span class="text-gray-500">Đang tải thời gian học</span>
+      <span class="text-gray-500">{{ $t('booking.loadingSlots') }}</span>
     </div>
     <div v-else-if="selectedTeacherId && slots && slots.length > 0" class="my-8">
       <div class="mb-4 flex items-center justify-between">
-        <p class="text-xl font-medium">Chọn khung giờ học ({{ selectedSlotIds.length }}/{{ maxSlots }})</p>
+        <p class="text-xl font-medium">
+          {{ $t('booking.selectSlot') }} {{ $t('booking.selectedSlots', { count: selectedSlotIds.length, max: maxSlots }) }}
+        </p>
         <UButton
           v-if="selectedSlotIds.length > 0"
           color="error"
@@ -165,7 +174,7 @@ const handleBooking = async () => {
           class="hover:cursor-pointer"
           @click="selectedSlotIds = []"
         >
-          Xóa tất cả
+          {{ $t('booking.clearAll') }}
         </UButton>
       </div>
       <div class="grid grid-cols-8 gap-4">
@@ -185,12 +194,12 @@ const handleBooking = async () => {
       </div>
     </div>
     <div v-else-if="selectedTeacherId && (!slots || slots.length === 0)" class="my-8 text-center text-gray-500">
-      <p>Không có khung giờ nào khả dụng cho ngày này</p>
+      <p>{{ $t('booking.noSlotsAvailable') }}</p>
     </div>
 
     <BaseButton
       v-if="selectedTeacherId && date && selectedSlotIds.length"
-      text="Đặt lịch học"
+      :text="$t('booking.bookLesson')"
       class="w-full h-12 mb-8"
       :loading="isBooking"
       :disabled="isBooking"

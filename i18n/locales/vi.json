@@ -6,6 +6,7 @@
       "studyPlan": "Kế hoạch học tập & Học phí",
       "teachers": "Giáo viên",
       "document": "Tài liệu",
+      "register": "Đăng kí",
       "blog": "Blog",
       "contact": "Liên hệ",
       "recruitment": "Tuyển dụng"
@@ -489,5 +490,16 @@
     "success": "Thành công",
     "warning": "Cảnh báo",
     "info": "Thông báo"
+  },
+  "booking": {
+    "teacherList": "Danh sách giáo viên",
+    "loadingTeachers": "Đang tải danh sách giáo viên",
+    "loadingSlots": "Đang tải thời gian học",
+    "selectSlot": "Chọn khung giờ học",
+    "selectedSlots": "({ count }/{ max })",
+    "clearAll": "Xóa tất cả",
+    "noSlotsAvailable": "Không có khung giờ nào khả dụng cho ngày này",
+    "bookLesson": "Đặt lịch học",
+    "maxSlotsError": "Bạn chỉ có thể chọn tối đa { max } slots"
   }
 }

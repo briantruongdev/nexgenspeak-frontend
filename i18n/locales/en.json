@@ -6,6 +6,7 @@
       "studyPlan": "Study Plan & Tuition",
       "teachers": "Teachers",
       "document": "Document",
+      "register": "Register",
       "blog": "Blog",
       "contact": "Contact",
       "recruitment": "Recruitment"
@@ -489,5 +490,16 @@
     "success": "Success",
     "warning": "Warning",
     "info": "Info"
+  },
+  "booking": {
+    "teacherList": "Teacher List",
+    "loadingTeachers": "Loading teacher list",
+    "loadingSlots": "Loading time slots",
+    "selectSlot": "Select time slots",
+    "selectedSlots": "({ count }/{ max })",
+    "clearAll": "Clear all",
+    "noSlotsAvailable": "No time slots available for this day",
+    "bookLesson": "Book Lesson",
+    "maxSlotsError": "You can only select up to { max } slots"
   }
 }
