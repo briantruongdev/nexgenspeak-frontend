@@ -76,8 +76,8 @@ const handleBooking = async () => {
 </script>
 
 <template>
-  <div class="container">
-    <div class="flex justify-center items-center p-8">
+  <div class="container max-xl:px-6">
+    <div class="flex justify-center items-center p-8 max-sm:p-0 max-sm:my-8">
       <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
         <UCalendar
           v-model="date"
@@ -97,7 +97,7 @@ const handleBooking = async () => {
       <span class="text-gray-500">{{ $t('booking.loadingTeachers') }}</span>
     </div>
     <template v-else>
-      <div class="grid grid-cols-4 gap-4 max-xl:gap-3 max-lg:grid-cols-2 max-md:grid-cols-3 max-sm:grid-cols-2">
+      <div class="grid grid-cols-4 max-lg:grid-cols-2 gap-4 max-[450px]:grid-cols-1!">
         <div
           v-for="teacher in pagedTeachers"
           :key="teacher.teacherId"
@@ -177,7 +177,7 @@ const handleBooking = async () => {
           {{ $t('booking.clearAll') }}
         </UButton>
       </div>
-      <div class="grid grid-cols-8 gap-4">
+      <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-2!">
         <div
           v-for="item in slots"
           :key="item.id"
@@ -189,7 +189,7 @@ const handleBooking = async () => {
           ]"
           @click="handleSelectSlot(item.id)"
         >
-          <span class="font-semibold">{{ item.startTime }}-{{ item.endTime }}</span>
+          <span class="font-semibold max-sm:text-sm">{{ item.startTime }}-{{ item.endTime }}</span>
         </div>
       </div>
     </div>
