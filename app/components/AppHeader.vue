@@ -166,7 +166,7 @@ onUnmounted(() => {
       />
 
       <div class="flex justify-end items-center gap-4">
-        <a href="tel:+84 888 887 798">
+        <!-- <a href="tel:+84 888 887 798">
           <UIcon
             name="i-lucide-phone-call"
             class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
@@ -174,7 +174,7 @@ onUnmounted(() => {
         <UIcon
           name="i-lucide-search"
           class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
-        />
+        /> -->
 
         <UDrawer
           v-model:open="open"

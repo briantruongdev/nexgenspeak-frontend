@@ -13,6 +13,8 @@ definePageMeta({
 // const { width } = useWindowSize()
 const config = useRuntimeConfig()
 const { showError } = useNotification()
+const route = useRoute()
+const router = useRouter()
 
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
@@ -33,16 +35,69 @@ const pagedTeachers = computed(() => {
 })
 const src = '/images/teacher-default.png'
 
+const dateFormat = computed(() => {
+  if (!date.value) return ''
+  return dayjs(`${date.value.year}-${date.value.month}-${date.value.day}`).format('YYYY-MM-DD')
+})
+
+const updateUrl = () => {
+  const query: any = {}
+
+  if (selectedTeacherId.value) {
+    query.teacherId = selectedTeacherId.value
+  }
+
+  if (dateFormat.value) {
+    query.date = dateFormat.value
+  }
+
+  router.push({ query })
+}
+
+const restoreFromUrl = () => {
+  if (route.query.date) {
+    const urlDate = dayjs(route.query.date as string)
+    if (urlDate.isValid()) {
+      date.value = new CalendarDate(urlDate.year(), urlDate.month() + 1, urlDate.date())
+    }
+  }
+
+  if (route.query.teacherId) {
+    selectedTeacherId.value = route.query.teacherId as unknown as number
+    getSlots()
+  }
+}
+
 const handleSelectedTeacher = async (teacherId: number) => {
+  if (selectedTeacherId.value === teacherId) {
+    selectedTeacherId.value = 0
+    selectedSlotIds.value = []
+    updateUrl()
+    return
+  }
+
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
+  updateUrl()
   getSlots()
 }
-const dateFormat = computed(() => dayjs(`${date.value.year}-${date.value.month}-${date.value.day}`).format('YYYY-MM-DD'))
 
 const getSlots = async () => {
-  await getSlotByDate(selectedTeacherId.value, dateFormat.value)
+  if (selectedTeacherId.value) {
+    await getSlotByDate(selectedTeacherId.value, dateFormat.value)
+  }
 }
+
+const handleDateChange = () => {
+  updateUrl()
+  if (selectedTeacherId.value) {
+    getSlots()
+  }
+}
+
+onMounted(() => {
+  restoreFromUrl()
+})
 
 const handleSelectSlot = (slotId: number) => {
   const index = selectedSlotIds.value.indexOf(slotId)
@@ -71,6 +126,7 @@ const handleBooking = async () => {
   date.value = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())).value
   selectedTeacherId.value = 0
   selectedSlotIds.value = []
+  router.push({ query: {} })
 }
 </script>
 
@@ -87,7 +143,7 @@ const handleBooking = async () => {
               cell: 'hover:cursor-pointer'
             }"
             :min-value="minDate"
-            @update:model-value="getSlots"
+            @update:model-value="handleDateChange"
           />
         </div>
       </div>
@@ -123,7 +179,7 @@ const handleBooking = async () => {
                 <div class="space-y-3 max-sm:space-y-2">
                   <div class="flex items-start gap-3 max-sm:gap-2">
                     <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award1 }}</p>
+                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award1 }} {{ teacher.teacherId }}</p>
                   </div>
                   <div class="flex items-start gap-3 max-sm:gap-2">
                     <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
