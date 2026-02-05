@@ -6,12 +6,24 @@ const handleScroll = () => {
 }
 
 const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
+  const start = window.scrollY
+  const duration = 600
+  let startTime: number | null = null
 
+  const animation = (currentTime: number) => {
+    if (!startTime) startTime = currentTime
+    const timeElapsed = currentTime - startTime
+    const progress = Math.min(timeElapsed / duration, 1)
+
+    window.scrollTo(0, start * (1 - progress))
+
+    if (progress < 1) {
+      requestAnimationFrame(animation)
+    }
+  }
+
+  requestAnimationFrame(animation)
+}
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
 })

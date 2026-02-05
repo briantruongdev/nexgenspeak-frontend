@@ -34,6 +34,7 @@ body {
     sans-serif;
   background-color: #fef9f4;
   color: var(--ui-text, #183028);
+  scroll-behavior: smooth;
 }
 
 .container {
