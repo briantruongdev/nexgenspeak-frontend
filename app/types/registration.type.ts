@@ -38,3 +38,10 @@ export interface IListRegistration {
   registrations: IRegistration[]
   total: number
 }
+
+export interface ICancelRegistration {
+  message: string
+  registrationId: string
+  cancelledSlots: number
+  deleted: boolean
+}

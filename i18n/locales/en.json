@@ -501,5 +501,8 @@
     "noSlotsAvailable": "No time slots available for this day",
     "bookLesson": "Book Lesson",
     "maxSlotsError": "You can only select up to { max } slots"
-  }
+  },
+  "yes": "Yes",
+  "delete": "Delete",
+  "cancel": "Cancel"
 }

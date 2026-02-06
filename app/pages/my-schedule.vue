@@ -3,8 +3,11 @@ import type { TableColumn } from '@nuxt/ui'
 import { getPaginationRowModel, type Column } from '@tanstack/vue-table'
 import type { ISlot } from '~/types/registration.type'
 
+const { t } = useI18n()
 const UButton = resolveComponent('UButton')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
+const isConfirmOpen = ref(false)
+const slotDelete = ref<FlattenedSlot>()
 
 const table = useTemplateRef('table')
 definePageMeta({
@@ -154,16 +157,22 @@ const pagination = ref({
 })
 
 const globalFilter = ref('')
-const handleCancelSchedule = async (slot: FlattenedSlot) => {
-  if (!confirm(`Bạn có chắc chắn muốn hủy ca học #${slot.id} vào lúc ${slot.startTime} - ${slot.endTime}?`)) {
+const handleCancelSchedule = async (slot?: FlattenedSlot) => {
+  if (slot?.id) {
+    slotDelete.value = slot
+    isConfirmOpen.value = true
     return
   }
-
   try {
     isLoading.value = true
-    await cancelBooking(slot.registrationId)
+    const data = {
+      registrationId: slotDelete.value!.registrationId,
+      slotIds: [slotDelete.value!.id]
+    }
+    await cancelBooking(data)
+    isConfirmOpen.value = false
   } catch (error) {
-    console.error('Error canceling booking:', error)
+    console.error(error)
   } finally {
     isLoading.value = false
   }
@@ -225,5 +234,15 @@ const handleCancelSchedule = async (slot: FlattenedSlot) => {
         />
       </div>
     </UCard>
+    <UiConfirmModal
+      v-model:open="isConfirmOpen"
+      variant="danger"
+      :title="t('cancel-slot')"
+      :description="`Bạn có chắc chắn muốn hủy ca học #${slotDelete?.id} vào lúc ${slotDelete?.startTime} - ${slotDelete?.endTime}?`"
+      :confirm-text="t('delete')"
+      :cancel-text="t('cancel')"
+      :is-loading="isLoading"
+      @confirm="handleCancelSchedule()"
+    />
   </div>
 </template>

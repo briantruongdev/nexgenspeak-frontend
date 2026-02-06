@@ -21,9 +21,9 @@ export const useBooking = () => {
     server: true
   })
 
-  const cancelBooking = async (registrationId: string) => {
+  const cancelBooking = async (data: { registrationId: string; slotIds: number[] }) => {
     try {
-      const rs = await apiBooking.cancelRegistration(registrationId)
+      const rs = await apiBooking.cancelRegistration(data)
       showSuccess(rs.message || 'Đã hủy lịch học thành công')
       await refresh()
     } catch (error) {

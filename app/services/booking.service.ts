@@ -1,4 +1,4 @@
-import type { IDataRegistration, IListRegistration, IResponseRegistration } from '~/types/registration.type'
+import type { ICancelRegistration, IDataRegistration, IListRegistration, IResponseRegistration } from '~/types/registration.type'
 import BaseService from './base.service'
 
 export class BookingService extends BaseService {
@@ -14,7 +14,7 @@ export class BookingService extends BaseService {
     return this.get<IListRegistration>('')
   }
 
-  async cancelRegistration(registrationId: string): Promise<{ message: string }> {
-    return this.delete<{ message: string }>(`/${registrationId}`)
+  async cancelRegistration(body: { registrationId: string; slotIds: number[] }): Promise<ICancelRegistration> {
+    return this.delete<ICancelRegistration>(`/cancel-slot`, body)
   }
 }
