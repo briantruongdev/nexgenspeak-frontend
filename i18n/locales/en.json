@@ -504,5 +504,28 @@
   },
   "yes": "Yes",
   "delete": "Delete",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "cancel-slot": "Cancel Slot",
+  "mySchedule": {
+    "title": "My Schedule",
+    "description": "Manage and track your class schedule",
+    "table": {
+      "date": "Date",
+      "time": "Time",
+      "slot": "Slot",
+      "slotNumber": "Slot #{id}",
+      "teacher": "Teacher",
+      "expertise": "Expertise",
+      "actions": "Actions"
+    },
+    "actions": {
+      "cancel": "Cancel"
+    },
+    "empty": "You don't have any scheduled classes yet",
+    "confirmCancel": "Are you sure you want to cancel slot #{id} at {startTime} - {endTime}?",
+    "sort": {
+      "asc": "Ascending",
+      "desc": "Descending"
+    }
+  }
 }

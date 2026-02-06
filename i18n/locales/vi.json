@@ -504,5 +504,28 @@
   },
   "yes": "Yes",
   "delete": "Xóa",
-  "cancel": "Cancel"
+  "cancel": "Hủy",
+  "cancel-slot": "Hủy ca học",
+  "mySchedule": {
+    "title": "Lịch học của tôi",
+    "description": "Quản lý và theo dõi lịch học của bạn",
+    "table": {
+      "date": "Ngày học",
+      "time": "Thời gian",
+      "slot": "Ca học",
+      "slotNumber": "Ca #{id}",
+      "teacher": "Giáo viên",
+      "expertise": "Chuyên môn",
+      "actions": "Thao tác"
+    },
+    "actions": {
+      "cancel": "Hủy"
+    },
+    "empty": "Bạn chưa có lịch học nào",
+    "confirmCancel": "Bạn có chắc chắn muốn hủy ca học #{id} vào lúc {startTime} - {endTime} không?",
+    "sort": {
+      "asc": "Tăng dần",
+      "desc": "Giảm dần"
+    }
+  }
 }

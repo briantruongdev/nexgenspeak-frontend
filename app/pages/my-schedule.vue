@@ -41,11 +41,11 @@ const flattenedData = computed(() => {
   })
 })
 
-const columns: TableColumn<FlattenedSlot>[] = [
+const columns = computed(() => [
   {
     accessorKey: 'date',
-    header: ({ column }) => getHeader(column, 'Ngày học'),
-    cell: ({ row }) => {
+    header: ({ column }: { column: Column<FlattenedSlot, unknown> }) => getHeader(column, t('mySchedule.table.date')),
+    cell: ({ row }: { row: any }) => {
       return new Date(row.getValue('date')).toLocaleDateString('vi-VN', {
         weekday: 'short',
         day: '2-digit',
@@ -56,8 +56,8 @@ const columns: TableColumn<FlattenedSlot>[] = [
   },
   {
     accessorKey: 'startTime',
-    header: 'Thời gian',
-    cell: ({ row }) => {
+    header: t('mySchedule.table.time'),
+    cell: ({ row }: { row: any }) => {
       const startTime = row.getValue('startTime') as string
       const endTime = row.original.endTime
       return `${startTime} - ${endTime}`
@@ -65,28 +65,20 @@ const columns: TableColumn<FlattenedSlot>[] = [
   },
   {
     accessorKey: 'id',
-    header: 'Ca học',
-    cell: ({ row }) => `Ca #${row.getValue('id')}`
+    header: t('mySchedule.table.slot'),
+    cell: ({ row }: { row: any }) => t('mySchedule.table.slotNumber', { id: row.getValue('id') })
   },
   {
     accessorKey: 'teacher',
-    header: 'Giáo viên',
-    cell: ({ row }) => {
+    header: t('mySchedule.table.teacher'),
+    cell: ({ row }: { row: any }) => {
       const teacher = row.getValue('teacher') as ISlot['teacher']
       return teacher.fullName
     }
   },
-  // {
-  //   accessorKey: 'teacher.position',
-  //   header: 'Chuyên môn',
-  //   cell: ({ row }) => {
-  //     const teacher = row.original.teacher
-  //     return teacher.position
-  //   }
-  // },
   {
     id: 'actions',
-    header: 'Thao tác',
+    header: t('mySchedule.table.actions'),
     meta: {
       class: {
         th: 'text-center',
@@ -94,7 +86,7 @@ const columns: TableColumn<FlattenedSlot>[] = [
       }
     }
   }
-]
+])
 
 function getHeader(column: Column<FlattenedSlot>, label: string) {
   const isSorted = column.getIsSorted()
@@ -108,7 +100,7 @@ function getHeader(column: Column<FlattenedSlot>, label: string) {
       'aria-label': 'Actions dropdown',
       items: [
         {
-          label: 'Asc',
+          label: t('mySchedule.sort.asc'),
           type: 'checkbox',
           icon: 'i-lucide-arrow-up-narrow-wide',
           checked: isSorted === 'asc',
@@ -121,7 +113,7 @@ function getHeader(column: Column<FlattenedSlot>, label: string) {
           }
         },
         {
-          label: 'Desc',
+          label: t('mySchedule.sort.desc'),
           icon: 'i-lucide-arrow-down-wide-narrow',
           type: 'checkbox',
           checked: isSorted === 'desc',
@@ -182,8 +174,8 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
 <template>
   <div class="container mx-auto py-8 px-4">
     <div class="mb-6">
-      <h1 class="text-3xl font-bold">Lịch học của tôi</h1>
-      <p class="text-gray-600 mt-2">Quản lý và theo dõi lịch học của bạn</p>
+      <h1 class="text-3xl font-bold">{{ t('mySchedule.title') }}</h1>
+      <p class="text-gray-600 mt-2">{{ t('mySchedule.description') }}</p>
     </div>
 
     <UCard>
@@ -214,14 +206,14 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
             :loading="isLoading"
             @click="handleCancelSchedule(row.original)"
           >
-            Hủy
+            {{ t('mySchedule.actions.cancel') }}
           </UButton>
         </template>
 
         <template #empty>
           <div class="flex flex-col items-center justify-center py-12">
             <UIcon name="i-lucide-calendar-x" class="w-12 h-12 text-gray-400 mb-4" />
-            <p class="text-gray-500">Bạn chưa có lịch học nào</p>
+            <p class="text-gray-500">{{ t('mySchedule.empty') }}</p>
           </div>
         </template>
       </UTable>
@@ -238,7 +230,9 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
       v-model:open="isConfirmOpen"
       variant="danger"
       :title="t('cancel-slot')"
-      :description="`Bạn có chắc chắn muốn hủy ca học #${slotDelete?.id} vào lúc ${slotDelete?.startTime} - ${slotDelete?.endTime}?`"
+      :description="
+        t('mySchedule.confirmCancel', { id: slotDelete?.id, startTime: slotDelete?.startTime, endTime: slotDelete?.endTime })
+      "
       :confirm-text="t('delete')"
       :cancel-text="t('cancel')"
       :is-loading="isLoading"
