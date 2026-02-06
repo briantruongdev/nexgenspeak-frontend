@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
+
 const { t } = useI18n()
 const { email, isAuthenticated } = storeToRefs(useAuthStore())
 const { handleLogout } = useAuth()
 const open = ref(false)
 const isScrolled = ref(false)
 const route = useRoute()
-
+const { width } = useWindowSize()
 const navItemsPrimary = computed(() => [
+  { name: t('header.nav.classSchedule'), href: '/my-schedule', view: isAuthenticated.value && width.value <= 1280 },
   { name: t('header.nav.studyPlan'), href: '/study-plan', view: true },
   { name: t('header.nav.teachers'), href: '/teachers', view: true },
   { name: t('header.nav.document'), href: '/document', view: true },
@@ -125,10 +128,11 @@ onUnmounted(() => {
               {{ email }}
             </p>
             <p
-              class="hover:underline hover:text -primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
+              class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
+              :class="{ 'text-primary!': pathActive === '/my-schedule' }"
               @click="navigateTo('/my-schedule')"
             >
-              Lịch học
+              {{ t('header.nav.classSchedule') }}
             </p>
             <p
               class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"

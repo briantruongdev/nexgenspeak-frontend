@@ -9,7 +9,8 @@
       "register": "Register",
       "blog": "Blog",
       "contact": "Contact",
-      "recruitment": "Recruitment"
+      "recruitment": "Recruitment",
+      "classSchedule": "Class schedule"
     },
     "login": "Login"
   },
@@ -509,6 +510,7 @@
   "mySchedule": {
     "title": "My Schedule",
     "description": "Manage and track your class schedule",
+    "loading": "Loading class schedule",
     "table": {
       "date": "Date",
       "time": "Time",

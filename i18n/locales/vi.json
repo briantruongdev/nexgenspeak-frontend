@@ -9,7 +9,8 @@
       "register": "Đăng kí",
       "blog": "Blog",
       "contact": "Liên hệ",
-      "recruitment": "Tuyển dụng"
+      "recruitment": "Tuyển dụng",
+      "classSchedule": "Lịch học"
     },
     "login": "Đăng nhập"
   },
@@ -509,6 +510,7 @@
   "mySchedule": {
     "title": "Lịch học của tôi",
     "description": "Quản lý và theo dõi lịch học của bạn",
+    "loading": "Đang tải lịch học",
     "table": {
       "date": "Ngày học",
       "time": "Thời gian",

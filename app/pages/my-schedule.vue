@@ -1,20 +1,25 @@
 <script setup lang="ts">
-import type { TableColumn } from '@nuxt/ui'
 import { getPaginationRowModel, type Column } from '@tanstack/vue-table'
 import type { ISlot } from '~/types/registration.type'
+
+definePageMeta({
+  middleware: 'auth',
+  layout: 'default'
+})
 
 const { t } = useI18n()
 const UButton = resolveComponent('UButton')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
 const isConfirmOpen = ref(false)
 const slotDelete = ref<FlattenedSlot>()
-
-const table = useTemplateRef('table')
-definePageMeta({
-  middleware: 'auth',
-  layout: 'default'
+const isLoading = ref(false)
+const pagination = ref({
+  pageIndex: 0,
+  pageSize: 20
 })
 
+const globalFilter = ref('')
+const table = useTemplateRef('table')
 interface FlattenedSlot extends ISlot {
   date: string
 }
@@ -142,13 +147,7 @@ function getHeader(column: Column<FlattenedSlot>, label: string) {
       })
   )
 }
-const isLoading = ref(false)
-const pagination = ref({
-  pageIndex: 0,
-  pageSize: 5
-})
 
-const globalFilter = ref('')
 const handleCancelSchedule = async (slot?: FlattenedSlot) => {
   if (slot?.id) {
     slotDelete.value = slot
@@ -172,7 +171,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
 </script>
 
 <template>
-  <div class="container mx-auto py-8 px-4">
+  <div class="container mx-auto py-8">
     <div class="mb-6">
       <h1 class="text-3xl font-bold">{{ t('mySchedule.title') }}</h1>
       <p class="text-gray-600 mt-2">{{ t('mySchedule.description') }}</p>
@@ -191,6 +190,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
         :loading="isLoading"
         loading-color="primary"
         loading-animation="carousel"
+        class="max-sm:hidden"
         :ui="{
           root: 'min-w-full',
           td: 'py-4'
@@ -217,7 +217,47 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
           </div>
         </template>
       </UTable>
-      <div class="flex justify-end border-t border-default pt-4 px-4">
+
+      <div class="hidden max-sm:block">
+        <div v-if="isLoading" class="flex flex-col space-y-4 items-center my-8">
+          <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
+          <span class="text-gray-500">{{ $t('mySchedule.loading') }}</span>
+        </div>
+        <template v-else>
+          <div v-for="item in flattenedData" :key="item.id">
+            <UCollapsible :unmount-on-hide="false" class="flex flex-col gap-2">
+              <div class="group flex justify-between items-center hover:cursor-pointer border-b border-border-primary py-2">
+                <div class="flex justify-between w-2/3">
+                  <span>{{ item.date }}</span>
+
+                  <p class="flex space-x-1 items-center">
+                    <span class="text-[#667085] text-sm">{{ t('mySchedule.table.time') }}: </span>
+                    <span> {{ item.startTime }} - {{ item.endTime }}</span>
+                  </p>
+                </div>
+                <UIcon
+                  name="i-lucide-chevron-right"
+                  class="size-5 group-data-[state=open]:rotate-90 transition-transform duration-200"
+                />
+              </div>
+              <template #content>
+                <div class="space-y-2 border-b border-border-primary pb-2">
+                  <p class="flex justify-between items-center">
+                    <span class="text-[#667085]">{{ t('mySchedule.table.slot') }}</span>
+                    <span>#{{ item.id }}</span>
+                  </p>
+
+                  <p class="flex justify-between items-center">
+                    <span class="text-[#667085]">{{ t('mySchedule.table.teacher') }}</span>
+                    <span>{{ item.teacher.fullName }}</span>
+                  </p>
+                </div>
+              </template>
+            </UCollapsible>
+          </div>
+        </template>
+      </div>
+      <div class="flex justify-end border-t border-default pt-4 px-4 max-sm:border-none">
         <UPagination
           :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
           :items-per-page="table?.tableApi?.getState().pagination.pageSize"
