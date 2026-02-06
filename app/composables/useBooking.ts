@@ -2,7 +2,7 @@ import { apiBooking } from '~/services'
 import type { IDataRegistration } from '~/types/registration.type'
 
 export const useBooking = () => {
-  const { showSuccess } = useNotification()
+  const { showSuccess, showError } = useNotification()
   const isBooking = ref(false)
 
   const booking = async (data: IDataRegistration) => {
@@ -17,5 +17,20 @@ export const useBooking = () => {
     }
   }
 
-  return { isBooking, booking }
+  const { data, pending, error, refresh } = useAsyncData('schedule', () => apiBooking.getRegistration(), {
+    server: true
+  })
+
+  const cancelBooking = async (registrationId: string) => {
+    try {
+      const rs = await apiBooking.cancelRegistration(registrationId)
+      showSuccess(rs.message || 'Đã hủy lịch học thành công')
+      await refresh()
+    } catch (error) {
+      showError('Không thể hủy lịch học. Vui lòng thử lại.')
+      throw error
+    }
+  }
+
+  return { isBooking, booking, data, pending, error, refresh, cancelBooking }
 }

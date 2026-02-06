@@ -125,6 +125,12 @@ onUnmounted(() => {
               {{ email }}
             </p>
             <p
+              class="hover:underline hover:text -primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
+              @click="navigateTo('/my-schedule')"
+            >
+              Lịch học
+            </p>
+            <p
               class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
               @click="handleLogout"
             >

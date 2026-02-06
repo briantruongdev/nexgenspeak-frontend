@@ -15,3 +15,26 @@ export interface IResponseRegistration {
     createdAt: string
   }
 }
+
+export interface ISlot {
+  id: number
+  startTime: string
+  endTime: string
+  teacher: {
+    teacherId: string
+    fullName: string
+    position: string
+  }
+  registrationId: string
+  createdAt: string
+}
+
+export interface IRegistration {
+  date: string
+  slots: ISlot[]
+}
+
+export interface IListRegistration {
+  registrations: IRegistration[]
+  total: number
+}
