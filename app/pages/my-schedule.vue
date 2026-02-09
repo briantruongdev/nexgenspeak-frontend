@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { getPaginationRowModel, type Column, type Row } from '@tanstack/vue-table'
+import { ScheduleStatusEnum } from '~/types/constant.type'
 import type { ISlot } from '~/types/registration.type'
 
 const UButton = resolveComponent('UButton')
@@ -18,19 +19,19 @@ definePageMeta({
 const SCHEDULE_STATUS = computed(() => [
   {
     label: t('mySchedule.status.all'),
-    value: 1
+    value: ScheduleStatusEnum.ALL
   },
   {
     label: t('mySchedule.status.studied'),
-    value: 2
+    value: ScheduleStatusEnum.COMPLETED
   },
   {
     label: t('mySchedule.status.today'),
-    value: 3
+    value: ScheduleStatusEnum.TODAY
   },
   {
     label: t('mySchedule.status.upcoming'),
-    value: 4
+    value: ScheduleStatusEnum.UPCOMING
   }
 ])
 
