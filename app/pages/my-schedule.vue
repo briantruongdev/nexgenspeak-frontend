@@ -1,13 +1,37 @@
 <script setup lang="ts">
-import { getPaginationRowModel, type Column } from '@tanstack/vue-table'
+import { getPaginationRowModel, type Column, type Row } from '@tanstack/vue-table'
+import { ScheduleStatusEnum } from '~/types/constant.type'
 import type { ISlot } from '~/types/registration.type'
+
+interface FlattenedSlot extends ISlot {
+  date: string
+}
+const { t } = useI18n()
 
 definePageMeta({
   middleware: 'auth',
   layout: 'default'
 })
+const SCHEDULE_STATUS = computed(() => [
+  {
+    label: t('mySchedule.status.all'),
+    value: 0
+  },
+  {
+    label: t('mySchedule.status.studied'),
+    value: 1
+  },
+  {
+    label: t('mySchedule.status.today'),
 
-const { t } = useI18n()
+    value: 2
+  },
+  {
+    label: t('mySchedule.status.upcoming'),
+    value: 3
+  }
+])
+
 const UButton = resolveComponent('UButton')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
 const isConfirmOpen = ref(false)
@@ -17,14 +41,20 @@ const pagination = ref({
   pageIndex: 0,
   pageSize: 20
 })
-
 const globalFilter = ref('')
 const table = useTemplateRef('table')
-interface FlattenedSlot extends ISlot {
-  date: string
-}
-
+const status = ref<number>(ScheduleStatusEnum.UPCOMING)
 const { data: listSchedule, pending, cancelBooking } = useBooking()
+
+const matchesSearchFilter = (date: string, searchTerm: string): boolean => {
+  if (!searchTerm) return true
+  const formattedDate = new Date(date).toLocaleDateString('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  })
+  return formattedDate.includes(searchTerm)
+}
 
 const flattenedData = computed(() => {
   if (!listSchedule.value?.registrations) return []
@@ -46,65 +76,62 @@ const flattenedData = computed(() => {
   })
 })
 
-const filteredData = computed(() => {
-  if (!globalFilter.value) return flattenedData.value
+const filteredData = computed(() =>
+  flattenedData.value.filter(
+    item => matchesSearchFilter(item.date, globalFilter.value) && matchesStatusFilter(item.date, status.value)
+  )
+)
 
-  return flattenedData.value.filter(item => {
-    const itemDate = new Date(item.date).toLocaleDateString('vi-VN', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    })
-    return itemDate.includes(globalFilter.value)
-  })
-})
-
-const columns = computed(() => [
-  {
-    accessorKey: 'date',
-    header: ({ column }: { column: Column<FlattenedSlot, unknown> }) => getHeader(column, t('mySchedule.table.date')),
-    cell: ({ row }: { row: any }) => {
-      return new Date(row.getValue('date')).toLocaleDateString('vi-VN', {
-        weekday: 'short',
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-      })
-    }
-  },
-  {
-    accessorKey: 'startTime',
-    header: t('mySchedule.table.time'),
-    cell: ({ row }: { row: any }) => {
-      const startTime = row.getValue('startTime') as string
-      const endTime = row.original.endTime
-      return `${startTime} - ${endTime}`
-    }
-  },
-  {
-    accessorKey: 'id',
-    header: t('mySchedule.table.slot'),
-    cell: ({ row }: { row: any }) => t('mySchedule.table.slotNumber', { id: row.getValue('id') })
-  },
-  {
-    accessorKey: 'teacher',
-    header: t('mySchedule.table.teacher'),
-    cell: ({ row }: { row: any }) => {
-      const teacher = row.getValue('teacher') as ISlot['teacher']
-      return teacher.fullName
-    }
-  },
-  {
-    id: 'actions',
-    header: t('mySchedule.table.actions'),
-    meta: {
-      class: {
-        th: 'text-center',
-        td: 'text-center'
+const columns = computed(() => {
+  const baseColumns = [
+    {
+      accessorKey: 'date',
+      header: ({ column }: { column: Column<FlattenedSlot, unknown> }) => getHeader(column, t('mySchedule.table.date')),
+      cell: ({ row }: { row: Row<FlattenedSlot> }) => {
+        return new Date(row.getValue('date')).toLocaleDateString('vi-VN', {
+          weekday: 'short',
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        })
+      }
+    },
+    {
+      accessorKey: 'startTime',
+      header: t('mySchedule.table.time'),
+      cell: ({ row }: { row: Row<FlattenedSlot> }) => {
+        const startTime = row.getValue('startTime') as string
+        const endTime = row.original.endTime
+        return `${startTime} - ${endTime}`
+      }
+    },
+    {
+      accessorKey: 'id',
+      header: t('mySchedule.table.slot'),
+      cell: ({ row }: { row: Row<FlattenedSlot> }) => t('mySchedule.table.slotNumber', { id: row.getValue('id') })
+    },
+    {
+      accessorKey: 'teacher',
+      header: t('mySchedule.table.teacher'),
+      cell: ({ row }: { row: Row<FlattenedSlot> }) => {
+        const teacher = row.getValue('teacher') as ISlot['teacher']
+        return teacher.fullName
       }
     }
+  ]
+
+  const hasFutureSlot = filteredData.value.some(slot => !isBeforeToday(new Date(slot.date)))
+
+  if (hasFutureSlot) {
+    baseColumns.push({
+      accessorKey: 'actions',
+      header: t('mySchedule.table.actions'),
+      cell: () => ''
+    })
   }
-])
+
+  return baseColumns
+})
 
 function getHeader(column: Column<FlattenedSlot>, label: string) {
   const isSorted = column.getIsSorted()
@@ -191,59 +218,77 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
     </div>
 
     <UCard>
-      <BaseInput
-        v-model="globalFilter"
-        :placeholder="t('search')"
-        class="w-1/4 max-lg:w-1/3 max-sm:w-1/2 mb-4 max-[500px]:w-2/3!"
-        icon="i-lucide-search"
-        :is-show-clear="true"
-      />
+      <div class="flex gap-4 mb-4">
+        <BaseInput
+          v-model="globalFilter"
+          :placeholder="t('search')"
+          class="w-1/4 max-lg:w-1/3 max-sm:w-full"
+          icon="i-lucide-search"
+          :is-show-clear="true"
+        />
+        <BaseSelectMenu
+          v-model="status"
+          :items="SCHEDULE_STATUS"
+          value-key="value"
+          label-key="label"
+          :placeholder="t('status')"
+          class="w-1/6 max-lg:w-1/4 max-sm:w-full"
+        />
+      </div>
+      <div class="max-sm:hidden">
+        <UTable
+          ref="table"
+          v-model:pagination="pagination"
+          :pagination-options="{
+            getPaginationRowModel: getPaginationRowModel()
+          }"
+          :data="filteredData"
+          :columns="columns"
+          :loading="pending"
+          loading-color="primary"
+          loading-animation="carousel"
+          :ui="{
+            root: 'min-w-full',
+            td: 'py-4'
+          }"
+        >
+          <template #actions-cell="{ row }">
+            <UButton
+              v-if="!isBeforeToday(new Date(row.original.date))"
+              color="error"
+              variant="soft"
+              size="sm"
+              icon="i-lucide-trash-2"
+              class="hover:cursor-pointer"
+              :loading="isLoading"
+              @click="handleCancelSchedule(row.original)"
+            >
+              {{ t('mySchedule.actions.cancel') }}
+            </UButton>
+          </template>
 
-      <UTable
-        ref="table"
-        v-model:pagination="pagination"
-        :pagination-options="{
-          getPaginationRowModel: getPaginationRowModel()
-        }"
-        :data="filteredData"
-        :columns="columns"
-        :loading="pending"
-        loading-color="primary"
-        loading-animation="carousel"
-        class="max-sm:hidden"
-        :ui="{
-          root: 'min-w-full',
-          td: 'py-4'
-        }"
-      >
-        <template #actions-cell="{ row }">
-          <UButton
-            color="error"
-            variant="soft"
-            size="sm"
-            icon="i-lucide-trash-2"
-            class="hover:cursor-pointer"
-            :loading="isLoading"
-            @click="handleCancelSchedule(row.original)"
-          >
-            {{ t('mySchedule.actions.cancel') }}
-          </UButton>
-        </template>
-
-        <template #empty>
-          <div v-if="!pending" class="flex flex-col items-center justify-center py-12">
-            <UIcon name="i-lucide-calendar-x" class="w-12 h-12 text-gray-400 mb-4" />
-            <p class="text-gray-500">{{ t('mySchedule.empty') }}</p>
-          </div>
-        </template>
-      </UTable>
-
+          <template #empty>
+            <div v-if="!pending" class="flex flex-col items-center justify-center py-12">
+              <UIcon name="i-lucide-calendar-x" class="w-12 h-12 text-gray-400 mb-4" />
+              <p class="text-gray-500">{{ t('mySchedule.empty') }}</p>
+            </div>
+          </template>
+        </UTable>
+        <div v-if="filteredData.length" class="flex justify-end border-t border-default pt-4 px-4 max-sm:border-none">
+          <UPagination
+            :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+            :items-per-page="table?.tableApi?.getState().pagination.pageSize"
+            :total="table?.tableApi?.getFilteredRowModel().rows.length"
+            @update:page="p => table?.tableApi?.setPageIndex(p - 1)"
+          />
+        </div>
+      </div>
       <div class="hidden max-sm:block">
         <div v-if="isLoading" class="flex flex-col space-y-4 items-center my-8">
           <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
           <span class="text-gray-500">{{ $t('mySchedule.loading') }}</span>
         </div>
-        <template v-else>
+        <template v-else-if="filteredData.length">
           <div v-for="item in filteredData" :key="item.id">
             <UCollapsible :unmount-on-hide="false" class="flex flex-col gap-2">
               <div class="group flex justify-between items-center hover:cursor-pointer border-b border-border-primary py-2">
@@ -264,7 +309,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
               <template #content>
                 <div class="space-y-2 border-b border-border-primary pb-2">
                   <p class="flex justify-between items-center">
-                    <span class="text-[#667085]">{{ t('mySchedule.table.slot') }}</span>
+                    <span class="text-[#667085] text-sm">{{ t('mySchedule.table.slot') }}</span>
                     <span>#{{ item.id }}</span>
                   </p>
                   <p class="justify-between items-center max-[500px]:flex hidden">
@@ -272,22 +317,37 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
                     <span> {{ item.startTime }} - {{ item.endTime }}</span>
                   </p>
                   <p class="flex justify-between items-center">
-                    <span class="text-[#667085]">{{ t('mySchedule.table.teacher') }}</span>
+                    <span class="text-[#667085] text-sm">{{ t('mySchedule.table.teacher') }}</span>
                     <span>{{ item.teacher.fullName }}</span>
                   </p>
+                  <div v-if="!isBeforeToday(new Date(item.date))" class="flex justify-between items-center">
+                    <span class="text-[#667085] text-sm">{{ t('mySchedule.table.actions') }}</span>
+                    <UButton
+                      color="error"
+                      variant="soft"
+                      size="sm"
+                      icon="i-lucide-trash-2"
+                      class="hover:cursor-pointer"
+                      :loading="isLoading"
+                      @click="handleCancelSchedule(item)"
+                    >
+                      {{ t('mySchedule.actions.cancel') }}
+                    </UButton>
+                  </div>
                 </div>
               </template>
             </UCollapsible>
           </div>
+          <div class="flex justify-end border-t border-default pt-4 px-4 max-sm:border-none">
+            <UPagination
+              :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+              :items-per-page="table?.tableApi?.getState().pagination.pageSize"
+              :total="table?.tableApi?.getFilteredRowModel().rows.length"
+              @update:page="p => table?.tableApi?.setPageIndex(p - 1)"
+            />
+          </div>
         </template>
-      </div>
-      <div class="flex justify-end border-t border-default pt-4 px-4 max-sm:border-none">
-        <UPagination
-          :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
-          :items-per-page="table?.tableApi?.getState().pagination.pageSize"
-          :total="table?.tableApi?.getFilteredRowModel().rows.length"
-          @update:page="p => table?.tableApi?.setPageIndex(p - 1)"
-        />
+        <UiEmpty v-else />
       </div>
     </UCard>
     <UiConfirmModal

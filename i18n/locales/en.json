@@ -520,6 +520,12 @@
       "expertise": "Expertise",
       "actions": "Actions"
     },
+    "status": {
+      "all": "All",
+      "studied": "Completed",
+      "today": "Today",
+      "upcoming": "Upcoming"
+    },
     "actions": {
       "cancel": "Cancel"
     },
@@ -528,7 +534,12 @@
     "sort": {
       "asc": "Ascending",
       "desc": "Descending"
+    },
+    "filter": {
+      "status": "Filter by status"
     }
   },
-  "search": "Search"
+  "search": "Search",
+  "status": "Status",
+  "no-data": "No data"
 }

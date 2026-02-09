@@ -520,6 +520,12 @@
       "expertise": "Chuyên môn",
       "actions": "Thao tác"
     },
+    "status": {
+      "all": "Tất cả",
+      "studied": "Đã học",
+      "today": "Hôm nay",
+      "upcoming": "Sắp đến"
+    },
     "actions": {
       "cancel": "Hủy"
     },
@@ -528,7 +534,12 @@
     "sort": {
       "asc": "Tăng dần",
       "desc": "Giảm dần"
+    },
+    "filter": {
+      "status": "Lọc theo trạng thái"
     }
   },
-  "search": "Tìm kiếm"
+  "search": "Tìm kiếm",
+  "status": "Trạng thái",
+  "no-data": "Không có dữ liệu"
 }
