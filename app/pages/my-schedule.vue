@@ -24,7 +24,7 @@ interface FlattenedSlot extends ISlot {
   date: string
 }
 
-const { data: listSchedule, cancelBooking } = useBooking()
+const { data: listSchedule, pending, cancelBooking } = useBooking()
 
 const flattenedData = computed(() => {
   if (!listSchedule.value?.registrations) return []
@@ -43,6 +43,19 @@ const flattenedData = computed(() => {
     const dateCompare = new Date(a.date).getTime() - new Date(b.date).getTime()
     if (dateCompare !== 0) return dateCompare
     return a.startTime.localeCompare(b.startTime)
+  })
+})
+
+const filteredData = computed(() => {
+  if (!globalFilter.value) return flattenedData.value
+
+  return flattenedData.value.filter(item => {
+    const itemDate = new Date(item.date).toLocaleDateString('vi-VN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    })
+    return itemDate.includes(globalFilter.value)
   })
 })
 
@@ -171,23 +184,30 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
 </script>
 
 <template>
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto py-8 max-xl:px-6">
     <div class="mb-6">
       <h1 class="text-3xl font-bold">{{ t('mySchedule.title') }}</h1>
       <p class="text-gray-600 mt-2">{{ t('mySchedule.description') }}</p>
     </div>
 
     <UCard>
+      <BaseInput
+        v-model="globalFilter"
+        :placeholder="t('search')"
+        class="w-1/4 max-lg:w-1/3 max-sm:w-1/2 mb-4 max-[500px]:w-2/3!"
+        icon="i-lucide-search"
+        :is-show-clear="true"
+      />
+
       <UTable
         ref="table"
         v-model:pagination="pagination"
-        v-model:global-filter="globalFilter"
         :pagination-options="{
           getPaginationRowModel: getPaginationRowModel()
         }"
-        :data="flattenedData"
+        :data="filteredData"
         :columns="columns"
-        :loading="isLoading"
+        :loading="pending"
         loading-color="primary"
         loading-animation="carousel"
         class="max-sm:hidden"
@@ -211,7 +231,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
         </template>
 
         <template #empty>
-          <div class="flex flex-col items-center justify-center py-12">
+          <div v-if="!pending" class="flex flex-col items-center justify-center py-12">
             <UIcon name="i-lucide-calendar-x" class="w-12 h-12 text-gray-400 mb-4" />
             <p class="text-gray-500">{{ t('mySchedule.empty') }}</p>
           </div>
@@ -224,10 +244,10 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
           <span class="text-gray-500">{{ $t('mySchedule.loading') }}</span>
         </div>
         <template v-else>
-          <div v-for="item in flattenedData" :key="item.id">
+          <div v-for="item in filteredData" :key="item.id">
             <UCollapsible :unmount-on-hide="false" class="flex flex-col gap-2">
               <div class="group flex justify-between items-center hover:cursor-pointer border-b border-border-primary py-2">
-                <div class="flex justify-between w-2/3">
+                <div class="flex justify-between w-2/3 max-[500px]:hidden">
                   <span>{{ item.date }}</span>
 
                   <p class="flex space-x-1 items-center">
@@ -235,6 +255,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
                     <span> {{ item.startTime }} - {{ item.endTime }}</span>
                   </p>
                 </div>
+                <span class="max-[500px]:block hidden">{{ item.date }}</span>
                 <UIcon
                   name="i-lucide-chevron-right"
                   class="size-5 group-data-[state=open]:rotate-90 transition-transform duration-200"
@@ -246,7 +267,10 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
                     <span class="text-[#667085]">{{ t('mySchedule.table.slot') }}</span>
                     <span>#{{ item.id }}</span>
                   </p>
-
+                  <p class="justify-between items-center max-[500px]:flex hidden">
+                    <span class="text-[#667085] text-sm">{{ t('mySchedule.table.time') }}: </span>
+                    <span> {{ item.startTime }} - {{ item.endTime }}</span>
+                  </p>
                   <p class="flex justify-between items-center">
                     <span class="text-[#667085]">{{ t('mySchedule.table.teacher') }}</span>
                     <span>{{ item.teacher.fullName }}</span>

@@ -529,5 +529,6 @@
       "asc": "Ascending",
       "desc": "Descending"
     }
-  }
+  },
+  "search": "Search"
 }
