@@ -1,6 +1,6 @@
 export enum ScheduleStatusEnum {
-  ALL = 0,
-  COMPLETED = 1,
-  TODAY = 2,
-  UPCOMING = 3
+  ALL = 1,
+  COMPLETED = 2,
+  TODAY = 3,
+  UPCOMING = 4
 }

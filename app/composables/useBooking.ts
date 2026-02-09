@@ -1,8 +1,26 @@
 import { apiBooking } from '~/services'
-import type { IDataRegistration } from '~/types/registration.type'
+import { ScheduleStatusEnum } from '~/types/constant.type'
+import type { IDataRegistration, IScheduleFilter } from '~/types/registration.type'
+
+export const useBookingFilterSync = createFilterSync<IScheduleFilter>({
+  defaults: {
+    search: '',
+    status: ScheduleStatusEnum.UPCOMING
+  },
+  mapping: {
+    search: 'search',
+    status: 'status'
+  },
+  coerce: {
+    search: 'string',
+    status: 'number'
+  },
+  debounceMs: 400
+})
 
 export const useBooking = () => {
   const { showSuccess, showError } = useNotification()
+  const { apply, filters } = useBookingFilterSync()
   const isBooking = ref(false)
 
   const booking = async (data: IDataRegistration) => {
@@ -32,5 +50,5 @@ export const useBooking = () => {
     }
   }
 
-  return { isBooking, booking, data, pending, error, refresh, cancelBooking }
+  return { isBooking, filters, data, pending, error, apply, refresh, booking, cancelBooking }
 }

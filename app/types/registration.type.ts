@@ -45,3 +45,8 @@ export interface ICancelRegistration {
   cancelledSlots: number
   deleted: boolean
 }
+
+export interface IScheduleFilter {
+  search: string
+  status: number
+}

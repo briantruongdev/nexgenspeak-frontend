@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { getPaginationRowModel, type Column, type Row } from '@tanstack/vue-table'
-import { ScheduleStatusEnum } from '~/types/constant.type'
 import type { ISlot } from '~/types/registration.type'
 
+const UButton = resolveComponent('UButton')
+const UDropdownMenu = resolveComponent('UDropdownMenu')
+const table = useTemplateRef('table')
+const { data: listSchedule, pending, filters, apply, cancelBooking } = useBooking()
 interface FlattenedSlot extends ISlot {
   date: string
 }
@@ -15,25 +18,22 @@ definePageMeta({
 const SCHEDULE_STATUS = computed(() => [
   {
     label: t('mySchedule.status.all'),
-    value: 0
-  },
-  {
-    label: t('mySchedule.status.studied'),
     value: 1
   },
   {
-    label: t('mySchedule.status.today'),
-
+    label: t('mySchedule.status.studied'),
     value: 2
   },
   {
-    label: t('mySchedule.status.upcoming'),
+    label: t('mySchedule.status.today'),
     value: 3
+  },
+  {
+    label: t('mySchedule.status.upcoming'),
+    value: 4
   }
 ])
 
-const UButton = resolveComponent('UButton')
-const UDropdownMenu = resolveComponent('UDropdownMenu')
 const isConfirmOpen = ref(false)
 const slotDelete = ref<FlattenedSlot>()
 const isLoading = ref(false)
@@ -41,10 +41,6 @@ const pagination = ref({
   pageIndex: 0,
   pageSize: 20
 })
-const globalFilter = ref('')
-const table = useTemplateRef('table')
-const status = ref<number>(ScheduleStatusEnum.UPCOMING)
-const { data: listSchedule, pending, cancelBooking } = useBooking()
 
 const matchesSearchFilter = (date: string, searchTerm: string): boolean => {
   if (!searchTerm) return true
@@ -78,7 +74,7 @@ const flattenedData = computed(() => {
 
 const filteredData = computed(() =>
   flattenedData.value.filter(
-    item => matchesSearchFilter(item.date, globalFilter.value) && matchesStatusFilter(item.date, status.value)
+    item => matchesSearchFilter(item.date, filters.value.search) && matchesStatusFilter(item.date, filters.value.status)
   )
 )
 
@@ -220,19 +216,21 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
     <UCard>
       <div class="flex gap-4 mb-4">
         <BaseInput
-          v-model="globalFilter"
+          v-model="filters.search"
           :placeholder="t('search')"
           class="w-1/4 max-lg:w-1/3 max-sm:w-full"
           icon="i-lucide-search"
           :is-show-clear="true"
+          @input="apply({ search: filters.search })"
         />
         <BaseSelectMenu
-          v-model="status"
+          v-model="filters.status"
           :items="SCHEDULE_STATUS"
           value-key="value"
           label-key="label"
           :placeholder="t('status')"
           class="w-1/6 max-lg:w-1/4 max-sm:w-full"
+          @change="apply({ status: $event as typeof filters.status })"
         />
       </div>
       <div class="max-sm:hidden">
