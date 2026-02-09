@@ -6,9 +6,11 @@
       "studyPlan": "Kế hoạch học tập & Học phí",
       "teachers": "Giáo viên",
       "document": "Tài liệu",
+      "register": "Đăng kí",
       "blog": "Blog",
       "contact": "Liên hệ",
-      "recruitment": "Tuyển dụng"
+      "recruitment": "Tuyển dụng",
+      "classSchedule": "Lịch học"
     },
     "login": "Đăng nhập"
   },
@@ -22,7 +24,7 @@
   },
   "about": {
     "title": "Về chúng tôi, NexGen Speak Online English School",
-    "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+    "description": "Tại NexGen Speak, chúng tôi không đi theo lối mòn. Chúng tôi kiến tạo một hệ sinh thái nơi tư duy đột phá và phương pháp chủ động là chìa khóa giúp bạn chuyển hóa ngôn ngữ thành sức mạnh nội tại. Sứ mệnh của chúng tôi là đồng hành cùng bạn phá bỏ mọi giới hạn, mở lối đi riêng để dẫn đầu trong kỷ nguyên mới.",
     "viewDetails": "Xem chi tiết tại đây",
     "stats": {
       "yearsExperience": "Năm đào tạo Tiếng Anh trực tuyến",
@@ -414,7 +416,7 @@
     },
     "culture": {
       "title": "Văn hoá tạo nên giá trị cốt lõi",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "description": "Tại NexGen Speak, văn hóa không chỉ là những quy tắc, mà là sợi dây kết nối sức mạnh tập thể để nuôi dưỡng những tư duy đột phá. Chúng tôi tin rằng một nền tảng văn hóa vững chắc chính là bệ phóng giúp mỗi cá nhân trở thành người mở lối xuất sắc trong hành trình chinh phục ngôn ngữ.",
       "values": {
         "commitment": {
           "title": "Cam kết",
@@ -442,7 +444,7 @@
     "share": {
       "title": "Chia sẻ trải nghiệm từ",
       "titleHighlight": "Giáo viên và Founder",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "description": "Những câu chuyện nghề đầy cảm hứng và triết lý giáo dục từ đội ngũ sáng lập, nơi chúng tôi cam kết mang lại giá trị thực chất và sự đồng hành tận tâm trên từng bước chân chinh phục ngôn ngữ của bạn.",
       "ceo": {
         "name": "Trương Bá Chính",
         "position": "Tổng Giám Đốc, Sáng lập NexGen Speak",
@@ -453,7 +455,7 @@
     },
     "development": {
       "title": "Phát triển sự nghiệp cùng chúng tôi",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn, trò chuyện với giáo viên bản xứ một cách tự nhiên nhất. Và cuối cùng là sử dụng tiếng Anh nhuần nhuyễn",
+      "description": "Chúng tôi tin rằng sự xuất sắc của cá nhân bắt nguồn từ tư duy đột phá và kỹ năng thực chiến. Hãy cùng NexGen Speak xây dựng nền tảng vững chắc, nơi mỗi bài học là một bước đệm giúp bạn tự tin mở lối cho hành trình sự nghiệp rực rỡ.",
       "openPositions": "Các vị trí đang tuyển dụng"
     },
     "event": {
@@ -489,5 +491,55 @@
     "success": "Thành công",
     "warning": "Cảnh báo",
     "info": "Thông báo"
-  }
+  },
+  "booking": {
+    "teacherList": "Danh sách giáo viên",
+    "loadingTeachers": "Đang tải danh sách giáo viên",
+    "loadingSlots": "Đang tải thời gian học",
+    "selectSlot": "Chọn khung giờ học",
+    "selectedSlots": "({ count }/{ max })",
+    "clearAll": "Xóa tất cả",
+    "noSlotsAvailable": "Không có khung giờ nào khả dụng cho ngày này",
+    "bookLesson": "Đặt lịch học",
+    "maxSlotsError": "Bạn chỉ có thể chọn tối đa { max } slots"
+  },
+  "yes": "Yes",
+  "delete": "Xóa",
+  "cancel": "Hủy",
+  "cancel-slot": "Hủy ca học",
+  "mySchedule": {
+    "title": "Lịch học của tôi",
+    "description": "Quản lý và theo dõi lịch học của bạn",
+    "loading": "Đang tải lịch học",
+    "table": {
+      "date": "Ngày học",
+      "time": "Thời gian",
+      "slot": "Ca học",
+      "slotNumber": "Ca #{id}",
+      "teacher": "Giáo viên",
+      "expertise": "Chuyên môn",
+      "actions": "Thao tác"
+    },
+    "status": {
+      "all": "Tất cả",
+      "studied": "Đã học",
+      "today": "Hôm nay",
+      "upcoming": "Sắp đến"
+    },
+    "actions": {
+      "cancel": "Hủy"
+    },
+    "empty": "Bạn chưa có lịch học nào",
+    "confirmCancel": "Bạn có chắc chắn muốn hủy ca học #{id} vào lúc {startTime} - {endTime} không?",
+    "sort": {
+      "asc": "Tăng dần",
+      "desc": "Giảm dần"
+    },
+    "filter": {
+      "status": "Lọc theo trạng thái"
+    }
+  },
+  "search": "Tìm kiếm",
+  "status": "Trạng thái",
+  "no-data": "Không có dữ liệu"
 }

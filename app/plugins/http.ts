@@ -15,7 +15,10 @@ export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig()
   const toast = useToast()
   const language = useCookie('i18n_redirected')
-
+  const accessToken = useCookie('access-token', {
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax'
+  })
   const $http = $fetch.create({
     baseURL: runtimeConfig.public.baseApiUrl,
     headers: defaultHeaders,
@@ -29,6 +32,9 @@ export default defineNuxtPlugin(() => {
 
     if (options.body && !(options.body instanceof FormData)) {
       headers['Content-Type'] = 'application/json'
+    }
+    if (accessToken.value) {
+      headers.Authorization = `Bearer ${accessToken.value}`
     }
 
     if (import.meta.client) {

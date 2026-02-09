@@ -37,7 +37,7 @@ const summaries = computed(() => [
           </div>
         </div>
         <div class="flex justify-end mt-18 mb-10">
-          <p class="w-2/3 text-lg text-justify max-[400px]:text-base">
+          <p class="w-4/5 text-lg text-justify max-[400px]:text-base">
             {{ $t('about.description') }}
           </p>
         </div>

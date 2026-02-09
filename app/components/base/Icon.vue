@@ -32,7 +32,7 @@ const iconContent = computed<string>(() => {
 </script>
 
 <template>
-  <div
+  <span
     v-if="iconContent"
     class="base-icon"
     :class="{ 'has-hover': hoverColor }"

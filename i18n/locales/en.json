@@ -6,9 +6,11 @@
       "studyPlan": "Study Plan & Tuition",
       "teachers": "Teachers",
       "document": "Document",
+      "register": "Register",
       "blog": "Blog",
       "contact": "Contact",
-      "recruitment": "Recruitment"
+      "recruitment": "Recruitment",
+      "classSchedule": "Class schedule"
     },
     "login": "Login"
   },
@@ -22,7 +24,7 @@
   },
   "about": {
     "title": "About Us, NexGen Speak Online English School",
-    "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally, use English fluently",
+    "description": "At NexGen Speak, we don't follow the beaten path. We cultivate an ecosystem where a breakthrough mindset and active methods are the keys to transforming language into inner strength. Our mission is to accompany you in breaking all boundaries, paving your own way to lead in the new era.",
     "viewDetails": "View Details Here",
     "stats": {
       "yearsExperience": "Years of Online English Training",
@@ -414,7 +416,7 @@
     },
     "culture": {
       "title": "Culture Creates Core Values",
-      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "description": "We create distinction through our inherent identity, where belief in human potential becomes the core value of all our activities. A culture of daring innovation and mutual support is the key that helps NexGen Speak assert its position as a disruptive brand in the educational market.",
       "values": {
         "commitment": {
           "title": "Commitment",
@@ -442,7 +444,7 @@
     "share": {
       "title": "Experience Sharing from",
       "titleHighlight": "Teachers and Founder",
-      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "description": "Inspiring career stories and educational philosophies from our founding team, where we commit to providing real value and dedicated support throughout your language-conquering journey.",
       "ceo": {
         "name": "Truong Ba Chinh",
         "position": "CEO, Founder of NexGen Speak",
@@ -453,7 +455,7 @@
     },
     "development": {
       "title": "Develop Your Career With Us",
-      "description": "We create an environment where each student can practice more, chat with native teachers in the most natural way. And finally use English fluently",
+      "description": "We believe that individual excellence stems from a breakthrough mindset and practical skills. Join NexGen Speak to build a solid foundation where every lesson is a stepping stone for you to confidently pave the way for a brilliant career.",
       "openPositions": "Open Positions"
     },
     "event": {
@@ -489,5 +491,55 @@
     "success": "Success",
     "warning": "Warning",
     "info": "Info"
-  }
+  },
+  "booking": {
+    "teacherList": "Teacher List",
+    "loadingTeachers": "Loading teacher list",
+    "loadingSlots": "Loading time slots",
+    "selectSlot": "Select time slots",
+    "selectedSlots": "({ count }/{ max })",
+    "clearAll": "Clear all",
+    "noSlotsAvailable": "No time slots available for this day",
+    "bookLesson": "Book Lesson",
+    "maxSlotsError": "You can only select up to { max } slots"
+  },
+  "yes": "Yes",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "cancel-slot": "Cancel Slot",
+  "mySchedule": {
+    "title": "My Schedule",
+    "description": "Manage and track your class schedule",
+    "loading": "Loading class schedule",
+    "table": {
+      "date": "Date",
+      "time": "Time",
+      "slot": "Slot",
+      "slotNumber": "Slot #{id}",
+      "teacher": "Teacher",
+      "expertise": "Expertise",
+      "actions": "Actions"
+    },
+    "status": {
+      "all": "All",
+      "studied": "Completed",
+      "today": "Today",
+      "upcoming": "Upcoming"
+    },
+    "actions": {
+      "cancel": "Cancel"
+    },
+    "empty": "You don't have any scheduled classes yet",
+    "confirmCancel": "Are you sure you want to cancel slot #{id} at {startTime} - {endTime}?",
+    "sort": {
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "filter": {
+      "status": "Filter by status"
+    }
+  },
+  "search": "Search",
+  "status": "Status",
+  "no-data": "No data"
 }

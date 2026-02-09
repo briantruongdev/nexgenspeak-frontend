@@ -1,21 +1,25 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
+
 const { t } = useI18n()
 const { email, isAuthenticated } = storeToRefs(useAuthStore())
 const { handleLogout } = useAuth()
 const open = ref(false)
 const isScrolled = ref(false)
 const route = useRoute()
-
+const { width } = useWindowSize()
 const navItemsPrimary = computed(() => [
-  { name: t('header.nav.studyPlan'), href: '/study-plan' },
-  { name: t('header.nav.teachers'), href: '/teachers' },
-  { name: t('header.nav.document'), href: '/document' }
+  { name: t('header.nav.classSchedule'), href: '/my-schedule', view: isAuthenticated.value && width.value <= 1280 },
+  { name: t('header.nav.studyPlan'), href: '/study-plan', view: true },
+  { name: t('header.nav.teachers'), href: '/teachers', view: true },
+  { name: t('header.nav.document'), href: '/document', view: true },
+  { name: t('header.nav.register'), href: '/registration', view: isAuthenticated.value }
 ])
 
 const navItemsSecondary = computed(() => [
-  { name: t('header.nav.blog'), href: '/blog' },
-  { name: t('header.nav.contact'), href: '/contact' },
-  { name: t('header.nav.recruitment'), href: '/recruitment' }
+  { name: t('header.nav.blog'), href: '/blog', view: true },
+  { name: t('header.nav.contact'), href: '/contact', view: true },
+  { name: t('header.nav.recruitment'), href: '/recruitment', view: true }
 ])
 
 const pathActive = computed(() => route.path !== '/' && route.path)
@@ -51,6 +55,7 @@ const throttledScroll = () => {
     scrollTimeout = null
   }, 10)
 }
+const visibleNavItems = computed(() => navItemsPrimary.value.filter(i => i.view))
 
 onMounted(() => {
   window.addEventListener('scroll', throttledScroll, { passive: true })
@@ -80,13 +85,14 @@ onUnmounted(() => {
 
     <div class="flex gap-10 items-center">
       <span
-        v-for="(item, index) in navItemsPrimary"
+        v-for="(item, index) in visibleNavItems"
         :key="index"
         class="font-bold text-text-primary hover:cursor-pointer relative group transition-all duration-300"
         :class="{ 'text-primary!': pathActive === item.href }"
         @click="navigateTo(item.href)"
       >
         {{ item.name }}
+
         <span
           class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
           :class="{ 'w-full': pathActive === item.href }"
@@ -123,6 +129,13 @@ onUnmounted(() => {
             </p>
             <p
               class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
+              :class="{ 'text-primary!': pathActive === '/my-schedule' }"
+              @click="navigateTo('/my-schedule')"
+            >
+              {{ t('header.nav.classSchedule') }}
+            </p>
+            <p
+              class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
               @click="handleLogout"
             >
               {{ $t('auth.logout') }}
@@ -131,7 +144,7 @@ onUnmounted(() => {
         </template>
       </UPopover>
 
-      <a href="tel:+84 888 887 798">
+      <!-- <a href="tel:+84888887798">
         <UIcon
           name="i-lucide-phone-call"
           class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
@@ -139,7 +152,7 @@ onUnmounted(() => {
       <UIcon
         name="i-lucide-search"
         class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
-      />
+      /> -->
       <USeparator orientation="vertical" :class="isScrolled ? 'h-6' : 'h-8'" class="transition-all duration-300" />
 
       <BaseLanguages class="transition-all duration-300" />
@@ -163,7 +176,7 @@ onUnmounted(() => {
       />
 
       <div class="flex justify-end items-center gap-4">
-        <a href="tel:+84 888 887 798">
+        <!-- <a href="tel:+84 888 887 798">
           <UIcon
             name="i-lucide-phone-call"
             class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110 size-6"
@@ -171,7 +184,7 @@ onUnmounted(() => {
         <UIcon
           name="i-lucide-search"
           class="size-6 hover:cursor-pointer hover:text-primary transition-all duration-300 hover:scale-110"
-        />
+        /> -->
 
         <UDrawer
           v-model:open="open"
@@ -181,7 +194,8 @@ onUnmounted(() => {
           set-background-color-on-scale
           :ui="{
             content: 'w-full sm:w-96 h-screen flex flex-col',
-            overlay: 'backdrop-blur-sm'
+            overlay: 'backdrop-blur-sm',
+            footer: 'gap-0'
           }"
         >
           <UIcon
@@ -211,27 +225,28 @@ onUnmounted(() => {
                 />
               </div>
 
-              <div class="space-y-3 flex flex-col my-6">
-                <span
-                  v-for="(item, index) in navItemsPrimary"
-                  :key="index"
-                  class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 border-b border-gray-100 font-semibold"
-                  :class="{ 'text-primary!': pathActive === item.href }"
-                  @click="
-                    () => {
-                      ;(navigateTo(item.href), (open = false))
-                    }
-                  "
-                >
-                  {{ item.name }}
-                </span>
+              <div class="space-y-2 flex flex-col mt-4 mb-2">
+                <div v-for="(item, index) in visibleNavItems" :key="index">
+                  <p
+                    v-if="item.view"
+                    class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 border-b border-gray-100 font-semibold"
+                    :class="{ 'text-primary!': pathActive === item.href }"
+                    @click="
+                      () => {
+                        ;(navigateTo(item.href), (open = false))
+                      }
+                    "
+                  >
+                    {{ item.name }}
+                  </p>
+                </div>
               </div>
 
-              <div class="space-y-3 flex flex-col">
+              <div class="space-y-2 flex flex-col">
                 <span
                   v-for="(item, index) in navItemsSecondary"
                   :key="index"
-                  class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 text-[#B4ADAD]"
+                  class="hover:cursor-pointer hover:text-primary transition-all duration-300 hover:translate-x-2 py-2 text-[#B4ADAD] border-b border-gray-100"
                   :class="{ 'text-primary! font-bold': pathActive === item.href }"
                   @click="
                     () => {
@@ -251,7 +266,7 @@ onUnmounted(() => {
               <UBadge color="primary" variant="subtle" class="h-10 text-center flex justify-center text-base font-medium">{{
                 email
               }}</UBadge>
-              <BaseButton :text="$t('auth.logout')" class="w-full" />
+              <BaseButton :text="$t('auth.logout')" class="w-full h-10 gap-0" />
             </div>
 
             <BaseLanguages class="transition-all duration-300 w-full mt-4" />
