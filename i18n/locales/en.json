@@ -502,7 +502,8 @@
     "noSlotsAvailable": "No time slots available for this day",
     "bookLesson": "Book Lesson",
     "maxSlotsError": "You can only select up to { max } slots",
-    "favoriteError": "Unable to update favorite status. Please try again."
+    "favoriteError": "Unable to update favorite status. Please try again.",
+    "loadMore": "Load More"
   },
   "yes": "Yes",
   "delete": "Delete",

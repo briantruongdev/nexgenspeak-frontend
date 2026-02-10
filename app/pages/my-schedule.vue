@@ -6,7 +6,8 @@ import type { ISlot } from '~/types/registration.type'
 const UButton = resolveComponent('UButton')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
 const table = useTemplateRef('table')
-const { data: listSchedule, pending, filters, apply, cancelBooking } = useSchedule()
+const { data: listSchedule, pending, filters, apply, refresh } = useSchedule()
+const { cancelBooking } = useRegistration()
 interface FlattenedSlot extends ISlot {
   date: string
 }
@@ -198,6 +199,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
       slotIds: [slotDelete.value!.id]
     }
     await cancelBooking(data)
+    await refresh()
     isConfirmOpen.value = false
   } catch (error) {
     console.error(error)

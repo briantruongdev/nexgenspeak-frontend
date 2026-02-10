@@ -2,44 +2,41 @@
 import { shallowRef, watch, nextTick } from 'vue'
 import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import { useTeacher } from '@/composables/useTeacher'
-import type { ITeacher } from '~/types/teacher.type'
-// import { useWindowSize } from '@vueuse/core'
+import { useInfiniteScroll } from '@vueuse/core'
 import dayjs from 'dayjs'
+import { is } from 'zod/locales'
 
 definePageMeta({
   middleware: 'auth'
 })
 
 // const { width } = useWindowSize()
-const config = useRuntimeConfig()
-const { showError } = useNotification()
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const minDate = today(getLocalTimeZone())
-const { data, pending, slots, isGettingSlots, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
-const { apply, filters } = useRegistration()
-const { isBooking, booking } = useSchedule()
-
-const page = ref(1)
-// const pageSize = computed(() => (width.value > 640 ? 4 : 4))
-const pageSize = ref(4)
-const selectedTeacherId = ref<ITeacher['teacherId']>(0)
+const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
+const { apply, filters, isSlotModalVisible, selectedTeacherId, selectedSlotIds } = useRegistration()
+const { booking } = useRegistration()
+const initialLoadCount = 9
+const loadMoreCount = 3
+const displayCount = ref(initialLoadCount)
 const teacherIdFavorit = ref(0)
-const selectedSlotIds = ref<number[]>([])
-const maxSlots = config.public.maxSlots
 const showCards = ref(false)
+const scrollArea = ref<HTMLElement | null>(null)
 
 const dataSearch = computed(() => {
   const search = filters.value.search?.toLowerCase()
 
   return data.value?.teachers.filter(t => !search || t.fullName.toLowerCase().includes(search))
 })
-const pagedTeachers = computed(() => {
-  const start = (page.value - 1) * pageSize.value
-  return dataSearch.value?.slice(start, start + pageSize.value)
+const displayedTeachers = computed(() => {
+  return dataSearch.value?.slice(0, displayCount.value)
+})
+const hasMore = computed(() => {
+  return (dataSearch.value?.length || 0) > displayCount.value
 })
 
 const src = '/images/teacher-default.png'
@@ -50,7 +47,7 @@ const dateFormat = computed(() => {
 })
 
 const updateUrl = () => {
-  const query: any = {}
+  const query: Record<string, string | number> = {}
 
   if (selectedTeacherId.value) {
     query.teacherId = selectedTeacherId.value
@@ -87,8 +84,9 @@ const handleSelectedTeacher = async (teacherId: number) => {
 
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
+  isSlotModalVisible.value = true
   updateUrl()
-  getSlots()
+  await getSlots()
 }
 
 const getSlots = async () => {
@@ -111,9 +109,20 @@ onMounted(() => {
   }, 50)
 })
 
+useInfiniteScroll(
+  scrollArea,
+  () => {
+    if (hasMore.value) {
+      loadMore()
+    }
+  },
+  { distance: 100 }
+)
+
 watch(
   () => filters.value.search,
   () => {
+    displayCount.value = initialLoadCount
     showCards.value = false
     nextTick(() => {
       showCards.value = true
@@ -121,34 +130,26 @@ watch(
   }
 )
 
-const handleSelectSlot = (slotId: number) => {
-  const index = selectedSlotIds.value.indexOf(slotId)
-
-  if (index > -1) {
-    selectedSlotIds.value.splice(index, 1)
-  } else {
-    if (selectedSlotIds.value.length < maxSlots) {
-      selectedSlotIds.value.push(slotId)
-    } else {
-      showError(t('booking.maxSlotsError', { max: maxSlots }))
-    }
-  }
+const loadMore = () => {
+  displayCount.value += loadMoreCount
 }
 
-const isSlotSelected = (slotId: number) => {
-  return selectedSlotIds.value.includes(slotId)
-}
 const handleBooking = async () => {
-  const formDate = {
-    teacherId: selectedTeacherId.value,
-    slotIds: selectedSlotIds.value,
-    date: dateFormat.value
+  try {
+    const formDate = {
+      teacherId: selectedTeacherId.value,
+      slotIds: selectedSlotIds.value,
+      date: dateFormat.value
+    }
+    await booking(formDate)
+    date.value = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())).value
+    selectedTeacherId.value = 0
+    selectedSlotIds.value = []
+    router.push({ query: {} })
+    isSlotModalVisible.value = false
+  } catch (error) {
+    console.log(error)
   }
-  await booking(formDate)
-  date.value = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())).value
-  selectedTeacherId.value = 0
-  selectedSlotIds.value = []
-  router.push({ query: {} })
 }
 
 const handleToggleFavorite = async (event: Event, teacherId: number, currentAction: 'add' | 'remove') => {
@@ -159,20 +160,18 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
 </script>
 
 <template>
-  <div>
-    <div class="container max-xl:px-6">
+  <div class="container max-xl:px-6">
+    <div class="grid grid-cols-[1fr_2fr] gap-10 py-6">
       <Transition name="fade-scale" appear>
-        <div class="flex justify-center items-center p-6 max-sm:p-0 max-sm:my-8">
+        <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-sm:my-8">
           <div
             class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100 transition-all duration-300 hover:shadow-xl"
           >
             <UCalendar
               v-model="date"
-              size="md"
+              size="xl"
               :ui="{
-                cell: 'hover:cursor-pointer text-base',
-                headCell: 'text-base',
-                heading: 'text-base'
+                cell: 'hover:cursor-pointer'
               }"
               :min-value="minDate"
               @update:model-value="handleDateChange"
@@ -180,155 +179,95 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
           </div>
         </div>
       </Transition>
-      <p class="title mb-8">{{ $t('booking.teacherList') }}</p>
-      <BaseInput
-        v-model="filters.search"
-        :placeholder="t('search')"
-        class="w-1/4 max-lg:w-1/3 max-sm:w-full mb-4"
-        icon="i-lucide-search"
-        :is-show-clear="true"
-        @input="apply({ search: filters.search })"
-      />
-      <div v-if="pending" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
-        <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
-        <span class="text-gray-500 animate-pulse">{{ $t('booking.loadingTeachers') }}</span>
-      </div>
-      <template v-else-if="pagedTeachers?.length">
-        <div class="grid grid-cols-4 max-lg:grid-cols-2 gap-4 max-[450px]:grid-cols-1!">
-          <div
-            v-for="(teacher, index) in pagedTeachers"
-            :key="`${page}-${teacher.teacherId}`"
-            type="button"
-            class="teacher-card bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl"
-            :class="[
-              selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary' : '',
-              showCards && page === 1 ? 'card-animate' : ''
-            ]"
-            :style="showCards && page === 1 ? { animationDelay: `${index * 50}ms` } : {}"
-            @click="handleSelectedTeacher(teacher.teacherId)"
-          >
-            <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start relative">
-              <button
-                class="absolute top-0 right-2 z-10 p-2 rounded-full hover:cursor-pointer bg-white/90 hover:bg-white shadow-md transition-all duration-200 hover:scale-110 flex justify-center items-center"
-                @click="e => handleToggleFavorite(e, teacher.teacherId, teacher.isFavorite ? 'remove' : 'add')"
+      <div class="flex-1">
+        <p class="title mb-8">{{ t('booking.teacherList') }}</p>
+        <BaseInput
+          v-model="filters.search"
+          :placeholder="t('search')"
+          class="w-1/2 mb-4"
+          icon="i-lucide-search"
+          :is-show-clear="true"
+          @input="apply({ search: filters.search })"
+        />
+        <div v-if="pending" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
+          <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
+          <span class="text-gray-500 animate-pulse">{{ t('booking.loadingTeachers') }}</span>
+        </div>
+        <template v-else-if="displayedTeachers?.length">
+          <div ref="scrollArea" class="teacher-list-scroll max-h-screen overflow-y-auto p-1">
+            <div class="grid grid-cols-3 gap-4">
+              <div
+                v-for="(teacher, index) in displayedTeachers"
+                :key="teacher.teacherId"
+                type="button"
+                class="teacher-card bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-300 hover:border-primary"
+                :class="[selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary' : '', showCards ? 'card-animate' : '']"
+                :style="showCards ? { animationDelay: `${index * 50}ms` } : {}"
+                @click="handleSelectedTeacher(teacher.teacherId)"
               >
-                <UIcon
-                  :name="teacherIdFavorit === teacher.teacherId && isProcessing ? 'i-lucide-loader' : 'i-lucide-heart'"
-                  class="size-5"
-                  :class="{
-                    'bg-red-500': teacher.isFavorite,
-                    'text-gray-400': !teacher.isFavorite,
-                    'animate-spin': teacherIdFavorit === teacher.teacherId && isProcessing
-                  }"
-                />
-              </button>
-              <div class="flex flex-col gap-5 max-sm:gap-4">
-                <img
-                  :src="src"
-                  :alt="teacher.fullName"
-                  loading="lazy"
-                  class="w-full h-40 max-sm:h-30 object-contain rounded-xl"
-                />
+                <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start relative">
+                  <button
+                    class="absolute top-0 right-2 z-10 hover:cursor-pointer flex justify-center items-center"
+                    @click="e => handleToggleFavorite(e, teacher.teacherId, teacher.isFavorite ? 'remove' : 'add')"
+                  >
+                    <UIcon
+                      :name="
+                        teacherIdFavorit === teacher.teacherId && isProcessing
+                          ? 'i-lucide-loader'
+                          : teacher.isFavorite
+                            ? 'i-heroicons-heart-solid'
+                            : 'i-heroicons-heart'
+                      "
+                      class="size-6"
+                      :class="{
+                        'text-primary': teacher.isFavorite,
+                        'text-gray-400': !teacher.isFavorite,
+                        'animate-spin': teacherIdFavorit === teacher.teacherId && isProcessing
+                      }"
+                    />
+                  </button>
+                  <div class="flex flex-col gap-5 max-sm:gap-4">
+                    <img
+                      :src="src"
+                      :alt="teacher.fullName"
+                      loading="lazy"
+                      class="w-full h-40 max-sm:h-30 object-contain rounded-xl"
+                    />
 
-                <div class="text-center">
-                  <p class="text-xl font-medium max-lg:text-lg">{{ teacher.fullName }}</p>
-                  <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ teacher.position }}</p>
-                </div>
+                    <div class="text-center">
+                      <p class="text-xl font-medium max-lg:text-lg">{{ teacher.fullName }}</p>
+                      <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ teacher.position }}</p>
+                    </div>
 
-                <div class="space-y-3 max-sm:space-y-2">
-                  <div class="flex items-start gap-3 max-sm:gap-2">
-                    <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award1 }} {{ teacher.teacherId }}</p>
-                  </div>
-                  <div class="flex items-start gap-3 max-sm:gap-2">
-                    <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award2 }}</p>
-                  </div>
-                  <div class="flex items-start gap-3 max-sm:gap-2">
-                    <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award3 }}</p>
+                    <div class="space-y-3 max-sm:space-y-2">
+                      <div class="flex items-start gap-3 max-sm:gap-2">
+                        <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                        <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
+                          {{ teacher.award1 }} {{ teacher.teacherId }}
+                        </p>
+                      </div>
+                      <div class="flex items-start gap-3 max-sm:gap-2">
+                        <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                        <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award2 }}</p>
+                      </div>
+                      <div class="flex items-start gap-3 max-sm:gap-2">
+                        <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                        <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award3 }}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="my-8 max-md:mt-6 flex justify-center">
-          <UPagination
-            v-model:page="page"
-            :total="dataSearch?.length"
-            :items-per-page="pageSize"
-            color="primary"
-            active-color="primary"
-            :ui="{
-              root: 'select-none',
-              list: 'gap-2 max-sm:gap-1',
-              next: 'hover:cursor-pointer',
-              prev: 'hover:cursor-pointer',
-              last: 'hover:cursor-pointer',
-              first: 'hover:cursor-pointer',
-              item: 'hover:cursor-pointer'
-            }"
-          />
-        </div>
-      </template>
-      <UiEmpty v-else-if="!pagedTeachers?.length" />
-
-      <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
-        <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
-        <span class="text-gray-500 animate-pulse">{{ $t('booking.loadingSlots') }}</span>
-      </div>
-      <Transition name="slots-fade" mode="out-in">
-        <div v-if="selectedTeacherId && slots && slots.length > 0" class="my-8">
-          <div class="mb-4 flex items-center justify-between">
-            <p class="text-xl font-medium">
-              {{ $t('booking.selectSlot') }} {{ $t('booking.selectedSlots', { count: selectedSlotIds.length, max: maxSlots }) }}
-            </p>
-            <UButton
-              v-if="selectedSlotIds.length > 0"
-              color="error"
-              variant="soft"
-              size="sm"
-              class="hover:cursor-pointer"
-              @click="selectedSlotIds = []"
-            >
-              {{ $t('booking.clearAll') }}
-            </UButton>
-          </div>
-          <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-2!">
-            <div
-              v-for="(item, index) in slots"
-              :key="item.id"
-              class="slot-item h-12 text-center flex items-center justify-center text-base font-medium rounded-lg border transition-all duration-300 cursor-pointer select-none"
-              :class="[
-                isSlotSelected(item.id)
-                  ? 'bg-primary text-white border-primary shadow-lg scale-105 hover:scale-110'
-                  : 'bg-white text-gray-700 border-gray-200 hover:border-primary hover:shadow-md hover:scale-105'
-              ]"
-              :style="{ animationDelay: `${index * 30}ms` }"
-              @click="handleSelectSlot(item.id)"
-            >
-              <span class="font-semibold max-sm:text-sm">{{ item.startTime }}-{{ item.endTime }}</span>
+            <div v-if="hasMore" class="my-6 flex justify-center">
+              <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
             </div>
           </div>
-        </div>
-      </Transition>
-      <div v-if="selectedTeacherId && (!slots || slots.length === 0) && !isGettingSlots" class="my-8 text-center text-gray-500">
-        <p>{{ $t('booking.noSlotsAvailable') }}</p>
+        </template>
+        <UiEmpty v-else-if="!displayedTeachers?.length" />
       </div>
-
-      <Transition name="button-slide" appear>
-        <div v-if="selectedTeacherId && date && selectedSlotIds.length">
-          <BaseButton
-            :text="$t('booking.bookLesson')"
-            class="w-full h-12 mb-8"
-            :loading="isBooking"
-            :disabled="isBooking"
-            @click="handleBooking"
-          />
-        </div>
-      </Transition>
     </div>
+    <UiRegistrationSlotModal @booking="handleBooking" />
     <UiBackToTop keepalive />
   </div>
 </template>
@@ -413,5 +352,14 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
 .button-slide-leave-to {
   opacity: 0;
   transform: translateY(-20px);
+}
+
+.teacher-list-scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.teacher-list-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 </style>
