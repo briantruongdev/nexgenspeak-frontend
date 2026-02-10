@@ -19,7 +19,7 @@ const { t } = useI18n()
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const minDate = today(getLocalTimeZone())
-const { data, pending, slots, isGettingSlots, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
+const { data, pending, slots, isGettingSlots, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
 const { apply, filters } = useRegistration()
 const { isBooking, booking } = useSchedule()
 
@@ -27,6 +27,7 @@ const page = ref(1)
 // const pageSize = computed(() => (width.value > 640 ? 4 : 4))
 const pageSize = ref(4)
 const selectedTeacherId = ref<ITeacher['teacherId']>(0)
+const teacherIdFavorit = ref(0)
 const selectedSlotIds = ref<number[]>([])
 const maxSlots = config.public.maxSlots
 const showCards = ref(false)
@@ -152,6 +153,7 @@ const handleBooking = async () => {
 
 const handleToggleFavorite = async (event: Event, teacherId: number, currentAction: 'add' | 'remove') => {
   event.stopPropagation()
+  teacherIdFavorit.value = teacherId
   await toggleFavoriteTeacher(teacherId, currentAction)
 }
 </script>
@@ -211,9 +213,13 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
                 @click="e => handleToggleFavorite(e, teacher.teacherId, teacher.isFavorite ? 'remove' : 'add')"
               >
                 <UIcon
-                  name="i-lucide-heart"
+                  :name="teacherIdFavorit === teacher.teacherId && isProcessing ? 'i-lucide-loader' : 'i-lucide-heart'"
                   class="size-5"
-                  :class="{ 'bg-red-500': teacher.isFavorite, 'text-gray-400': !teacher.isFavorite }"
+                  :class="{
+                    'bg-red-500': teacher.isFavorite,
+                    'text-gray-400': !teacher.isFavorite,
+                    'animate-spin': teacherIdFavorit === teacher.teacherId && isProcessing
+                  }"
                 />
               </button>
               <div class="flex flex-col gap-5 max-sm:gap-4">
@@ -236,11 +242,11 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
                   </div>
                   <div class="flex items-start gap-3 max-sm:gap-2">
                     <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award1 }}</p>
+                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award2 }}</p>
                   </div>
                   <div class="flex items-start gap-3 max-sm:gap-2">
                     <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award1 }}</p>
+                    <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award3 }}</p>
                   </div>
                 </div>
               </div>

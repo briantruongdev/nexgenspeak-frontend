@@ -10,6 +10,7 @@ export const useTeacher = () => {
   const { data, pending, error, refresh } = useAsyncData('teachers', () => apiTeacher.getAllTeachers(), {
     server: true
   })
+  const isProcessing = ref(false)
 
   const getSlotByDate = async (teacherId: number, date: string) => {
     isGettingSlots.value = true
@@ -26,6 +27,7 @@ export const useTeacher = () => {
 
   const toggleFavoriteTeacher = async (teacherId: number, action: 'add' | 'remove') => {
     try {
+      isProcessing.value = true
       const body = {
         teacherId,
         action
@@ -43,6 +45,8 @@ export const useTeacher = () => {
     } catch (error) {
       console.log(error)
       showError(t('booking.favoriteError'))
+    } finally {
+      isProcessing.value = false
     }
   }
 
@@ -53,6 +57,7 @@ export const useTeacher = () => {
     dataSlots,
     isGettingSlots,
     slots,
+    isProcessing,
     refresh,
     getSlotByDate,
     toggleFavoriteTeacher
