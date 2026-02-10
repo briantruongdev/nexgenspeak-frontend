@@ -4,7 +4,6 @@ import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import { useTeacher } from '@/composables/useTeacher'
 import { useInfiniteScroll } from '@vueuse/core'
 import dayjs from 'dayjs'
-import { is } from 'zod/locales'
 
 definePageMeta({
   middleware: 'auth'
@@ -61,17 +60,12 @@ const updateUrl = () => {
 }
 
 const restoreFromUrl = () => {
-  if (route.query.date) {
-    const urlDate = dayjs(route.query.date as string)
-    if (urlDate.isValid()) {
-      date.value = new CalendarDate(urlDate.year(), urlDate.month() + 1, urlDate.date())
-    }
+  const urlDate = dayjs(route.query.date as string)
+  if (urlDate.isValid()) {
+    date.value = new CalendarDate(urlDate.year(), urlDate.month() + 1, urlDate.date())
   }
-
-  if (route.query.teacherId) {
-    selectedTeacherId.value = route.query.teacherId as unknown as number
-    getSlots()
-  }
+  selectedTeacherId.value = route.query.teacherId as unknown as number
+  getSlots()
 }
 
 const handleSelectedTeacher = async (teacherId: number) => {
@@ -148,6 +142,7 @@ const handleBooking = async () => {
     router.push({ query: {} })
     isSlotModalVisible.value = false
   } catch (error) {
+    // selectedTeacherId.value = 0
     console.log(error)
   }
 }

@@ -19,7 +19,7 @@ const emit = defineEmits<{
     }"
   >
     <template #content>
-      <div>
+      <div class="py-6">
         <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
           <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
           <span class="text-gray-500 animate-pulse">{{ t('booking.loadingSlots') }}</span>
@@ -67,7 +67,7 @@ const emit = defineEmits<{
           <div v-if="selectedSlotIds.length">
             <BaseButton
               :text="t('booking.bookLesson')"
-              class="w-full h-12 mb-8 max-sm:h-10"
+              class="w-full h-12 mt-8 max-sm:mt-6 max-sm:h-10"
               :loading="isBooking"
               :disabled="isBooking"
               @click="emit('booking')"
