@@ -50,3 +50,7 @@ export interface IScheduleFilter {
   search: string
   status: number
 }
+
+export interface IRegistrationFilter {
+  search: string
+}

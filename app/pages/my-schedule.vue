@@ -6,7 +6,7 @@ import type { ISlot } from '~/types/registration.type'
 const UButton = resolveComponent('UButton')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
 const table = useTemplateRef('table')
-const { data: listSchedule, pending, filters, apply, cancelBooking } = useBooking()
+const { data: listSchedule, pending, filters, apply, cancelBooking } = useSchedule()
 interface FlattenedSlot extends ISlot {
   date: string
 }

@@ -15,12 +15,13 @@ const config = useRuntimeConfig()
 const { showError } = useNotification()
 const route = useRoute()
 const router = useRouter()
-
+const { t } = useI18n()
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const minDate = today(getLocalTimeZone())
 const { data, pending, slots, isGettingSlots, getSlotByDate } = useTeacher()
-const { isBooking, booking } = useBooking()
+const { apply, filters } = useRegistration()
+const { isBooking, booking } = useSchedule()
 
 const page = ref(1)
 // const pageSize = computed(() => (width.value > 640 ? 4 : 4))
@@ -29,10 +30,16 @@ const selectedTeacherId = ref<ITeacher['teacherId']>(0)
 const selectedSlotIds = ref<number[]>([])
 const maxSlots = config.public.maxSlots
 
+const dataSearch = computed(() => {
+  const search = filters.value.search?.toLowerCase()
+
+  return data.value?.teachers.filter(t => !search || t.fullName.toLowerCase().includes(search))
+})
 const pagedTeachers = computed(() => {
   const start = (page.value - 1) * pageSize.value
-  return data.value?.teachers.slice(start, start + pageSize.value)
+  return dataSearch.value?.slice(start, start + pageSize.value)
 })
+
 const src = '/images/teacher-default.png'
 
 const dateFormat = computed(() => {
@@ -137,10 +144,11 @@ const handleBooking = async () => {
         <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
           <UCalendar
             v-model="date"
-            size="xl"
-            class="[&_.uc-header]:pb-6 [&_.uc-header]:border-b [&_.uc-header]:border-gray-200 [&_.uc-header_h2]:text-2xl [&_.uc-header_h2]:font-bold [&_.uc-header_h2]:text-gray-800 [&_.uc-weekday]:text-orange-500 [&_.uc-weekday]:font-semibold [&_.uc-day]:text-gray-700 [&_.uc-day]:rounded-lg [&_.uc-day]:transition-colors [&_.uc-day:hover]:bg-gray-100 [&_.uc-day.selected]:bg-orange-500 [&_.uc-day.selected]:text-white [&_.uc-day.selected]:font-bold [&_.uc-day.selected]:rounded-full [&_.uc-day.today]:border-2 [&_.uc-day.today]:border-orange-500"
+            size="md"
             :ui="{
-              cell: 'hover:cursor-pointer'
+              cell: 'hover:cursor-pointer text-base',
+              headCell: 'text-base',
+              heading: 'text-base'
             }"
             :min-value="minDate"
             @update:model-value="handleDateChange"
@@ -148,11 +156,19 @@ const handleBooking = async () => {
         </div>
       </div>
       <p class="title mb-8">{{ $t('booking.teacherList') }}</p>
+      <BaseInput
+        v-model="filters.search"
+        :placeholder="t('search')"
+        class="w-1/4 max-lg:w-1/3 max-sm:w-full mb-4"
+        icon="i-lucide-search"
+        :is-show-clear="true"
+        @input="apply({ search: filters.search })"
+      />
       <div v-if="pending" class="flex flex-col space-y-4 items-center my-8">
         <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
         <span class="text-gray-500">{{ $t('booking.loadingTeachers') }}</span>
       </div>
-      <template v-else>
+      <template v-else-if="pagedTeachers?.length">
         <div class="grid grid-cols-4 max-lg:grid-cols-2 gap-4 max-[450px]:grid-cols-1!">
           <div
             v-for="teacher in pagedTeachers"
@@ -197,7 +213,7 @@ const handleBooking = async () => {
         <div class="my-8 max-md:mt-6 flex justify-center">
           <UPagination
             v-model:page="page"
-            :total="data?.teachers.length"
+            :total="dataSearch?.length"
             :items-per-page="pageSize"
             color="primary"
             active-color="primary"
@@ -213,6 +229,7 @@ const handleBooking = async () => {
           />
         </div>
       </template>
+      <UiEmpty v-else />
       <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8">
         <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
         <span class="text-gray-500">{{ $t('booking.loadingSlots') }}</span>
