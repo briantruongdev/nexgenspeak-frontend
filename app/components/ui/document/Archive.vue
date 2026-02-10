@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const { openTrialRegisterModal } = useTrialRegister()
 
 const input = useTemplateRef('input')
 const skills = computed(() => [
@@ -11,7 +10,7 @@ const skills = computed(() => [
   t('document.archive.skills.vocabulary'),
   t('document.archive.skills.grammar')
 ])
-const value = ref(t('document.archive.skills.speaking'))
+// const value = ref(t('document.archive.skills.speaking'))
 </script>
 
 <template>
@@ -45,7 +44,7 @@ const value = ref(t('document.archive.skills.speaking'))
         </p>
       </div>
     </div>
-    <div class="flex justify-center items-center gap-6 max-sm:gap-4">
+    <!-- <div class="flex justify-center items-center gap-6 max-sm:gap-4">
       <USelectMenu
         v-model="value"
         :items="skills"
@@ -58,7 +57,7 @@ const value = ref(t('document.archive.skills.speaking'))
         }"
       />
       <BaseButton :text="$t('document.archive.refresh')" variant="outline" class="rounded" />
-    </div>
+    </div> -->
   </div>
 </template>
 

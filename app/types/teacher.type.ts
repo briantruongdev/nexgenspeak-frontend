@@ -6,6 +6,7 @@ export interface ITeacher {
   teacherId: number
   fullName: string
   position: string
+  isFavorite?: boolean
 }
 
 export interface IResponseTeachers {
@@ -25,4 +26,12 @@ export interface ISlots {
   startTime: string
   endTime: string
   isAvailable: boolean
+}
+
+export interface IToggleFavoriteResponse {
+  success: boolean
+  message: string
+  data: {
+    favoriteTeachers: number[]
+  }
 }

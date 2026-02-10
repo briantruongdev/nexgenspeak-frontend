@@ -19,7 +19,7 @@ const { t } = useI18n()
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const minDate = today(getLocalTimeZone())
-const { data, pending, slots, isGettingSlots, getSlotByDate } = useTeacher()
+const { data, pending, slots, isGettingSlots, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
 const { apply, filters } = useRegistration()
 const { isBooking, booking } = useSchedule()
 
@@ -129,7 +129,7 @@ const handleSelectSlot = (slotId: number) => {
     if (selectedSlotIds.value.length < maxSlots) {
       selectedSlotIds.value.push(slotId)
     } else {
-      showError($t('booking.maxSlotsError', { max: maxSlots }))
+      showError(t('booking.maxSlotsError', { max: maxSlots }))
     }
   }
 }
@@ -149,15 +149,20 @@ const handleBooking = async () => {
   selectedSlotIds.value = []
   router.push({ query: {} })
 }
+
+const handleToggleFavorite = async (event: Event, teacherId: number, currentAction: 'add' | 'remove') => {
+  event.stopPropagation()
+  await toggleFavoriteTeacher(teacherId, currentAction)
+}
 </script>
 
 <template>
   <div>
     <div class="container max-xl:px-6">
       <Transition name="fade-scale" appear>
-        <div class="flex justify-center items-center p-8 max-sm:p-0 max-sm:my-8">
+        <div class="flex justify-center items-center p-6 max-sm:p-0 max-sm:my-8">
           <div
-            class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl"
+            class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100 transition-all duration-300 hover:shadow-xl"
           >
             <UCalendar
               v-model="date"
@@ -200,7 +205,17 @@ const handleBooking = async () => {
             :style="showCards && page === 1 ? { animationDelay: `${index * 50}ms` } : {}"
             @click="handleSelectedTeacher(teacher.teacherId)"
           >
-            <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start">
+            <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start relative">
+              <button
+                class="absolute top-0 right-2 z-10 p-2 rounded-full hover:cursor-pointer bg-white/90 hover:bg-white shadow-md transition-all duration-200 hover:scale-110 flex justify-center items-center"
+                @click="e => handleToggleFavorite(e, teacher.teacherId, teacher.isFavorite ? 'remove' : 'add')"
+              >
+                <UIcon
+                  name="i-lucide-heart"
+                  class="size-5"
+                  :class="{ 'bg-red-500': teacher.isFavorite, 'text-gray-400': !teacher.isFavorite }"
+                />
+              </button>
               <div class="flex flex-col gap-5 max-sm:gap-4">
                 <img
                   :src="src"
@@ -251,9 +266,8 @@ const handleBooking = async () => {
           />
         </div>
       </template>
-      <Transition v-else-if="!pagedTeachers?.length" name="fade" mode="out-in">
-        <UiEmpty />
-      </Transition>
+      <UiEmpty v-else-if="!pagedTeachers?.length" />
+
       <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
         <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
         <span class="text-gray-500 animate-pulse">{{ $t('booking.loadingSlots') }}</span>
@@ -293,21 +307,20 @@ const handleBooking = async () => {
           </div>
         </div>
       </Transition>
-      <Transition name="fade" mode="out-in">
-        <div v-if="selectedTeacherId && (!slots || slots.length === 0) && !isGettingSlots" class="my-8 text-center text-gray-500">
-          <p>{{ $t('booking.noSlotsAvailable') }}</p>
-        </div>
-      </Transition>
+      <div v-if="selectedTeacherId && (!slots || slots.length === 0) && !isGettingSlots" class="my-8 text-center text-gray-500">
+        <p>{{ $t('booking.noSlotsAvailable') }}</p>
+      </div>
 
-      <Transition name="button-slide">
-        <BaseButton
-          v-if="selectedTeacherId && date && selectedSlotIds.length"
-          :text="$t('booking.bookLesson')"
-          class="w-full h-12 mb-8 transition-all duration-300 hover:shadow-lg"
-          :loading="isBooking"
-          :disabled="isBooking"
-          @click="handleBooking"
-        />
+      <Transition name="button-slide" appear>
+        <div v-if="selectedTeacherId && date && selectedSlotIds.length">
+          <BaseButton
+            :text="$t('booking.bookLesson')"
+            class="w-full h-12 mb-8"
+            :loading="isBooking"
+            :disabled="isBooking"
+            @click="handleBooking"
+          />
+        </div>
       </Transition>
     </div>
     <UiBackToTop keepalive />

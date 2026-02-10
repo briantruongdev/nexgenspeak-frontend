@@ -501,7 +501,8 @@
     "clearAll": "Xóa tất cả",
     "noSlotsAvailable": "Không có khung giờ nào khả dụng cho ngày này",
     "bookLesson": "Đặt lịch học",
-    "maxSlotsError": "Bạn chỉ có thể chọn tối đa { max } slots"
+    "maxSlotsError": "Bạn chỉ có thể chọn tối đa { max } slots",
+    "favoriteError": "Không thể cập nhật trạng thái yêu thích. Vui lòng thử lại."
   },
   "yes": "Yes",
   "delete": "Xóa",
