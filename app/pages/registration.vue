@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue'
+import { shallowRef, watch, nextTick } from 'vue'
 import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import { useTeacher } from '@/composables/useTeacher'
 import type { ITeacher } from '~/types/teacher.type'
@@ -29,6 +29,7 @@ const pageSize = ref(4)
 const selectedTeacherId = ref<ITeacher['teacherId']>(0)
 const selectedSlotIds = ref<number[]>([])
 const maxSlots = config.public.maxSlots
+const showCards = ref(false)
 
 const dataSearch = computed(() => {
   const search = filters.value.search?.toLowerCase()
@@ -104,7 +105,20 @@ const handleDateChange = () => {
 
 onMounted(() => {
   restoreFromUrl()
+  setTimeout(() => {
+    showCards.value = true
+  }, 50)
 })
+
+watch(
+  () => filters.value.search,
+  () => {
+    showCards.value = false
+    nextTick(() => {
+      showCards.value = true
+    })
+  }
+)
 
 const handleSelectSlot = (slotId: number) => {
   const index = selectedSlotIds.value.indexOf(slotId)
@@ -140,21 +154,25 @@ const handleBooking = async () => {
 <template>
   <div>
     <div class="container max-xl:px-6">
-      <div class="flex justify-center items-center p-8 max-sm:p-0 max-sm:my-8">
-        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-          <UCalendar
-            v-model="date"
-            size="md"
-            :ui="{
-              cell: 'hover:cursor-pointer text-base',
-              headCell: 'text-base',
-              heading: 'text-base'
-            }"
-            :min-value="minDate"
-            @update:model-value="handleDateChange"
-          />
+      <Transition name="fade-scale" appear>
+        <div class="flex justify-center items-center p-8 max-sm:p-0 max-sm:my-8">
+          <div
+            class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl"
+          >
+            <UCalendar
+              v-model="date"
+              size="md"
+              :ui="{
+                cell: 'hover:cursor-pointer text-base',
+                headCell: 'text-base',
+                heading: 'text-base'
+              }"
+              :min-value="minDate"
+              @update:model-value="handleDateChange"
+            />
+          </div>
         </div>
-      </div>
+      </Transition>
       <p class="title mb-8">{{ $t('booking.teacherList') }}</p>
       <BaseInput
         v-model="filters.search"
@@ -164,18 +182,22 @@ const handleBooking = async () => {
         :is-show-clear="true"
         @input="apply({ search: filters.search })"
       />
-      <div v-if="pending" class="flex flex-col space-y-4 items-center my-8">
+      <div v-if="pending" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
         <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
-        <span class="text-gray-500">{{ $t('booking.loadingTeachers') }}</span>
+        <span class="text-gray-500 animate-pulse">{{ $t('booking.loadingTeachers') }}</span>
       </div>
       <template v-else-if="pagedTeachers?.length">
         <div class="grid grid-cols-4 max-lg:grid-cols-2 gap-4 max-[450px]:grid-cols-1!">
           <div
-            v-for="teacher in pagedTeachers"
-            :key="teacher.teacherId"
+            v-for="(teacher, index) in pagedTeachers"
+            :key="`${page}-${teacher.teacherId}`"
             type="button"
-            class="bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-200 hover:border-primary"
-            :class="selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary ' : ''"
+            class="teacher-card bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-xl"
+            :class="[
+              selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary' : '',
+              showCards && page === 1 ? 'card-animate' : ''
+            ]"
+            :style="showCards && page === 1 ? { animationDelay: `${index * 50}ms` } : {}"
             @click="handleSelectedTeacher(teacher.teacherId)"
           >
             <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start">
@@ -229,56 +251,148 @@ const handleBooking = async () => {
           />
         </div>
       </template>
-      <UiEmpty v-else />
-      <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8">
+      <Transition v-else-if="!pagedTeachers?.length" name="fade" mode="out-in">
+        <UiEmpty />
+      </Transition>
+      <div v-if="isGettingSlots" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
         <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
-        <span class="text-gray-500">{{ $t('booking.loadingSlots') }}</span>
+        <span class="text-gray-500 animate-pulse">{{ $t('booking.loadingSlots') }}</span>
       </div>
-      <div v-else-if="selectedTeacherId && slots && slots.length > 0" class="my-8">
-        <div class="mb-4 flex items-center justify-between">
-          <p class="text-xl font-medium">
-            {{ $t('booking.selectSlot') }} {{ $t('booking.selectedSlots', { count: selectedSlotIds.length, max: maxSlots }) }}
-          </p>
-          <UButton
-            v-if="selectedSlotIds.length > 0"
-            color="error"
-            variant="soft"
-            size="sm"
-            class="hover:cursor-pointer"
-            @click="selectedSlotIds = []"
-          >
-            {{ $t('booking.clearAll') }}
-          </UButton>
-        </div>
-        <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-2!">
-          <div
-            v-for="item in slots"
-            :key="item.id"
-            class="h-12 text-center flex items-center justify-center text-base font-medium rounded-lg border transition-all duration-300 cursor-pointer select-none"
-            :class="[
-              isSlotSelected(item.id)
-                ? 'bg-primary text-white border-primary shadow-lg scale-105 hover:scale-110'
-                : 'bg-white text-gray-700 border-gray-200 hover:border-primary hover:shadow-md hover:scale-105'
-            ]"
-            @click="handleSelectSlot(item.id)"
-          >
-            <span class="font-semibold max-sm:text-sm">{{ item.startTime }}-{{ item.endTime }}</span>
+      <Transition name="slots-fade" mode="out-in">
+        <div v-if="selectedTeacherId && slots && slots.length > 0" class="my-8">
+          <div class="mb-4 flex items-center justify-between">
+            <p class="text-xl font-medium">
+              {{ $t('booking.selectSlot') }} {{ $t('booking.selectedSlots', { count: selectedSlotIds.length, max: maxSlots }) }}
+            </p>
+            <UButton
+              v-if="selectedSlotIds.length > 0"
+              color="error"
+              variant="soft"
+              size="sm"
+              class="hover:cursor-pointer"
+              @click="selectedSlotIds = []"
+            >
+              {{ $t('booking.clearAll') }}
+            </UButton>
+          </div>
+          <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-2!">
+            <div
+              v-for="(item, index) in slots"
+              :key="item.id"
+              class="slot-item h-12 text-center flex items-center justify-center text-base font-medium rounded-lg border transition-all duration-300 cursor-pointer select-none"
+              :class="[
+                isSlotSelected(item.id)
+                  ? 'bg-primary text-white border-primary shadow-lg scale-105 hover:scale-110'
+                  : 'bg-white text-gray-700 border-gray-200 hover:border-primary hover:shadow-md hover:scale-105'
+              ]"
+              :style="{ animationDelay: `${index * 30}ms` }"
+              @click="handleSelectSlot(item.id)"
+            >
+              <span class="font-semibold max-sm:text-sm">{{ item.startTime }}-{{ item.endTime }}</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div v-else-if="selectedTeacherId && (!slots || slots.length === 0)" class="my-8 text-center text-gray-500">
-        <p>{{ $t('booking.noSlotsAvailable') }}</p>
-      </div>
+      </Transition>
+      <Transition name="fade" mode="out-in">
+        <div v-if="selectedTeacherId && (!slots || slots.length === 0) && !isGettingSlots" class="my-8 text-center text-gray-500">
+          <p>{{ $t('booking.noSlotsAvailable') }}</p>
+        </div>
+      </Transition>
 
-      <BaseButton
-        v-if="selectedTeacherId && date && selectedSlotIds.length"
-        :text="$t('booking.bookLesson')"
-        class="w-full h-12 mb-8"
-        :loading="isBooking"
-        :disabled="isBooking"
-        @click="handleBooking"
-      />
+      <Transition name="button-slide">
+        <BaseButton
+          v-if="selectedTeacherId && date && selectedSlotIds.length"
+          :text="$t('booking.bookLesson')"
+          class="w-full h-12 mb-8 transition-all duration-300 hover:shadow-lg"
+          :loading="isBooking"
+          :disabled="isBooking"
+          @click="handleBooking"
+        />
+      </Transition>
     </div>
     <UiBackToTop keepalive />
   </div>
 </template>
+
+<style scoped>
+.fade-scale-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.fade-scale-enter-from {
+  opacity: 0;
+  transform: scale(0.95) translateY(-20px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.teacher-card {
+  opacity: 1;
+}
+
+.teacher-card.card-animate {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slot-item {
+  opacity: 0;
+  animation: slideInScale 0.3s ease-out forwards;
+}
+
+.slots-fade-enter-active,
+.slots-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slots-fade-enter-from,
+.slots-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.button-slide-enter-active,
+.button-slide-leave-active {
+  transition: all 0.4s ease;
+}
+
+.button-slide-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.button-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+</style>
