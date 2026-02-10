@@ -2,16 +2,16 @@ import { apiTeacher } from '~/services'
 import type { IResponseSlots, ISlots } from '~/types/teacher.type'
 
 const slots = ref<ISlots[]>([])
+const isGettingSlots = ref(false)
+const isProcessing = ref(false)
 
 export const useTeacher = () => {
-  const isGettingSlots = ref(false)
   const dataSlots = ref<IResponseSlots>()
   const { showSuccess, showError } = useNotification()
   const { t } = useI18n()
   const { data, pending, error, refresh } = useAsyncData('teachers', () => apiTeacher.getAllTeachers(), {
     server: true
   })
-  const isProcessing = ref(false)
 
   const getSlotByDate = async (teacherId: number, date: string) => {
     isGettingSlots.value = true

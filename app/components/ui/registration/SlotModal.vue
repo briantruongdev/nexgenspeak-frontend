@@ -25,7 +25,7 @@ const emit = defineEmits<{
           <span class="text-gray-500 animate-pulse">{{ t('booking.loadingSlots') }}</span>
         </div>
         <Transition name="slots-fade" mode="out-in">
-          <div v-if="slots && slots.length > 0" class="my-8 max-[450px]:my-4">
+          <div v-if="slots && slots.length > 0 && !isGettingSlots" lass="my-8 max-[450px]:my-4">
             <div class="mb-4 flex items-center justify-between">
               <p class="text-xl font-medium max-sm:text-sm">
                 {{ t('booking.selectSlot') }} {{ t('booking.selectedSlots', { count: selectedSlotIds.length, max: maxSlots }) }}
