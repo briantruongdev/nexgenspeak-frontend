@@ -44,8 +44,8 @@ export const useRegistration = () => {
   const booking = async (data: IDataRegistration) => {
     isBooking.value = true
     try {
-      const rs = await apiBooking.registration(data)
-      showSuccess(rs.message)
+      await apiBooking.registration(data)
+      showSuccess(t('messgae-registration'))
     } catch (error) {
       console.log(error)
       throw error
