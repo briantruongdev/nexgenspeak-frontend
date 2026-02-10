@@ -14,9 +14,8 @@ const emit = defineEmits<{
 <template>
   <UModal
     v-model:open="isSlotModalVisible"
-    class="w-2/3 max-lg:w-10/12"
     :ui="{
-      content: 'px-8'
+      content: 'px-8 max-[450px]:h-[90vh] flex flex-col'
     }"
   >
     <template #content>
@@ -26,9 +25,9 @@ const emit = defineEmits<{
           <span class="text-gray-500 animate-pulse">{{ t('booking.loadingSlots') }}</span>
         </div>
         <Transition name="slots-fade" mode="out-in">
-          <div v-if="slots && slots.length > 0" class="my-8">
+          <div v-if="slots && slots.length > 0" class="my-8 max-[450px]:my-4">
             <div class="mb-4 flex items-center justify-between">
-              <p class="text-xl font-medium">
+              <p class="text-xl font-medium max-sm:text-sm">
                 {{ t('booking.selectSlot') }} {{ t('booking.selectedSlots', { count: selectedSlotIds.length, max: maxSlots }) }}
               </p>
               <UButton
@@ -42,11 +41,11 @@ const emit = defineEmits<{
                 {{ $t('booking.clearAll') }}
               </UButton>
             </div>
-            <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-2!">
+            <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-3!">
               <div
                 v-for="(item, index) in slots"
                 :key="item.id"
-                class="slot-item h-12 text-center flex items-center justify-center text-base font-medium rounded-lg border transition-all duration-300 cursor-pointer select-none"
+                class="slot-item h-12 max-sm:h-10 text-center flex items-center justify-center text-base font-medium rounded-lg border transition-all duration-300 cursor-pointer select-none"
                 :class="[
                   isSlotSelected(item.id)
                     ? 'bg-primary text-white border-primary shadow-lg scale-105 hover:scale-110'
@@ -55,7 +54,7 @@ const emit = defineEmits<{
                 :style="{ animationDelay: `${index * 30}ms` }"
                 @click="handleSelectSlot(item.id)"
               >
-                <span class="font-semibold max-sm:text-sm">{{ item.startTime }}-{{ item.endTime }}</span>
+                <span class="font-semibold max-sm:text-sm max-[450px]:text-xs!">{{ item.startTime }}-{{ item.endTime }}</span>
               </div>
             </div>
           </div>
@@ -68,7 +67,7 @@ const emit = defineEmits<{
           <div v-if="selectedSlotIds.length">
             <BaseButton
               :text="t('booking.bookLesson')"
-              class="w-full h-12 mb-8"
+              class="w-full h-12 mb-8 max-sm:h-10"
               :loading="isBooking"
               :disabled="isBooking"
               @click="emit('booking')"

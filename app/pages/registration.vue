@@ -75,12 +75,12 @@ const restoreFromUrl = () => {
 }
 
 const handleSelectedTeacher = async (teacherId: number) => {
-  if (selectedTeacherId.value === teacherId) {
-    selectedTeacherId.value = 0
-    selectedSlotIds.value = []
-    updateUrl()
-    return
-  }
+  // if (selectedTeacherId.value === teacherId) {
+  //   selectedTeacherId.value = 0
+  //   selectedSlotIds.value = []
+  //   updateUrl()
+  //   return
+  // }
 
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
@@ -161,9 +161,9 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
 
 <template>
   <div class="container max-xl:px-6">
-    <div class="grid grid-cols-[1fr_2fr] gap-10 py-6">
+    <div class="grid grid-cols-[1fr_2fr] gap-10 py-6 max-[900px]:grid-cols-1 max-[900px]:py-0">
       <Transition name="fade-scale" appear>
-        <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-sm:my-8">
+        <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-[900px]:mt-8">
           <div
             class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100 transition-all duration-300 hover:shadow-xl"
           >
@@ -179,12 +179,12 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
           </div>
         </div>
       </Transition>
-      <div class="flex-1">
+      <div class="flex-1 max-[900px]:mb-8">
         <p class="title mb-8">{{ t('booking.teacherList') }}</p>
         <BaseInput
           v-model="filters.search"
           :placeholder="t('search')"
-          class="w-1/2 mb-4"
+          class="w-1/2 mb-4 max-[500px]:w-2/3"
           icon="i-lucide-search"
           :is-show-clear="true"
           @input="apply({ search: filters.search })"
@@ -195,7 +195,7 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
         </div>
         <template v-else-if="displayedTeachers?.length">
           <div ref="scrollArea" class="teacher-list-scroll max-h-screen overflow-y-auto p-1">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-[400px]:grid-cols-1!">
               <div
                 v-for="(teacher, index) in displayedTeachers"
                 :key="teacher.teacherId"
@@ -231,7 +231,7 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
                       :src="src"
                       :alt="teacher.fullName"
                       loading="lazy"
-                      class="w-full h-40 max-sm:h-30 object-contain rounded-xl"
+                      class="w-full h-30 max-sm:h-24 object-contain rounded-xl"
                     />
 
                     <div class="text-center">
