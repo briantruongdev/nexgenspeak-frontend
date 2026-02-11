@@ -1,23 +1,10 @@
 import { apiBooking } from '~/services'
-import type { IDataRegistration, IRegistrationFilter } from '~/types/registration.type'
+import type { IDataRegistration } from '~/types/registration.type'
 
-export const useRegistrationFilterSync = createFilterSync<IRegistrationFilter>({
-  defaults: {
-    search: ''
-  },
-  mapping: {
-    search: 'search'
-  },
-  coerce: {
-    search: 'string'
-  },
-  debounceMs: 400
-})
 const isBooking = ref(false)
 export const useRegistration = () => {
   const config = useRuntimeConfig()
   const maxSlots = config.public.maxSlots
-  const { apply, filters } = useRegistrationFilterSync()
   const { t } = useI18n()
   const isSlotModalVisible = useState<boolean>('slot-modal-visible', () => false)
   const selectedTeacherId = useState<number>('selected-teacher-id', () => 0)
@@ -67,8 +54,6 @@ export const useRegistration = () => {
     isSlotModalVisible,
     selectedTeacherId,
     selectedSlotIds,
-    apply,
-    filters,
     isSlotSelected,
     handleSelectSlot,
     booking,

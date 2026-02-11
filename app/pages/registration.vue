@@ -2,22 +2,21 @@
 import { shallowRef, watch, nextTick } from 'vue'
 import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import { useTeacher } from '@/composables/useTeacher'
-import { useInfiniteScroll } from '@vueuse/core'
+import { useInfiniteScroll, refDebounced } from '@vueuse/core'
 import dayjs from 'dayjs'
 
 definePageMeta({
   middleware: 'auth'
 })
+const src = '/images/teacher-default.png'
 
 // const { width } = useWindowSize()
-const route = useRoute()
-const router = useRouter()
 const { t } = useI18n()
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const minDate = today(getLocalTimeZone())
 const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
-const { apply, filters, isSlotModalVisible, selectedTeacherId, selectedSlotIds } = useRegistration()
+const { isSlotModalVisible, selectedTeacherId, selectedSlotIds } = useRegistration()
 const { booking } = useRegistration()
 const initialLoadCount = 9
 const loadMoreCount = 3
@@ -25,12 +24,15 @@ const displayCount = ref(initialLoadCount)
 const teacherIdFavorit = ref(0)
 const showCards = ref(false)
 const scrollArea = ref<HTMLElement | null>(null)
+const search = ref('')
+const searchDebounced = refDebounced(search, 300)
 
 const dataSearch = computed(() => {
-  const search = filters.value.search?.toLowerCase()
+  const _search = searchDebounced.value?.toLowerCase()
 
-  return data.value?.teachers.filter(t => !search || t.fullName.toLowerCase().includes(search))
+  return data.value?.teachers.filter(t => !_search || t.fullName.toLowerCase().includes(_search))
 })
+
 const displayedTeachers = computed(() => {
   return dataSearch.value?.slice(0, displayCount.value)
 })
@@ -38,35 +40,10 @@ const hasMore = computed(() => {
   return (dataSearch.value?.length || 0) > displayCount.value
 })
 
-const src = '/images/teacher-default.png'
-
 const dateFormat = computed(() => {
   if (!date.value) return ''
   return dayjs(`${date.value.year}-${date.value.month}-${date.value.day}`).format('YYYY-MM-DD')
 })
-
-const updateUrl = () => {
-  const query: Record<string, string | number> = {}
-
-  if (selectedTeacherId.value) {
-    query.teacherId = selectedTeacherId.value
-  }
-
-  if (dateFormat.value) {
-    query.date = dateFormat.value
-  }
-
-  router.push({ query })
-}
-
-const restoreFromUrl = () => {
-  const urlDate = dayjs(route.query.date as string)
-  if (urlDate.isValid()) {
-    date.value = new CalendarDate(urlDate.year(), urlDate.month() + 1, urlDate.date())
-  }
-  selectedTeacherId.value = route.query.teacherId as unknown as number
-  getSlots()
-}
 
 const handleSelectedTeacher = async (teacherId: number) => {
   // if (selectedTeacherId.value === teacherId) {
@@ -79,7 +56,6 @@ const handleSelectedTeacher = async (teacherId: number) => {
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
   isSlotModalVisible.value = true
-  updateUrl()
   await getSlots()
 }
 
@@ -90,14 +66,12 @@ const getSlots = async () => {
 }
 
 const handleDateChange = () => {
-  updateUrl()
   if (selectedTeacherId.value) {
     getSlots()
   }
 }
 
 onMounted(() => {
-  restoreFromUrl()
   setTimeout(() => {
     showCards.value = true
   }, 50)
@@ -114,7 +88,7 @@ useInfiniteScroll(
 )
 
 watch(
-  () => filters.value.search,
+  () => search.value,
   () => {
     displayCount.value = initialLoadCount
     showCards.value = false
@@ -139,7 +113,6 @@ const handleBooking = async () => {
     date.value = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())).value
     selectedTeacherId.value = 0
     selectedSlotIds.value = []
-    router.push({ query: {} })
     isSlotModalVisible.value = false
   } catch (error) {
     // selectedTeacherId.value = 0
@@ -177,12 +150,11 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
       <div class="flex-1 max-[900px]:mb-8">
         <p class="title mb-8">{{ t('booking.teacherList') }}</p>
         <BaseInput
-          v-model="filters.search"
+          v-model="search"
           :placeholder="t('search')"
           class="w-1/2 mb-4 max-[500px]:w-2/3"
           icon="i-lucide-search"
           :is-show-clear="true"
-          @input="apply({ search: filters.search })"
         />
         <div v-if="pending" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
           <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
