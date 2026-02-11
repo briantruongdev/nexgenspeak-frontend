@@ -47,13 +47,6 @@ const dateFormat = computed(() => {
 })
 
 const handleSelectedTeacher = async (teacherId: number) => {
-  // if (selectedTeacherId.value === teacherId) {
-  //   selectedTeacherId.value = 0
-  //   selectedSlotIds.value = []
-  //   updateUrl()
-  //   return
-  // }
-
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
   isSlotModalVisible.value = true
@@ -130,10 +123,16 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
 
 <template>
   <div class="container max-xl:px-6">
-    <div class="grid grid-cols-[1fr_2fr] gap-10 py-6 max-[900px]:grid-cols-1 max-[900px]:py-0">
+    <div class="grid grid-cols-[1fr_2fr] gap-10 max-sm:gap-6 py-6 max-[900px]:grid-cols-1 max-[900px]:py-0">
       <div>
-        <p class="title mb-8 text-white! max-[900px]:hidden">.</p>
-        <div class="h-10 mb-4 max-[900px]:hidden"></div>
+        <p class="title mb-8 max-[900px]:hidden">{{ t('booking.teacherList') }}</p>
+        <BaseInput
+          v-model="search"
+          :placeholder="t('search')"
+          class="w-full mb-4 max-[900px]:hidden"
+          icon="i-lucide-search"
+          :is-show-clear="true"
+        />
         <Transition name="fade-scale" appear>
           <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-[900px]:mt-8">
             <div
@@ -154,11 +153,11 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
         </Transition>
       </div>
       <div class="flex-1 max-[900px]:mb-8">
-        <p class="title mb-8">{{ t('booking.teacherList') }}</p>
+        <p class="title mb-8 max-sm:mb-4 hidden max-[900px]:block">{{ t('booking.teacherList') }}</p>
         <BaseInput
           v-model="search"
           :placeholder="t('search')"
-          class="w-1/2 mb-4 max-[500px]:w-2/3"
+          class="w-1/2 mb-4 max-[500px]:w-2/3 hidden max-[900px]:block"
           icon="i-lucide-search"
           :is-show-clear="true"
         />
