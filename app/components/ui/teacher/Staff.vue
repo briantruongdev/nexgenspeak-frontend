@@ -2,21 +2,10 @@
 import { useWindowSize } from '@vueuse/core'
 import type { ITeacher } from '~/types/teacher.type'
 
-const { openTrialRegisterModal } = useTrialRegister()
-
 const { t } = useI18n()
-
 const { width } = useWindowSize()
-interface Teacher {
-  id: number
-  name: string
-  title: string
-  image: string
-  highlights: { icon: string; text: string }[]
-}
 const srcImg = '/images/teacher-default.png'
-const { data, pending, isProcessing } = useTeacher()
-
+const { data, pending } = useTeacher()
 const page = ref(1)
 const pageSize = computed(() => (width.value > 640 ? 6 : 4))
 const selectedTeacherId = ref<ITeacher['teacherId']>(data.value?.teachers[0]?.teacherId ?? '')
@@ -83,7 +72,7 @@ watch(
               class="w-full"
               class-name="h-11 max-sm:h-10 rounded-xl"
               class-text="font-semibold max-sm:text-sm"
-              @click="openTrialRegisterModal"
+              @click="navigateTo({ name: 'teacher-id', params: { id: selectedTeacher?.teacherId } })"
             />
           </div>
         </div>

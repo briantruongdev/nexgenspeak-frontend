@@ -544,5 +544,6 @@
   "search": "Tìm kiếm",
   "status": "Trạng thái",
   "no-data": "Không có dữ liệu",
-  "messgae-registration": "Cảm ơn bạn đã đăng ký học! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất."
+  "messgae-registration": "Cảm ơn bạn đã đăng ký học! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
+  "loadingTeacherDetail": "Đang tải thông tin chi tiết giáo viên"
 }

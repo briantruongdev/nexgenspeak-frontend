@@ -1,10 +1,11 @@
 import { apiTeacher } from '~/services'
-import type { IResponseSlots, ISlots } from '~/types/teacher.type'
+import type { IResponseSlots, ISlots, ITeacher } from '~/types/teacher.type'
 
 const slots = ref<ISlots[]>([])
 const isGettingSlots = ref(false)
 const isProcessing = ref(false)
-
+const isFetchingTeacherDetail = ref(false)
+const teacherDetail = ref<ITeacher>()
 export const useTeacher = () => {
   const dataSlots = ref<IResponseSlots>()
   const { showSuccess, showError } = useNotification()
@@ -59,8 +60,28 @@ export const useTeacher = () => {
     isGettingSlots,
     slots,
     isProcessing,
+    isFetchingTeacherDetail,
     refresh,
     getSlotByDate,
     toggleFavoriteTeacher
+  }
+}
+
+export const useTeacherDetail = (teacherId: MaybeRef<string>) => {
+  const id = toRef(teacherId)
+
+  const { data, pending, refresh } = useAsyncData(
+    () => `teacher-${id.value}`,
+    () => apiTeacher.getTeacherById(id.value),
+    {
+      server: true,
+      watch: [id]
+    }
+  )
+
+  return {
+    teacherDetail: data.value?.teacher,
+    isFetchingTeacherDetail: pending,
+    refreshTeacher: refresh
   }
 }

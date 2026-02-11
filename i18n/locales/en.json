@@ -544,5 +544,6 @@
   "search": "Search",
   "status": "Status",
   "no-data": "No data",
-  "messgae-registration": "Thank you for registering for the class! We will contact you as soon as possible."
+  "messgae-registration": "Thank you for registering for the class! We will contact you as soon as possible.",
+  "loadingTeacherDetail": "Fetching teacher detail"
 }
