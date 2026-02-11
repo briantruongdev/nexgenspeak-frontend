@@ -15,6 +15,7 @@ const { t } = useI18n()
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const minDate = today(getLocalTimeZone())
+const maxDate = minDate.add({ months: 1 })
 const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
 const { isSlotModalVisible, selectedTeacherId, selectedSlotIds } = useRegistration()
 const { booking } = useRegistration()
@@ -130,23 +131,28 @@ const handleToggleFavorite = async (event: Event, teacherId: number, currentActi
 <template>
   <div class="container max-xl:px-6">
     <div class="grid grid-cols-[1fr_2fr] gap-10 py-6 max-[900px]:grid-cols-1 max-[900px]:py-0">
-      <Transition name="fade-scale" appear>
-        <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-[900px]:mt-8">
-          <div
-            class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100 transition-all duration-300 hover:shadow-xl"
-          >
-            <UCalendar
-              v-model="date"
-              size="xl"
-              :ui="{
-                cell: 'hover:cursor-pointer'
-              }"
-              :min-value="minDate"
-              @update:model-value="handleDateChange"
-            />
+      <div>
+        <p class="title mb-8 text-white! max-[900px]:hidden">.</p>
+        <div class="h-10 mb-4 max-[900px]:hidden"></div>
+        <Transition name="fade-scale" appear>
+          <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-[900px]:mt-8">
+            <div
+              class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100 transition-all duration-300 hover:shadow-xl"
+            >
+              <UCalendar
+                v-model="date"
+                size="xl"
+                :ui="{
+                  cell: 'hover:cursor-pointer'
+                }"
+                :min-value="minDate"
+                :max-value="maxDate"
+                @update:model-value="handleDateChange"
+              />
+            </div>
           </div>
-        </div>
-      </Transition>
+        </Transition>
+      </div>
       <div class="flex-1 max-[900px]:mb-8">
         <p class="title mb-8">{{ t('booking.teacherList') }}</p>
         <BaseInput
