@@ -27,7 +27,7 @@ const handleDateChange = () => {
   }
 }
 const getSlots = async () => {
-  await getSlotByDate(teacherId as string, dateFormat.value)
+  await getSlotByDate(teacherId, dateFormat.value)
 }
 onMounted(() => {
   getSlots()
@@ -71,28 +71,28 @@ const handleBooking = async () => {
             </div>
           </div>
           <div class="mt-6 space-y-4">
-            <p class="text-2xl font-medium">Profile summary</p>
+            <p class="text-2xl font-medium">{{ t('teacherDetail.profileSummary') }}</p>
             <div>
               <div class="flex justify-start items-center gap-2">
                 <UIcon name="i-heroicons-hand-thumb-up" class="size-8 text-primary" />
-                <p class="text-lg font-medium">Strengths</p>
+                <p class="text-lg font-medium">{{ t('teacherDetail.strengths') }}</p>
               </div>
               <p class="max-sm:text-sm">{{ teacherDetail?.strengths }}</p>
             </div>
             <div>
               <div class="flex justify-start items-center gap-2">
                 <UIcon name="i-heroicons-academic-cap" class="size-8 text-primary" />
-                <p class="text-lg font-medium">Teaching style</p>
+                <p class="text-lg font-medium">{{ t('teacherDetail.teachingStyle') }}</p>
               </div>
               <p class="max-sm:text-sm">{{ teacherDetail?.teachingStyle }}</p>
             </div>
           </div>
           <div class="mt-6 space-y-2">
-            <p class="text-2xl font-medium">About me</p>
+            <p class="text-2xl font-medium">{{ t('teacherDetail.aboutMe') }}</p>
             <p class="max-sm:text-sm">{{ teacherDetail?.aboutMe }}</p>
           </div>
           <div class="mt-6 space-y-2">
-            <p class="text-2xl font-medium">Work experience</p>
+            <p class="text-2xl font-medium">{{ t('teacherDetail.workExperience') }}</p>
             <div
               v-for="(item, index) in teacherDetail?.resume"
               :key="index"
@@ -103,7 +103,7 @@ const handleBooking = async () => {
             </div>
           </div>
           <div class="mt-6 space-y-2">
-            <p class="text-2xl font-medium">My specialties</p>
+            <p class="text-2xl font-medium">{{ t('teacherDetail.mySpecialties') }}</p>
             <div v-for="(item, index) in teacherDetail?.specialties" :key="index">
               <UCollapsible :unmount-on-hide="false" class="flex flex-col gap-2">
                 <div class="group flex justify-between items-center hover:cursor-pointer border-b border-border-primary py-2">

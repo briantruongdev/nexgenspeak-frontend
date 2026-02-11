@@ -545,5 +545,13 @@
   "status": "Status",
   "no-data": "No data",
   "messgae-registration": "Thank you for registering for the class! We will contact you as soon as possible.",
-  "loadingTeacherDetail": "Fetching teacher detail"
+  "loadingTeacherDetail": "Fetching teacher detail",
+  "teacherDetail": {
+    "profileSummary": "Profile summary",
+    "strengths": "Strengths",
+    "teachingStyle": "Teaching style",
+    "aboutMe": "About me",
+    "workExperience": "Work experience",
+    "mySpecialties": "My specialties"
+  }
 }

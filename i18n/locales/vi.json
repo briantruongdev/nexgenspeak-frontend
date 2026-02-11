@@ -545,5 +545,13 @@
   "status": "Trạng thái",
   "no-data": "Không có dữ liệu",
   "messgae-registration": "Cảm ơn bạn đã đăng ký học! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
-  "loadingTeacherDetail": "Đang tải thông tin chi tiết giáo viên"
+  "loadingTeacherDetail": "Đang tải thông tin chi tiết giáo viên",
+  "teacherDetail": {
+    "profileSummary": "Tóm tắt hồ sơ",
+    "strengths": "Điểm mạnh",
+    "teachingStyle": "Phong cách giảng dạy",
+    "aboutMe": "Về tôi",
+    "workExperience": "Kinh nghiệm làm việc",
+    "mySpecialties": "Chuyên môn của tôi"
+  }
 }
