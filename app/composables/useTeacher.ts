@@ -66,7 +66,6 @@ export const useTeacher = () => {
     toggleFavoriteTeacher
   }
 }
-
 export const useTeacherDetail = (teacherId: MaybeRef<string>) => {
   const id = toRef(teacherId)
 
@@ -79,8 +78,10 @@ export const useTeacherDetail = (teacherId: MaybeRef<string>) => {
     }
   )
 
+  const teacherDetail = computed(() => data.value?.teacher)
+
   return {
-    teacherDetail: data.value?.teacher,
+    teacherDetail,
     isFetchingTeacherDetail: pending,
     refreshTeacher: refresh
   }
