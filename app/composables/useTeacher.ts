@@ -13,7 +13,7 @@ export const useTeacher = () => {
     server: true
   })
 
-  const getSlotByDate = async (teacherId: number, date: string) => {
+  const getSlotByDate = async (teacherId: string, date: string) => {
     isGettingSlots.value = true
     try {
       const rs = await apiTeacher.getSlots(teacherId, date)
@@ -26,7 +26,7 @@ export const useTeacher = () => {
     }
   }
 
-  const toggleFavoriteTeacher = async (teacherId: number, action: 'add' | 'remove') => {
+  const toggleFavoriteTeacher = async (teacherId: string, action: 'add' | 'remove') => {
     try {
       isProcessing.value = true
       const body = {

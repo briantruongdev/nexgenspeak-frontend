@@ -7,7 +7,7 @@ export const useRegistration = () => {
   const maxSlots = config.public.maxSlots
   const { t } = useI18n()
   const isSlotModalVisible = useState<boolean>('slot-modal-visible', () => false)
-  const selectedTeacherId = useState<number>('selected-teacher-id', () => 0)
+  const selectedTeacherId = useState<string>('selected-teacher-id', () => '')
   const selectedSlotIds = useState<number[]>('selected-slot-ids', () => [])
   const { showSuccess, showError } = useNotification()
 

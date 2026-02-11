@@ -1,5 +1,5 @@
 export interface IDataRegistration {
-  teacherId: number
+  teacherId: string
   slotIds: number[]
   date: string
 }

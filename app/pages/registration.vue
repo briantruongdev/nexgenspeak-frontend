@@ -22,7 +22,7 @@ const { booking } = useRegistration()
 const initialLoadCount = 9
 const loadMoreCount = 3
 const displayCount = ref(initialLoadCount)
-const teacherIdFavorit = ref(0)
+const teacherIdFavorit = ref('')
 const showCards = ref(false)
 const scrollArea = ref<HTMLElement | null>(null)
 const search = ref('')
@@ -46,7 +46,7 @@ const dateFormat = computed(() => {
   return dayjs(`${date.value.year}-${date.value.month}-${date.value.day}`).format('YYYY-MM-DD')
 })
 
-const handleSelectedTeacher = async (teacherId: number) => {
+const handleSelectedTeacher = async (teacherId: string) => {
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
   isSlotModalVisible.value = true
@@ -105,7 +105,7 @@ const handleBooking = async () => {
     }
     await booking(formDate)
     date.value = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())).value
-    selectedTeacherId.value = 0
+    selectedTeacherId.value = ''
     selectedSlotIds.value = []
     isSlotModalVisible.value = false
   } catch (error) {
@@ -114,7 +114,7 @@ const handleBooking = async () => {
   }
 }
 
-const handleToggleFavorite = async (event: Event, teacherId: number, currentAction: 'add' | 'remove') => {
+const handleToggleFavorite = async (event: Event, teacherId: string, currentAction: 'add' | 'remove') => {
   event.stopPropagation()
   teacherIdFavorit.value = teacherId
   await toggleFavoriteTeacher(teacherId, currentAction)

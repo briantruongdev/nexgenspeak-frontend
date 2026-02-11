@@ -10,11 +10,11 @@ export class TeacherService extends BaseService {
     return this.get<IResponseTeachers>('')
   }
 
-  async getSlots(teacherId: number, date: string): Promise<IResponseSlots> {
+  async getSlots(teacherId: string, date: string): Promise<IResponseSlots> {
     return this.get<IResponseSlots>(`/${teacherId}/available-slots?date=${date}`)
   }
 
-  async toggleFavorite(body: { teacherId: number; action: 'add' | 'remove' }): Promise<IToggleFavoriteResponse> {
+  async toggleFavorite(body: { teacherId: string; action: 'add' | 'remove' }): Promise<IToggleFavoriteResponse> {
     return this.post<IToggleFavoriteResponse>(`/favorite`, body)
   }
 }
