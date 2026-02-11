@@ -4,23 +4,24 @@ import dayjs from 'dayjs'
 
 const route = useRoute()
 const { t } = useI18n()
+const config = useRuntimeConfig()
+const minDate = today(getLocalTimeZone())
+
 const srcImg = '/images/teacher-default.png'
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
-const minDate = today(getLocalTimeZone())
 const maxDate = minDate.add({ months: 1 })
 const teacherId = route.params.id as string
 const { teacherDetail, isFetchingTeacherDetail } = useTeacherDetail(teacherId as string)
-
-const { selectedSlotIds, isSlotSelected, handleSelectSlot, booking } = useRegistration()
+const { selectedSlotIds, isBooking, isSlotSelected, handleSelectSlot, booking } = useRegistration()
 const { slots, isGettingSlots, getSlotByDate } = useTeacher()
-const { isBooking } = useRegistration()
-const config = useRuntimeConfig()
 const maxSlots = config.public.maxSlots
+
 const dateFormat = computed(() => {
   if (!date.value) return ''
   return dayjs(`${date.value.year}-${date.value.month}-${date.value.day}`).format('YYYY-MM-DD')
 })
+
 const handleDateChange = () => {
   if (teacherId) {
     getSlots()

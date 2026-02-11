@@ -16,7 +16,7 @@ const emit = defineEmits<{
     v-model:open="isSlotModalVisible"
     class="w-10/12 max-sm:w-full"
     :ui="{
-      content: 'px-8 max-[450px]:h-[90vh] flex flex-col'
+      content: 'px-8 flex flex-col'
     }"
   >
     <template #content>

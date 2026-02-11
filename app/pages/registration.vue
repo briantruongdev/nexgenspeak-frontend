@@ -30,7 +30,6 @@ const searchDebounced = refDebounced(search, 300)
 
 const dataSearch = computed(() => {
   const _search = searchDebounced.value?.toLowerCase()
-
   return data.value?.teachers.filter(t => !_search || t.fullName.toLowerCase().includes(_search))
 })
 
