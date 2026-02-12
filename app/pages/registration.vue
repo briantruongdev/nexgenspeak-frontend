@@ -13,12 +13,11 @@ definePageMeta({
 
 const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
 const INITIAL_LOAD_COUNT = 9
-const LOAD_MORE_COUNT = 3
+const LOAD_MORE_COUNT = 6
 const SEARCH_DEBOUNCE_MS = 300
 const OBSERVER_ROOT_MARGIN = '100px'
 const ANIMATION_DELAY_MS = 50
 const OBSERVER_SETUP_DELAY_MS = 100
-const LOAD_MORE_DELAY_MS = 300
 
 const { t } = useI18n()
 const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
@@ -40,8 +39,6 @@ const scrollArea = ref<InstanceType<typeof SimpleBar> | null>(null)
 const loadMoreTrigger = ref<HTMLElement | null>(null)
 const search = ref('')
 const searchDebounced = refDebounced(search, SEARCH_DEBOUNCE_MS)
-const isLoadingMore = ref(false)
-const isMounted = ref(false)
 
 const filteredTeachers = computed(() => {
   const searchTerm = searchDebounced.value?.trim().toLowerCase()
@@ -109,13 +106,8 @@ watch(search, () => {
 })
 
 const loadMore = () => {
-  if (isLoadingMore.value || !hasMore.value) return
-
-  isLoadingMore.value = true
-  setTimeout(() => {
-    displayCount.value += LOAD_MORE_COUNT
-    isLoadingMore.value = false
-  }, LOAD_MORE_DELAY_MS)
+  if (!hasMore.value) return
+  displayCount.value += LOAD_MORE_COUNT
 }
 
 let observer: IntersectionObserver | null = null
@@ -144,7 +136,7 @@ const setupObserver = () => {
     observer = new IntersectionObserver(
       entries => {
         const entry = entries[0]
-        if (entry?.isIntersecting && hasMore.value && !isLoadingMore.value) {
+        if (entry?.isIntersecting && hasMore.value) {
           loadMore()
         }
       },
@@ -162,7 +154,7 @@ const setupObserver = () => {
 watch(
   [displayedTeachers, () => data.value, pending],
   ([newDisplayed, newData, isPending]) => {
-    if (isMounted.value && newDisplayed?.length && !isPending && newData) {
+    if (newDisplayed?.length && !isPending && newData) {
       nextTick(setupObserver)
     }
   },
@@ -181,9 +173,7 @@ const handleBooking = async () => {
       slotIds: selectedSlotIds.value,
       date: formattedDate.value
     }
-
     await booking(bookingData)
-
     date.value = getCurrentDate()
     selectedTeacherId.value = ''
     selectedSlotIds.value = []
@@ -194,9 +184,6 @@ const handleBooking = async () => {
 }
 
 onMounted(() => {
-  isMounted.value = true
-  displayCount.value = INITIAL_LOAD_COUNT
-
   setTimeout(() => {
     showCards.value = true
   }, ANIMATION_DELAY_MS)
@@ -250,7 +237,7 @@ onBeforeUnmount(() => {
           <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
           <span class="text-gray-500 animate-pulse">{{ t('booking.loadingTeachers') }}</span>
         </div>
-        <template v-else-if="displayedTeachers?.length && isMounted">
+        <template v-else-if="displayedTeachers?.length">
           <ClientOnly>
             <SimpleBar ref="scrollArea" class="max-h-screen overflow-y-auto p-1">
               <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-[400px]:grid-cols-1!">
@@ -319,10 +306,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
               </div>
-              <div v-if="hasMore && isLoadingMore" class="my-6 flex justify-center w-full">
-                <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
-              </div>
-              <div v-else-if="hasMore" ref="loadMoreTrigger" class="h-4 w-full"></div>
+              <div v-if="hasMore" ref="loadMoreTrigger" class="h-4 w-full"></div>
             </SimpleBar>
           </ClientOnly>
         </template>

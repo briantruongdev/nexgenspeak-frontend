@@ -7,7 +7,6 @@ import type { ITeacher } from '~/types/teacher.type'
 const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
 const INITIAL_LOAD_COUNT = 12
 const LOAD_MORE_COUNT = 6
-const LOAD_MORE_DELAY_MS = 300
 const OBSERVER_ROOT_MARGIN = '50px'
 const ANIMATION_DELAY_MS = 50
 
@@ -19,8 +18,6 @@ const scrollArea = ref<InstanceType<typeof SimpleBar> | null>(null)
 const loadMoreTrigger = ref<HTMLElement | null>(null)
 const displayCount = ref(INITIAL_LOAD_COUNT)
 const showCards = ref(false)
-const isLoadingMore = ref(false)
-const isMounted = ref(false)
 
 const allTeachers = computed(() => data.value?.teachers ?? [])
 
@@ -34,13 +31,8 @@ const displayedTeachers = computed(() => allTeachers.value.slice(0, displayCount
 const hasMore = computed(() => displayCount.value < allTeachers.value.length)
 
 const loadMore = () => {
-  if (isLoadingMore.value || !hasMore.value) return
-
-  isLoadingMore.value = true
-  setTimeout(() => {
-    displayCount.value += LOAD_MORE_COUNT
-    isLoadingMore.value = false
-  }, LOAD_MORE_DELAY_MS)
+  if (!hasMore.value) return
+  displayCount.value += LOAD_MORE_COUNT
 }
 
 let observer: IntersectionObserver | null = null
@@ -69,7 +61,7 @@ const setupObserver = () => {
     observer = new IntersectionObserver(
       entries => {
         const entry = entries[0]
-        if (entry?.isIntersecting && hasMore.value && !isLoadingMore.value) {
+        if (entry?.isIntersecting && hasMore.value) {
           loadMore()
         }
       },
@@ -87,7 +79,7 @@ const setupObserver = () => {
 watch(
   [() => displayedTeachers.value.length, () => data.value],
   ([newLength, newData]) => {
-    if (isMounted.value && newLength > 0 && newData) {
+    if (newLength > 0 && newData) {
       nextTick(setupObserver)
     }
   },
@@ -95,9 +87,6 @@ watch(
 )
 
 onMounted(() => {
-  isMounted.value = true
-  displayCount.value = INITIAL_LOAD_COUNT
-
   setTimeout(() => {
     showCards.value = true
   }, ANIMATION_DELAY_MS)
@@ -123,41 +112,35 @@ onBeforeUnmount(() => {
           :class="showCards ? 'detail-animate' : ''"
         >
           <div class="flex flex-col gap-5 max-sm:gap-4">
-            <Transition name="fade" mode="out-in">
-              <img
-                :key="selectedTeacher?.teacherId"
-                :src="TEACHER_DEFAULT_IMAGE"
-                :alt="selectedTeacher?.fullName"
-                loading="lazy"
-                class="w-full h-60 max-sm:h-44 object-contain rounded-xl"
-              />
-            </Transition>
+            <img
+              :key="selectedTeacher?.teacherId"
+              :src="TEACHER_DEFAULT_IMAGE"
+              :alt="selectedTeacher?.fullName"
+              loading="lazy"
+              class="w-full h-60 max-sm:h-44 object-contain rounded-xl"
+            />
 
-            <Transition name="fade" mode="out-in">
-              <div :key="selectedTeacher?.teacherId">
-                <p class="text-2xl font-extrabold max-lg:text-xl max-sm:text-lg">{{ selectedTeacher?.fullName }}</p>
-                <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ selectedTeacher?.position }}</p>
-              </div>
-            </Transition>
+            <div :key="selectedTeacher?.teacherId">
+              <p class="text-2xl font-extrabold max-lg:text-xl max-sm:text-lg">{{ selectedTeacher?.fullName }}</p>
+              <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ selectedTeacher?.position }}</p>
+            </div>
 
-            <Transition name="fade" mode="out-in">
-              <div :key="selectedTeacher?.teacherId" class="space-y-3 max-sm:space-y-2">
-                <div class="flex items-start gap-3 max-sm:gap-2">
-                  <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                  <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
-                    {{ selectedTeacher?.award1 }}
-                  </p>
-                </div>
-                <div class="flex items-start gap-3 max-sm:gap-2">
-                  <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                  <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ selectedTeacher?.award2 }}</p>
-                </div>
-                <div class="flex items-start gap-3 max-sm:gap-2">
-                  <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                  <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ selectedTeacher?.award3 }}</p>
-                </div>
+            <div :key="selectedTeacher?.teacherId" class="space-y-3 max-sm:space-y-2">
+              <div class="flex items-start gap-3 max-sm:gap-2">
+                <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
+                  {{ selectedTeacher?.award1 }}
+                </p>
               </div>
-            </Transition>
+              <div class="flex items-start gap-3 max-sm:gap-2">
+                <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ selectedTeacher?.award2 }}</p>
+              </div>
+              <div class="flex items-start gap-3 max-sm:gap-2">
+                <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ selectedTeacher?.award3 }}</p>
+              </div>
+            </div>
 
             <BaseButton
               :text="$t('teacher.staff.viewInfo')"
@@ -175,7 +158,7 @@ onBeforeUnmount(() => {
             <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
             <span class="text-gray-500 animate-pulse">{{ t('booking.loadingTeachers') }}</span>
           </div>
-          <template v-else-if="displayedTeachers?.length && isMounted">
+          <template v-else-if="displayedTeachers?.length">
             <ClientOnly>
               <SimpleBar ref="scrollArea" class="max-h-125" data-simplebar-auto-hide="false">
                 <div
@@ -206,10 +189,7 @@ onBeforeUnmount(() => {
                     <p class="font-bold text-sm max-sm:text-xs mt-2 truncate text-center">{{ teacher.fullName }}</p>
                   </button>
                 </div>
-
-                <div v-if="hasMore" ref="loadMoreTrigger" class="my-6 flex justify-center w-full">
-                  <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
-                </div>
+                <div v-if="hasMore" ref="loadMoreTrigger" class="h-4 w-full"></div>
               </SimpleBar>
             </ClientOnly>
           </template>
@@ -232,26 +212,6 @@ onBeforeUnmount(() => {
   }
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.detail-card {
-  opacity: 1;
-}
-
-.detail-card.detail-animate {
-  opacity: 0;
-  animation: fadeInLeft 0.6s ease-out forwards;
-}
-
 .teacher-card {
   opacity: 1;
 }
@@ -261,20 +221,6 @@ onBeforeUnmount(() => {
   animation: fadeInUp 0.4s ease-out forwards;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.3s ease;
-}
-
-.fade-enter-from {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(10px);
-}
 :deep(.simplebar-scrollbar:before) {
   background: #cbd5e1;
   opacity: 0.7;
