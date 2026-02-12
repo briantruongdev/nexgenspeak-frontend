@@ -186,7 +186,8 @@ onBeforeUnmount(() => {
                         class="object-cover h-18.75 max-sm:h-16.25"
                       />
                     </div>
-                    <p class="font-bold text-sm max-sm:text-xs mt-2 truncate text-center">{{ teacher.fullName }}</p>
+                    <p class="font-bold text-sm max-sm:text-xs mt-2 mb-1 truncate text-center">{{ teacher.fullName }}</p>
+                    <p class="text-sm text-center">{{ teacher.position }}</p>
                   </button>
                 </div>
                 <div v-if="hasMore" ref="loadMoreTrigger" class="h-4 w-full"></div>
