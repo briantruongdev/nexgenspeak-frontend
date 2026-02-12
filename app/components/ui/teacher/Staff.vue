@@ -1,110 +1,113 @@
 <script setup lang="ts">
 import 'simplebar-vue/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-vue'
+import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import type { ITeacher } from '~/types/teacher.type'
 
+const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
+const INITIAL_LOAD_COUNT = 12
+const LOAD_MORE_COUNT = 6
+const LOAD_MORE_DELAY_MS = 300
+const OBSERVER_ROOT_MARGIN = '50px'
+const ANIMATION_DELAY_MS = 50
+
 const { t } = useI18n()
-const srcImg = '/images/teacher-default.png'
 const { data, pending } = useTeacher()
+
 const selectedTeacherId = ref<ITeacher['teacherId']>(data.value?.teachers[0]?.teacherId ?? '')
 const scrollArea = ref<InstanceType<typeof SimpleBar> | null>(null)
 const loadMoreTrigger = ref<HTMLElement | null>(null)
-const initialLoadCount = 12
-const loadMoreCount = 6
-const displayCount = ref(initialLoadCount)
+const displayCount = ref(INITIAL_LOAD_COUNT)
 const showCards = ref(false)
 const isLoadingMore = ref(false)
-
-const selectedTeacher = computed(
-  () => data.value?.teachers.find(t => t.teacherId === selectedTeacherId.value) ?? data.value?.teachers[0]
-)
+const isMounted = ref(false)
 
 const allTeachers = computed(() => data.value?.teachers ?? [])
 
-const displayedTeachers = computed(() => {
-  return allTeachers.value.slice(0, displayCount.value)
+const selectedTeacher = computed(() => {
+  const found = allTeachers.value.find(t => t.teacherId === selectedTeacherId.value)
+  return found ?? allTeachers.value[0]
 })
 
-const hasMore = computed(() => {
-  return displayCount.value < allTeachers.value.length
-})
+const displayedTeachers = computed(() => allTeachers.value.slice(0, displayCount.value))
+
+const hasMore = computed(() => displayCount.value < allTeachers.value.length)
 
 const loadMore = () => {
   if (isLoadingMore.value || !hasMore.value) return
-  isLoadingMore.value = true
 
+  isLoadingMore.value = true
   setTimeout(() => {
-    displayCount.value += loadMoreCount
+    displayCount.value += LOAD_MORE_COUNT
     isLoadingMore.value = false
-  }, 300)
+  }, LOAD_MORE_DELAY_MS)
 }
 
 let observer: IntersectionObserver | null = null
 
-const setupObserver = () => {
+const cleanupObserver = () => {
   if (observer) {
     observer.disconnect()
+    observer = null
   }
+}
+
+const setupObserver = () => {
+  cleanupObserver()
 
   nextTick(() => {
-    if (!loadMoreTrigger.value) return
+    const trigger = loadMoreTrigger.value
+    const simpleBar = scrollArea.value
 
-    const simplebarElement = scrollArea.value?.$el as HTMLElement | undefined
+    if (!trigger || !simpleBar) return
+
+    const simplebarElement = simpleBar.$el as HTMLElement
     const scrollContainer = simplebarElement?.querySelector('.simplebar-content-wrapper') as HTMLElement
+
+    if (!scrollContainer) return
 
     observer = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && hasMore.value && !isLoadingMore.value) {
-            loadMore()
-          }
-        })
+        const entry = entries[0]
+        if (entry?.isIntersecting && hasMore.value && !isLoadingMore.value) {
+          loadMore()
+        }
       },
       {
-        root: scrollContainer || null,
-        rootMargin: '50px',
+        root: scrollContainer,
+        rootMargin: OBSERVER_ROOT_MARGIN,
         threshold: 0.1
       }
     )
 
-    if (loadMoreTrigger.value) {
-      observer.observe(loadMoreTrigger.value)
-    }
+    observer.observe(trigger)
   })
 }
 
-watch(hasMore, newHasMore => {
-  if (newHasMore) {
-    setupObserver()
-  }
-})
-
 watch(
-  () => data.value,
-  () => {
-    if (data.value && displayedTeachers.value.length > 0) {
-      setupObserver()
+  [() => displayedTeachers.value.length, () => data.value],
+  ([newLength, newData]) => {
+    if (isMounted.value && newLength > 0 && newData) {
+      nextTick(setupObserver)
     }
-  }
+  },
+  { flush: 'post' }
 )
 
-setupObserver()
 onMounted(() => {
-  clientMounted.value = true
+  isMounted.value = true
+  displayCount.value = INITIAL_LOAD_COUNT
+
   setTimeout(() => {
     showCards.value = true
-  }, 50)
+  }, ANIMATION_DELAY_MS)
 
-  // setTimeout(() => {
-  // }, 500)
+  nextTick(setupObserver)
 })
 
 onBeforeUnmount(() => {
-  if (observer) {
-    observer.disconnect()
-  }
+  cleanupObserver()
 })
-const clientMounted = ref(false)
 </script>
 
 <template>
@@ -123,7 +126,7 @@ const clientMounted = ref(false)
             <Transition name="fade" mode="out-in">
               <img
                 :key="selectedTeacher?.teacherId"
-                :src="srcImg"
+                :src="TEACHER_DEFAULT_IMAGE"
                 :alt="selectedTeacher?.fullName"
                 loading="lazy"
                 class="w-full h-60 max-sm:h-44 object-contain rounded-xl"
@@ -142,7 +145,7 @@ const clientMounted = ref(false)
                 <div class="flex items-start gap-3 max-sm:gap-2">
                   <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
                   <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
-                    {{ selectedTeacher?.award1 }} {{ selectedTeacher?.teacherId }}
+                    {{ selectedTeacher?.award1 }}
                   </p>
                 </div>
                 <div class="flex items-start gap-3 max-sm:gap-2">
@@ -172,20 +175,20 @@ const clientMounted = ref(false)
             <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
             <span class="text-gray-500 animate-pulse">{{ t('booking.loadingTeachers') }}</span>
           </div>
-          <template v-else-if="displayedTeachers?.length && clientMounted">
+          <template v-else-if="displayedTeachers?.length && isMounted">
             <ClientOnly>
               <SimpleBar ref="scrollArea" class="max-h-125" data-simplebar-auto-hide="false">
                 <div
                   class="grid grid-cols-3 gap-4 max-xl:gap-3 max-lg:grid-cols-2 max-md:grid-cols-3 max-sm:grid-cols-2 content-start pr-2"
                 >
-                  <div
+                  <button
                     v-for="(teacher, index) in displayedTeachers"
                     :key="teacher.teacherId"
                     type="button"
                     :style="showCards ? { animationDelay: `${index * 10}ms` } : {}"
                     class="bg-white teacher-card rounded-[10px] hover:cursor-pointer border border-black/5 shadow-sm p-3 m-1 max-sm:p-3 text-left transition-all duration-200 hover:border-primary h-fit"
                     :class="[
-                      +selectedTeacherId === +teacher.teacherId ? 'ring-1 ring-primary ' : '',
+                      selectedTeacherId === teacher.teacherId ? 'ring-1 ring-primary' : '',
                       showCards ? 'card-animate' : ''
                     ]"
                     @click="selectedTeacherId = teacher.teacherId"
@@ -193,10 +196,15 @@ const clientMounted = ref(false)
                     <div
                       class="w-2/3 h-16 max-sm:h-14 rounded-lg bg-[#F6E5D5] overflow-hidden shrink-0 mx-auto flex justify-center"
                     >
-                      <img :src="srcImg" :alt="teacher.fullName" loading="lazy" class="object-cover h-18.75 max-sm:h-16.25" />
+                      <img
+                        :src="TEACHER_DEFAULT_IMAGE"
+                        :alt="teacher.fullName"
+                        loading="lazy"
+                        class="object-cover h-18.75 max-sm:h-16.25"
+                      />
                     </div>
                     <p class="font-bold text-sm max-sm:text-xs mt-2 truncate text-center">{{ teacher.fullName }}</p>
-                  </div>
+                  </button>
                 </div>
 
                 <div v-if="hasMore" ref="loadMoreTrigger" class="my-6 flex justify-center w-full">

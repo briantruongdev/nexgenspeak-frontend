@@ -1,11 +1,10 @@
 import { apiTeacher } from '~/services'
-import type { IResponseSlots, ISlots, ITeacher } from '~/types/teacher.type'
+import type { IResponseSlots, ISlots } from '~/types/teacher.type'
 
 const slots = ref<ISlots[]>([])
 const isGettingSlots = ref(false)
 const isProcessing = ref(false)
 const isFetchingTeacherDetail = ref(false)
-const teacherDetail = ref<ITeacher>()
 export const useTeacher = () => {
   const dataSlots = ref<IResponseSlots>()
   const { showSuccess, showError } = useNotification()

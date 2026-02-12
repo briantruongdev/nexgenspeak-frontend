@@ -1,123 +1,212 @@
 <script setup lang="ts">
-import { shallowRef, watch, nextTick } from 'vue'
+import 'simplebar-vue/dist/simplebar.min.css'
+import SimpleBar from 'simplebar-vue'
+import { shallowRef, watch, nextTick, computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import { useTeacher } from '@/composables/useTeacher'
-import { useInfiniteScroll, refDebounced } from '@vueuse/core'
+import { refDebounced } from '@vueuse/core'
 import dayjs from 'dayjs'
 
 definePageMeta({
   middleware: 'auth'
 })
-const src = '/images/teacher-default.png'
 
-// const { width } = useWindowSize()
+const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
+const INITIAL_LOAD_COUNT = 9
+const LOAD_MORE_COUNT = 3
+const SEARCH_DEBOUNCE_MS = 300
+const OBSERVER_ROOT_MARGIN = '100px'
+const ANIMATION_DELAY_MS = 50
+const OBSERVER_SETUP_DELAY_MS = 100
+const LOAD_MORE_DELAY_MS = 300
+
 const { t } = useI18n()
-const now = new Date()
-const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
+const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
+const { isSlotModalVisible, selectedTeacherId, selectedSlotIds, booking } = useRegistration()
+
+const getCurrentDate = () => {
+  const now = new Date()
+  return new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())
+}
+
+const date = shallowRef(getCurrentDate())
 const minDate = today(getLocalTimeZone())
 const maxDate = minDate.add({ months: 1 })
-const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
-const { isSlotModalVisible, selectedTeacherId, selectedSlotIds } = useRegistration()
-const { booking } = useRegistration()
-const initialLoadCount = 9
-const loadMoreCount = 3
-const displayCount = ref(initialLoadCount)
-const teacherIdFavorit = ref('')
+
+const displayCount = ref(INITIAL_LOAD_COUNT)
+const processingTeacherId = ref('')
 const showCards = ref(false)
-const scrollArea = ref<HTMLElement | null>(null)
+const scrollArea = ref<InstanceType<typeof SimpleBar> | null>(null)
+const loadMoreTrigger = ref<HTMLElement | null>(null)
 const search = ref('')
-const searchDebounced = refDebounced(search, 300)
+const searchDebounced = refDebounced(search, SEARCH_DEBOUNCE_MS)
+const isLoadingMore = ref(false)
+const isMounted = ref(false)
 
-const dataSearch = computed(() => {
-  const _search = searchDebounced.value?.toLowerCase()
-  return data.value?.teachers.filter(t => !_search || t.fullName.toLowerCase().includes(_search))
+const filteredTeachers = computed(() => {
+  const searchTerm = searchDebounced.value?.trim().toLowerCase()
+  if (!searchTerm) return data.value?.teachers ?? []
+
+  return data.value?.teachers.filter(teacher => teacher.fullName.toLowerCase().includes(searchTerm)) ?? []
 })
 
-const displayedTeachers = computed(() => {
-  return dataSearch.value?.slice(0, displayCount.value)
-})
-const hasMore = computed(() => {
-  return (dataSearch.value?.length || 0) > displayCount.value
-})
+const displayedTeachers = computed(() => filteredTeachers.value.slice(0, displayCount.value))
 
-const dateFormat = computed(() => {
+const hasMore = computed(() => filteredTeachers.value.length > displayCount.value)
+
+const formattedDate = computed(() => {
   if (!date.value) return ''
-  return dayjs(`${date.value.year}-${date.value.month}-${date.value.day}`).format('YYYY-MM-DD')
+  const { year, month, day } = date.value
+  return dayjs(`${year}-${month}-${day}`).format('YYYY-MM-DD')
 })
 
 const handleSelectedTeacher = async (teacherId: string) => {
   selectedTeacherId.value = teacherId
   selectedSlotIds.value = []
   isSlotModalVisible.value = true
-  await getSlots()
+  await fetchSlots()
 }
 
-const getSlots = async () => {
-  if (selectedTeacherId.value) {
-    await getSlotByDate(selectedTeacherId.value, dateFormat.value)
+const fetchSlots = async () => {
+  if (!selectedTeacherId.value) return
+
+  try {
+    await getSlotByDate(selectedTeacherId.value, formattedDate.value)
+  } catch (error) {
+    console.error('Failed to fetch slots:', error)
   }
 }
 
 const handleDateChange = () => {
   if (selectedTeacherId.value) {
-    getSlots()
-  }
-}
-
-onMounted(() => {
-  setTimeout(() => {
-    showCards.value = true
-  }, 50)
-})
-
-useInfiniteScroll(
-  scrollArea,
-  () => {
-    if (hasMore.value) {
-      loadMore()
-    }
-  },
-  { distance: 100 }
-)
-
-watch(
-  () => search.value,
-  () => {
-    displayCount.value = initialLoadCount
-    showCards.value = false
-    nextTick(() => {
-      showCards.value = true
-    })
-  }
-)
-
-const loadMore = () => {
-  displayCount.value += loadMoreCount
-}
-
-const handleBooking = async () => {
-  try {
-    const formDate = {
-      teacherId: selectedTeacherId.value,
-      slotIds: selectedSlotIds.value,
-      date: dateFormat.value
-    }
-    await booking(formDate)
-    date.value = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate())).value
-    selectedTeacherId.value = ''
-    selectedSlotIds.value = []
-    isSlotModalVisible.value = false
-  } catch (error) {
-    // selectedTeacherId.value = 0
-    console.log(error)
+    fetchSlots()
   }
 }
 
 const handleToggleFavorite = async (event: Event, teacherId: string, currentAction: 'add' | 'remove') => {
   event.stopPropagation()
-  teacherIdFavorit.value = teacherId
-  await toggleFavoriteTeacher(teacherId, currentAction)
+  processingTeacherId.value = teacherId
+
+  try {
+    await toggleFavoriteTeacher(teacherId, currentAction)
+  } catch (error) {
+    console.error('Failed to toggle favorite:', error)
+  } finally {
+    processingTeacherId.value = ''
+  }
 }
+
+const resetAnimation = () => {
+  showCards.value = false
+  nextTick(() => {
+    showCards.value = true
+  })
+}
+
+watch(search, () => {
+  displayCount.value = INITIAL_LOAD_COUNT
+  resetAnimation()
+})
+
+const loadMore = () => {
+  if (isLoadingMore.value || !hasMore.value) return
+
+  isLoadingMore.value = true
+  setTimeout(() => {
+    displayCount.value += LOAD_MORE_COUNT
+    isLoadingMore.value = false
+  }, LOAD_MORE_DELAY_MS)
+}
+
+let observer: IntersectionObserver | null = null
+
+const cleanupObserver = () => {
+  if (observer) {
+    observer.disconnect()
+    observer = null
+  }
+}
+
+const setupObserver = () => {
+  cleanupObserver()
+
+  nextTick(() => {
+    const trigger = loadMoreTrigger.value
+    const simpleBar = scrollArea.value
+
+    if (!trigger || !simpleBar) return
+
+    const simplebarElement = simpleBar.$el as HTMLElement
+    const scrollContainer = simplebarElement?.querySelector('.simplebar-content-wrapper') as HTMLElement
+
+    if (!scrollContainer) return
+
+    observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        if (entry?.isIntersecting && hasMore.value && !isLoadingMore.value) {
+          loadMore()
+        }
+      },
+      {
+        root: scrollContainer,
+        rootMargin: OBSERVER_ROOT_MARGIN,
+        threshold: 0.1
+      }
+    )
+
+    observer.observe(trigger)
+  })
+}
+
+watch(
+  [displayedTeachers, () => data.value, pending],
+  ([newDisplayed, newData, isPending]) => {
+    if (isMounted.value && newDisplayed?.length && !isPending && newData) {
+      nextTick(setupObserver)
+    }
+  },
+  { flush: 'post' }
+)
+
+const handleBooking = async () => {
+  if (!selectedTeacherId.value || !selectedSlotIds.value.length) {
+    console.error('Missing required booking data')
+    return
+  }
+
+  try {
+    const bookingData = {
+      teacherId: selectedTeacherId.value,
+      slotIds: selectedSlotIds.value,
+      date: formattedDate.value
+    }
+
+    await booking(bookingData)
+
+    date.value = getCurrentDate()
+    selectedTeacherId.value = ''
+    selectedSlotIds.value = []
+    isSlotModalVisible.value = false
+  } catch (error) {
+    console.error('Failed to book slots:', error)
+  }
+}
+
+onMounted(() => {
+  isMounted.value = true
+  displayCount.value = INITIAL_LOAD_COUNT
+
+  setTimeout(() => {
+    showCards.value = true
+  }, ANIMATION_DELAY_MS)
+
+  setTimeout(setupObserver, OBSERVER_SETUP_DELAY_MS)
+})
+
+onBeforeUnmount(() => {
+  cleanupObserver()
+})
 </script>
 
 <template>
@@ -157,80 +246,85 @@ const handleToggleFavorite = async (event: Event, teacherId: string, currentActi
           icon="i-lucide-search"
           :is-show-clear="true"
         />
-        <div v-if="pending" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
+        <div v-if="pending && !data" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
           <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
           <span class="text-gray-500 animate-pulse">{{ t('booking.loadingTeachers') }}</span>
         </div>
-        <template v-else-if="displayedTeachers?.length">
-          <div ref="scrollArea" class="teacher-list-scroll max-h-screen overflow-y-auto p-1">
-            <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-[400px]:grid-cols-1!">
-              <div
-                v-for="(teacher, index) in displayedTeachers"
-                :key="teacher.teacherId"
-                type="button"
-                class="teacher-card bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-300 hover:border-primary"
-                :class="[selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary' : '', showCards ? 'card-animate' : '']"
-                :style="showCards ? { animationDelay: `${index * 10}ms` } : {}"
-                @click="handleSelectedTeacher(teacher.teacherId)"
-              >
-                <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start relative">
-                  <button
-                    class="absolute top-0 right-2 z-10 hover:cursor-pointer flex justify-center items-center"
-                    @click="e => handleToggleFavorite(e, teacher.teacherId, teacher.isFavorite ? 'remove' : 'add')"
-                  >
-                    <UIcon
-                      :name="
-                        teacherIdFavorit === teacher.teacherId && isProcessing
-                          ? 'i-lucide-loader'
-                          : teacher.isFavorite
-                            ? 'i-heroicons-heart-solid'
-                            : 'i-heroicons-heart'
-                      "
-                      class="size-6"
-                      :class="{
-                        'text-primary': teacher.isFavorite,
-                        'text-gray-400': !teacher.isFavorite,
-                        'animate-spin': teacherIdFavorit === teacher.teacherId && isProcessing
-                      }"
-                    />
-                  </button>
-                  <div class="flex flex-col gap-5 max-sm:gap-4">
-                    <img
-                      :src="src"
-                      :alt="teacher.fullName"
-                      loading="lazy"
-                      class="w-full h-30 max-sm:h-24 object-contain rounded-xl"
-                    />
+        <template v-else-if="displayedTeachers?.length && isMounted">
+          <ClientOnly>
+            <SimpleBar ref="scrollArea" class="max-h-screen overflow-y-auto p-1">
+              <div class="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-[400px]:grid-cols-1!">
+                <div
+                  v-for="(teacher, index) in displayedTeachers"
+                  :key="teacher.teacherId"
+                  type="button"
+                  class="teacher-card bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-300 hover:border-primary"
+                  :class="[selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary' : '', showCards ? 'card-animate' : '']"
+                  :style="showCards ? { animationDelay: `${index * 10}ms` } : {}"
+                  @click="handleSelectedTeacher(teacher.teacherId)"
+                >
+                  <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start relative">
+                    <button
+                      type="button"
+                      :aria-label="teacher.isFavorite ? t('booking.removeFavorite') : t('booking.addFavorite')"
+                      class="absolute top-0 right-2 z-10 hover:cursor-pointer flex justify-center items-center"
+                      @click="e => handleToggleFavorite(e, teacher.teacherId, teacher.isFavorite ? 'remove' : 'add')"
+                    >
+                      <UIcon
+                        :name="
+                          processingTeacherId === teacher.teacherId && isProcessing
+                            ? 'i-lucide-loader'
+                            : teacher.isFavorite
+                              ? 'i-heroicons-heart-solid'
+                              : 'i-heroicons-heart'
+                        "
+                        class="size-6"
+                        :class="{
+                          'text-primary': teacher.isFavorite,
+                          'text-gray-400': !teacher.isFavorite,
+                          'animate-spin': processingTeacherId === teacher.teacherId && isProcessing
+                        }"
+                      />
+                    </button>
+                    <div class="flex flex-col gap-5 max-sm:gap-4">
+                      <img
+                        :src="TEACHER_DEFAULT_IMAGE"
+                        :alt="teacher.fullName"
+                        loading="lazy"
+                        class="w-full h-30 max-sm:h-24 object-contain rounded-xl"
+                      />
 
-                    <div class="text-center">
-                      <p class="text-xl font-medium max-lg:text-lg">{{ teacher.fullName }}</p>
-                      <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ teacher.position }}</p>
-                    </div>
+                      <div class="text-center">
+                        <p class="text-xl font-medium max-lg:text-lg">{{ teacher.fullName }}</p>
+                        <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ teacher.position }}</p>
+                      </div>
 
-                    <div class="space-y-3 max-sm:space-y-2">
-                      <div class="flex items-start gap-3 max-sm:gap-2">
-                        <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                        <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
-                          {{ teacher.award1 }} {{ teacher.teacherId }}
-                        </p>
-                      </div>
-                      <div class="flex items-start gap-3 max-sm:gap-2">
-                        <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                        <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award2 }}</p>
-                      </div>
-                      <div class="flex items-start gap-3 max-sm:gap-2">
-                        <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
-                        <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award3 }}</p>
+                      <div class="space-y-3 max-sm:space-y-2">
+                        <div class="flex items-start gap-3 max-sm:gap-2">
+                          <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                          <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
+                            {{ teacher.award1 }}
+                          </p>
+                        </div>
+                        <div class="flex items-start gap-3 max-sm:gap-2">
+                          <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                          <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award2 }}</p>
+                        </div>
+                        <div class="flex items-start gap-3 max-sm:gap-2">
+                          <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+                          <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ teacher.award3 }}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div v-if="hasMore" class="my-6 flex justify-center">
-              <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
-            </div>
-          </div>
+              <div v-if="hasMore && isLoadingMore" class="my-6 flex justify-center w-full">
+                <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
+              </div>
+              <div v-else-if="hasMore" ref="loadMoreTrigger" class="h-4 w-full"></div>
+            </SimpleBar>
+          </ClientOnly>
         </template>
         <UiEmpty v-else-if="!displayedTeachers?.length" />
       </div>
@@ -326,5 +420,26 @@ const handleToggleFavorite = async (event: Event, teacherId: string, currentActi
 .button-slide-leave-to {
   opacity: 0;
   transform: translateY(-20px);
+}
+:deep(.simplebar-scrollbar:before) {
+  background: #cbd5e1;
+  opacity: 0.7;
+}
+
+:deep(.simplebar-track.simplebar-vertical) {
+  width: 6px;
+  right: 2px;
+}
+
+:deep(.simplebar-scrollbar) {
+  width: 8px;
+}
+
+:deep(.simplebar-content-wrapper) {
+  padding-right: 12px;
+}
+
+:deep(.simplebar-scrollbar:before) {
+  border-radius: 6px;
 }
 </style>

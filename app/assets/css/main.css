@@ -91,26 +91,3 @@ body {
 ::-ms-reveal {
   display: none;
 }
-.teacher-list-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #e5e7eb #f9fafb;
-}
-
-.teacher-list-scroll::-webkit-scrollbar {
-  width: 8px;
-}
-
-.teacher-list-scroll::-webkit-scrollbar-track {
-  background: #f9fafb;
-  border-radius: 10px;
-}
-
-.teacher-list-scroll::-webkit-scrollbar-thumb {
-  background: #e5e7eb;
-  border-radius: 10px;
-  transition: background 0.3s ease;
-}
-
-.teacher-list-scroll::-webkit-scrollbar-thumb:hover {
-  background: #d1d5db;
-}
