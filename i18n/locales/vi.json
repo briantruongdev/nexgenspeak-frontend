@@ -258,15 +258,15 @@
       "highlights": {
         "item1": {
           "title": "Kỹ năng sư phạm tốt",
-          "description": "Đội ngũ giáo viên nhiều năm kinh nghiệm, là Thạc sĩ, Thủ khoa, Á khoa,Giảng viên các trường Đại học danh tiếng. Có chứng chỉ giảng dạy quốc tế và được đào tạo bài bản."
+          "description": "Đội ngũ giáo viên nước ngoài giàu kinh nghiệm, đạt chuẩn sư phạm quốc tế."
         },
         "item2": {
           "title": "Dạy học có tâm",
-          "description": "Đội ngũ giáo viên luôn đặt học viên của mình lên hàng đầu. Không chỉ giảng dạy và truyền đạt kiến thức tại lớp, giáo viên còn sẵn sàng hỗ trợ học viên ngoài giờ học thông qua Fanpage."
+          "description": "Luôn tận tâm hỗ trợ học viên mọi lúc, cả trên lớp lẫn trực tuyến."
         },
         "item3": {
           "title": "Linearthinking Ambassador",
-          "description": "Linearthinking là Hệ phương pháp học Tiếng Anh độc quyền của Nexgen. Đội ngũ của chúng tôi được đào tạo bài bản để giúp học viên tiếp thu trọn vẹn và vận dụng được Linearthinking thành thạo nhất."
+          "description": "Đội ngũ chuyên gia giúp bạn làm chủ phương pháp Linearthinking độc quyền từ Nexgen."
         }
       }
     },
@@ -291,6 +291,7 @@
     "staff": {
       "title": "Đội ngũ Giáo Viên",
       "viewInfo": "Xem thông tin giảng viên",
+      "loadMore": "Xem thêm",
       "positions": {
         "academicDirector": "Academic Director tại Nexgen",
         "englishTeacher": "Giảng viên Tiếng Anh"

@@ -132,24 +132,21 @@ const handleToggleFavorite = async (event: Event, teacherId: string, currentActi
           icon="i-lucide-search"
           :is-show-clear="true"
         />
-        <Transition name="fade-scale" appear>
-          <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-[900px]:mt-8">
-            <div
-              class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100 transition-all duration-300 hover:shadow-xl"
-            >
-              <UCalendar
-                v-model="date"
-                size="xl"
-                :ui="{
-                  cell: 'hover:cursor-pointer'
-                }"
-                :min-value="minDate"
-                :max-value="maxDate"
-                @update:model-value="handleDateChange"
-              />
+        <ClientOnly>
+          <div class="calendar-animate">
+            <div class="sticky self-start flex justify-center items-center max-sm:p-0 max-[900px]:mt-8">
+              <div class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                <UCalendar
+                  v-model="date"
+                  size="xl"
+                  :min-value="minDate"
+                  :max-value="maxDate"
+                  @update:model-value="handleDateChange"
+                />
+              </div>
             </div>
           </div>
-        </Transition>
+        </ClientOnly>
       </div>
       <div class="flex-1 max-[900px]:mb-8">
         <p class="title mb-8 max-sm:mb-4 hidden max-[900px]:block">{{ t('booking.teacherList') }}</p>
@@ -173,7 +170,7 @@ const handleToggleFavorite = async (event: Event, teacherId: string, currentActi
                 type="button"
                 class="teacher-card bg-white rounded-lg hover:cursor-pointer border border-black/5 shadow-sm p-4 max-sm:p-3 text-left transition-all duration-300 hover:border-primary"
                 :class="[selectedTeacherId === teacher.teacherId ? 'ring-2 ring-primary' : '', showCards ? 'card-animate' : '']"
-                :style="showCards ? { animationDelay: `${index * 50}ms` } : {}"
+                :style="showCards ? { animationDelay: `${index * 10}ms` } : {}"
                 @click="handleSelectedTeacher(teacher.teacherId)"
               >
                 <div class="rounded-lg overflow-hidden shrink-0 mx-auto justify-start relative">
@@ -244,13 +241,19 @@ const handleToggleFavorite = async (event: Event, teacherId: string, currentActi
 </template>
 
 <style scoped>
-.fade-scale-enter-active {
-  transition: all 0.5s ease-out;
+.calendar-animate {
+  animation: fadeSlideIn 0.35s ease-out;
 }
 
-.fade-scale-enter-from {
-  opacity: 0;
-  transform: scale(0.95) translateY(-20px);
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .fade-enter-active,
@@ -323,14 +326,5 @@ const handleToggleFavorite = async (event: Event, teacherId: string, currentActi
 .button-slide-leave-to {
   opacity: 0;
   transform: translateY(-20px);
-}
-
-.teacher-list-scroll {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.teacher-list-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
 }
 </style>

@@ -258,15 +258,15 @@
       "highlights": {
         "item1": {
           "title": "Good Pedagogical Skills",
-          "description": "Teaching staff with many years of experience, including Masters, Valedictorians, Salutatorians, and Lecturers from prestigious Universities. Holding international teaching certificates and professionally trained."
+          "description": "Highly experienced international teachers with global teaching credentials."
         },
         "item2": {
           "title": "Teaching with Heart",
-          "description": "The teaching staff always puts their students first. Not only teaching and imparting knowledge in class, teachers are also ready to support students outside of class hours through Fanpage."
+          "description": "Committed to supporting students anytime, both in-class and via online platforms."
         },
         "item3": {
           "title": "Linearthinking Ambassador",
-          "description": "Linearthinking is Nexgen's exclusive English learning method system. Our team is professionally trained to help students fully absorb and apply Linearthinking most proficiently."
+          "description": "Certified experts mastering Nexgen's exclusive Linearthinking methodology with you."
         }
       }
     },
@@ -291,6 +291,7 @@
     "staff": {
       "title": "Teaching Staff",
       "viewInfo": "View teacher information",
+      "loadMore": "Load More",
       "positions": {
         "academicDirector": "Academic Director at Nexgen",
         "englishTeacher": "English Instructor"
