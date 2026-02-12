@@ -23,7 +23,7 @@ const src = '/images/teacher-banner.png'
 </script>
 
 <template>
-  <div class="container max-xl:px-6 grid grid-cols-2 gap-10 py-10">
+  <div class="container max-xl:px-6 grid grid-cols-2 gap-10 py-10 max-[900px]:grid-cols-1">
     <div>
       <p class="title mb-5 max-md:text-3xl max-sm:text-2xl">{{ t('teacher.banner.title') }}</p>
       <p class="">
@@ -37,7 +37,7 @@ const src = '/images/teacher-banner.png'
             <BaseIcon name="arrow" class="absolute -right-20 max-lg:hidden!" :size="100" />
           </div>
         </div>
-        <img :src="src" alt="Banner" class="w-50 h-50" />
+        <img :src="src" alt="Banner" class="w-50 h-50 max-[900px]:hidden" />
       </div>
     </div>
 

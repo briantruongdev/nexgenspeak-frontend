@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { useInfiniteScroll } from '@vueuse/core'
+import 'simplebar-vue/dist/simplebar.min.css'
+import SimpleBar from 'simplebar-vue'
 import type { ITeacher } from '~/types/teacher.type'
 
 const { t } = useI18n()
 const srcImg = '/images/teacher-default.png'
 const { data, pending } = useTeacher()
 const selectedTeacherId = ref<ITeacher['teacherId']>(data.value?.teachers[0]?.teacherId ?? '')
-const scrollArea = ref<HTMLElement | null>(null)
+const scrollArea = ref<InstanceType<typeof SimpleBar> | null>(null)
+const loadMoreTrigger = ref<HTMLElement | null>(null)
 const initialLoadCount = 12
 const loadMoreCount = 6
 const displayCount = ref(initialLoadCount)
 const showCards = ref(false)
+const isLoadingMore = ref(false)
+
 const selectedTeacher = computed(
   () => data.value?.teachers.find(t => t.teacherId === selectedTeacherId.value) ?? data.value?.teachers[0]
 )
@@ -26,23 +30,81 @@ const hasMore = computed(() => {
 })
 
 const loadMore = () => {
-  displayCount.value += loadMoreCount
+  if (isLoadingMore.value || !hasMore.value) return
+  isLoadingMore.value = true
+
+  setTimeout(() => {
+    displayCount.value += loadMoreCount
+    isLoadingMore.value = false
+  }, 300)
 }
 
-useInfiniteScroll(
-  scrollArea,
-  () => {
-    if (hasMore.value) {
-      loadMore()
+let observer: IntersectionObserver | null = null
+
+const setupObserver = () => {
+  if (observer) {
+    observer.disconnect()
+  }
+
+  nextTick(() => {
+    if (!loadMoreTrigger.value) return
+
+    const simplebarElement = scrollArea.value?.$el as HTMLElement | undefined
+    const scrollContainer = simplebarElement?.querySelector('.simplebar-content-wrapper') as HTMLElement
+
+    observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && hasMore.value && !isLoadingMore.value) {
+            loadMore()
+          }
+        })
+      },
+      {
+        root: scrollContainer || null,
+        rootMargin: '50px',
+        threshold: 0.1
+      }
+    )
+
+    if (loadMoreTrigger.value) {
+      observer.observe(loadMoreTrigger.value)
     }
-  },
-  { distance: 100 }
+  })
+}
+
+watch(hasMore, newHasMore => {
+  if (newHasMore) {
+    setupObserver()
+  }
+})
+
+watch(
+  () => data.value,
+  () => {
+    if (data.value && displayedTeachers.value.length > 0) {
+      setupObserver()
+    }
+  }
 )
+
+setupObserver()
 onMounted(() => {
+  clientMounted.value = true
   setTimeout(() => {
     showCards.value = true
   }, 50)
+
+  // setTimeout(() => {
+  // }, 500)
 })
+
+onBeforeUnmount(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
+const clientMounted = ref(false)
 </script>
 
 <template>
@@ -64,7 +126,7 @@ onMounted(() => {
                 :src="srcImg"
                 :alt="selectedTeacher?.fullName"
                 loading="lazy"
-                class="w-full h-60 max-lg:h-52 max-sm:h-44 object-contain rounded-xl"
+                class="w-full h-60 max-sm:h-44 object-contain rounded-xl"
               />
             </Transition>
 
@@ -110,33 +172,38 @@ onMounted(() => {
             <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
             <span class="text-gray-500 animate-pulse">{{ t('booking.loadingTeachers') }}</span>
           </div>
-          <template v-else-if="displayedTeachers?.length">
-            <div
-              ref="scrollArea"
-              class="grid grid-cols-3 teacher-list-scroll gap-4 max-xl:gap-3 max-lg:grid-cols-2 max-md:grid-cols-3 max-sm:grid-cols-2 overflow-y-auto max-h-125 content-start pr-2"
-            >
-              <div
-                v-for="(teacher, index) in displayedTeachers"
-                :key="teacher.teacherId"
-                type="button"
-                :style="showCards ? { animationDelay: `${index * 10}ms` } : {}"
-                class="bg-white teacher-card rounded-[10px] hover:cursor-pointer border border-black/5 shadow-sm p-3 m-1 max-sm:p-3 text-left transition-all duration-200 hover:border-primary h-fit"
-                :class="[
-                  +selectedTeacherId === +teacher.teacherId ? 'ring-1 ring-primary ' : '',
-                  showCards ? 'card-animate' : ''
-                ]"
-                @click="selectedTeacherId = teacher.teacherId"
-              >
-                <div class="w-2/3 h-16 max-sm:h-14 rounded-lg bg-[#F6E5D5] overflow-hidden shrink-0 mx-auto flex justify-center">
-                  <img :src="srcImg" :alt="teacher.fullName" loading="lazy" class="object-cover h-18.75 max-sm:h-16.25" />
+          <template v-else-if="displayedTeachers?.length && clientMounted">
+            <ClientOnly>
+              <SimpleBar ref="scrollArea" class="max-h-125" data-simplebar-auto-hide="false">
+                <div
+                  class="grid grid-cols-3 gap-4 max-xl:gap-3 max-lg:grid-cols-2 max-md:grid-cols-3 max-sm:grid-cols-2 content-start pr-2"
+                >
+                  <div
+                    v-for="(teacher, index) in displayedTeachers"
+                    :key="teacher.teacherId"
+                    type="button"
+                    :style="showCards ? { animationDelay: `${index * 10}ms` } : {}"
+                    class="bg-white teacher-card rounded-[10px] hover:cursor-pointer border border-black/5 shadow-sm p-3 m-1 max-sm:p-3 text-left transition-all duration-200 hover:border-primary h-fit"
+                    :class="[
+                      +selectedTeacherId === +teacher.teacherId ? 'ring-1 ring-primary ' : '',
+                      showCards ? 'card-animate' : ''
+                    ]"
+                    @click="selectedTeacherId = teacher.teacherId"
+                  >
+                    <div
+                      class="w-2/3 h-16 max-sm:h-14 rounded-lg bg-[#F6E5D5] overflow-hidden shrink-0 mx-auto flex justify-center"
+                    >
+                      <img :src="srcImg" :alt="teacher.fullName" loading="lazy" class="object-cover h-18.75 max-sm:h-16.25" />
+                    </div>
+                    <p class="font-bold text-sm max-sm:text-xs mt-2 truncate text-center">{{ teacher.fullName }}</p>
+                  </div>
                 </div>
-                <p class="font-bold text-sm max-sm:text-xs mt-2 truncate text-center">{{ teacher.fullName }}</p>
-              </div>
 
-              <div v-if="hasMore" class="my-6 flex justify-center">
-                <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
-              </div>
-            </div>
+                <div v-if="hasMore" ref="loadMoreTrigger" class="my-6 flex justify-center w-full">
+                  <UIcon name="i-lucide-loader" class="animate-spin size-8 text-primary" />
+                </div>
+              </SimpleBar>
+            </ClientOnly>
           </template>
           <UiEmpty v-else />
         </div>
@@ -199,5 +266,26 @@ onMounted(() => {
 .fade-leave-to {
   opacity: 0;
   transform: translateY(10px);
+}
+:deep(.simplebar-scrollbar:before) {
+  background: #cbd5e1;
+  opacity: 0.7;
+}
+
+:deep(.simplebar-track.simplebar-vertical) {
+  width: 6px;
+  right: 2px;
+}
+
+:deep(.simplebar-scrollbar) {
+  width: 8px;
+}
+
+:deep(.simplebar-content-wrapper) {
+  padding-right: 12px;
+}
+
+:deep(.simplebar-scrollbar:before) {
+  border-radius: 6px;
 }
 </style>
