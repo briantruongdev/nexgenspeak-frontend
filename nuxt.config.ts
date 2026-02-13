@@ -47,6 +47,12 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
   colorMode: {
     preference: 'light',
     fallback: 'light'
@@ -72,12 +78,6 @@ export default defineNuxtConfig({
   nitro: {
     output: {
       publicDir: 'dist'
-    }
-  },
-
-  router: {
-    options: {
-      scrollBehaviorType: 'smooth'
     }
   },
 
