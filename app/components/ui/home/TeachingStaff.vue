@@ -1,39 +1,9 @@
 <script setup lang="ts">
+import { TEACHER_DEFAULT_IMAGE } from '~/constants'
+
 const { t } = useI18n()
 const { openTrialRegisterModal } = useTrialRegister()
-
-const items = computed(() => [
-  {
-    image: '/images/img-teacher.png',
-    name: t('teachingStaff.teacher1.name'),
-    title: t('teachingStaff.teacher1.title'),
-    description: t('teachingStaff.teacher1.description')
-  },
-  {
-    image: '/images/img-teacher.png',
-    name: t('teachingStaff.teacher2.name'),
-    title: t('teachingStaff.teacher2.title'),
-    description: t('teachingStaff.teacher2.description')
-  },
-  {
-    image: '/images/img-teacher.png',
-    name: t('teachingStaff.teacher3.name'),
-    title: t('teachingStaff.teacher3.title'),
-    description: t('teachingStaff.teacher3.description')
-  },
-  {
-    image: '/images/img-teacher.png',
-    name: t('teachingStaff.teacher4.name'),
-    title: t('teachingStaff.teacher4.title'),
-    description: t('teachingStaff.teacher4.description')
-  },
-  {
-    image: '/images/img-teacher.png',
-    name: t('teachingStaff.teacher5.name'),
-    title: t('teachingStaff.teacher5.title'),
-    description: t('teachingStaff.teacher5.description')
-  }
-])
+const { data, pending } = useTeacher()
 </script>
 
 <template>
@@ -42,43 +12,67 @@ const items = computed(() => [
       <p class="title">{{ $t('teachingStaff.title') }}</p>
       <p class="text-lg mt-2 max-sm:text-sm">{{ $t('teachingStaff.subtitle') }}</p>
     </div>
+    <div v-if="pending" class="grid grid-cols-3 gap-10 max-md:gap-6 max-sm:grid-cols-1">
+      <USkeleton class="h-50 rounded-2xl" />
+      <USkeleton class="h-50 rounded-2xl max-sm:hidden" />
+      <USkeleton class="h-50 rounded-2xl max-sm:hidden" />
+    </div>
     <UCarousel
+      v-else
       v-slot="{ item }"
       loop
       arrows
+      autoplay
       wheel-gestures
       prev-icon="i-lucide-chevron-left"
       next-icon="i-lucide-chevron-right"
-      :items="items"
+      :items="data?.teachers"
       :ui="{
         item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
-        prev: 'translate-x-14 hover:cursor-pointer max-sm:-translate-x-2 text-primary bg-white/60 shadow-none ring-0 focus:ring-0',
-        next: '-translate-x-18 hover:cursor-pointer max-sm:-translate-x-0 text-primary bg-white/50 shadow-none ring-0 focus:ring-0'
+        prev: 'max-xl:translate-x-16 max-sm:-translate-x-0 hover:cursor-pointer text-white bg-primary hover:bg-primary/60 shadow-none ring-0 focus:ring-0',
+        next: 'max-xl:-translate-x-20 max-md:-translate-x-20 max-sm:-translate-x-2 hover:cursor-pointer text-white bg-primary hover:bg-primary/60 shadow-none ring-0 focus:ring-0'
       }"
     >
-      <div
-        class="bg-primary rounded-tl-4xl rounded-br-4xl rounded-tr-4xl grid grid-cols-[1fr_2fr] xl:h-60! max-md:h-fit items-stretch"
-      >
-        <div class="flex items-end h-full">
-          <img :src="item.image" :alt="item.name" loading="lazy" class="object-cover h-[80%]" />
-        </div>
+      <div class="bg-white rounded-2xl p-6 max-sm:p-4 shadow-sm border border-black/5 detail-card m-1">
+        <div class="flex flex-col gap-5 max-sm:gap-4">
+          <img
+            :key="item?.teacherId"
+            :src="TEACHER_DEFAULT_IMAGE"
+            :alt="item?.fullName"
+            loading="lazy"
+            class="w-full h-32 object-contain rounded-xl"
+          />
 
-        <div class="text-white flex flex-col justify-between h-full">
-          <div class="py-4 pr-4">
-            <p class="mb-2 text-base lg:text-lg max-[400px]:text-sm">{{ $t('teachingStaff.teacher') }}: {{ item.name }}</p>
-            <p class="text-sm lg:text-base line-clamp-3 max-[400px]:text-xs">
-              {{ item.description }}
-            </p>
+          <div :key="item?.teacherId">
+            <p class="text-2xl font-extrabold max-lg:text-xl max-sm:text-lg">{{ item?.fullName }}</p>
+            <p class="text-sm text-[#6B7280] mt-1 max-sm:text-xs">{{ item?.position }}</p>
           </div>
 
-          <div class="flex justify-end mr-4 mb-4">
-            <BaseButton
-              variant="outline"
-              class-name="bg-white border-none rounded-xl"
-              :text="$t('teachingStaff.bookLesson')"
-              @click="openTrialRegisterModal"
-            />
+          <div :key="item?.teacherId" class="space-y-3 max-sm:space-y-2">
+            <div class="flex items-start gap-3 max-sm:gap-2">
+              <BaseIcon name="award-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+              <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">
+                {{ item?.award1 }}
+              </p>
+            </div>
+            <div class="flex items-start gap-3 max-sm:gap-2">
+              <BaseIcon name="line-2" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+              <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ item?.award2 }}</p>
+            </div>
+            <div class="flex items-start gap-3 max-sm:gap-2">
+              <BaseIcon name="graduation" class="mt-0.5 shrink-0 max-sm:w-4 max-sm:h-4" />
+              <p class="text-sm leading-6 max-sm:text-xs max-sm:leading-5">{{ item?.award3 }}</p>
+            </div>
           </div>
+
+          <BaseButton
+            :text="$t('teachingStaff.bookLesson')"
+            variant="outline"
+            class="w-full"
+            class-name="h-11 max-sm:h-10 rounded-xl"
+            class-text="font-semibold max-sm:text-sm"
+            @click="openTrialRegisterModal"
+          />
         </div>
       </div>
     </UCarousel>
