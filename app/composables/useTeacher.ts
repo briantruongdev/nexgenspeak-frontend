@@ -5,6 +5,7 @@ const slots = ref<ISlots[]>([])
 const isGettingSlots = ref(false)
 const isProcessing = ref(false)
 const isFetchingTeacherDetail = ref(false)
+
 export const useTeacher = () => {
   const dataSlots = ref<IResponseSlots>()
   const { showSuccess, showError } = useNotification()

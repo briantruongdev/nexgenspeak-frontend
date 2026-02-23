@@ -29,12 +29,12 @@ const cards = computed(() => [
     <div class="absolute top-1/6 w-full max-sm:static max-xl:px-6">
       <div class="container grid grid-cols-[1fr_3fr] mx-auto max-sm:grid-cols-1 gap-4">
         <div class="max-sm:absolute max-sm:top-10">
-          <p class="mb-6 title">{{ $t('register.title') }}</p>
+          <p class="mb-6 title">{{ t('register.title') }}</p>
 
           <BaseButton
             variant="outline"
             class-name="border-2 bg-transparent"
-            :text="$t('register.learnMore')"
+            :text="t('register.learnMore')"
             icon="i-lucide-move-right"
             @click="openTrialRegisterModal"
           />

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import 'simplebar-vue/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-vue'
-import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import type { ITeacher } from '~/types/teacher.type'
 
 const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
@@ -143,7 +142,7 @@ onBeforeUnmount(() => {
             </div>
 
             <BaseButton
-              :text="$t('teacher.staff.viewInfo')"
+              :text="t('teacher.staff.viewInfo')"
               variant="outline"
               class="w-full"
               class-name="h-11 max-sm:h-10 rounded-xl"

@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <template>
   <section
@@ -15,10 +17,10 @@
         <p
           class="font-bold text-5xl my-6 max-md:text-4xl max-md:text-center max-[400px]:text-3xl! max-[400px]:mb-4! max-[400px]:my-0"
         >
-          {{ $t('studyPlan.about.title') }}
+          {{ t('studyPlan.about.title') }}
         </p>
         <p class="text-lg mb-4 max-md:text-base max-md:text-center max-sm:text-sm">
-          {{ $t('studyPlan.about.description') }}
+          {{ t('studyPlan.about.description') }}
         </p>
         <!-- <p class="text-lg max-md:text-base">
           {{ $t('studyPlan.about.description') }}
@@ -28,9 +30,9 @@
   </section>
   <section class="container grid grid-cols-2 gap-8 items-end max-xl:px-6 max-md:grid-cols-1">
     <div>
-      <p class="text-4xl font-bold section-responsive">{{ $t('studyPlan.about.title') }}</p>
+      <p class="text-4xl font-bold section-responsive">{{ t('studyPlan.about.title') }}</p>
       <p class="mb-20 max-lg:mb-10 text-lg mt-4 max-md:text-base max-sm:text-sm">
-        {{ $t('studyPlan.sloganAbout') }}
+        {{ t('studyPlan.sloganAbout') }}
       </p>
       <img
         src="/images/study-7.png"

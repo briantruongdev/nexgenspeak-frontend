@@ -2,6 +2,7 @@
 import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize()
+const { t } = useI18n()
 
 const widthScreen = computed(() => width.value)
 const items = ['/images/people4.png', '/images/people5.png', '/images/people3.png', '/images/people4.png', '/images/people5.png']
@@ -10,10 +11,10 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
 <template>
   <div class="container max-xl:px-6 section-responsive-pt">
     <p class="title">
-      {{ $t('recruitment.share.title') }} <span class="text-primary">{{ $t('recruitment.share.titleHighlight') }}</span>
+      {{ t('recruitment.share.title') }} <span class="text-primary">{{ t('recruitment.share.titleHighlight') }}</span>
     </p>
     <p class="mt-6 text-lg max-lg:text-base">
-      {{ $t('recruitment.share.description') }}
+      {{ t('recruitment.share.description') }}
     </p>
     <div class="mt-20 grid grid-cols-2 gap-13 max-sm:grid-cols-1! max-sm:mt-10 max-sm:gap-6 max-md:mt-12">
       <div class="grid grid-cols-[1fr_1.5fr] gap-8 max-md:grid-cols-1">
@@ -40,16 +41,16 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
         <img src="/images/ceo.png" alt="" class="object-cover max-md:h-127 max-sm:w-full h-full" loading="lazy" />
       </div>
       <div>
-        <p class="text-3xl font-bold">{{ $t('recruitment.share.ceo.name') }}</p>
-        <p class="mt-1 font-medium">{{ $t('recruitment.share.ceo.position') }}</p>
+        <p class="text-3xl font-bold">{{ t('recruitment.share.ceo.name') }}</p>
+        <p class="mt-1 font-medium">{{ t('recruitment.share.ceo.position') }}</p>
         <div class="space-y-3 mt-8 max-sm:mt-4 text-lg max-lg:text-base">
           <p>
-            {{ $t('recruitment.share.ceo.quote1') }}
+            {{ t('recruitment.share.ceo.quote1') }}
           </p>
           <p>
-            {{ $t('recruitment.share.ceo.quote2') }}
+            {{ t('recruitment.share.ceo.quote2') }}
           </p>
-          <p>{{ $t('recruitment.share.ceo.quote3') }}</p>
+          <p>{{ t('recruitment.share.ceo.quote3') }}</p>
         </div>
       </div>
     </div>

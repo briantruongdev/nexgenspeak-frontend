@@ -65,8 +65,8 @@ const menuSections = computed(() => [
           <USeparator orientation="vertical" class="h-6" />
 
           <span class="text-white"
-            >{{ $t('footer.viewWebsite') }} <br />
-            {{ $t('footer.nexgenSpeakVietnam') }}</span
+            >{{ t('footer.viewWebsite') }} <br />
+            {{ t('footer.nexgenSpeakVietnam') }}</span
           >
         </div>
         <div class="mt-10">
@@ -104,12 +104,12 @@ const menuSections = computed(() => [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-white md:justify-items-stretch">
       <div class="flex flex-wrap gap-2 justify-start">
-        <span>{{ $t('footer.disclaimer') }}</span>
+        <span>{{ t('footer.disclaimer') }}</span>
         <span>|</span>
-        <p>{{ $t('footer.privacyDataProtection') }}</p>
+        <p>{{ t('footer.privacyDataProtection') }}</p>
       </div>
       <p class="md:text-right max-md:text-center">
-        {{ $t('footer.copyright') }}
+        {{ t('footer.copyright') }}
         <a href="https://czen.io" class="hover:underline hover:opacity-80 transition-all" target="blank">https://czen.io</a>
       </p>
     </div>

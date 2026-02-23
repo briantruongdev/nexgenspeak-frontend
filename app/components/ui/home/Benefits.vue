@@ -19,7 +19,7 @@ const benefits = computed(() => [
 
 <template>
   <div class="container max-xl:px-6">
-    <p class="title mb-12 section-responsive max-[400px]:mb-6!">{{ $t('benefits.title') }}</p>
+    <p class="title mb-12 section-responsive max-[400px]:mb-6!">{{ t('benefits.title') }}</p>
     <div class="grid grid-cols-[1fr_1fr_1fr] gap-8 max-lg:grid-cols-2 max-lg:gap-y-18 max-sm:grid-cols-1">
       <div v-for="(item, index) in benefits" :key="index" class="relative hover-scale-105">
         <img

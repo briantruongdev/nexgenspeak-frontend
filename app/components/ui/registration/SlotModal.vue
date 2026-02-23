@@ -39,7 +39,7 @@ const emit = defineEmits<{
                 class="hover:cursor-pointer"
                 @click="selectedSlotIds = []"
               >
-                {{ $t('booking.clearAll') }}
+                {{ t('booking.clearAll') }}
               </UButton>
             </div>
             <div class="grid grid-cols-8 gap-4 max-lg:grid-cols-6 max-md:grid-cols-4 max-[450px]:grid-cols-3!">

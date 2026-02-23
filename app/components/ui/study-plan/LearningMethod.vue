@@ -23,9 +23,9 @@ const items = computed(() => [
 <template>
   <section class="bg-[#EEF0F1] py-16 max-lg:py-12 max-md:py-8">
     <div class="container max-xl:px-6">
-      <p class="title">{{ $t('studyPlan.learningMethod.title') }}</p>
+      <p class="title">{{ t('studyPlan.learningMethod.title') }}</p>
       <p class="text-lg my-4 max-sm:text-base">
-        {{ $t('studyPlan.learningMethod.description') }}
+        {{ t('studyPlan.learningMethod.description') }}
       </p>
       <div class="grid grid-cols-[1fr_2fr] gap-8 max-md:grid-cols-1">
         <img src="/images/benefit3.png" alt="" loading="lazy" class="h-full object-cover max-md:hidden" />
@@ -41,7 +41,7 @@ const items = computed(() => [
       </div>
       <div class="flex justify-center mt-12 max-lg:mt-8">
         <p class="w-2/3 justify-center text-lg font-medium text-center max-md:w-full max-sm:text-base max-[400px]:text-sm!">
-          {{ $t('studyPlan.learningMethod.footer') }}
+          {{ t('studyPlan.learningMethod.footer') }}
         </p>
       </div>
     </div>

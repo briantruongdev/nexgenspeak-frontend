@@ -9,8 +9,8 @@ const { data, pending } = useTeacher()
 <template>
   <div class="container max-xl:px-6">
     <div class="mb-8 section-responsive max-[400px]:mb-6!">
-      <p class="title">{{ $t('teachingStaff.title') }}</p>
-      <p class="text-lg mt-2 max-sm:text-sm">{{ $t('teachingStaff.subtitle') }}</p>
+      <p class="title">{{ t('teachingStaff.title') }}</p>
+      <p class="text-lg mt-2 max-sm:text-sm">{{ t('teachingStaff.subtitle') }}</p>
     </div>
     <div v-if="pending" class="grid grid-cols-3 gap-10 max-md:gap-6 max-sm:grid-cols-1">
       <USkeleton class="h-50 rounded-2xl" />
@@ -66,7 +66,7 @@ const { data, pending } = useTeacher()
           </div>
 
           <BaseButton
-            :text="$t('teachingStaff.bookLesson')"
+            :text="t('teachingStaff.bookLesson')"
             variant="outline"
             class="w-full"
             class-name="h-11 max-sm:h-10 rounded-xl"

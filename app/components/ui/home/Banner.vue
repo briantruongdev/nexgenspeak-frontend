@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const { openTrialRegisterModal } = useTrialRegister()
 
 interface BannerItem {
@@ -8,6 +9,7 @@ interface BannerItem {
   subtitleKey: string
   buttonTextKey?: string
 }
+const isVisible = ref(false)
 
 const items: BannerItem[] = [
   {
@@ -25,8 +27,6 @@ const items: BannerItem[] = [
     buttonTextKey: 'banner2.learnMore'
   }
 ]
-
-const isVisible = ref(false)
 
 onMounted(() => {
   setTimeout(() => {
@@ -47,8 +47,8 @@ onMounted(() => {
               class="text-6xl font-bold text-white mb-10 max-sm:mb-6 max-lg:text-4xl max-sm:text-3xl animate-1 max-[400px]:text-2xl! line-clamp-3 py-3"
               :class="{ active: isVisible }"
             >
-              {{ $t(item.titleKey) }} <br />
-              {{ $t(item.subtitleKey) }}
+              {{ t(item.titleKey) }} <br />
+              {{ t(item.subtitleKey) }}
             </p>
 
             <BaseButton
@@ -56,7 +56,7 @@ onMounted(() => {
               variant="outline"
               class-name="bg-white border-none "
               class-text="max-[400px]:text-xs"
-              :text="$t(item.buttonTextKey)"
+              :text="t(item.buttonTextKey)"
               icon="i-lucide-move-right"
               @click="openTrialRegisterModal"
             />
@@ -76,21 +76,21 @@ onMounted(() => {
                 variant="outline"
                 class-text="text-text-primary max-[500px]:text-xs"
                 class-name="bg-white/60 border-none"
-                :text="$t('banner.registerTrial')"
+                :text="t('banner.registerTrial')"
                 @click="openTrialRegisterModal"
               />
               <BaseButton
                 variant="outline"
                 class-text="text-text-primary max-[500px]:text-xs"
                 class-name="bg-white/60 border-none"
-                :text="$t('banner.buyCourse')"
+                :text="t('banner.buyCourse')"
                 @click="openTrialRegisterModal"
               />
               <BaseButton
                 variant="outline"
                 class-text="text-text-primary max-[500px]:text-xs"
                 class-name="bg-white/60 border-none"
-                :text="$t('banner.support')"
+                :text="t('banner.support')"
                 @click="openTrialRegisterModal"
               />
             </p>

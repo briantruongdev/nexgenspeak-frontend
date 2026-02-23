@@ -18,7 +18,7 @@ const items = computed(() =>
 <template>
   <section class="bg-[#EEF0F1]">
     <div class="container max-xl:px-6">
-      <UiTeacherTitle :title="$t('teacher.expertAdvisors.title')" />
+      <UiTeacherTitle :title="t('teacher.expertAdvisors.title')" />
       <UCarousel
         v-slot="{ item }"
         loop
