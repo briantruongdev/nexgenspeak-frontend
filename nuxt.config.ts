@@ -113,7 +113,7 @@ export default defineNuxtConfig({
         dir: 'ltr'
       }
     ],
-    defaultLocale: 'vi',
+    defaultLocale: process.env.NUXT_PUBLIC_DEFAULT_LOCALE || 'vi',
     strategy: 'no_prefix',
     langDir: 'locales',
     detectBrowserLanguage: {
@@ -121,7 +121,7 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
       alwaysRedirect: false,
-      fallbackLocale: 'vi',
+      fallbackLocale: process.env.NUXT_PUBLIC_DEFAULT_LOCALE || 'vi',
       cookieCrossOrigin: false,
       cookieSecure: true
     }

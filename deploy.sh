@@ -73,8 +73,8 @@ build_frontend() {
         npm install
     fi
 
-    # Build the project
     print_status "Running build command..."
+    export NUXT_PUBLIC_DEFAULT_LOCALE=vi
     npm run build
 
     # Check if build was successful

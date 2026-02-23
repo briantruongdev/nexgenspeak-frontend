@@ -15,7 +15,7 @@ module.exports = {
   // Build Configuration
   build: {
     directory: 'dist',
-    sourceDirectory: 'src'
+    sourceDirectory: 'app'
   },
 
   // Deployment Options
