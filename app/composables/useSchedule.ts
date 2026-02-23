@@ -1,7 +1,7 @@
 import { apiBooking } from '~/services'
 
 export const useSchedule = () => {
-  const { data, pending, error, refresh } = useAsyncData('schedule', () => apiBooking.getRegistration(), {
+  const { data, pending, error, refresh } = useAsyncData('schedule', () => apiBooking.getBooking(), {
     server: true
   })
 

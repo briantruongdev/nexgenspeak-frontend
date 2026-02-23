@@ -13,7 +13,7 @@ const navItemsPrimary = computed(() => [
   { name: t('header.nav.studyPlan'), href: '/study-plan', view: true },
   { name: t('header.nav.teachers'), href: '/teachers', view: true },
   { name: t('header.nav.document'), href: '/document', view: true },
-  { name: t('header.nav.register'), href: '/registration', view: isAuthenticated.value }
+  { name: t('header.nav.booking'), href: '/booking', view: isAuthenticated.value }
 ])
 
 const navItemsSecondary = computed(() => [

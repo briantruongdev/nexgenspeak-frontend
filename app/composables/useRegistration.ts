@@ -31,7 +31,7 @@ export const useRegistration = () => {
   const booking = async (data: IDataRegistration) => {
     isBooking.value = true
     try {
-      await apiBooking.registration(data)
+      await apiBooking.booking(data)
       showSuccess(t('messgae-registration'))
     } catch (error) {
       console.log(error)
@@ -42,7 +42,7 @@ export const useRegistration = () => {
   }
   const cancelBooking = async (data: { registrationId: string; slotIds: number[] }) => {
     try {
-      const rs = await apiBooking.cancelRegistration(data)
+      const rs = await apiBooking.cancelBooking(data)
       showSuccess(rs.message || 'Đã hủy lịch học thành công')
     } catch (error) {
       showError('Không thể hủy lịch học. Vui lòng thử lại.')
