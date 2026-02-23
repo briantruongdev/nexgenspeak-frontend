@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
           <div class="flex flex-col gap-5 max-sm:gap-4">
             <img
               :key="selectedTeacher?.teacherId"
-              :src="`/images/${selectedTeacher?.avatar}`"
+              :src="`/images/${selectedTeacher?.avatar || 'teacher-default.png'}`"
               :alt="selectedTeacher?.fullName"
               loading="lazy"
               class="w-full h-60 max-sm:h-44 object-contain rounded-xl"
