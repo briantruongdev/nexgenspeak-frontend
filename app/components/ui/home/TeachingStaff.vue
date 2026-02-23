@@ -29,8 +29,8 @@ const { data, pending } = useTeacher()
       :items="data?.teachers"
       :ui="{
         item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
-        prev: 'max-xl:translate-x-16 max-sm:-translate-x-0 hover:cursor-pointer text-white bg-primary hover:bg-primary/60 shadow-none ring-0 focus:ring-0',
-        next: 'max-xl:-translate-x-20 max-md:-translate-x-20 max-sm:-translate-x-2 hover:cursor-pointer text-white bg-primary hover:bg-primary/60 shadow-none ring-0 focus:ring-0'
+        prev: 'max-xl:translate-x-16 max-sm:-translate-x-0 hover:cursor-pointer text-white bg-primary/60 hover:bg-primary active:bg-primary shadow-none ring-0 focus:ring-0',
+        next: 'max-xl:-translate-x-20 max-md:-translate-x-20 max-sm:-translate-x-2 hover:cursor-pointer text-white bg-primary/60 hover:bg-primary active:bg-primary shadow-none ring-0 focus:ring-0'
       }"
     >
       <div class="bg-white rounded-2xl p-6 max-sm:p-4 shadow-sm border border-black/5 detail-card m-1">

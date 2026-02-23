@@ -31,8 +31,8 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
           :ui="{
             container: 'h-[530px] max-lg:h-[420px]',
             item: 'basis-full basis-1/3 max-lg:basis-1/3',
-            prev: 'hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60',
-            next: 'hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
+            prev: 'hover:cursor-pointer bg-primary/60 hover:bg-primary active:bg-primary text-white shadow-none ring-0 focus:ring-0',
+            next: 'hover:cursor-pointer bg-primary/60 hover:bg-primary active:bg-primary text-white shadow-none ring-0 focus:ring-0'
           }"
           class="w-full"
         >
