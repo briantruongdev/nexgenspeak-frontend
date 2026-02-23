@@ -3,7 +3,6 @@ import 'simplebar-vue/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-vue'
 import type { ITeacher } from '~/types/teacher.type'
 
-const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
 const INITIAL_LOAD_COUNT = 12
 const LOAD_MORE_COUNT = 6
 const OBSERVER_ROOT_MARGIN = '50px'
@@ -113,7 +112,7 @@ onBeforeUnmount(() => {
           <div class="flex flex-col gap-5 max-sm:gap-4">
             <img
               :key="selectedTeacher?.teacherId"
-              :src="TEACHER_DEFAULT_IMAGE"
+              :src="`/images/${selectedTeacher?.avatar}`"
               :alt="selectedTeacher?.fullName"
               loading="lazy"
               class="w-full h-60 max-sm:h-44 object-contain rounded-xl"
@@ -179,7 +178,7 @@ onBeforeUnmount(() => {
                       class="w-2/3 h-16 max-sm:h-14 rounded-lg bg-[#F6E5D5] overflow-hidden shrink-0 mx-auto flex justify-center"
                     >
                       <img
-                        :src="TEACHER_DEFAULT_IMAGE"
+                        :src="`/images/${teacher.avatar}`"
                         :alt="teacher.fullName"
                         loading="lazy"
                         class="object-cover h-18.75 max-sm:h-16.25"

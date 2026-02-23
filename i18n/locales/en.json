@@ -287,11 +287,47 @@
     },
     "expertAdvisors": {
       "title": "Expert Advisory Team",
-      "experience": {
+      "experience1": {
         "item1": "Bachelor of English Language - Foreign Language University",
         "item2": "Bachelor of Commerce University",
         "item3": "TOEIC 920 Certificate",
         "item4": "6+ years of teaching experience at Langmaster"
+      },
+      "experience2": {
+        "item1": "Bachelor of English Education - University of Languages and International Studies",
+        "item2": "IELTS Certificate 8.5",
+        "item3": "120-hour International TESOL Certificate",
+        "item4": "7+ Years of IELTS Teaching Experience"
+      },
+      "experience3": {
+        "item1": "Master of Applied Linguistics",
+        "item2": "CELTA Certification (Cambridge)",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "10+ Years Training Students to Achieve IELTS 6.5+"
+      },
+      "experience4": {
+        "item1": "Bachelor of English Studies - Hanoi University",
+        "item2": "TOEIC Score 980/990",
+        "item3": "International TESOL Certificate",
+        "item4": "6+ Years of Intensive TOEIC Teaching Experience"
+      },
+      "experience5": {
+        "item1": "Bachelor of English Education",
+        "item2": "IELTS 8.5 Speaking",
+        "item3": "Modern Teaching Methodology Certificate",
+        "item4": "Specialized in Pronunciation and Natural Communication Training"
+      },
+      "experience6": {
+        "item1": "Master of TESOL (Teaching English to Speakers of Other Languages)",
+        "item2": "Cambridge TKT Certification",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "8+ Years of Corporate English Training Experience"
+      },
+      "experience7": {
+        "item1": "Bachelor of English Linguistics",
+        "item2": "TOEFL iBT 108",
+        "item3": "TESOL & TEFL Certifications",
+        "item4": "9+ Years of Academic English Teaching Experience"
       }
     },
     "staff": {

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { TEACHER_DEFAULT_IMAGE } from '~/constants'
-
 const { t } = useI18n()
 const { openTrialRegisterModal } = useTrialRegister()
 const { data, pending } = useTeacher()
@@ -37,7 +35,7 @@ const { data, pending } = useTeacher()
         <div class="flex flex-col gap-5 max-sm:gap-4">
           <img
             :key="item?.teacherId"
-            :src="TEACHER_DEFAULT_IMAGE"
+            :src="`/images/${item.avatar}`"
             :alt="item?.fullName"
             loading="lazy"
             class="w-full h-32 object-contain rounded-xl"

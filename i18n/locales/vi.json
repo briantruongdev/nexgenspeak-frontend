@@ -287,11 +287,47 @@
     },
     "expertAdvisors": {
       "title": "Đội ngũ cố vấn chuyên môn",
-      "experience": {
+      "experience1": {
         "item1": "Cử nhân Ngôn Ngữ Anh - ĐH Ngoại Ngữ",
         "item2": "Cử nhân Đại học Thương Mại",
         "item3": "Chứng chỉ TOEIC 920",
         "item4": "6+ năm kinh nghiệm giảng dạy tại Langmaster"
+      },
+      "experience2": {
+        "item1": "Cử nhân Sư phạm Tiếng Anh - ĐH Ngoại Ngữ",
+        "item2": "Chứng chỉ IELTS 8.5",
+        "item3": "Chứng chỉ TESOL Quốc tế 120 giờ",
+        "item4": "7+ năm kinh nghiệm giảng dạy IELTS"
+      },
+      "experience3": {
+        "item1": "Thạc sĩ Ngôn ngữ học Ứng dụng",
+        "item2": "Chứng chỉ CELTA (Cambridge)",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "10+ năm đào tạo học viên đạt IELTS 6.5+"
+      },
+      "experience4": {
+        "item1": "Cử nhân Ngôn Ngữ Anh - ĐH Hà Nội",
+        "item2": "TOEIC 980/990",
+        "item3": "Chứng chỉ TESOL Quốc tế",
+        "item4": "6+ năm giảng dạy TOEIC chuyên sâu"
+      },
+      "experience5": {
+        "item1": "Cử nhân Sư phạm Tiếng Anh",
+        "item2": "IELTS 8.5 Speaking",
+        "item3": "Chứng chỉ Phương pháp giảng dạy hiện đại",
+        "item4": "Chuyên đào tạo phát âm và giao tiếp tự nhiên"
+      },
+      "experience6": {
+        "item1": "Thạc sĩ Giảng dạy Tiếng Anh (TESOL)",
+        "item2": "Chứng chỉ Cambridge TKT",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "8+ năm kinh nghiệm đào tạo tiếng Anh doanh nghiệp"
+      },
+      "experience7": {
+        "item1": "Cử nhân Ngôn Ngữ Anh",
+        "item2": "TOEFL iBT 108",
+        "item3": "Chứng chỉ TESOL & TEFL",
+        "item4": "9+ năm kinh nghiệm giảng dạy tiếng Anh học thuật"
       }
     },
     "staff": {

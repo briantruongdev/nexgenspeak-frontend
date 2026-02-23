@@ -1,18 +1,79 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const items = computed(() =>
-  Array.from({ length: 9 }, () => ({
-    image: '/images/avatar-teacher.png',
+const items = computed(() => [
+  {
+    image: '/images/avatar-teacher7.png',
     name: 'Nguyễn Mỹ Anh',
     exp: [
-      t('teacher.expertAdvisors.experience.item1'),
-      t('teacher.expertAdvisors.experience.item2'),
-      t('teacher.expertAdvisors.experience.item3'),
-      t('teacher.expertAdvisors.experience.item4')
+      t('teacher.expertAdvisors.experience1.item1'),
+      t('teacher.expertAdvisors.experience1.item2'),
+      t('teacher.expertAdvisors.experience1.item3'),
+      t('teacher.expertAdvisors.experience1.item4')
     ]
-  }))
-)
+  },
+  {
+    image: '/images/avatar-teacher1.png',
+    name: 'Phan Vân Anh',
+    exp: [
+      t('teacher.expertAdvisors.experience2.item1'),
+      t('teacher.expertAdvisors.experience2.item2'),
+      t('teacher.expertAdvisors.experience2.item3'),
+      t('teacher.expertAdvisors.experience2.item4')
+    ]
+  },
+
+  {
+    image: '/images/avatar-teacher2.png',
+    name: 'Lê Thị Hoài',
+    exp: [
+      t('teacher.expertAdvisors.experience3.item1'),
+      t('teacher.expertAdvisors.experience3.item2'),
+      t('teacher.expertAdvisors.experience3.item3'),
+      t('teacher.expertAdvisors.experience3.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher3.png',
+    name: 'Nguyễn Ngọc Ánh',
+    exp: [
+      t('teacher.expertAdvisors.experience4.item1'),
+      t('teacher.expertAdvisors.experience4.item2'),
+      t('teacher.expertAdvisors.experience4.item3'),
+      t('teacher.expertAdvisors.experience4.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher4.png',
+    name: 'Nguyễn Thị Hạ',
+    exp: [
+      t('teacher.expertAdvisors.experience5.item1'),
+      t('teacher.expertAdvisors.experience5.item2'),
+      t('teacher.expertAdvisors.experience5.item3'),
+      t('teacher.expertAdvisors.experience5.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher5.png',
+    name: 'Nguyễn Thị Thu',
+    exp: [
+      t('teacher.expertAdvisors.experience6.item1'),
+      t('teacher.expertAdvisors.experience6.item2'),
+      t('teacher.expertAdvisors.experience6.item3'),
+      t('teacher.expertAdvisors.experience6.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher6.png',
+    name: 'Nguyễn Ngọc Châm',
+    exp: [
+      t('teacher.expertAdvisors.experience7.item1'),
+      t('teacher.expertAdvisors.experience7.item2'),
+      t('teacher.expertAdvisors.experience7.item3'),
+      t('teacher.expertAdvisors.experience7.item4')
+    ]
+  }
+])
 </script>
 
 <template>

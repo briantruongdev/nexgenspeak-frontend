@@ -17,7 +17,6 @@ useSeo({
   noindex: true
 })
 
-const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
 const INITIAL_LOAD_COUNT = 9
 const LOAD_MORE_COUNT = 6
 const SEARCH_DEBOUNCE_MS = 300
@@ -281,7 +280,7 @@ onBeforeUnmount(() => {
                     </button>
                     <div class="flex flex-col gap-5 max-sm:gap-4">
                       <img
-                        :src="TEACHER_DEFAULT_IMAGE"
+                        :src="`/images/${teacher.avatar}`"
                         :alt="teacher.fullName"
                         loading="lazy"
                         width="240"
