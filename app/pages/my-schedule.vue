@@ -18,6 +18,13 @@ definePageMeta({
   middleware: 'auth',
   layout: 'default'
 })
+
+useSeo({
+  title: 'Lịch học của tôi | NexGen Speak',
+  description: 'Xem và quản lý lịch học tiếng Anh 1 kèm 1.',
+  noindex: true
+})
+
 const SCHEDULE_STATUS = computed(() => [
   {
     label: t('mySchedule.status.all'),

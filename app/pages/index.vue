@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { SEO_DEFAULTS } from '~/config/seo-defaults'
+
 const { t } = useI18n()
 
 useSeo({
-  title: () => t('pageTitle') || 'Chinh phục Tiếng Anh với NexGen Speak',
-  description: () =>
-    t('pageDescription') ||
-    'Học Tiếng Anh trực tuyến với giáo viên bản xứ. Môi trường học tập tối ưu, phương pháp hiện đại, cam kết đầu ra.',
-  image: '/images/banner.png'
+  title: () => t('pageTitle') || SEO_DEFAULTS.home.title,
+  description: () => t('pageDescription') || SEO_DEFAULTS.home.description,
+  image: '/images/banner.png',
+  breadcrumbs: [{ name: 'Trang chủ', url: '/' }]
 })
 </script>
 

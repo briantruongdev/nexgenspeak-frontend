@@ -11,6 +11,12 @@ definePageMeta({
   middleware: 'auth'
 })
 
+useSeo({
+  title: 'Đặt lịch học | NexGen Speak',
+  description: 'Chọn giáo viên và đặt lịch học tiếng Anh 1 kèm 1.',
+  noindex: true
+})
+
 const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
 const INITIAL_LOAD_COUNT = 9
 const LOAD_MORE_COUNT = 6
@@ -278,6 +284,8 @@ onBeforeUnmount(() => {
                         :src="TEACHER_DEFAULT_IMAGE"
                         :alt="teacher.fullName"
                         loading="lazy"
+                        width="240"
+                        height="120"
                         class="w-full h-30 max-sm:h-24 object-contain rounded-xl"
                       />
 

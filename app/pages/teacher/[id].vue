@@ -1,18 +1,40 @@
 <script setup lang="ts">
 import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import dayjs from 'dayjs'
+import { SEO_DEFAULTS } from '~/config/seo-defaults'
 
 const route = useRoute()
 const { t } = useI18n()
 const config = useRuntimeConfig()
 const minDate = today(getLocalTimeZone())
 
+const teacherId = route.params.id as string
+const { teacherDetail, isFetchingTeacherDetail } = useTeacherDetail(teacherId as string)
+
+useSeo({
+  title: () =>
+    teacherDetail.value?.fullName
+      ? SEO_DEFAULTS.teacherDetail.titleTemplate(teacherDetail.value.fullName)
+      : SEO_DEFAULTS.teachers.title,
+  description: () =>
+    teacherDetail.value?.fullName
+      ? SEO_DEFAULTS.teacherDetail.descriptionTemplate(teacherDetail.value.fullName)
+      : SEO_DEFAULTS.teachers.description,
+  image: '/images/banner.png',
+  breadcrumbs: [
+    { name: 'Trang chủ', url: '/' },
+    { name: 'Đội ngũ giáo viên', url: '/teachers' },
+    {
+      name: teacherDetail.value?.fullName ?? 'Giáo viên',
+      url: `/teacher/${teacherId}`
+    }
+  ]
+})
+
 const srcImg = '/images/teacher-default.png'
 const now = new Date()
 const date = shallowRef(new CalendarDate(now.getFullYear(), now.getMonth() + 1, now.getDate()))
 const maxDate = minDate.add({ months: 1 })
-const teacherId = route.params.id as string
-const { teacherDetail, isFetchingTeacherDetail } = useTeacherDetail(teacherId as string)
 const { selectedSlotIds, isBooking, isSlotSelected, handleSelectSlot, booking } = useRegistration()
 const { slots, isGettingSlots, getSlotByDate } = useTeacher()
 const maxSlots = config.public.maxSlots
@@ -63,7 +85,10 @@ const handleBooking = async () => {
           <div class="flex justify-start gap-10">
             <img
               :src="srcImg"
-              :alt="teacherDetail?.fullName"
+              :alt="teacherDetail?.fullName ?? 'Giáo viên'"
+              loading="lazy"
+              width="120"
+              height="120"
               class="w-30 h-30 max-sm:w-20 max-sm:h-20 object-cover rounded-full"
             />
             <div class="space-y-1">

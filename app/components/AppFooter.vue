@@ -49,8 +49,10 @@ const menuSections = computed(() => [
   <footer class="bg-primary px-32 py-12 max-xl:p-6">
     <img
       src="/images/logo-white.png"
-      alt="Logo"
+      alt="NexGen Speak - Học tiếng Anh 1 kèm 1"
       loading="lazy"
+      width="160"
+      height="40"
       class="w-40 hover:cursor-pointer max-[400px]:w-32"
       @click="navigateTo('/')"
     />

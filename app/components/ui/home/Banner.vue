@@ -39,7 +39,15 @@ onMounted(() => {
   <div class="relative w-full">
     <UCarousel v-slot="{ item }" :items="items" loop :autoplay="{ delay: 5000 }">
       <div class="relative" :class="{ bg: item.key === 2 }">
-        <img :src="item.image" alt="Banner" loading="lazy" class="w-full h-130 max-lg:h-100 object-cover" />
+        <img
+          :src="item.image"
+          alt="Banner học tiếng Anh 1 kèm 1 - NexGen Speak"
+          :loading="item.key === 1 ? 'eager' : 'lazy'"
+          :fetchpriority="item.key === 1 ? 'high' : undefined"
+          width="1280"
+          height="520"
+          class="w-full h-130 max-lg:h-100 object-cover"
+        />
 
         <div class="absolute inset-0 top-1/6 max-xl:px-6 max-lg:top-1/12 z-50">
           <div class="container">

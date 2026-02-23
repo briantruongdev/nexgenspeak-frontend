@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { registerSchema } from '~/schemas/auth.schema'
+import { SEO_DEFAULTS } from '~/config/seo-defaults'
 
 definePageMeta({ layout: 'auth', middleware: 'guest' })
+
+useSeo({
+  title: SEO_DEFAULTS.register.title,
+  description: SEO_DEFAULTS.register.description
+})
 const { t } = useI18n()
 const { isProcessing, formRegister, canRegister, handleRegister } = useAuth()
 const { schema } = useSchema(registerSchema)
