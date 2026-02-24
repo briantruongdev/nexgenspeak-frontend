@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
+
 const { t } = useI18n()
 const { openTrialRegisterModal } = useTrialRegister()
+
+const { width } = useWindowSize()
 
 type BannerMedia =
   | {
@@ -25,21 +29,30 @@ interface BannerItem {
   buttonTextKey?: string
 }
 const isVisible = ref(false)
+const isMounted = ref(false)
 
-const items: BannerItem[] = [
+const isMobile = computed(() => width.value < 640)
+const videoKey = computed(() => (isMobile.value ? 'mobile' : 'desktop'))
+
+const items = computed<BannerItem[]>(() => [
   {
     key: 3,
     media: {
       type: 'video',
-      poster:
-        'https://assets.engoo.com/assets/general/new-top-page/banner-bg-286f1a6972902f3b09fc32e7fcafb8d2efd904086e72e2300f4cd241bcb51f3f.jpg',
+      poster: isMobile.value
+        ? 'https://assets.engoo.com/assets/general/new-top-page/banner-bg-mob-edacb44479b7ab04adbcff8fe24d39fd37adc1db37311c492388bd1d2e2b1eb8.jpg'
+        : 'https://assets.engoo.com/assets/general/new-top-page/banner-bg-286f1a6972902f3b09fc32e7fcafb8d2efd904086e72e2300f4cd241bcb51f3f.jpg',
       sources: [
         {
-          src: 'https://assets.engoo.com/assets/general/new-top-page/banner-pc-69ee6b60747b98ccbdea6fe9280ee58980880a7f89077d29056ccf0e152e008a.webm',
+          src: isMobile.value
+            ? 'https://assets.engoo.com/assets/general/new-top-page/banner-mo-c4a47a945b3233a61fa952c9659c6d95a6a6ac367ed9798db9005c24887370e1.webm'
+            : 'https://assets.engoo.com/assets/general/new-top-page/banner-pc-69ee6b60747b98ccbdea6fe9280ee58980880a7f89077d29056ccf0e152e008a.webm',
           type: 'video/webm'
         },
         {
-          src: 'https://assets.engoo.com/assets/general/new-top-page/banner-pc-57753f08b6d09b00323db945bfef48a1a0eae2ef005f5a65d29aabfeb328c557.mp4',
+          src: isMobile.value
+            ? 'https://assets.engoo.com/assets/general/new-top-page/banner-mo-3b924d950c3b06b78037df4e7da9c8089b34974fc9582fda335026eed849954f.mp4'
+            : 'https://assets.engoo.com/assets/general/new-top-page/banner-pc-57753f08b6d09b00323db945bfef48a1a0eae2ef005f5a65d29aabfeb328c557.mp4',
           type: 'video/mp4'
         }
       ]
@@ -65,9 +78,12 @@ const items: BannerItem[] = [
     headlineKeys: ['banner2.title', 'banner2.subtitle'],
     buttonTextKey: 'banner2.learnMore'
   }
-]
+])
 
 onMounted(() => {
+  nextTick(() => {
+    isMounted.value = true
+  })
   setTimeout(() => {
     isVisible.value = true
   }, 100)
@@ -88,15 +104,19 @@ onMounted(() => {
           height="520"
           class="w-full h-130 max-lg:h-100 object-cover"
         />
+        <div v-else-if="item.media.type === 'video' && !isMounted" class="w-full h-130 max-lg:h-100 bg-gray-200">
+          <img :src="item.media.poster" alt="Video poster" class="w-full h-full object-cover" />
+        </div>
         <video
-          v-else
+          v-else-if="item.media.type === 'video' && isMounted"
+          :key="`video-${item.key}-${videoKey}`"
           autoplay
           loop
           muted
           playsinline
           :poster="item.media.poster"
           preload="metadata"
-          class="w-full h-130 max-lg:h-100 object-cover"
+          class="w-full h-130 max-lg:h-100 object-cover aspect-[1.237/1]"
         >
           <source v-for="source in item.media.sources" :key="source.src" :src="source.src" :type="source.type" />
           Your browser does not support the video tag.
@@ -167,15 +187,27 @@ onMounted(() => {
             </div>
           </div>
         </template>
-        <div v-else class="absolute top-1/5 left-[36%]">
-          <p class="text-6xl font-bold text-center text-primary">IMPROVE</p>
-          <p class="text-6xl font-bold text-center text-primary">YOUR ENGLISH</p>
-          <p class="text-5xl text-center mt-3">Anytime, Anywhere</p>
-          <button
-            class="w-full bg-primary hover:bg-orange-600 hover:scale-102 rounded-tr-4xl rounded-bl-4xl transition-transform duration-200 hover:cursor-pointer text-white font-bold text-lg px-8 mt-8 py-4 flex items-center justify-center gap-3"
-          >
-            START WITH UP TO 50% OFF
-          </button>
+        <div
+          v-else-if="item.media.type === 'video'"
+          class="absolute top-1/5 left-[34%] max-md:left-[32%] max-[600px]:left-[14%]! max-[500px]:left-[10%]! mr-6"
+        >
+          <p class="text-6xl font-bold text-center text-primary max-lg:text-5xl max-[900px]:text-4xl! max-[600px]:text-2xl!">
+            {{ t('banner3.improve') }}
+          </p>
+          <p class="text-6xl font-bold text-center mt-3 text-primary max-lg:text-5xl max-[900px]:text-4xl! max-[600px]:text-2xl!">
+            {{ t('banner3.yourEnglish') }}
+          </p>
+          <p class="text-5xl text-center mt-3 max-lg:text-4xl max-[900px]:text-3xl! max-[600px]:text-lg!">
+            {{ t('banner3.anytimeAnywhere') }}
+          </p>
+          <div class="flex justify-center">
+            <button
+              class="w-fit bg-primary hover:bg-orange-600 hover:scale-102 rounded-tr-4xl rounded-bl-4xl transition-transform duration-200 hover:cursor-pointer text-white font-bold text-lg max-sm:text-base! px-8 mt-8 py-4 flex items-center justify-center gap-3"
+              @click="openTrialRegisterModal"
+            >
+              {{ t('banner3.startWithDiscount') }}
+            </button>
+          </div>
         </div>
       </div>
     </UCarousel>
