@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { id } from 'zod/locales'
-
 const { t } = useI18n()
 
 const items = computed(() => [
