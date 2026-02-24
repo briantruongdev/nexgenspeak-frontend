@@ -250,7 +250,57 @@
           "description": "Hệ thống bài học được thiết kế bám sát Khung tham chiếu trình độ ngôn ngữ chung Châu Âu (CEFR), đảm bảo tính học thuật và sự công nhận toàn cầu."
         }
       },
-      "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới."
+      "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới.",
+      "reasons": {
+        "item1": {
+          "title": "Học 1 kèm 1: 1 giáo viên giỏi chỉ dạy 1 học viên",
+          "description": "Tận dụng tối đa 45 phút/ buổi học. Yếu chỗ nào tập trung chỗ đó. Giáo viên theo sát, khích lệ học viên."
+        },
+        "item2": {
+          "title": "Học Online tiện lợi: Chủ động thời gian, tiết kiệm chi phí",
+          "description": "Tùy chọn ca học từ 9h sáng - 9h tối, không mất thời gian đi lại. Có thể học tăng cường. Được hủy ca học, bảo lưu đến 2 năm."
+        },
+        "item3": {
+          "title": "Học là dùng được: giáo trình và phương pháp tối ưu cho người đi làm",
+          "description": "Tăng thời gian nghe nói, phản xạ, luyện phát âm x10 lần. Kỹ năng mềm (giao thiệp, thuyết trình, đàm phán, networking...) tiến bộ vượt bậc."
+        },
+        "item4": {
+          "title": "Đào tạo 4 kỹ năng bài bản - chuẩn Châu Âu CEFR và TOEIC",
+          "description": "Đủ khả năng lấy IELTS 7.0+, TOEIC 800+ cho mục tiêu thăng tiến, nhảy việc, cao học, du học, định cư..."
+        }
+      },
+      "highlights": {
+        "practical": "Phương pháp thực tế",
+        "smart": "Công nghệ thông minh",
+        "quality": "Giáo viên chất lượng",
+        "result": "HIỆU QUẢ RÕ RỆT",
+        "duration": "TRONG 1 THÁNG"
+      },
+      "aboutClass": {
+        "class1": {
+          "title": "LỚP HỌC ĐẢO NGƯỢC (FLIPPED LEARNING MODEL)",
+          "item1": "Học viên được tặng sách có bản quyền và hướng dẫn tự học trước buổi học kèm.",
+          "item2": "Học 1 kèm 1 với giáo viên trong 45 phút, tập trung sửa lỗi và thực hành nghe nói.",
+          "item3": "Làm bài tập về nhà, luyện các đề thi để giáo viên chấm điểm."
+        },
+        "class2": {
+          "title": "CÁ NHÂN HOÁ HỌC TẬP (PERSONALIZED LEARNING)",
+          "item1": "Mỗi học viên 1 lộ trình riêng biệt dựa vào nhu cầu và bài kiểm tra đầu vào 4 kỹ năng.",
+          "item2": "Giáo vụ giải đáp, bổ trợ kỹ năng yếu, chỉnh lộ trình và hướng giảng dạy cho từng học viên.",
+          "item3": "Báo cáo học tập cập nhật kịp thời, dễ dàng theo dõi trên điện thoại, máy tính."
+        },
+        "class3": {
+          "title": "PHẦN MỀM HỌC TRỰC TUYẾN CHẤT LƯỢNG",
+          "item1": "Sử dụng phầm mềm Team hỗ trợ tối đa việc học trực tuyến.",
+          "item2": "Đường truyền ổn định; hình ảnh âm thanh sắc nét; tương tác được (khoanh, viết...) lên slide bài giảng."
+        },
+        "class4": {
+          "title": "100% GIÁO VIÊN CHẤT LƯỢNG",
+          "item1": "Tốt nghiệp Đại học và có bằng cấp giảng dạy tiếng Anh (TESOL, CELTA…)",
+          "item2": "Nhiều năm kinh nghiệm dạy tiếng Anh trực tuyến",
+          "item3": "Được đào tạo kỹ trước khi giảng dạy và thẩm định chất lượng thường xuyên"
+        }
+      }
     },
     "trialRegistration": {
       "title": "Đăng ký học thử khóa học tiếng Anh online"

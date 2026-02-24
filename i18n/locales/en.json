@@ -250,7 +250,57 @@
           "description": "Our lessons are meticulously designed following the Common European Framework of Reference for Languages (CEFR), ensuring academic rigor and global recognition."
         }
       },
-      "footer": "Building a solid foundation for your global journey."
+      "footer": "Building a solid foundation for your global journey.",
+      "reasons": {
+        "item1": {
+          "title": "1-on-1 Tutoring: One excellent teacher, one dedicated student",
+          "description": "Maximize every 45-minute session. Focus on weak areas. Teachers closely guide and encourage students."
+        },
+        "item2": {
+          "title": "Convenient Online Learning: Flexible schedule, cost-effective",
+          "description": "Choose class slots from 9 AM to 9 PM – no commuting. Intensive study available. Cancel classes and preserve credit for up to 2 years."
+        },
+        "item3": {
+          "title": "Learn to Use It: Optimized curriculum and method for working professionals",
+          "description": "Increase listening, speaking, and pronunciation practice by 10x. Soft skills (communication, presentation, negotiation, networking...) improve remarkably."
+        },
+        "item4": {
+          "title": "Train all 4 skills systematically – CEFR and TOEIC standards",
+          "description": "Capable of achieving IELTS 7.0+, TOEIC 800+ for career advancement, job change, postgraduate studies, study abroad, immigration..."
+        }
+      },
+      "highlights": {
+        "practical": "Practical Methods",
+        "smart": "Smart Technology",
+        "quality": "Quality Teachers",
+        "result": "CLEAR RESULTS",
+        "duration": "IN 1 MONTH"
+      },
+      "aboutClass": {
+        "class1": {
+          "title": "FLIPPED LEARNING MODEL",
+          "item1": "Students receive licensed textbooks and self-study guides before tutoring sessions.",
+          "item2": "1-on-1 with the teacher for 45 minutes, focusing on error correction and listening/speaking practice.",
+          "item3": "Complete homework and practice exam papers for the teacher to grade."
+        },
+        "class2": {
+          "title": "PERSONALIZED LEARNING",
+          "item1": "Each student has their own learning path based on needs and a 4-skill entry assessment.",
+          "item2": "Academic staff answers questions, supplements weak skills, adjusts the roadmap and teaching style for each student.",
+          "item3": "Learning reports updated promptly, easily trackable on phone and computer."
+        },
+        "class3": {
+          "title": "HIGH-QUALITY ONLINE LEARNING SOFTWARE",
+          "item1": "Uses Microsoft Teams software to fully support online learning.",
+          "item2": "Stable connection; crisp audio and video; interactive features (highlighting, writing...) on lecture slides."
+        },
+        "class4": {
+          "title": "100% QUALITY TEACHERS",
+          "item1": "University graduates with English teaching qualifications (TESOL, CELTA…)",
+          "item2": "Years of experience in online English teaching",
+          "item3": "Thoroughly trained before teaching and regularly assessed for quality"
+        }
+      }
     },
     "trialRegistration": {
       "title": "Register for Online English Course Trial"

@@ -1,26 +1,28 @@
 <script setup lang="ts">
+import { id } from 'zod/locales'
+
 const { t } = useI18n()
 
 const items = computed(() => [
   {
     idx: 1,
-    title: 'Học 1 kèm 1: 1 giáo viên giỏi chỉ dạy 1 học viên',
-    des: 'Tận dụng tối đa 45 phút/ buổi học. Yếu chỗ nào tập trung chỗ đó. Giáo viên theo sát, khích lệ học viên.'
+    title: t('studyPlan.learningMethod.reasons.item1.title'),
+    des: t('studyPlan.learningMethod.reasons.item1.description')
   },
   {
     idx: 2,
-    title: 'Học Online tiện lợi: Chủ động thời gian, tiết kiệm chi phí',
-    des: 'Tùy chọn ca học từ 9h sáng - 9h tối, không mất thời gian đi lại. Có thể học tăng cường. Được hủy ca học, bảo lưu đến 2 năm.'
+    title: t('studyPlan.learningMethod.reasons.item2.title'),
+    des: t('studyPlan.learningMethod.reasons.item2.description')
   },
   {
     idx: 3,
-    title: 'Học là dùng được: giáo trình và phương pháp tối ưu cho người đi làm',
-    des: 'Tăng thời gian nghe nói, phản xạ, luyện phát âm x10 lần. Kỹ năng mềm (giao thiệp, thuyết trình, đàm phán, networking...) tiến bộ vượt bậc.'
+    title: t('studyPlan.learningMethod.reasons.item3.title'),
+    des: t('studyPlan.learningMethod.reasons.item3.description')
   },
   {
     idx: 4,
-    title: 'Đào tạo 4 kỹ năng bài bản - chuẩn Châu Âu CEFR và TOEIC',
-    des: 'Đủ khả năng lấy IELTS 7.0+, TOEIC 800+ cho mục tiêu thăng tiến, nhảy việc, cao học, du học, định cư...'
+    title: t('studyPlan.learningMethod.reasons.item4.title'),
+    des: t('studyPlan.learningMethod.reasons.item4.description')
   }
 ])
 
@@ -28,41 +30,41 @@ const aboutClass = computed(() => [
   {
     id: 1,
     image: '/images/plan1.png',
-    title: 'LỚP HỌC ĐẢO NGƯỢC (FLIPPED LEARNING MODEL)',
+    title: t('studyPlan.learningMethod.aboutClass.class1.title'),
     data: [
-      'Học viên được tặng sách có bản quyền và hướng dẫn tự học trước buổi học kèm.',
-      'Học 1 kèm 1 với giáo viên trong 45 phút, tập trung sửa lỗi và thực hành nghe nói.',
-      'Làm bài tập về nhà, luyện các đề thi để giáo viên chấm điểm.'
+      t('studyPlan.learningMethod.aboutClass.class1.item1'),
+      t('studyPlan.learningMethod.aboutClass.class1.item2'),
+      t('studyPlan.learningMethod.aboutClass.class1.item3')
     ]
   },
   {
     id: 2,
     image: '/images/plan2.png',
-    title: 'CÁ NHÂN HOÁ HỌC TẬP (PERSONALIZED LEARNING)',
+    title: t('studyPlan.learningMethod.aboutClass.class2.title'),
     data: [
-      'Mỗi học viên 1 lộ trình riêng biệt dựa vào nhu cầu và bài kiểm tra đầu vào 4 kỹ năng.',
-      'Giáo vụ giải đáp, bổ trợ kỹ năng yếu, chỉnh lộ trình và hướng giảng dạy cho từng học viên.',
-      ' Báo cáo học tập cập nhật kịp thời, dễ dàng theo dõi trên điện thoại, máy tính.'
+      t('studyPlan.learningMethod.aboutClass.class2.item1'),
+      t('studyPlan.learningMethod.aboutClass.class2.item2'),
+      t('studyPlan.learningMethod.aboutClass.class2.item3')
     ]
   },
   {
     id: 3,
     image: '/images/plan3.png',
-    title: 'PHẦN MỀM HỌC TRỰC TUYẾN CHẤT LƯỢNG',
+    title: t('studyPlan.learningMethod.aboutClass.class3.title'),
     data: [
-      'Sử dụng phầm mềm Team hỗ trợ tối đa việc học trực tuyến.',
-      ' Đường truyền ổn định; hình ảnh âm thanh sắc nét; tương tác được (khoanh, viết...) lên slide bài giảng.'
+      t('studyPlan.learningMethod.aboutClass.class3.item1'),
+      t('studyPlan.learningMethod.aboutClass.class3.item2'),
+      t('studyPlan.learningMethod.aboutClass.class3.item3')
     ]
   },
-
   {
     id: 4,
     image: '/images/plan4.png',
-    title: ' 100% GIÁO VIÊN CHẤT LƯỢNG',
+    title: t('studyPlan.learningMethod.aboutClass.class4.title'),
     data: [
-      'Tốt nghiệp Đại học và có bằng cấp giảng dạy tiếng Anh (TESOL, CELTA…)',
-      'Nhiều năm kinh nghiệm dạy tiếng Anh trực tuyến',
-      'Được đào tạo kỹ trước khi giảng dạy và thẩm định chất lượng thường xuyên'
+      t('studyPlan.learningMethod.aboutClass.class4.item1'),
+      t('studyPlan.learningMethod.aboutClass.class4.item2'),
+      t('studyPlan.learningMethod.aboutClass.class4.item3')
     ]
   }
 ])
@@ -105,23 +107,23 @@ const aboutClass = computed(() => [
             <ul class="space-y-4 text-primary text-xl max-sm:text-base font-semibold max-sm:space-y-2 max-[550px]:text-xs!">
               <li class="flex items-center gap-4 max-[450px]:gap-2">
                 <span>✓</span>
-                <span>Phương pháp thực tế</span>
+                <span>{{ t('studyPlan.learningMethod.highlights.practical') }}</span>
               </li>
               <li class="flex items-center gap-4 max-[450px]:gap-2">
                 <span>✓</span>
-                <span>Công nghệ thông minh</span>
+                <span>{{ t('studyPlan.learningMethod.highlights.smart') }}</span>
               </li>
               <li class="flex items-center gap-4 max-[450px]:gap-2">
                 <span>✓</span>
-                <span>Giáo viên chất lượng</span>
+                <span>{{ t('studyPlan.learningMethod.highlights.quality') }}</span>
               </li>
             </ul>
           </div>
 
           <div class="w-2/5 bg-primary rounded-r-full flex items-center justify-center text-white relative">
             <div class="text-center text-2xl max-md:text-xl max-sm:text-base max-[500px]:text-xs!">
-              <p class="font-bold">HIỆU QUẢ RÕ RỆT</p>
-              <p class="font-bold mt-2">TRONG 1 THÁNG</p>
+              <p class="font-bold">{{ t('studyPlan.learningMethod.highlights.result') }}</p>
+              <p class="font-bold mt-2">{{ t('studyPlan.learningMethod.highlights.duration') }}</p>
             </div>
           </div>
 
