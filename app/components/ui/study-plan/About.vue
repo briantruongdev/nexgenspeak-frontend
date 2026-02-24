@@ -1,5 +1,15 @@
 <script setup lang="ts">
 const { t } = useI18n()
+
+const reason = computed(() => [
+  t('studyPlan.about.reasons[0]'),
+  t('studyPlan.about.reasons[1]'),
+  t('studyPlan.about.reasons[2]'),
+  t('studyPlan.about.reasons[3]'),
+  t('studyPlan.about.reasons[4]'),
+  t('studyPlan.about.reasons[5]'),
+  t('studyPlan.about.reasons[6]')
+])
 </script>
 
 <template>
@@ -28,27 +38,31 @@ const { t } = useI18n()
       </div>
     </div>
   </section>
-  <section class="container grid grid-cols-2 gap-8 items-end max-xl:px-6 max-md:grid-cols-1">
-    <div>
-      <p class="text-4xl font-bold section-responsive">{{ t('studyPlan.about.title') }}</p>
-      <p class="mb-20 max-lg:mb-10 text-lg mt-4 max-md:text-base max-sm:text-sm">
-        {{ t('studyPlan.sloganAbout') }}
-      </p>
-      <img
-        src="/images/study-7.png"
-        alt=""
-        loading="lazy"
-        class="mb-8 max-md:mb-0 h-64 w-full object-cover max-xl:h-48 max-lg:h-40"
-      />
-      <img
-        src="/images/study-8.png"
-        alt=""
-        loading="lazy"
-        class="h-64 w-full max-xl:h-48 max-lg:h-40 object-cover max-md:hidden"
-      />
+  <section class="bg-[#eccab0]">
+    <div class="container py-12 max-xl:px-6">
+      <p class="title text-center mb-12">{{ t('studyPlan.about.reasonsTitle') }}</p>
+
+      <div class="grid grid-cols-2 place-items-center max-md:grid-cols-1 max-sm:place-items-start">
+        <div class="max-md:justify-center w-full max-md:flex hidden">
+          <img src="/images/reason.png" alt="" loading="lazy" class="h-50" />
+        </div>
+
+        <div
+          class="space-y-4 max-md:grid max-md:grid-cols-2 max-md:mt-8 max-md:space-x-4 max-sm:grid-cols-1 max-sm:place-items-start"
+        >
+          <div v-for="(item, index) in reason" :key="index">
+            <p class="bg-gradient px-5 py-3 rounded-full text-lg font-medium max-lg:text-base max-sm:text-sm">{{ item }}</p>
+          </div>
+        </div>
+        <img src="/images/reason.png" alt="" loading="lazy" class="max-md:hidden" />
+      </div>
     </div>
-    <img src="/images/people1.png" loading="lazy" alt="" class="h-[110%] object-cover -mt-20 max-md:hidden" />
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.bg-gradient {
+  background: linear-gradient(90deg, var(--ui-primary) -1.05%, hsla(0, 0%, 100%, 0) 96.6%);
+  /* background: linear-gradient(90deg, #f90 -1.05%, hsla(0, 0%, 100%, 0) 96.6%); */
+}
+</style>

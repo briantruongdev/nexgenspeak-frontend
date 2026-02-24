@@ -236,7 +236,17 @@
   "studyPlan": {
     "about": {
       "title": "NexGen Speak",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn thông qua giao tiếp và trò chuyện thực tế. Với lịch học linh hoạt và phương pháp học tập tương tác, bạn có thể chủ động đăng ký khung giờ phù hợp để nâng cao khả năng phản xạ và tự tin sử dụng tiếng Anh mỗi ngày."
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn thông qua giao tiếp và trò chuyện thực tế. Với lịch học linh hoạt và phương pháp học tập tương tác, bạn có thể chủ động đăng ký khung giờ phù hợp để nâng cao khả năng phản xạ và tự tin sử dụng tiếng Anh mỗi ngày.",
+      "reasonsTitle": "Lý do để NexGen Speak luôn là lựa chọn hàng đầu",
+      "reasons": [
+        "Học tập dựa trên phương pháp tương tác đa chiều",
+        "Cải thiện rõ rệt kỹ năng giao tiếp",
+        "Làm chủ ngôn ngữ, tự tin chinh phục Tiếng Anh",
+        "Kho học liệu đa dạng",
+        "Nội dung với hình ảnh hấp dẫn",
+        "Hỗ trợ học tập cá nhân hóa tận tâm",
+        "Đội ngũ giáo viên có chuyên môn cao"
+      ]
     },
     "sloganAbout": "Bằng phương pháp học chủ động và lộ trình cá nhân hóa, chúng tôi cam kết đồng hành cùng bạn biến tiếng Anh thành bản năng để tự tin giao tiếp trong mọi tình huống.",
     "learningMethod": {

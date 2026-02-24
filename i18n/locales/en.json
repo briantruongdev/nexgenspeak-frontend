@@ -236,7 +236,17 @@
   "studyPlan": {
     "about": {
       "title": "NexGen Speak",
-      "description": "We create an environment where each learner can practice more through real communication and conversations. With flexible schedules and interactive learning methods, you can easily book suitable time slots to improve your speaking reflexes and gain confidence in using English every day."
+      "description": "We create an environment where each learner can practice more through real communication and conversations. With flexible schedules and interactive learning methods, you can easily book suitable time slots to improve your speaking reflexes and gain confidence in using English every day.",
+      "reasonsTitle": "Reasons why NexGen Speak is always the top choice",
+      "reasons": [
+        "Learning based on multi-dimensional interactive methods",
+        "Significantly improve communication skills",
+        "Master the language, confidently conquer English",
+        "Diverse learning materials library",
+        "Content with engaging visuals",
+        "Dedicated personalized learning support",
+        "Highly qualified teaching staff"
+      ]
     },
     "sloganAbout": "Through active learning and personalized pathways, we are committed to being your partner in turning English into an instinct for confident communication in any situation.",
     "learningMethod": {
