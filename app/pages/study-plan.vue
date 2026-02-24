@@ -22,7 +22,7 @@ useSeo({
 <template>
   <div>
     <UiHomeBanner keepalive />
-    <UiStudyPlanTrialRegistration keepalive />
+    <!-- <UiStudyPlanTrialRegistration keepalive /> -->
     <UiStudyPlanLearningMethod keepalive />
     <UiStudyPlanAbout keepalive />
     <UiAuthSupport keepalive />
