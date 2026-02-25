@@ -137,6 +137,15 @@
       "description": "Expert in teaching English to children with creative and fun methods."
     }
   },
+  "roadmap": {
+    "title": "Online 1-on-1 English Learning Roadmap",
+    "items": {
+      "step1": "Register for a 1-on-1 online English trial course",
+      "step2": "Take a placement test to get a suitable learning roadmap",
+      "step3": "Start joining the 1-on-1 online English course",
+      "step4": "Customize your study plan and schedule flexibly"
+    }
+  },
   "benefits": {
     "title": "Benefits of Learning at NexGen Speak Online",
     "items": {

@@ -15,6 +15,7 @@ useSeo({
   <div>
     <UiHomeBanner keepalive />
     <UiHomeRegister keepalive />
+    <UiHomeRoadmap keepalive />
     <UiHomeTeachingStaff keepalive />
     <UiHomeBenefits keepalive />
     <UiHomeAbout keepalive />

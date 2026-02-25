@@ -137,6 +137,15 @@
       "description": "Chuyên gia giảng dạy tiếng Anh cho trẻ em với phương pháp sáng tạo và vui nhộn."
     }
   },
+  "roadmap": {
+    "title": "Lộ trình học tập tiếng Anh online 1 kèm 1",
+    "items": {
+      "step1": "Đăng ký học thử khoá học tiếng Anh online 1 kèm 1",
+      "step2": "Kiểm tra khảo sát đầu vào để có lộ trình phù hợp",
+      "step3": "Bắt đầu tham gia khóa học tiếng Anh online 1 kèm 1",
+      "step4": "Tùy chỉnh kế hoạch và thời gian học tập linh hoạt"
+    }
+  },
   "benefits": {
     "title": "Quyền lợi khi học tại NexGen Speak Online",
     "items": {
