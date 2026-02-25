@@ -671,5 +671,46 @@
     "aboutMe": "About me",
     "workExperience": "Work experience",
     "mySpecialties": "My specialties"
+  },
+  "reviews": {
+    "title": "Student Testimonials",
+    "items": {
+      "review1": {
+        "name": "Nguyen Minh Anh",
+        "content": "I used to be very shy about speaking English, but after 2 months of 1:1 lessons with the teacher, I've become much more confident. The teacher corrects my pronunciation in great detail and always encourages me to speak more."
+      },
+      "review2": {
+        "name": "Tran Quoc Huy",
+        "content": "The class schedule is very flexible, I can book evening classes after work. The content focuses on practical communication, so I can apply it immediately in my work with foreign clients."
+      },
+      "review3": {
+        "name": "Le Thao Vy",
+        "content": "What I like most is the clear learning roadmap personalized to my goals. After about 3 months, I was able to confidently participate in English meetings."
+      },
+      "review4": {
+        "name": "Pham Duc Long",
+        "content": "The teacher is very friendly and patient. Every lesson comes with detailed feedback so I know where I need to improve. My reflexive ability has improved significantly."
+      },
+      "review5": {
+        "name": "Hoang Nam",
+        "content": "After studying for a while, I noticed my pronunciation is more accurate and my listening comprehension is better. This is the most effective learning method I've ever tried."
+      },
+      "review6": {
+        "name": "Vu Khanh Linh",
+        "content": "I tried many courses before but they weren't effective. With 1:1 classes, the teacher focuses entirely on me, so I progress much faster, especially in speaking skills."
+      },
+      "review7": {
+        "name": "Dang Thanh Dat",
+        "content": "I frequently work with international clients and needed to improve my communication. After about 10 lessons, I was more confident in communicating and understanding clients better."
+      },
+      "review8": {
+        "name": "Bui Ngoc Anh",
+        "content": "The lessons are designed to match my level, not too difficult but still challenging enough. The teacher is very enthusiastic and always creates a comfortable atmosphere during class."
+      },
+      "review9": {
+        "name": "Nguyen Quoc Bao",
+        "content": "After some time studying, I can introduce products and communicate with foreign customers more naturally. This is a very worthwhile investment."
+      }
+    }
   }
 }

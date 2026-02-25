@@ -671,5 +671,46 @@
     "aboutMe": "Về tôi",
     "workExperience": "Kinh nghiệm làm việc",
     "mySpecialties": "Chuyên môn của tôi"
+  },
+  "reviews": {
+    "title": "Cảm nhận của học viên",
+    "items": {
+      "review1": {
+        "name": "Nguyễn Minh Anh",
+        "content": "Trước đây mình rất ngại nói tiếng Anh, nhưng sau 2 tháng học 1:1 với giáo viên, mình tự tin hơn hẳn. Giáo viên sửa phát âm rất chi tiết và luôn khuyến khích mình nói nhiều hơn."
+      },
+      "review2": {
+        "name": "Trần Quốc Huy",
+        "content": "Lịch học rất linh hoạt, mình có thể đặt lớp buổi tối sau giờ làm. Nội dung học tập trung vào giao tiếp thực tế nên mình áp dụng được ngay trong công việc với khách hàng nước ngoài."
+      },
+      "review3": {
+        "name": "Lê Thảo Vy",
+        "content": "Điểm mình thích nhất là lộ trình học rõ ràng và cá nhân hóa theo mục tiêu. Sau khoảng 3 tháng, mình đã có thể tự tin tham gia các cuộc họp bằng tiếng Anh."
+      },
+      "review4": {
+        "name": "Phạm Đức Long",
+        "content": "Giáo viên rất thân thiện và kiên nhẫn. Mỗi buổi học đều có feedback chi tiết nên mình biết mình cần cải thiện ở đâu. Khả năng phản xạ của mình cải thiện rõ rệt."
+      },
+      "review5": {
+        "name": "Hoàng Nam",
+        "content": "Sau khi học được một thời gian, mình thấy phát âm chuẩn hơn và nghe hiểu tốt hơn. Đây là hình thức học hiệu quả nhất mà mình từng thử."
+      },
+      "review6": {
+        "name": "Vũ Khánh Linh",
+        "content": "Mình đã thử nhiều khóa học trước đây nhưng không hiệu quả. Với lớp 1:1, giáo viên tập trung hoàn toàn vào mình nên tiến bộ nhanh hơn rất nhiều, đặc biệt là kỹ năng nói."
+      },
+      "review7": {
+        "name": "Đặng Thành Đạt",
+        "content": "Mình thường xuyên làm việc với khách hàng quốc tế nên cần cải thiện giao tiếp. Sau khoảng 10 buổi học, mình đã tự tin trao đổi và hiểu khách hàng tốt hơn."
+      },
+      "review8": {
+        "name": "Bùi Ngọc Anh",
+        "content": "Bài học được thiết kế phù hợp với trình độ của mình, không quá khó nhưng vẫn đủ thử thách. Giáo viên rất nhiệt tình và luôn tạo không khí thoải mái khi học."
+      },
+      "review9": {
+        "name": "Nguyễn Quốc Bảo",
+        "content": "Sau một thời gian học, mình có thể giới thiệu sản phẩm và trao đổi với khách hàng nước ngoài một cách tự nhiên hơn. Đây là khoản đầu tư rất xứng đáng."
+      }
+    }
   }
 }
