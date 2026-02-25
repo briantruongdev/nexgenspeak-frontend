@@ -63,12 +63,14 @@ const reviews = computed(() => [
       next-icon="i-lucide-chevron-right"
       :items="reviews"
       :ui="{
-        item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4',
+        item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4 flex',
         prev: 'max-xl:translate-x-16 max-sm:-translate-x-0 hover:cursor-pointer text-white bg-primary/60 hover:bg-primary active:bg-primary shadow-none ring-0 focus:ring-0',
         next: 'max-xl:-translate-x-20 max-md:-translate-x-20 max-sm:-translate-x-2 hover:cursor-pointer text-white bg-primary/60 hover:bg-primary active:bg-primary shadow-none ring-0 focus:ring-0'
       }"
     >
-      <div class="bg-white rounded-2xl relative p-6 max-sm:p-4 shadow-sm border border-black/5 detail-card m-1 mt-24">
+      <div
+        class="bg-white rounded-2xl relative p-6 max-sm:p-4 shadow-sm border border-black/5 detail-card m-1 mt-24 h-full flex flex-col min-h-86"
+      >
         <!-- <div class="w-27 h-14 bg-primary absolute -top-14 rounded-t-full left-[35%]"></div> -->
         <img
           :src="item.avatar"
@@ -104,4 +106,13 @@ const reviews = computed(() => [
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+:deep(.swiper-slide) {
+  height: auto !important;
+  display: flex !important;
+}
+
+:deep(.swiper-wrapper) {
+  align-items: stretch !important;
+}
+</style>
