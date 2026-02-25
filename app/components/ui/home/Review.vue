@@ -52,7 +52,10 @@ const reviews = computed(() => [
 
 <template>
   <div class="container max-xl:px-6 pb-12">
-    <p class="title">{{ $t('reviews.title') }}</p>
+    <div class="section-responsive">
+      <p class="title">{{ $t('reviews.title') }}</p>
+      <p class="text-lg mt-2 max-sm:text-sm">{{ t('reviews.subtitle') }}</p>
+    </div>
     <UCarousel
       v-slot="{ item }"
       loop
@@ -69,7 +72,7 @@ const reviews = computed(() => [
       }"
     >
       <div
-        class="bg-white rounded-2xl relative p-6 max-sm:p-4 shadow-sm border border-black/5 detail-card m-1 mt-24 h-full flex flex-col min-h-86"
+        class="bg-white rounded-2xl relative p-6 max-sm:p-4 shadow-sm border border-black/5 detail-card m-1 mt-20 h-full flex flex-col min-h-86"
       >
         <!-- <div class="w-27 h-14 bg-primary absolute -top-14 rounded-t-full left-[35%]"></div> -->
         <img

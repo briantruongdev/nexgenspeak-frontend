@@ -102,7 +102,7 @@ onMounted(() => {
           :fetchpriority="item.key === 1 ? 'high' : undefined"
           width="1280"
           height="520"
-          class="w-full h-130 max-lg:h-100 object-cover"
+          class="w-full h-130 max-lg:h-100 object-cover 2xl:h-180"
         />
         <div v-else-if="item.media.type === 'video' && !isMounted" class="w-full h-130 max-lg:h-100 bg-gray-200">
           <img :src="item.media.poster" alt="Video poster" class="w-full h-full object-cover" />
@@ -116,7 +116,7 @@ onMounted(() => {
           playsinline
           :poster="item.media.poster"
           preload="metadata"
-          class="w-full h-130 max-lg:h-100 object-cover aspect-[1.237/1]"
+          class="w-full h-130 max-lg:h-100 object-cover aspect-[1.237/1] 2xl:h-180"
         >
           <source v-for="source in item.media.sources" :key="source.src" :src="source.src" :type="source.type" />
           Your browser does not support the video tag.
