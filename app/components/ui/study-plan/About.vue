@@ -14,7 +14,7 @@ const reason = computed(() => [
 
 <template>
   <section
-    class="bg-primary h-[80vh] flex items-center max-xl:px-6 max-lg:h-[56vh] max-md:h-[68vh] max-xl:h-[70vh] max-[500px]:[60vh]!"
+    class="bg-primary h-[80vh] 2xl:h-[50vh] flex items-center max-xl:px-6 max-lg:h-[56vh] max-md:h-[68vh] max-xl:h-[70vh] max-[500px]:[60vh]!"
   >
     <div class="container grid grid-cols-[1fr_1.5fr] gap-24 items-center max-lg:gap-10 max-md:grid-cols-1 max-md:gap-6">
       <img
