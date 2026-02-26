@@ -1,5 +1,5 @@
 {
-  "pageTitle": "1-1 Online English Lessons | NexGen Speak - Private English Tutoring",
+  "pageTitle": "1-1 Online English Lessons {'|'} NexGen Speak - Private English Tutoring",
   "pageDescription": "Learn English online 1-1 with native teachers. Personalized private English lessons with guaranteed learning outcomes. Sign up for a free trial class today.",
   "header": {
     "nav": {
@@ -712,6 +712,70 @@
       "review9": {
         "name": "Nguyen Quoc Bao",
         "content": "After some time studying, I can introduce products and communicate with foreign customers more naturally. This is a very worthwhile investment."
+      }
+    }
+  },
+  "seo": {
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog",
+      "contact": "Contact",
+      "teachers": "Teachers",
+      "teacher": "Teacher",
+      "document": "Document",
+      "recruitment": "Recruitment",
+      "studyPlan": "Study Plan & Tuition",
+      "booking": "Booking",
+      "mySchedule": "My Schedule"
+    },
+    "pages": {
+      "home": {
+        "title": "1-1 Online English Lessons {'|'} NexGen Speak - Private English Tutoring",
+        "description": "Learn English online 1-1 with native teachers. Personalized private English lessons with guaranteed learning outcomes. Sign up for a free trial class today."
+      },
+      "studyPlan": {
+        "title": "Study Plan & Tuition {'|'} 1-1 Online English Lessons - NexGen Speak",
+        "description": "1-1 English learning roadmap with transparent tuition fees. Online 1-1 English courses suitable for all levels. Free consultation.",
+        "course": {
+          "name": "1-1 Online English Course",
+          "description": "1-1 online English learning program with native teachers. Personalized learning path with guaranteed outcomes. NexGen Speak."
+        }
+      },
+      "teachers": {
+        "title": "Our Teachers {'|'} 1-1 Online English Tutors - NexGen Speak",
+        "description": "Native teachers for 1-1 English lessons. Professional online English tutors, supporting effective 1-1 online English learning."
+      },
+      "teacherDetail": {
+        "title": "{name} {'|'} 1-1 Online English Tutor - NexGen Speak",
+        "description": "Learn English 1-1 with {name}. Online English tutor at NexGen Speak - quality 1-1 online English classes."
+      },
+      "blog": {
+        "title": "Blog {'|'} 1-1 English Learning - Tips & Resources - NexGen Speak",
+        "description": "Tips for learning English online 1-1, study materials and student experiences. Updated effective 1-1 English learning methods."
+      },
+      "contact": {
+        "title": "Contact {'|'} 1-1 Online English Lessons - NexGen Speak",
+        "description": "Contact us for 1-1 English course consultation, online English tutors. Free trial class registration support."
+      },
+      "document": {
+        "title": "English Learning Materials {'|'} 1-1 English Learning - NexGen Speak",
+        "description": "Online 1-1 English learning materials, exam preparation. Supporting students in 1-1 English classes at NexGen Speak."
+      },
+      "recruitment": {
+        "title": "Recruitment {'|'} NexGen Speak - Teach English Online 1-1",
+        "description": "Opportunity to become an online English tutor at NexGen Speak. Teach 1-1 English online."
+      },
+      "register": {
+        "title": "Free Trial Registration {'|'} Learn English 1-1 for Free - NexGen Speak",
+        "description": "Register for a free 1-1 online English trial. Experience 1-1 classes with native teachers."
+      },
+      "booking": {
+        "title": "Book a Class {'|'} NexGen Speak",
+        "description": "Select a teacher and book 1-1 English classes."
+      },
+      "mySchedule": {
+        "title": "My Schedule {'|'} NexGen Speak",
+        "description": "View and manage your 1-1 English class schedule."
       }
     }
   }

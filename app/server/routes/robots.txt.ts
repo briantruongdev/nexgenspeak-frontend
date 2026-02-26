@@ -2,19 +2,38 @@ export default defineEventHandler(event => {
   const config = useRuntimeConfig(event)
   const siteUrl = (config.public.siteUrl as string) || 'https://nexgenspeak.com'
 
-  const robots = `User-agent: *
+  const robots = `# NexGen Speak - Robots.txt
+# Generated on ${new Date().toISOString()}
+
+# Allow all search engines to crawl the site
+User-agent: *
 Allow: /
 
-# Private / auth pages - optional noindex via meta, still allow crawl for redirects
-Allow: /login
-Allow: /register
-Allow: /forgot-password
+# Disallow crawling of private user areas
+Disallow: /my-schedule
+Disallow: /booking
 
-# Sitemap
+# Allow important auth pages for SEO (they have proper meta robots tags)
+Allow: /login$
+Allow: /register$
+Allow: /forgot-password$
+
+# Crawl-delay for aggressive bots (optional, uncomment if needed)
+# User-agent: *
+# Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
 Sitemap: ${siteUrl}/sitemap.xml
 `
 
-  event.node.res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-  event.node.res.setHeader('Cache-Control', 'public, max-age=86400')
+  setResponseHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
+  setResponseHeader(event, 'Cache-Control', 'public, max-age=86400, s-maxage=86400')
   return robots
 })

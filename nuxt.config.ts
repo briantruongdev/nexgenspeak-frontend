@@ -69,7 +69,20 @@ export default defineNuxtConfig({
     '/study-plan': { ssr: true },
     '/register': { ssr: true },
     '/login': { ssr: true },
-    '/forgot-password': { ssr: true }
+    '/forgot-password': { ssr: true },
+    // SEO files
+    '/sitemap.xml': {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600'
+      }
+    },
+    '/robots.txt': {
+      headers: {
+        'Content-Type': 'text/plain',
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400'
+      }
+    }
   },
 
   // Performance: reduce JS bundle

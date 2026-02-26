@@ -20,8 +20,8 @@ definePageMeta({
 })
 
 useSeo({
-  title: 'Lịch học của tôi | NexGen Speak',
-  description: 'Xem và quản lý lịch học tiếng Anh 1-1.',
+  title: () => t('seo.pages.mySchedule.title'),
+  description: () => t('seo.pages.mySchedule.description'),
   noindex: true
 })
 

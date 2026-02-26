@@ -14,9 +14,9 @@ export interface SeoOptions {
   /** Noindex for this page (e.g. thank-you, private) */
   noindex?: boolean
   /** Breadcrumb for BreadcrumbList schema + optional display */
-  breadcrumbs?: BreadcrumbItem[]
+  breadcrumbs?: MaybeRefOrGetter<BreadcrumbItem[] | undefined>
   /** Course schema (use on course/study-plan page) */
-  course?: CourseSchemaOption
+  course?: MaybeRefOrGetter<CourseSchemaOption | undefined>
   /** FAQ schema (use where FAQ exists) */
   faq?: FAQItem[]
   /** Override publishedTime for article */
@@ -34,7 +34,7 @@ function absoluteUrl(url: string, base: string): string {
 }
 
 export function useSeo(options: SeoOptions = {}) {
-  const { locale } = useI18n()
+  const { locale, t } = useI18n()
   const config = useRuntimeConfig()
   const route = useRoute()
 
@@ -42,14 +42,16 @@ export function useSeo(options: SeoOptions = {}) {
   const siteName = options.siteName || DEFAULT_SITE_NAME
 
   watchEffect(() => {
-    const defaultTitle = 'Học tiếng Anh 1-1 Online | NexGen Speak'
+    const currentLocale = options.locale ?? locale.value ?? 'vi'
+
+    const defaultTitle = t('pageTitle') || 'Học tiếng Anh 1-1 Online | NexGen Speak'
     const defaultDescription =
+      t('pageDescription') ||
       'Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1-1, gia sư tiếng Anh online. Đăng ký học thử miễn phí.'
 
     const currentPath = route.path === '/' ? '' : route.path
     const currentUrl = options.url || `${siteUrl}${currentPath}`
 
-    const currentLocale = options.locale ?? locale.value ?? 'vi'
     const titleValue = toValue(options.title)
     const descriptionValue = toValue(options.description)
 
@@ -149,8 +151,9 @@ export function useSeo(options: SeoOptions = {}) {
       })
     })
 
-    if (options.breadcrumbs?.length) {
-      const items = options.breadcrumbs.map((item, i) => ({
+    const breadcrumbs = toValue(options.breadcrumbs)
+    if (breadcrumbs?.length) {
+      const items = breadcrumbs.map((item, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         name: item.name,
@@ -166,23 +169,23 @@ export function useSeo(options: SeoOptions = {}) {
       })
     }
 
-    if (options.course) {
-      const c = options.course
+    const course = toValue(options.course)
+    if (course) {
       scripts.push({
         type: 'application/ld+json',
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Course',
-          name: c.name,
-          description: c.description,
-          provider: { '@type': 'Organization', name: c.provider },
-          url: c.url ? absoluteUrl(c.url, siteUrl) : currentUrl,
-          image: c.image ? absoluteUrl(c.image, siteUrl) : undefined,
-          ...(c.price != null && {
+          name: course.name,
+          description: course.description,
+          provider: { '@type': 'Organization', name: course.provider },
+          url: course.url ? absoluteUrl(course.url, siteUrl) : currentUrl,
+          image: course.image ? absoluteUrl(course.image, siteUrl) : undefined,
+          ...(course.price != null && {
             offers: {
               '@type': 'Offer',
-              price: c.price,
-              priceCurrency: c.priceCurrency || 'VND'
+              price: course.price,
+              priceCurrency: course.priceCurrency || 'VND'
             }
           })
         })
@@ -208,10 +211,11 @@ export function useSeo(options: SeoOptions = {}) {
   })
 
   return {
-    title: computed(() => toValue(options.title) || 'Học tiếng Anh 1-1 Online | NexGen Speak'),
+    title: computed(() => toValue(options.title) || t('pageTitle') || 'Học tiếng Anh 1-1 Online | NexGen Speak'),
     description: computed(
       () =>
         toValue(options.description) ||
+        t('pageDescription') ||
         'Học tiếng Anh online 1:1 với giáo viên bản xứ. Gia sư tiếng Anh online. Đăng ký học thử miễn phí.'
     ),
     url: computed(() => {

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { CalendarDate, today, getLocalTimeZone } from '@internationalized/date'
 import dayjs from 'dayjs'
-import { SEO_DEFAULTS } from '~/config/seo-defaults'
 
 const route = useRoute()
 const { t } = useI18n()
@@ -12,23 +11,24 @@ const teacherId = route.params.id as string
 const { teacherDetail, isFetchingTeacherDetail } = useTeacherDetail(teacherId as string)
 
 useSeo({
-  title: () =>
+  title: computed(() =>
     teacherDetail.value?.fullName
-      ? SEO_DEFAULTS.teacherDetail.titleTemplate(teacherDetail.value.fullName)
-      : SEO_DEFAULTS.teachers.title,
-  description: () =>
+      ? t('seo.pages.teacherDetail.title', { name: teacherDetail.value.fullName })
+      : t('seo.pages.teachers.title')
+  ),
+  description: computed(() =>
     teacherDetail.value?.fullName
-      ? SEO_DEFAULTS.teacherDetail.descriptionTemplate(teacherDetail.value.fullName)
-      : SEO_DEFAULTS.teachers.description,
-  image: '/images/banner.png',
-  breadcrumbs: [
-    { name: 'Trang chủ', url: '/' },
-    { name: 'Đội ngũ giáo viên', url: '/teachers' },
+      ? t('seo.pages.teacherDetail.description', { name: teacherDetail.value.fullName })
+      : t('seo.pages.teachers.description')
+  ),
+  breadcrumbs: computed(() => [
+    { name: t('seo.breadcrumbs.home'), url: '/' },
+    { name: t('seo.breadcrumbs.teachers'), url: '/teachers' },
     {
-      name: teacherDetail.value?.fullName ?? 'Giáo viên',
+      name: teacherDetail.value?.fullName ?? t('seo.breadcrumbs.teacher'),
       url: `/teacher/${teacherId}`
     }
-  ]
+  ])
 })
 
 const srcImg = '/images/teacher-default.png'

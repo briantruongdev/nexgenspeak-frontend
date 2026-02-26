@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { SEO_DEFAULTS } from '~/config/seo-defaults'
+const { t } = useI18n()
 
 useSeo({
-  title: SEO_DEFAULTS.teachers.title,
-  description: SEO_DEFAULTS.teachers.description,
-  breadcrumbs: [
-    { name: 'Trang chủ', url: '/' },
-    { name: 'Đội ngũ giáo viên', url: '/teachers' }
+  title: () => t('seo.pages.teachers.title'),
+  description: () => t('seo.pages.teachers.description'),
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbs.home'), url: '/' },
+    { name: t('seo.breadcrumbs.teachers'), url: '/teachers' }
   ]
 })
 </script>

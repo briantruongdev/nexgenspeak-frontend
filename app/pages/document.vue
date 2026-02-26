@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { UiDocumentFamilyAndFriend } from '#components'
-import { SEO_DEFAULTS } from '~/config/seo-defaults'
+
+const { t } = useI18n()
 
 useSeo({
-  title: SEO_DEFAULTS.document.title,
-  description: SEO_DEFAULTS.document.description,
-  breadcrumbs: [
-    { name: 'Trang chủ', url: '/' },
-    { name: 'Tài liệu', url: '/document' }
+  title: () => t('seo.pages.document.title'),
+  description: () => t('seo.pages.document.description'),
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbs.home'), url: '/' },
+    { name: t('seo.breadcrumbs.document'), url: '/document' }
   ]
 })
 </script>

@@ -11,9 +11,11 @@ definePageMeta({
   middleware: 'auth'
 })
 
+const { t } = useI18n()
+
 useSeo({
-  title: 'Đặt lịch học | NexGen Speak',
-  description: 'Chọn giáo viên và đặt lịch học tiếng Anh 1-1.',
+  title: () => t('seo.pages.booking.title'),
+  description: () => t('seo.pages.booking.description'),
   noindex: true
 })
 
@@ -24,7 +26,6 @@ const OBSERVER_ROOT_MARGIN = '100px'
 const ANIMATION_DELAY_MS = 50
 const OBSERVER_SETUP_DELAY_MS = 100
 
-const { t } = useI18n()
 const { data, pending, isProcessing, getSlotByDate, toggleFavoriteTeacher } = useTeacher()
 const { isSlotModalVisible, selectedTeacherId, selectedSlotIds, booking } = useRegistration()
 

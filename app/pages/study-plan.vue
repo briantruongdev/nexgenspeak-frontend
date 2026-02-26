@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import { SEO_DEFAULTS } from '~/config/seo-defaults'
+const { t } = useI18n()
 
 useSeo({
-  title: SEO_DEFAULTS.studyPlan.title,
-  description: SEO_DEFAULTS.studyPlan.description,
-  breadcrumbs: [
-    { name: 'Trang chủ', url: '/' },
-    { name: 'Kế hoạch học tập & Học phí', url: '/study-plan' }
+  title: () => t('seo.pages.studyPlan.title'),
+  description: () => t('seo.pages.studyPlan.description'),
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbs.home'), url: '/' },
+    { name: t('seo.breadcrumbs.studyPlan'), url: '/study-plan' }
   ],
-  course: {
-    name: 'Khóa học tiếng Anh 1-1 Online',
-    description:
-      'Chương trình học tiếng Anh online 1:1 với giáo viên bản xứ. Lộ trình cá nhân hóa, cam kết đầu ra. NexGen Speak.',
+  course: () => ({
+    name: t('seo.pages.studyPlan.course.name'),
+    description: t('seo.pages.studyPlan.course.description'),
     provider: 'NexGen Speak',
     url: '/study-plan'
-  }
+  })
 })
 </script>
 
