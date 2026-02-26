@@ -102,9 +102,12 @@ onMounted(() => {
           :fetchpriority="item.key === 1 ? 'high' : undefined"
           width="1280"
           height="520"
-          class="w-full h-130 max-lg:h-100 object-cover 2xl:h-180"
+          class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] object-cover"
         />
-        <div v-else-if="item.media.type === 'video' && !isMounted" class="w-full h-130 max-lg:h-100 bg-gray-200">
+        <div
+          v-else-if="item.media.type === 'video' && !isMounted"
+          class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] bg-gray-200"
+        >
           <img :src="item.media.poster" alt="Video poster" class="w-full h-full object-cover" />
         </div>
         <video
@@ -116,7 +119,7 @@ onMounted(() => {
           playsinline
           :poster="item.media.poster"
           preload="metadata"
-          class="w-full h-130 max-lg:h-100 object-cover aspect-[1.237/1] 2xl:h-180"
+          class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] object-cover"
         >
           <source v-for="source in item.media.sources" :key="source.src" :src="source.src" :type="source.type" />
           Your browser does not support the video tag.
@@ -187,10 +190,7 @@ onMounted(() => {
             </div>
           </div>
         </template>
-        <div
-          v-else-if="item.media.type === 'video'"
-          class="absolute top-1/5 left-[34%] max-md:left-[32%] max-[600px]:left-[14%]! max-[500px]:left-[10%]! mr-6"
-        >
+        <div v-else-if="item.media.type === 'video'" class="absolute inset-0 flex flex-col items-center justify-center px-6">
           <p class="text-6xl font-bold text-center text-primary max-lg:text-5xl max-[900px]:text-4xl! max-[600px]:text-2xl!">
             {{ t('banner3.improve') }}
           </p>
