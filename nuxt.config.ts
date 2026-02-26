@@ -12,14 +12,21 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'NexGen Speak - Học Tiếng Anh 1 kèm 1 Online',
+      title: 'NexGen Speak - Học Tiếng Anh 1-1 Online',
       titleTemplate: '%s',
+      htmlAttrs: {
+        lang: 'vi'
+      },
       meta: [
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'googlebot', content: 'index, follow' },
-        { name: 'author', content: 'NexGen Speak' }
+        { name: 'author', content: 'NexGen Speak' },
+        { name: 'language', content: 'Vietnamese' }
       ],
-      link: [{ rel: 'icon', type: 'image/png', href: '/images/logo.png' }]
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      ]
     }
   },
   css: ['~/assets/css/main.css'],

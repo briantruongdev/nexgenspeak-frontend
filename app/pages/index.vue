@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { SEO_DEFAULTS } from '~/config/seo-defaults'
 
-const { t } = useI18n()
-
 useSeo({
-  title: () => t('pageTitle') || SEO_DEFAULTS.home.title,
-  description: () => t('pageDescription') || SEO_DEFAULTS.home.description,
-  image: '/images/banner.png',
+  title: SEO_DEFAULTS.home.title,
+  description: SEO_DEFAULTS.home.description,
   breadcrumbs: [{ name: 'Trang chủ', url: '/' }]
 })
 </script>

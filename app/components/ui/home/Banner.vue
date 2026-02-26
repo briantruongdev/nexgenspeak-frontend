@@ -63,7 +63,7 @@ const items = computed<BannerItem[]>(() => [
     media: {
       type: 'image',
       src: '/images/banner.png',
-      alt: 'Banner học tiếng Anh 1 kèm 1 - NexGen Speak'
+      alt: t('banner.altBanner')
     },
     headlineKeys: ['banner.title', 'banner.subtitle'],
     buttonTextKey: 'banner.learnMore'
@@ -73,7 +73,7 @@ const items = computed<BannerItem[]>(() => [
     media: {
       type: 'image',
       src: '/images/banner2.png',
-      alt: 'Banner học tiếng Anh 1 kèm 1 - NexGen Speak'
+      alt: t('banner.altBanner')
     },
     headlineKeys: ['banner2.title', 'banner2.subtitle'],
     buttonTextKey: 'banner2.learnMore'

@@ -34,7 +34,7 @@ function absoluteUrl(url: string, base: string): string {
 }
 
 export function useSeo(options: SeoOptions = {}) {
-  const { locale, t } = useI18n()
+  const { locale } = useI18n()
   const config = useRuntimeConfig()
   const route = useRoute()
 
@@ -42,24 +42,19 @@ export function useSeo(options: SeoOptions = {}) {
   const siteName = options.siteName || DEFAULT_SITE_NAME
 
   watchEffect(() => {
-    const defaultTitle = t('pageTitle') || 'Học tiếng Anh 1 kèm 1 Online | NexGen Speak'
+    const defaultTitle = 'Học tiếng Anh 1-1 Online | NexGen Speak'
     const defaultDescription =
-      t('pageDescription') ||
-      'Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1 kèm 1, gia sư tiếng Anh online. Đăng ký học thử miễn phí.'
-    const defaultImage = absoluteUrl('/images/banner.png', siteUrl)
+      'Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1-1, gia sư tiếng Anh online. Đăng ký học thử miễn phí.'
 
     const currentPath = route.path === '/' ? '' : route.path
     const currentUrl = options.url || `${siteUrl}${currentPath}`
 
     const currentLocale = options.locale ?? locale.value ?? 'vi'
-    const alternateLocale = options.alternateLocale ?? (currentLocale === 'vi' ? 'en' : 'vi')
-
     const titleValue = toValue(options.title)
     const descriptionValue = toValue(options.description)
 
     const title = titleValue ?? defaultTitle
     const description = descriptionValue ?? defaultDescription
-    const image = options.image ? absoluteUrl(options.image, siteUrl) : defaultImage
 
     const ogType = options.type ?? 'website'
     const noindex = options.noindex === true
@@ -69,7 +64,6 @@ export function useSeo(options: SeoOptions = {}) {
       description,
       ogTitle: title,
       ogDescription: description,
-      ogImage: image,
       ogUrl: currentUrl,
       ogType,
       ogSiteName: siteName,
@@ -79,7 +73,6 @@ export function useSeo(options: SeoOptions = {}) {
       twitterCard: 'summary_large_image',
       twitterTitle: title,
       twitterDescription: description,
-      twitterImage: image,
       twitterSite: '@nexgenspeak',
       robots: noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
       author: siteName
@@ -94,8 +87,9 @@ export function useSeo(options: SeoOptions = {}) {
     useHead({
       link: [
         { rel: 'canonical', href: currentUrl },
-        { rel: 'alternate', hreflang: currentLocale, href: currentUrl },
-        { rel: 'alternate', hreflang: alternateLocale, href: `${siteUrl}${currentPath}` }
+        { rel: 'alternate', hreflang: 'vi-VN', href: currentUrl },
+        { rel: 'alternate', hreflang: 'vi', href: currentUrl },
+        { rel: 'alternate', hreflang: 'x-default', href: currentUrl }
       ],
       meta: Object.entries(headMeta).map(([name, content]) => ({ property: name, content })),
       htmlAttrs: { lang: currentLocale }
@@ -103,15 +97,25 @@ export function useSeo(options: SeoOptions = {}) {
 
     const scripts: Array<{ type: string; innerHTML: string }> = []
 
-    // Organization (global)
+    const logoUrl = absoluteUrl('/favicon.ico', siteUrl)
     scripts.push({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'EducationalOrganization',
+        '@id': `${siteUrl}/#organization`,
         name: siteName,
         url: siteUrl,
-        logo: absoluteUrl('/images/logo.png', siteUrl),
+        logo: {
+          '@type': 'ImageObject',
+          '@id': `${siteUrl}/#logo`,
+          url: logoUrl,
+          contentUrl: logoUrl,
+          width: 4096,
+          height: 4096,
+          caption: siteName
+        },
+        image: logoUrl,
         description: description,
         address: { '@type': 'PostalAddress', addressCountry: 'VN' },
         contactPoint: {
@@ -120,11 +124,31 @@ export function useSeo(options: SeoOptions = {}) {
           contactType: 'customer service',
           availableLanguage: ['Vietnamese', 'English'],
           areaServed: 'VN'
+        },
+        sameAs: ['https://www.facebook.com/nexgenspeak', 'https://www.youtube.com/@nexgenspeak']
+      })
+    })
+
+    scripts.push({
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        url: siteUrl,
+        name: siteName,
+        publisher: {
+          '@id': `${siteUrl}/#organization`
+        },
+        inLanguage: currentLocale === 'vi' ? 'vi-VN' : 'en-US',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${siteUrl}/teachers?search={search_term_string}`,
+          'query-input': 'required name=search_term_string'
         }
       })
     })
 
-    // BreadcrumbList
     if (options.breadcrumbs?.length) {
       const items = options.breadcrumbs.map((item, i) => ({
         '@type': 'ListItem',
@@ -142,7 +166,6 @@ export function useSeo(options: SeoOptions = {}) {
       })
     }
 
-    // Course
     if (options.course) {
       const c = options.course
       scripts.push({
@@ -166,7 +189,6 @@ export function useSeo(options: SeoOptions = {}) {
       })
     }
 
-    // FAQPage
     if (options.faq?.length) {
       scripts.push({
         type: 'application/ld+json',
@@ -186,17 +208,12 @@ export function useSeo(options: SeoOptions = {}) {
   })
 
   return {
-    title: computed(() => toValue(options.title) || t('pageTitle') || 'Học tiếng Anh 1 kèm 1 Online | NexGen Speak'),
+    title: computed(() => toValue(options.title) || 'Học tiếng Anh 1-1 Online | NexGen Speak'),
     description: computed(
       () =>
         toValue(options.description) ||
-        t('pageDescription') ||
         'Học tiếng Anh online 1:1 với giáo viên bản xứ. Gia sư tiếng Anh online. Đăng ký học thử miễn phí.'
     ),
-    image: computed(() => {
-      const defaultImage = absoluteUrl('/images/banner.png', siteUrl)
-      return options.image ? absoluteUrl(options.image, siteUrl) : defaultImage
-    }),
     url: computed(() => {
       const path = route.path === '/' ? '' : route.path
       return `${siteUrl}${path}`

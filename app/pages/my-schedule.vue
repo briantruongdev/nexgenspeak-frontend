@@ -21,7 +21,7 @@ definePageMeta({
 
 useSeo({
   title: 'Lịch học của tôi | NexGen Speak',
-  description: 'Xem và quản lý lịch học tiếng Anh 1 kèm 1.',
+  description: 'Xem và quản lý lịch học tiếng Anh 1-1.',
   noindex: true
 })
 

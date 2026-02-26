@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Học tiếng Anh 1 kèm 1 Online | NexGen Speak - Gia sư tiếng Anh trực tuyến",
-  "pageDescription": "Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1 kèm 1, gia sư tiếng Anh online cam kết đầu ra. Đăng ký học thử miễn phí.",
+  "pageTitle": "Học tiếng Anh 1-1 Online | NexGen Speak - Gia sư tiếng Anh trực tuyến",
+  "pageDescription": "Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1-1, gia sư tiếng Anh online cam kết đầu ra. Đăng ký học thử miễn phí.",
   "header": {
     "nav": {
       "studyPlan": "Kế hoạch học tập & Học phí",
@@ -16,12 +16,13 @@
     "login": "Đăng nhập"
   },
   "banner": {
-    "title": "Học tiếng Anh 1 kèm 1",
+    "title": "Học tiếng Anh 1-1",
     "subtitle": "Với NexGen Speak",
     "learnMore": "Tìm hiểu thêm",
     "registerTrial": "Đăng ký học thử miễn phí",
     "buyCourse": "Mua khóa luyện thi",
-    "support": "Hỗ trợ"
+    "support": "Hỗ trợ",
+    "altBanner": "Banner học tiếng Anh 1-1 - NexGen Speak"
   },
   "banner2": {
     "title": "Học Tiếng Anh Trực Tuyến",
@@ -138,11 +139,11 @@
     }
   },
   "roadmap": {
-    "title": "Lộ trình học tập tiếng Anh online 1 kèm 1",
+    "title": "Lộ trình học tập tiếng Anh online 1-1",
     "items": {
-      "step1": "Đăng ký học thử khoá học tiếng Anh online 1 kèm 1",
+      "step1": "Đăng ký học thử khoá học tiếng Anh online 1-1",
       "step2": "Kiểm tra khảo sát đầu vào để có lộ trình phù hợp",
-      "step3": "Bắt đầu tham gia khóa học tiếng Anh online 1 kèm 1",
+      "step3": "Bắt đầu tham gia khóa học tiếng Anh online 1-1",
       "step4": "Tùy chỉnh kế hoạch và thời gian học tập linh hoạt"
     }
   },
@@ -278,7 +279,7 @@
       "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới.",
       "reasons": {
         "item1": {
-          "title": "Học 1 kèm 1: 1 giáo viên giỏi chỉ dạy 1 học viên",
+          "title": "Học 1-1: 1 giáo viên giỏi chỉ dạy 1 học viên",
           "description": "Tận dụng tối đa 45 phút/ buổi học. Yếu chỗ nào tập trung chỗ đó. Giáo viên theo sát, khích lệ học viên."
         },
         "item2": {
@@ -305,7 +306,7 @@
         "class1": {
           "title": "LỚP HỌC ĐẢO NGƯỢC (FLIPPED LEARNING MODEL)",
           "item1": "Học viên được tặng sách có bản quyền và hướng dẫn tự học trước buổi học kèm.",
-          "item2": "Học 1 kèm 1 với giáo viên trong 45 phút, tập trung sửa lỗi và thực hành nghe nói.",
+          "item2": "Học 1-1 với giáo viên trong 45 phút, tập trung sửa lỗi và thực hành nghe nói.",
           "item3": "Làm bài tập về nhà, luyện các đề thi để giáo viên chấm điểm."
         },
         "class2": {

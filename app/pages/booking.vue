@@ -13,7 +13,7 @@ definePageMeta({
 
 useSeo({
   title: 'Đặt lịch học | NexGen Speak',
-  description: 'Chọn giáo viên và đặt lịch học tiếng Anh 1 kèm 1.',
+  description: 'Chọn giáo viên và đặt lịch học tiếng Anh 1-1.',
   noindex: true
 })
 

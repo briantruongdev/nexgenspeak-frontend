@@ -1,6 +1,6 @@
 {
-  "pageTitle": "1-on-1 Online English Lessons | NexGen Speak - Private English Tutoring",
-  "pageDescription": "Learn English online 1-on-1 with native teachers. Personalized private English lessons with guaranteed learning outcomes. Sign up for a free trial class today.",
+  "pageTitle": "1-1 Online English Lessons | NexGen Speak - Private English Tutoring",
+  "pageDescription": "Learn English online 1-1 with native teachers. Personalized private English lessons with guaranteed learning outcomes. Sign up for a free trial class today.",
   "header": {
     "nav": {
       "studyPlan": "Study Plan & Tuition",
@@ -16,12 +16,13 @@
     "login": "Login"
   },
   "banner": {
-    "title": "1-on-1 English Lessons",
+    "title": "1-1 English Lessons",
     "subtitle": "With NexGen Speak",
     "learnMore": "Learn More",
     "registerTrial": "Register for Free Trial",
     "buyCourse": "Buy Exam Prep Course",
-    "support": "Support"
+    "support": "Support",
+    "altBanner": "Banner for One-One English Learning – NexGen Speak"
   },
   "banner2": {
     "title": "Learn English Online",
@@ -138,11 +139,11 @@
     }
   },
   "roadmap": {
-    "title": "Online 1-on-1 English Learning Roadmap",
+    "title": "Online 1-1 English Learning Roadmap",
     "items": {
-      "step1": "Register for a 1-on-1 online English trial course",
+      "step1": "Register for a 1-1 online English trial course",
       "step2": "Take a placement test to get a suitable learning roadmap",
-      "step3": "Start joining the 1-on-1 online English course",
+      "step3": "Start joining the 1-1 online English course",
       "step4": "Customize your study plan and schedule flexibly"
     }
   },
@@ -278,7 +279,7 @@
       "footer": "Building a solid foundation for your global journey.",
       "reasons": {
         "item1": {
-          "title": "1-on-1 Tutoring: One excellent teacher, one dedicated student",
+          "title": "1-1 Tutoring: One excellent teacher, one dedicated student",
           "description": "Maximize every 45-minute session. Focus on weak areas. Teachers closely guide and encourage students."
         },
         "item2": {
@@ -305,7 +306,7 @@
         "class1": {
           "title": "FLIPPED LEARNING MODEL",
           "item1": "Students receive licensed textbooks and self-study guides before tutoring sessions.",
-          "item2": "1-on-1 with the teacher for 45 minutes, focusing on error correction and listening/speaking practice.",
+          "item2": "1-1 with the teacher for 45 minutes, focusing on error correction and listening/speaking practice.",
           "item3": "Complete homework and practice exam papers for the teacher to grade."
         },
         "class2": {

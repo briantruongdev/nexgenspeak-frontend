@@ -49,7 +49,7 @@ const menuSections = computed(() => [
   <footer class="bg-primary px-32 py-12 max-xl:p-6">
     <img
       src="/images/logo-white.png"
-      alt="NexGen Speak - Học tiếng Anh 1 kèm 1"
+      alt="NexGen Speak - Học tiếng Anh 1-1"
       loading="lazy"
       width="160"
       height="40"
