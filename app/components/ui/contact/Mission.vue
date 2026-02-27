@@ -4,7 +4,7 @@ const src = '/images/contact-banner2.png'
 
 <template>
   <div class="relative section-responsive-pt container">
-    <img :src alt="Banner" loading="lazy" class="h-screen w-screen object-cover max-[450px]:hidden" />
+    <img :src alt="Banner" loading="lazy" class="h-175 w-screen object-cover max-[450px]:hidden" />
     <div
       class="absolute w-3/5 bg-primary rounded-tr-[50px] rounded-br-[50px] max-[450px]:relative! max-[450px]:w-full! max-[450px]:top-0! text-white top-40 px-10 py-16 max-[900px]:top-36 max-md:top-20 max-md:w-1/2 max-sm:w-2/3"
     >
