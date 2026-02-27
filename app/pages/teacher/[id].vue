@@ -75,7 +75,7 @@ const handleBooking = async () => {
 
 <template>
   <div>
-    <div v-if="isFetchingTeacherDetail" class="h-80 flex justify-center items-center">
+    <div v-if="isFetchingTeacherDetail" class="h-screen flex justify-center items-center">
       <div key="loading" class="flex flex-col space-y-4 items-center my-8 animate-pulse">
         <UIcon name="i-lucide-loader" class="animate-spin size-10 text-primary" />
         <span class="text-gray-500 animate-pulse">{{ t('loadingTeacherDetail') }}</span>
