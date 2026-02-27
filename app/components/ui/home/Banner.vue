@@ -92,7 +92,15 @@ onMounted(() => {
 
 <template>
   <div class="relative w-full">
-    <UCarousel v-slot="{ item }" :items="items" loop :autoplay="{ delay: 5000 }">
+    <UCarousel
+      v-slot="{ item }"
+      :items="items"
+      loop
+      :autoplay="{ delay: 5000 }"
+      effect="fade"
+      :fade-effect="{ crossFade: true }"
+      :auto-height="true"
+    >
       <div class="relative" :class="{ bg: item.key === 2 }">
         <img
           v-if="item.media.type === 'image'"
@@ -104,12 +112,7 @@ onMounted(() => {
           height="520"
           class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] object-cover"
         />
-        <div
-          v-else-if="item.media.type === 'video' && !isMounted"
-          class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] bg-gray-200"
-        >
-          <img :src="item.media.poster" alt="Video poster" class="w-full h-full object-cover" />
-        </div>
+
         <video
           v-else-if="item.media.type === 'video' && isMounted"
           :key="`video-${item.key}-${videoKey}`"
@@ -119,7 +122,7 @@ onMounted(() => {
           playsinline
           :poster="item.media.poster"
           preload="metadata"
-          class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] object-cover"
+          class="w-full max-lg:h-100 lg:h-[clamp(30rem,34vw,46rem)] object-cover max-[500px]:object-contain max-[500px]:h-auto!"
         >
           <source v-for="source in item.media.sources" :key="source.src" :src="source.src" :type="source.type" />
           Your browser does not support the video tag.

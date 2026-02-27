@@ -42,7 +42,7 @@ export function useSeo(options: SeoOptions = {}) {
   const siteName = options.siteName || DEFAULT_SITE_NAME
 
   watchEffect(() => {
-    const currentLocale = options.locale ?? locale.value ?? 'vi'
+    const currentLocale = options.locale ?? (import.meta.server ? 'vi' : locale.value) ?? 'vi'
 
     const defaultTitle = t('pageTitle') || 'Học tiếng Anh 1-1 Online | NexGen Speak'
     const defaultDescription =

@@ -4,10 +4,7 @@ useHead({
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'icon', type: 'image/png', href: '/favicon.png' }
-  ],
-  htmlAttrs: {
-    lang: 'vi'
-  }
+  ]
 })
 
 // Prevent layout shift on page load
