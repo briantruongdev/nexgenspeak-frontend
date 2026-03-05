@@ -16,6 +16,8 @@ const { t } = useI18n()
 useSeo({
   title: () => t('seo.pages.booking.title'),
   description: () => t('seo.pages.booking.description'),
+  titleKey: 'seo.pages.booking.title',
+  descriptionKey: 'seo.pages.booking.description',
   noindex: true
 })
 

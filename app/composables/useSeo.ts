@@ -5,6 +5,12 @@ import type { BreadcrumbItem, CourseSchemaOption, FAQItem } from '~/types/seo'
 export interface SeoOptions {
   title?: MaybeRefOrGetter<string | undefined>
   description?: MaybeRefOrGetter<string | undefined>
+  /** i18n key cho title — dùng để SSR luôn dịch tiếng Việt cho SEO */
+  titleKey?: string
+  /** i18n key cho description — dùng để SSR luôn dịch tiếng Việt cho SEO */
+  descriptionKey?: string
+  /** i18n keys cho breadcrumbs — dùng để SSR luôn dịch tiếng Việt cho SEO */
+  breadcrumbKeys?: Array<{ nameKey: string; url: string }>
   image?: string
   url?: string
   type?: 'website' | 'article'
@@ -35,6 +41,8 @@ function absoluteUrl(url: string, base: string): string {
 
 export function useSeo(options: SeoOptions = {}) {
   const { locale, t } = useI18n()
+  // Instance i18n cố định locale 'vi' — dùng cho SSR để Google luôn index tiếng Việt
+  const { t: tVi } = useI18n({ locale: 'vi' })
   const config = useRuntimeConfig()
   const route = useRoute()
 
@@ -42,21 +50,33 @@ export function useSeo(options: SeoOptions = {}) {
   const siteName = options.siteName || DEFAULT_SITE_NAME
 
   watchEffect(() => {
-    const currentLocale = options.locale ?? (import.meta.server ? 'vi' : locale.value) ?? 'vi'
+    const isServer = import.meta.server
+    const currentLocale = options.locale ?? (isServer ? 'vi' : locale.value) ?? 'vi'
 
-    const defaultTitle = t('pageTitle') || 'Học tiếng Anh 1-1 Online | NexGen Speak'
+    // SSR (Google bot): luôn dùng tVi() để SEO cố định tiếng Việt
+    // Client: dùng t() bình thường để title đổi theo ngôn ngữ người dùng
+    const translate = isServer ? tVi : t
+
+    const defaultTitle = translate('pageTitle') || 'Học tiếng Anh 1-1 Online | NexGen Speak'
     const defaultDescription =
-      t('pageDescription') ||
+      translate('pageDescription') ||
       'Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1-1, gia sư tiếng Anh online. Đăng ký học thử miễn phí.'
 
     const currentPath = route.path === '/' ? '' : route.path
     const currentUrl = options.url || `${siteUrl}${currentPath}`
 
-    const titleValue = toValue(options.title)
-    const descriptionValue = toValue(options.description)
+    let title: string
+    let description: string
 
-    const title = titleValue ?? defaultTitle
-    const description = descriptionValue ?? defaultDescription
+    if (isServer) {
+      // SSR (Google bot): dùng tVi() với i18n key để SEO luôn là tiếng Việt
+      title = (options.titleKey ? tVi(options.titleKey) : toValue(options.title)) ?? defaultTitle
+      description = (options.descriptionKey ? tVi(options.descriptionKey) : toValue(options.description)) ?? defaultDescription
+    } else {
+      // Client: dùng giá trị reactive từ page (đổi theo ngôn ngữ người dùng)
+      title = toValue(options.title) ?? defaultTitle
+      description = toValue(options.description) ?? defaultDescription
+    }
 
     const ogType = options.type ?? 'website'
     const noindex = options.noindex === true
@@ -151,9 +171,16 @@ export function useSeo(options: SeoOptions = {}) {
       })
     })
 
-    const breadcrumbs = toValue(options.breadcrumbs)
-    if (breadcrumbs?.length) {
-      const items = breadcrumbs.map((item, i) => ({
+    // Breadcrumbs: SSR dùng tVi với breadcrumbKeys, client dùng giá trị reactive
+    let breadcrumbItems: BreadcrumbItem[] | undefined
+    if (isServer && options.breadcrumbKeys?.length) {
+      breadcrumbItems = options.breadcrumbKeys.map(b => ({ name: tVi(b.nameKey), url: b.url }))
+    } else {
+      breadcrumbItems = toValue(options.breadcrumbs)
+    }
+
+    if (breadcrumbItems?.length) {
+      const items = breadcrumbItems.map((item, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         name: item.name,

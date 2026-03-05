@@ -4,9 +4,15 @@ const { t } = useI18n()
 useSeo({
   title: () => t('seo.pages.recruitment.title'),
   description: () => t('seo.pages.recruitment.description'),
+  titleKey: 'seo.pages.recruitment.title',
+  descriptionKey: 'seo.pages.recruitment.description',
   breadcrumbs: () => [
     { name: t('seo.breadcrumbs.home'), url: '/' },
     { name: t('seo.breadcrumbs.recruitment'), url: '/recruitment' }
+  ],
+  breadcrumbKeys: [
+    { nameKey: 'seo.breadcrumbs.home', url: '/' },
+    { nameKey: 'seo.breadcrumbs.recruitment', url: '/recruitment' }
   ]
 })
 </script>

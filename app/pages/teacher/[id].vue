@@ -22,6 +22,8 @@ useSeo({
       ? t('seo.pages.teacherDetail.description', { name: teacherDetail.value.fullName })
       : t('seo.pages.teachers.description')
   ),
+  titleKey: 'seo.pages.teachers.title',
+  descriptionKey: 'seo.pages.teachers.description',
   breadcrumbs: computed(() => [
     { name: t('seo.breadcrumbs.home'), url: '/' },
     { name: t('seo.breadcrumbs.teachers'), url: '/teachers' },
@@ -29,7 +31,12 @@ useSeo({
       name: teacherDetail.value?.fullName ?? t('seo.breadcrumbs.teacher'),
       url: `/teacher/${teacherId}`
     }
-  ])
+  ]),
+  breadcrumbKeys: [
+    { nameKey: 'seo.breadcrumbs.home', url: '/' },
+    { nameKey: 'seo.breadcrumbs.teachers', url: '/teachers' },
+    { nameKey: 'seo.breadcrumbs.teacher', url: `/teacher/${teacherId}` }
+  ]
 })
 
 const srcImg = '/images/teacher-default.png'

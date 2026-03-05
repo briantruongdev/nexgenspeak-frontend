@@ -22,6 +22,8 @@ definePageMeta({
 useSeo({
   title: () => t('seo.pages.mySchedule.title'),
   description: () => t('seo.pages.mySchedule.description'),
+  titleKey: 'seo.pages.mySchedule.title',
+  descriptionKey: 'seo.pages.mySchedule.description',
   noindex: true
 })
 

@@ -7,7 +7,9 @@ const { t } = useI18n()
 
 useSeo({
   title: () => t('seo.pages.register.title'),
-  description: () => t('seo.pages.register.description')
+  description: () => t('seo.pages.register.description'),
+  titleKey: 'seo.pages.register.title',
+  descriptionKey: 'seo.pages.register.description'
 })
 const { isProcessing, formRegister, canRegister, handleRegister } = useAuth()
 const { schema } = useSchema(registerSchema)
