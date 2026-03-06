@@ -49,11 +49,7 @@ const aboutClass = computed(() => [
     id: 3,
     image: '/images/plan3.png',
     title: t('studyPlan.learningMethod.aboutClass.class3.title'),
-    data: [
-      t('studyPlan.learningMethod.aboutClass.class3.item1'),
-      t('studyPlan.learningMethod.aboutClass.class3.item2'),
-      t('studyPlan.learningMethod.aboutClass.class3.item3')
-    ]
+    data: [t('studyPlan.learningMethod.aboutClass.class3.item1'), t('studyPlan.learningMethod.aboutClass.class3.item2')]
   },
   {
     id: 4,
