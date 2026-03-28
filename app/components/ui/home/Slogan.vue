@@ -24,10 +24,10 @@ const data = computed(() => [
 <template>
   <div class="container">
     <div class="my-20 max-lg:mt-12 max-xl:px-6 max-[400px]:mt-8! max-lg:mb-0">
-      <p class="title">{{ $t('slogan.title') }}</p>
+      <p class="title">{{ t('slogan.title') }}</p>
 
       <p class="my-6 text-lg max-sm:text-sm">
-        {{ $t('slogan.description') }}
+        {{ t('slogan.description') }}
       </p>
       <div class="grid grid-cols-[1fr_1fr] max-lg:grid-cols-1 items-center">
         <div class="grid grid-cols-2 gap-6 max-sm:grid-cols-1">

@@ -13,7 +13,7 @@ const navItemsPrimary = computed(() => [
   { name: t('header.nav.studyPlan'), href: '/study-plan', view: true },
   { name: t('header.nav.teachers'), href: '/teachers', view: true },
   { name: t('header.nav.document'), href: '/document', view: true },
-  { name: t('header.nav.register'), href: '/registration', view: isAuthenticated.value }
+  { name: t('header.nav.booking'), href: '/booking', view: isAuthenticated.value }
 ])
 
 const navItemsSecondary = computed(() => [
@@ -117,7 +117,7 @@ onUnmounted(() => {
     </div>
 
     <div class="flex gap-4 items-center">
-      <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" @click="navigateTo('/login')" />
+      <BaseButton v-if="!isAuthenticated" :text="t('header.login')" @click="navigateTo('/login')" />
 
       <UPopover v-else>
         <BaseIcon name="avatar-default" color="#ddd" size="36" class="hover:cursor-pointer" />
@@ -138,7 +138,7 @@ onUnmounted(() => {
               class="hover:underline hover:text-primary hover:cursor-pointer transition-all duration-300 hover:translate-x-2"
               @click="handleLogout"
             >
-              {{ $t('auth.logout') }}
+              {{ t('auth.logout') }}
             </p>
           </div>
         </template>
@@ -261,12 +261,12 @@ onUnmounted(() => {
           </template>
 
           <template #footer>
-            <BaseButton v-if="!isAuthenticated" :text="$t('header.login')" class="w-full" @click="navigateTo('/login')" />
+            <BaseButton v-if="!isAuthenticated" :text="t('header.login')" class="w-full" @click="navigateTo('/login')" />
             <div v-else class="space-y-4">
               <UBadge color="primary" variant="subtle" class="h-10 text-center flex justify-center text-base font-medium">{{
                 email
               }}</UBadge>
-              <BaseButton :text="$t('auth.logout')" class="w-full h-10 gap-0" />
+              <BaseButton :text="t('auth.logout')" class="w-full h-10 gap-0" />
             </div>
 
             <BaseLanguages class="transition-all duration-300 w-full mt-4" />

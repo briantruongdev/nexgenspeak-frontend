@@ -8,7 +8,7 @@ const { show = true, emptyText = 'no-data' } = defineProps<{
 </script>
 
 <template>
-  <div v-if="show" class="flex h-full flex-col items-center justify-center py-[22px]">
+  <div v-if="show" class="flex h-50 items-center justify-center">
     <UIcon name="i-lucide-text-search" class="size-20 text-gray-400" />
     <p class="mt-3 text-sm text-gray-400">{{ t(`${emptyText}`) }}</p>
   </div>

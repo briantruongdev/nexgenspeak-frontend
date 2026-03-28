@@ -12,41 +12,35 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'NexGen Speak - Học Tiếng Anh Trực Tuyến',
-      titleTemplate: '%s | NexGen Speak',
+      title: 'NexGen Speak - Học Tiếng Anh 1-1 Online',
+      titleTemplate: '%s',
+      htmlAttrs: {
+        lang: 'vi'
+      },
       meta: [
-        {
-          name: 'format-detection',
-          content: 'telephone=no'
-        },
-        {
-          name: 'robots',
-          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-        },
-        {
-          name: 'googlebot',
-          content: 'index, follow'
-        },
-        {
-          name: 'author',
-          content: 'NexGen Speak'
-        }
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'googlebot', content: 'index, follow' },
+        { name: 'author', content: 'NexGen Speak' },
+        { name: 'language', content: 'Vietnamese' }
       ],
       link: [
-        {
-          rel: 'icon',
-          type: 'image/png',
-          href: '/images/logo.png'
-        },
-        {
-          rel: 'canonical',
-          href: 'https://nexgenspeak.com'
-        }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
       ]
     }
   },
-
   css: ['~/assets/css/main.css'],
+  vue: {
+    compilerOptions: {
+      whitespace: 'condense'
+    }
+  },
+
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
   colorMode: {
     preference: 'light',
     fallback: 'light'
@@ -65,14 +59,45 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
+    '/blog': { ssr: true },
+    '/teachers': { ssr: true },
+    '/teacher/**': { ssr: true },
+    '/contact': { ssr: true },
+    '/document': { ssr: true },
+    '/recruitment': { ssr: true },
+    '/study-plan': { ssr: true },
+    '/register': { ssr: true },
+    '/login': { ssr: true },
+    '/forgot-password': { ssr: true },
+    // SEO files
+    '/sitemap.xml': {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600'
+      }
+    },
+    '/robots.txt': {
+      headers: {
+        'Content-Type': 'text/plain',
+        'Cache-Control': 'public, max-age=86400, s-maxage=86400'
+      }
+    }
+  },
+
+  // Performance: reduce JS bundle
+  features: {
+    inlineStyles: false
+  },
+  experimental: {
+    payloadExtraction: true,
+    componentIslands: false
   },
 
   compatibilityDate: '2025-01-19',
   nitro: {
-    output: {
-      publicDir: 'dist'
-    }
+    output: { publicDir: 'dist' },
+    compressPublicAssets: true
   },
 
   vite: {

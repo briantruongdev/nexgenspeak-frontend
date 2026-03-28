@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Chinh phục Tiếng Anh với NexGen Speak",
-  "pageDescription": "Học Tiếng Anh trực tuyến với giáo viên bản xứ. Môi trường học tập tối ưu, phương pháp hiện đại, cam kết đầu ra.",
+  "pageTitle": "Học tiếng Anh 1-1 Online {'|'} NexGen Speak - Gia sư tiếng Anh trực tuyến",
+  "pageDescription": "Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1-1, gia sư tiếng Anh online cam kết đầu ra. Đăng ký học thử miễn phí.",
   "header": {
     "nav": {
       "studyPlan": "Kế hoạch học tập & Học phí",
@@ -10,17 +10,30 @@
       "blog": "Blog",
       "contact": "Liên hệ",
       "recruitment": "Tuyển dụng",
-      "classSchedule": "Lịch học"
+      "classSchedule": "Lịch học",
+      "booking": "Đặt lịch"
     },
     "login": "Đăng nhập"
   },
   "banner": {
-    "title": "Chinh phục Tiếng Anh",
+    "title": "Học tiếng Anh 1-1",
     "subtitle": "Với NexGen Speak",
     "learnMore": "Tìm hiểu thêm",
     "registerTrial": "Đăng ký học thử miễn phí",
     "buyCourse": "Mua khóa luyện thi",
-    "support": "Hỗ trợ"
+    "support": "Hỗ trợ",
+    "altBanner": "Banner học tiếng Anh 1-1 - NexGen Speak"
+  },
+  "banner2": {
+    "title": "Học Tiếng Anh Trực Tuyến",
+    "subtitle": "Cùng Giáo Viên Chuyên Nghiệp",
+    "learnMore": "Đăng ký ngay"
+  },
+  "banner3": {
+    "improve": "CẢI THIỆN",
+    "yourEnglish": "TIẾNG ANH CỦA BẠN",
+    "anytimeAnywhere": "Mọi lúc, Mọi nơi",
+    "startWithDiscount": "BẮT ĐẦU VỚI ƯU ĐÃI 50%"
   },
   "about": {
     "title": "Về chúng tôi, NexGen Speak Online English School",
@@ -90,7 +103,7 @@
       "step3": {
         "number": "03",
         "title": "Kiểm tra lịch",
-        "description": "Kiểm tra lịch sử đặt chỗ của bạn để xác nhận đặt chỗ của bạn và nhập mã của giáo viên của bạn"
+        "description": "Kiểm tra lịch sử đặt lịch của bạn để xác nhận đặt chỗ của bạn và nhập mã của giáo viên của bạn"
       }
     }
   },
@@ -123,6 +136,15 @@
       "name": "Hoàng Thị Em",
       "title": "Giảng viên Thiếu nhi",
       "description": "Chuyên gia giảng dạy tiếng Anh cho trẻ em với phương pháp sáng tạo và vui nhộn."
+    }
+  },
+  "roadmap": {
+    "title": "Lộ trình học tập tiếng Anh online 1-1",
+    "items": {
+      "step1": "Đăng ký học thử khoá học tiếng Anh online 1-1",
+      "step2": "Kiểm tra khảo sát đầu vào để có lộ trình phù hợp",
+      "step3": "Bắt đầu tham gia khóa học tiếng Anh online 1-1",
+      "step4": "Tùy chỉnh kế hoạch và thời gian học tập linh hoạt"
     }
   },
   "benefits": {
@@ -224,7 +246,17 @@
   "studyPlan": {
     "about": {
       "title": "NexGen Speak",
-      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn thông qua giao tiếp và trò chuyện thực tế. Với lịch học linh hoạt và phương pháp học tập tương tác, bạn có thể chủ động đăng ký khung giờ phù hợp để nâng cao khả năng phản xạ và tự tin sử dụng tiếng Anh mỗi ngày."
+      "description": "Chúng tôi tạo ra môi trường để mỗi học viên có thể thực hành nhiều hơn thông qua giao tiếp và trò chuyện thực tế. Với lịch học linh hoạt và phương pháp học tập tương tác, bạn có thể chủ động đăng ký khung giờ phù hợp để nâng cao khả năng phản xạ và tự tin sử dụng tiếng Anh mỗi ngày.",
+      "reasonsTitle": "Lý do để NexGen Speak luôn là lựa chọn hàng đầu",
+      "reasons": [
+        "Học tập dựa trên phương pháp tương tác đa chiều",
+        "Cải thiện rõ rệt kỹ năng giao tiếp",
+        "Làm chủ ngôn ngữ, tự tin chinh phục Tiếng Anh",
+        "Kho học liệu đa dạng",
+        "Nội dung với hình ảnh hấp dẫn",
+        "Hỗ trợ học tập cá nhân hóa tận tâm",
+        "Đội ngũ giáo viên có chuyên môn cao"
+      ]
     },
     "sloganAbout": "Bằng phương pháp học chủ động và lộ trình cá nhân hóa, chúng tôi cam kết đồng hành cùng bạn biến tiếng Anh thành bản năng để tự tin giao tiếp trong mọi tình huống.",
     "learningMethod": {
@@ -244,7 +276,57 @@
           "description": "Hệ thống bài học được thiết kế bám sát Khung tham chiếu trình độ ngôn ngữ chung Châu Âu (CEFR), đảm bảo tính học thuật và sự công nhận toàn cầu."
         }
       },
-      "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới."
+      "footer": "Cùng bạn xây dựng nền tảng vững chắc cho hành trình vươn ra thế giới.",
+      "reasons": {
+        "item1": {
+          "title": "Học 1-1: 1 giáo viên giỏi chỉ dạy 1 học viên",
+          "description": "Tận dụng tối đa 45 phút/ buổi học. Yếu chỗ nào tập trung chỗ đó. Giáo viên theo sát, khích lệ học viên."
+        },
+        "item2": {
+          "title": "Học Online tiện lợi: Chủ động thời gian, tiết kiệm chi phí",
+          "description": "Tùy chọn ca học từ 9h sáng - 9h tối, không mất thời gian đi lại. Có thể học tăng cường. Được hủy ca học, bảo lưu đến 2 năm."
+        },
+        "item3": {
+          "title": "Học là dùng được: giáo trình và phương pháp tối ưu cho người đi làm",
+          "description": "Tăng thời gian nghe nói, phản xạ, luyện phát âm x10 lần. Kỹ năng mềm (giao thiệp, thuyết trình, đàm phán, networking...) tiến bộ vượt bậc."
+        },
+        "item4": {
+          "title": "Đào tạo 4 kỹ năng bài bản - chuẩn Châu Âu CEFR và TOEIC",
+          "description": "Đủ khả năng lấy IELTS 7.0+, TOEIC 800+ cho mục tiêu thăng tiến, nhảy việc, cao học, du học, định cư..."
+        }
+      },
+      "highlights": {
+        "practical": "Phương pháp thực tế",
+        "smart": "Công nghệ thông minh",
+        "quality": "Giáo viên chất lượng",
+        "result": "HIỆU QUẢ RÕ RỆT",
+        "duration": "TRONG 1 THÁNG"
+      },
+      "aboutClass": {
+        "class1": {
+          "title": "LỚP HỌC ĐẢO NGƯỢC (FLIPPED LEARNING MODEL)",
+          "item1": "Học viên được tặng sách có bản quyền và hướng dẫn tự học trước buổi học kèm.",
+          "item2": "Học 1-1 với giáo viên trong 45 phút, tập trung sửa lỗi và thực hành nghe nói.",
+          "item3": "Làm bài tập về nhà, luyện các đề thi để giáo viên chấm điểm."
+        },
+        "class2": {
+          "title": "CÁ NHÂN HOÁ HỌC TẬP (PERSONALIZED LEARNING)",
+          "item1": "Mỗi học viên 1 lộ trình riêng biệt dựa vào nhu cầu và bài kiểm tra đầu vào 4 kỹ năng.",
+          "item2": "Giáo vụ giải đáp, bổ trợ kỹ năng yếu, chỉnh lộ trình và hướng giảng dạy cho từng học viên.",
+          "item3": "Báo cáo học tập cập nhật kịp thời, dễ dàng theo dõi trên điện thoại, máy tính."
+        },
+        "class3": {
+          "title": "PHẦN MỀM HỌC TRỰC TUYẾN CHẤT LƯỢNG",
+          "item1": "Sử dụng phầm mềm Team hỗ trợ tối đa việc học trực tuyến.",
+          "item2": "Đường truyền ổn định; hình ảnh âm thanh sắc nét; tương tác được (khoanh, viết...) lên slide bài giảng."
+        },
+        "class4": {
+          "title": "100% GIÁO VIÊN CHẤT LƯỢNG",
+          "item1": "Tốt nghiệp Đại học và có bằng cấp giảng dạy tiếng Anh (TESOL, CELTA…)",
+          "item2": "Nhiều năm kinh nghiệm dạy tiếng Anh trực tuyến",
+          "item3": "Được đào tạo kỹ trước khi giảng dạy và thẩm định chất lượng thường xuyên"
+        }
+      }
     },
     "trialRegistration": {
       "title": "Đăng ký học thử khóa học tiếng Anh online"
@@ -258,15 +340,15 @@
       "highlights": {
         "item1": {
           "title": "Kỹ năng sư phạm tốt",
-          "description": "Đội ngũ giáo viên nhiều năm kinh nghiệm, là Thạc sĩ, Thủ khoa, Á khoa,Giảng viên các trường Đại học danh tiếng. Có chứng chỉ giảng dạy quốc tế và được đào tạo bài bản."
+          "description": "Đội ngũ giáo viên nước ngoài giàu kinh nghiệm, đạt chuẩn sư phạm quốc tế."
         },
         "item2": {
           "title": "Dạy học có tâm",
-          "description": "Đội ngũ giáo viên luôn đặt học viên của mình lên hàng đầu. Không chỉ giảng dạy và truyền đạt kiến thức tại lớp, giáo viên còn sẵn sàng hỗ trợ học viên ngoài giờ học thông qua Fanpage."
+          "description": "Luôn tận tâm hỗ trợ học viên mọi lúc, cả trên lớp lẫn trực tuyến."
         },
         "item3": {
           "title": "Linearthinking Ambassador",
-          "description": "Linearthinking là Hệ phương pháp học Tiếng Anh độc quyền của Nexgen. Đội ngũ của chúng tôi được đào tạo bài bản để giúp học viên tiếp thu trọn vẹn và vận dụng được Linearthinking thành thạo nhất."
+          "description": "Đội ngũ chuyên gia giúp bạn làm chủ phương pháp Linearthinking độc quyền từ Nexgen."
         }
       }
     },
@@ -281,16 +363,53 @@
     },
     "expertAdvisors": {
       "title": "Đội ngũ cố vấn chuyên môn",
-      "experience": {
+      "experience1": {
         "item1": "Cử nhân Ngôn Ngữ Anh - ĐH Ngoại Ngữ",
         "item2": "Cử nhân Đại học Thương Mại",
         "item3": "Chứng chỉ TOEIC 920",
         "item4": "6+ năm kinh nghiệm giảng dạy tại Langmaster"
+      },
+      "experience2": {
+        "item1": "Cử nhân Sư phạm Tiếng Anh - ĐH Ngoại Ngữ",
+        "item2": "Chứng chỉ IELTS 8.5",
+        "item3": "Chứng chỉ TESOL Quốc tế 120 giờ",
+        "item4": "7+ năm kinh nghiệm giảng dạy IELTS"
+      },
+      "experience3": {
+        "item1": "Thạc sĩ Ngôn ngữ học Ứng dụng",
+        "item2": "Chứng chỉ CELTA (Cambridge)",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "10+ năm đào tạo học viên đạt IELTS 6.5+"
+      },
+      "experience4": {
+        "item1": "Cử nhân Ngôn Ngữ Anh - ĐH Hà Nội",
+        "item2": "TOEIC 980/990",
+        "item3": "Chứng chỉ TESOL Quốc tế",
+        "item4": "6+ năm giảng dạy TOEIC chuyên sâu"
+      },
+      "experience5": {
+        "item1": "Cử nhân Sư phạm Tiếng Anh",
+        "item2": "IELTS 8.5 Speaking",
+        "item3": "Chứng chỉ Phương pháp giảng dạy hiện đại",
+        "item4": "Chuyên đào tạo phát âm và giao tiếp tự nhiên"
+      },
+      "experience6": {
+        "item1": "Thạc sĩ Giảng dạy Tiếng Anh (TESOL)",
+        "item2": "Chứng chỉ Cambridge TKT",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "8+ năm kinh nghiệm đào tạo tiếng Anh doanh nghiệp"
+      },
+      "experience7": {
+        "item1": "Cử nhân Ngôn Ngữ Anh",
+        "item2": "TOEFL iBT 108",
+        "item3": "Chứng chỉ TESOL & TEFL",
+        "item4": "9+ năm kinh nghiệm giảng dạy tiếng Anh học thuật"
       }
     },
     "staff": {
       "title": "Đội ngũ Giáo Viên",
       "viewInfo": "Xem thông tin giảng viên",
+      "loadMore": "Xem thêm",
       "positions": {
         "academicDirector": "Academic Director tại Nexgen",
         "englishTeacher": "Giảng viên Tiếng Anh"
@@ -501,7 +620,9 @@
     "clearAll": "Xóa tất cả",
     "noSlotsAvailable": "Không có khung giờ nào khả dụng cho ngày này",
     "bookLesson": "Đặt lịch học",
-    "maxSlotsError": "Bạn chỉ có thể chọn tối đa { max } slots"
+    "maxSlotsError": "Bạn chỉ có thể chọn tối đa { max } slots",
+    "favoriteError": "Không thể cập nhật trạng thái yêu thích. Vui lòng thử lại.",
+    "loadMore": "Xem thêm"
   },
   "yes": "Yes",
   "delete": "Xóa",
@@ -541,5 +662,121 @@
   },
   "search": "Tìm kiếm",
   "status": "Trạng thái",
-  "no-data": "Không có dữ liệu"
+  "no-data": "Không có dữ liệu",
+  "messgae-registration": "Cảm ơn bạn đã đăng ký học! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
+  "loadingTeacherDetail": "Đang tải thông tin chi tiết giáo viên",
+  "teacherDetail": {
+    "profileSummary": "Tóm tắt hồ sơ",
+    "strengths": "Điểm mạnh",
+    "teachingStyle": "Phong cách giảng dạy",
+    "aboutMe": "Về tôi",
+    "workExperience": "Kinh nghiệm làm việc",
+    "mySpecialties": "Chuyên môn của tôi"
+  },
+  "reviews": {
+    "title": "Cảm nhận của học viên",
+    "subtitle": "Mỗi câu chuyện là một hành trình tiến bộ, nơi học viên từng bước vượt qua rào cản ngôn ngữ, nâng cao kỹ năng giao tiếp và tự tin sử dụng tiếng Anh trong mọi tình huống.",
+    "items": {
+      "review1": {
+        "name": "Nguyễn Minh Anh",
+        "content": "Trước đây mình rất ngại nói tiếng Anh, nhưng sau 2 tháng học 1:1 với giáo viên, mình tự tin hơn hẳn. Giáo viên sửa phát âm rất chi tiết và luôn khuyến khích mình nói nhiều hơn."
+      },
+      "review2": {
+        "name": "Trần Quốc Huy",
+        "content": "Lịch học rất linh hoạt, mình có thể đặt lớp buổi tối sau giờ làm. Nội dung học tập trung vào giao tiếp thực tế nên mình áp dụng được ngay trong công việc với khách hàng nước ngoài."
+      },
+      "review3": {
+        "name": "Lê Thảo Vy",
+        "content": "Điểm mình thích nhất là lộ trình học rõ ràng và cá nhân hóa theo mục tiêu. Sau khoảng 3 tháng, mình đã có thể tự tin tham gia các cuộc họp bằng tiếng Anh."
+      },
+      "review4": {
+        "name": "Phạm Đức Long",
+        "content": "Giáo viên rất thân thiện và kiên nhẫn. Mỗi buổi học đều có feedback chi tiết nên mình biết mình cần cải thiện ở đâu. Khả năng phản xạ của mình cải thiện rõ rệt."
+      },
+      "review5": {
+        "name": "Hoàng Nam",
+        "content": "Sau khi học được một thời gian, mình thấy phát âm chuẩn hơn và nghe hiểu tốt hơn. Đây là hình thức học hiệu quả nhất mà mình từng thử."
+      },
+      "review6": {
+        "name": "Vũ Khánh Linh",
+        "content": "Mình đã thử nhiều khóa học trước đây nhưng không hiệu quả. Với lớp 1:1, giáo viên tập trung hoàn toàn vào mình nên tiến bộ nhanh hơn rất nhiều, đặc biệt là kỹ năng nói."
+      },
+      "review7": {
+        "name": "Đặng Thành Đạt",
+        "content": "Mình thường xuyên làm việc với khách hàng quốc tế nên cần cải thiện giao tiếp. Sau khoảng 10 buổi học, mình đã tự tin trao đổi và hiểu khách hàng tốt hơn."
+      },
+      "review8": {
+        "name": "Bùi Ngọc Anh",
+        "content": "Bài học được thiết kế phù hợp với trình độ của mình, không quá khó nhưng vẫn đủ thử thách. Giáo viên rất nhiệt tình và luôn tạo không khí thoải mái khi học."
+      },
+      "review9": {
+        "name": "Nguyễn Quốc Bảo",
+        "content": "Sau một thời gian học, mình có thể giới thiệu sản phẩm và trao đổi với khách hàng nước ngoài một cách tự nhiên hơn. Đây là khoản đầu tư rất xứng đáng."
+      }
+    }
+  },
+  "seo": {
+    "breadcrumbs": {
+      "home": "Trang chủ",
+      "blog": "Blog",
+      "contact": "Liên hệ",
+      "teachers": "Đội ngũ giáo viên",
+      "teacher": "Giáo viên",
+      "document": "Tài liệu",
+      "recruitment": "Tuyển dụng",
+      "studyPlan": "Kế hoạch học tập & Học phí",
+      "booking": "Đặt lịch",
+      "mySchedule": "Lịch học của tôi"
+    },
+    "pages": {
+      "home": {
+        "title": "Học tiếng Anh 1-1 Online {'|'} NexGen Speak - Gia sư tiếng Anh trực tuyến",
+        "description": "Học tiếng Anh online 1:1 với giáo viên bản xứ. Lớp học tiếng Anh 1-1, gia sư tiếng Anh online cam kết đầu ra. Đăng ký học thử miễn phí."
+      },
+      "studyPlan": {
+        "title": "Kế hoạch học tập & Học phí {'|'} Học tiếng Anh 1:1 Online - NexGen Speak",
+        "description": "Lộ trình học tiếng Anh 1-1 và học phí minh bạch. Khóa học tiếng Anh online 1:1 phù hợp mọi trình độ. Tư vấn miễn phí.",
+        "course": {
+          "name": "Khóa học tiếng Anh 1-1 Online",
+          "description": "Chương trình học tiếng Anh online 1:1 với giáo viên bản xứ. Lộ trình cá nhân hóa, cam kết đầu ra. NexGen Speak."
+        }
+      },
+      "teachers": {
+        "title": "Đội ngũ giáo viên {'|'} Gia sư tiếng Anh online 1:1 - NexGen Speak",
+        "description": "Giáo viên bản xứ dạy tiếng Anh 1-1. Đội ngũ gia sư tiếng Anh online chuyên nghiệp, hỗ trợ học tiếng Anh online 1:1 hiệu quả."
+      },
+      "teacherDetail": {
+        "title": "{name} {'|'} Gia sư tiếng Anh online 1:1 - NexGen Speak",
+        "description": "Học tiếng Anh 1-1 với {name}. Gia sư tiếng Anh online tại NexGen Speak - lớp học tiếng Anh online 1:1 chất lượng."
+      },
+      "blog": {
+        "title": "Blog {'|'} Học tiếng Anh 1-1 - Mẹo & Tài liệu - NexGen Speak",
+        "description": "Mẹo học tiếng Anh online 1:1, tài liệu và kinh nghiệm từ học viên. Cập nhật phương pháp học tiếng Anh 1-1 hiệu quả."
+      },
+      "contact": {
+        "title": "Liên hệ {'|'} Học tiếng Anh online 1:1 - NexGen Speak",
+        "description": "Liên hệ tư vấn khóa học tiếng Anh 1-1, gia sư tiếng Anh online. Hỗ trợ đăng ký học thử miễn phí."
+      },
+      "document": {
+        "title": "Tài liệu học tiếng Anh {'|'} Học tiếng Anh 1:1 - NexGen Speak",
+        "description": "Tài liệu học tiếng Anh online 1:1, luyện thi. Hỗ trợ học viên lớp học tiếng Anh 1-1 tại NexGen Speak."
+      },
+      "recruitment": {
+        "title": "Tuyển dụng {'|'} NexGen Speak - Dạy tiếng Anh online 1:1",
+        "description": "Cơ hội trở thành gia sư tiếng Anh online tại NexGen Speak. Dạy học tiếng Anh 1-1 trực tuyến."
+      },
+      "register": {
+        "title": "Đăng ký học thử {'|'} Học tiếng Anh 1-1 miễn phí - NexGen Speak",
+        "description": "Đăng ký học thử tiếng Anh online 1:1 miễn phí. Trải nghiệm lớp học 1-1 với giáo viên bản xứ."
+      },
+      "booking": {
+        "title": "Đặt lịch học {'|'} NexGen Speak",
+        "description": "Chọn giáo viên và đặt lịch học tiếng Anh 1-1."
+      },
+      "mySchedule": {
+        "title": "Lịch học của tôi {'|'} NexGen Speak",
+        "description": "Xem và quản lý lịch học tiếng Anh 1-1."
+      }
+    }
+  }
 }

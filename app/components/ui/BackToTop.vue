@@ -45,7 +45,7 @@ onUnmounted(() => {
     <button
       v-show="isVisible"
       aria-label="Back to top"
-      class="fixed bottom-6 right-6 z-50 hover:cursor-pointer flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white shadow-lg transition-transform duration-300 hover:bg-primary/90 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/50 will-change-transform"
+      class="fixed bottom-6 animate-bounce right-6 z-50 hover:cursor-pointer flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white shadow-lg transition-transform duration-300 hover:bg-primary/90 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/50 will-change-transform"
       @click="scrollToTop"
     >
       <UIcon name="i-lucide-chevron-up" class="size-8" />

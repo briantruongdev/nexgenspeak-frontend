@@ -22,7 +22,7 @@ const summaries = computed(() => [
   <div class="container">
     <div class="mt-32 grid grid-cols-[1fr_1.5fr] gap-16 max-lg:mt-24 max-lg:grid-cols-1">
       <div class="max-xl:px-6">
-        <p class="title">{{ $t('about.title') }}</p>
+        <p class="title">{{ t('about.title') }}</p>
 
         <div class="flex items-center mt-10">
           <div class="h-1 w-56 bg-primary"></div>
@@ -38,14 +38,14 @@ const summaries = computed(() => [
         </div>
         <div class="flex justify-end mt-18 mb-10">
           <p class="w-4/5 text-lg text-justify max-[400px]:text-base">
-            {{ $t('about.description') }}
+            {{ t('about.description') }}
           </p>
         </div>
 
         <BaseButton
           variant="outline"
           class-name="border-2"
-          :text="$t('about.viewDetails')"
+          :text="t('about.viewDetails')"
           icon="i-lucide-move-right"
           @click="openTrialRegisterModal"
         />

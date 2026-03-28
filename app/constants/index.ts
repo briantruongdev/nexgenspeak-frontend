@@ -32,5 +32,6 @@ const TIME_SLOTS = [
   { value: 25, label: '21:00- 21:30' },
   { value: 26, label: '21:30- 22:00' }
 ]
+const TEACHER_DEFAULT_IMAGE = '/images/teacher-default.png'
 
-export { PASSWORD_REGEX, EMAIL_REGEX, PHONE_REGEX, TIME_SLOTS }
+export { PASSWORD_REGEX, EMAIL_REGEX, PHONE_REGEX, TIME_SLOTS, TEACHER_DEFAULT_IMAGE }

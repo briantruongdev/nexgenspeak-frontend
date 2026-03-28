@@ -1,4 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n()
+
+useSeo({
+  title: () => t('seo.pages.contact.title'),
+  description: () => t('seo.pages.contact.description'),
+  titleKey: 'seo.pages.contact.title',
+  descriptionKey: 'seo.pages.contact.description',
+  breadcrumbs: () => [
+    { name: t('seo.breadcrumbs.home'), url: '/' },
+    { name: t('seo.breadcrumbs.contact'), url: '/contact' }
+  ],
+  breadcrumbKeys: [
+    { nameKey: 'seo.breadcrumbs.home', url: '/' },
+    { nameKey: 'seo.breadcrumbs.contact', url: '/contact' }
+  ]
+})
+</script>
 
 <template>
   <div>

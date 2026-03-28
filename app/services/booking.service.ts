@@ -6,15 +6,15 @@ export class BookingService extends BaseService {
     super('/registrations')
   }
 
-  async registration(data: IDataRegistration): Promise<IResponseRegistration> {
+  async booking(data: IDataRegistration): Promise<IResponseRegistration> {
     return this.post<IResponseRegistration>('', data)
   }
 
-  async getRegistration(): Promise<IListRegistration> {
+  async getBooking(): Promise<IListRegistration> {
     return this.get<IListRegistration>('')
   }
 
-  async cancelRegistration(body: { registrationId: string; slotIds: number[] }): Promise<ICancelRegistration> {
+  async cancelBooking(body: { registrationId: string; slotIds: number[] }): Promise<ICancelRegistration> {
     return this.delete<ICancelRegistration>(`/cancel-slot`, body)
   }
 }

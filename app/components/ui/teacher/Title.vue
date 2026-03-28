@@ -3,7 +3,7 @@ interface IProp {
   title?: string
 }
 
-const prop = withDefaults(defineProps<IProp>(), {
+const _prop = withDefaults(defineProps<IProp>(), {
   title: ''
 })
 </script>

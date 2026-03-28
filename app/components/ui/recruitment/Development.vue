@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { openTrialRegisterModal } = useTrialRegister()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -8,14 +9,14 @@ const { openTrialRegisterModal } = useTrialRegister()
   >
     <div class="flex flex-col justify-between max-sm:gap-8">
       <div>
-        <p class="title">{{ $t('recruitment.development.title') }}</p>
+        <p class="title">{{ t('recruitment.development.title') }}</p>
         <p class="mt-8 max-sm:mt-4 text-lg max-lg:text-base">
-          {{ $t('recruitment.development.description') }}
+          {{ t('recruitment.development.description') }}
         </p>
       </div>
       <div class="mt-4">
         <BaseButton
-          :text="$t('recruitment.development.openPositions')"
+          :text="t('recruitment.development.openPositions')"
           class-name="rounded"
           icon="i-lucide-move-right"
           @click="openTrialRegisterModal"

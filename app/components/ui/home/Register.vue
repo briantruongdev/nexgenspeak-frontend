@@ -1,6 +1,50 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { openTrialRegisterModal } = useTrialRegister()
+
+const registerRef = ref<HTMLElement | null>(null)
+const translateY = ref(0)
+const isTransitioning = ref(false)
+let lastTop = 0
+let bannerObserver: ResizeObserver | null = null
+
+function getTop() {
+  return registerRef.value?.getBoundingClientRect().top ?? 0
+}
+
+onMounted(() => {
+  lastTop = getTop()
+
+  const banner = registerRef.value?.previousElementSibling
+  if (!banner) return
+
+  bannerObserver = new ResizeObserver(() => {
+    const newTop = getTop()
+    const diff = lastTop - newTop
+
+    if (Math.abs(diff) < 1) {
+      lastTop = newTop
+      return
+    }
+
+    isTransitioning.value = false
+    translateY.value = diff
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        isTransitioning.value = true
+        translateY.value = 0
+        lastTop = newTop
+      })
+    })
+  })
+
+  bannerObserver.observe(banner)
+})
+
+onUnmounted(() => {
+  bannerObserver?.disconnect()
+})
 const cards = computed(() => [
   {
     number: t('register.steps.step1.number'),
@@ -24,17 +68,21 @@ const cards = computed(() => [
 </script>
 
 <template>
-  <div class="relative">
+  <!-- :style="{
+      transform: `translateY(${translateY}px)`,
+      transition: isTransitioning ? 'transform 0.6s ease' : 'none'
+    }" -->
+  <div ref="registerRef" class="relative">
     <div class="bg-[#FAE4D3] h-110 w-2/5 rounded-br-[82px] max-sm:w-2/3 max-sm:h-60"></div>
     <div class="absolute top-1/6 w-full max-sm:static max-xl:px-6">
       <div class="container grid grid-cols-[1fr_3fr] mx-auto max-sm:grid-cols-1 gap-4">
         <div class="max-sm:absolute max-sm:top-10">
-          <p class="mb-6 title">{{ $t('register.title') }}</p>
+          <p class="mb-6 title">{{ t('register.title') }}</p>
 
           <BaseButton
             variant="outline"
             class-name="border-2 bg-transparent"
-            :text="$t('register.learnMore')"
+            :text="t('register.learnMore')"
             icon="i-lucide-move-right"
             @click="openTrialRegisterModal"
           />

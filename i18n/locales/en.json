@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Master English with NexGen Speak",
-  "pageDescription": "Learn English online with native-speaking teachers. An optimal learning environment, modern methods, and guaranteed outcomes.",
+  "pageTitle": "1-1 Online English Lessons {'|'} NexGen Speak - Private English Tutoring",
+  "pageDescription": "Learn English online 1-1 with native teachers. Personalized private English lessons with guaranteed learning outcomes. Sign up for a free trial class today.",
   "header": {
     "nav": {
       "studyPlan": "Study Plan & Tuition",
@@ -10,17 +10,30 @@
       "blog": "Blog",
       "contact": "Contact",
       "recruitment": "Recruitment",
-      "classSchedule": "Class schedule"
+      "classSchedule": "Class schedule",
+      "booking": "Booking"
     },
     "login": "Login"
   },
   "banner": {
-    "title": "Conquer English",
+    "title": "1-1 English Lessons",
     "subtitle": "With NexGen Speak",
     "learnMore": "Learn More",
     "registerTrial": "Register for Free Trial",
     "buyCourse": "Buy Exam Prep Course",
-    "support": "Support"
+    "support": "Support",
+    "altBanner": "Banner for One-One English Learning – NexGen Speak"
+  },
+  "banner2": {
+    "title": "Learn English Online",
+    "subtitle": "With Professional Teachers",
+    "learnMore": "Register Now"
+  },
+  "banner3": {
+    "improve": "IMPROVE",
+    "yourEnglish": "YOUR ENGLISH",
+    "anytimeAnywhere": "Anytime, Anywhere",
+    "startWithDiscount": "START WITH UP TO 50% OFF"
   },
   "about": {
     "title": "About Us, NexGen Speak Online English School",
@@ -125,6 +138,15 @@
       "description": "Expert in teaching English to children with creative and fun methods."
     }
   },
+  "roadmap": {
+    "title": "Online 1-1 English Learning Roadmap",
+    "items": {
+      "step1": "Register for a 1-1 online English trial course",
+      "step2": "Take a placement test to get a suitable learning roadmap",
+      "step3": "Start joining the 1-1 online English course",
+      "step4": "Customize your study plan and schedule flexibly"
+    }
+  },
   "benefits": {
     "title": "Benefits of Learning at NexGen Speak Online",
     "items": {
@@ -224,7 +246,17 @@
   "studyPlan": {
     "about": {
       "title": "NexGen Speak",
-      "description": "We create an environment where each learner can practice more through real communication and conversations. With flexible schedules and interactive learning methods, you can easily book suitable time slots to improve your speaking reflexes and gain confidence in using English every day."
+      "description": "We create an environment where each learner can practice more through real communication and conversations. With flexible schedules and interactive learning methods, you can easily book suitable time slots to improve your speaking reflexes and gain confidence in using English every day.",
+      "reasonsTitle": "Reasons why NexGen Speak is always the top choice",
+      "reasons": [
+        "Learning based on multi-dimensional interactive methods",
+        "Significantly improve communication skills",
+        "Master the language, confidently conquer English",
+        "Diverse learning materials library",
+        "Content with engaging visuals",
+        "Dedicated personalized learning support",
+        "Highly qualified teaching staff"
+      ]
     },
     "sloganAbout": "Through active learning and personalized pathways, we are committed to being your partner in turning English into an instinct for confident communication in any situation.",
     "learningMethod": {
@@ -244,7 +276,57 @@
           "description": "Our lessons are meticulously designed following the Common European Framework of Reference for Languages (CEFR), ensuring academic rigor and global recognition."
         }
       },
-      "footer": "Building a solid foundation for your global journey."
+      "footer": "Building a solid foundation for your global journey.",
+      "reasons": {
+        "item1": {
+          "title": "1-1 Tutoring: One excellent teacher, one dedicated student",
+          "description": "Maximize every 45-minute session. Focus on weak areas. Teachers closely guide and encourage students."
+        },
+        "item2": {
+          "title": "Convenient Online Learning: Flexible schedule, cost-effective",
+          "description": "Choose class slots from 9 AM to 9 PM – no commuting. Intensive study available. Cancel classes and preserve credit for up to 2 years."
+        },
+        "item3": {
+          "title": "Learn to Use It: Optimized curriculum and method for working professionals",
+          "description": "Increase listening, speaking, and pronunciation practice by 10x. Soft skills (communication, presentation, negotiation, networking...) improve remarkably."
+        },
+        "item4": {
+          "title": "Train all 4 skills systematically – CEFR and TOEIC standards",
+          "description": "Capable of achieving IELTS 7.0+, TOEIC 800+ for career advancement, job change, postgraduate studies, study abroad, immigration..."
+        }
+      },
+      "highlights": {
+        "practical": "Practical Methods",
+        "smart": "Smart Technology",
+        "quality": "Quality Teachers",
+        "result": "CLEAR RESULTS",
+        "duration": "IN 1 MONTH"
+      },
+      "aboutClass": {
+        "class1": {
+          "title": "FLIPPED LEARNING MODEL",
+          "item1": "Students receive licensed textbooks and self-study guides before tutoring sessions.",
+          "item2": "1-1 with the teacher for 45 minutes, focusing on error correction and listening/speaking practice.",
+          "item3": "Complete homework and practice exam papers for the teacher to grade."
+        },
+        "class2": {
+          "title": "PERSONALIZED LEARNING",
+          "item1": "Each student has their own learning path based on needs and a 4-skill entry assessment.",
+          "item2": "Academic staff answers questions, supplements weak skills, adjusts the roadmap and teaching style for each student.",
+          "item3": "Learning reports updated promptly, easily trackable on phone and computer."
+        },
+        "class3": {
+          "title": "HIGH-QUALITY ONLINE LEARNING SOFTWARE",
+          "item1": "Uses Microsoft Teams software to fully support online learning.",
+          "item2": "Stable connection; crisp audio and video; interactive features (highlighting, writing...) on lecture slides."
+        },
+        "class4": {
+          "title": "100% QUALITY TEACHERS",
+          "item1": "University graduates with English teaching qualifications (TESOL, CELTA…)",
+          "item2": "Years of experience in online English teaching",
+          "item3": "Thoroughly trained before teaching and regularly assessed for quality"
+        }
+      }
     },
     "trialRegistration": {
       "title": "Register for Online English Course Trial"
@@ -258,15 +340,15 @@
       "highlights": {
         "item1": {
           "title": "Good Pedagogical Skills",
-          "description": "Teaching staff with many years of experience, including Masters, Valedictorians, Salutatorians, and Lecturers from prestigious Universities. Holding international teaching certificates and professionally trained."
+          "description": "Highly experienced international teachers with global teaching credentials."
         },
         "item2": {
           "title": "Teaching with Heart",
-          "description": "The teaching staff always puts their students first. Not only teaching and imparting knowledge in class, teachers are also ready to support students outside of class hours through Fanpage."
+          "description": "Committed to supporting students anytime, both in-class and via online platforms."
         },
         "item3": {
           "title": "Linearthinking Ambassador",
-          "description": "Linearthinking is Nexgen's exclusive English learning method system. Our team is professionally trained to help students fully absorb and apply Linearthinking most proficiently."
+          "description": "Certified experts mastering Nexgen's exclusive Linearthinking methodology with you."
         }
       }
     },
@@ -281,16 +363,53 @@
     },
     "expertAdvisors": {
       "title": "Expert Advisory Team",
-      "experience": {
+      "experience1": {
         "item1": "Bachelor of English Language - Foreign Language University",
         "item2": "Bachelor of Commerce University",
         "item3": "TOEIC 920 Certificate",
         "item4": "6+ years of teaching experience at Langmaster"
+      },
+      "experience2": {
+        "item1": "Bachelor of English Education - University of Languages and International Studies",
+        "item2": "IELTS Certificate 8.5",
+        "item3": "120-hour International TESOL Certificate",
+        "item4": "7+ Years of IELTS Teaching Experience"
+      },
+      "experience3": {
+        "item1": "Master of Applied Linguistics",
+        "item2": "CELTA Certification (Cambridge)",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "10+ Years Training Students to Achieve IELTS 6.5+"
+      },
+      "experience4": {
+        "item1": "Bachelor of English Studies - Hanoi University",
+        "item2": "TOEIC Score 980/990",
+        "item3": "International TESOL Certificate",
+        "item4": "6+ Years of Intensive TOEIC Teaching Experience"
+      },
+      "experience5": {
+        "item1": "Bachelor of English Education",
+        "item2": "IELTS 8.5 Speaking",
+        "item3": "Modern Teaching Methodology Certificate",
+        "item4": "Specialized in Pronunciation and Natural Communication Training"
+      },
+      "experience6": {
+        "item1": "Master of TESOL (Teaching English to Speakers of Other Languages)",
+        "item2": "Cambridge TKT Certification",
+        "item3": "IELTS 8.0 Overall",
+        "item4": "8+ Years of Corporate English Training Experience"
+      },
+      "experience7": {
+        "item1": "Bachelor of English Linguistics",
+        "item2": "TOEFL iBT 108",
+        "item3": "TESOL & TEFL Certifications",
+        "item4": "9+ Years of Academic English Teaching Experience"
       }
     },
     "staff": {
       "title": "Teaching Staff",
       "viewInfo": "View teacher information",
+      "loadMore": "Load More",
       "positions": {
         "academicDirector": "Academic Director at Nexgen",
         "englishTeacher": "English Instructor"
@@ -501,7 +620,9 @@
     "clearAll": "Clear all",
     "noSlotsAvailable": "No time slots available for this day",
     "bookLesson": "Book Lesson",
-    "maxSlotsError": "You can only select up to { max } slots"
+    "maxSlotsError": "You can only select up to { max } slots",
+    "favoriteError": "Unable to update favorite status. Please try again.",
+    "loadMore": "Load More"
   },
   "yes": "Yes",
   "delete": "Delete",
@@ -541,5 +662,121 @@
   },
   "search": "Search",
   "status": "Status",
-  "no-data": "No data"
+  "no-data": "No data",
+  "messgae-registration": "Thank you for registering for the class! We will contact you as soon as possible.",
+  "loadingTeacherDetail": "Fetching teacher detail",
+  "teacherDetail": {
+    "profileSummary": "Profile summary",
+    "strengths": "Strengths",
+    "teachingStyle": "Teaching style",
+    "aboutMe": "About me",
+    "workExperience": "Work experience",
+    "mySpecialties": "My specialties"
+  },
+  "reviews": {
+    "title": "Student Testimonials",
+    "subtitle": "Each story is a journey of progress, where learners gradually overcome language barriers, improve their communication skills, and gain the confidence to use English in any situation.",
+    "items": {
+      "review1": {
+        "name": "Nguyen Minh Anh",
+        "content": "I used to be very shy about speaking English, but after 2 months of 1:1 lessons with the teacher, I've become much more confident. The teacher corrects my pronunciation in great detail and always encourages me to speak more."
+      },
+      "review2": {
+        "name": "Tran Quoc Huy",
+        "content": "The class schedule is very flexible, I can book evening classes after work. The content focuses on practical communication, so I can apply it immediately in my work with foreign clients."
+      },
+      "review3": {
+        "name": "Le Thao Vy",
+        "content": "What I like most is the clear learning roadmap personalized to my goals. After about 3 months, I was able to confidently participate in English meetings."
+      },
+      "review4": {
+        "name": "Pham Duc Long",
+        "content": "The teacher is very friendly and patient. Every lesson comes with detailed feedback so I know where I need to improve. My reflexive ability has improved significantly."
+      },
+      "review5": {
+        "name": "Hoang Nam",
+        "content": "After studying for a while, I noticed my pronunciation is more accurate and my listening comprehension is better. This is the most effective learning method I've ever tried."
+      },
+      "review6": {
+        "name": "Vu Khanh Linh",
+        "content": "I tried many courses before but they weren't effective. With 1:1 classes, the teacher focuses entirely on me, so I progress much faster, especially in speaking skills."
+      },
+      "review7": {
+        "name": "Dang Thanh Dat",
+        "content": "I frequently work with international clients and needed to improve my communication. After about 10 lessons, I was more confident in communicating and understanding clients better."
+      },
+      "review8": {
+        "name": "Bui Ngoc Anh",
+        "content": "The lessons are designed to match my level, not too difficult but still challenging enough. The teacher is very enthusiastic and always creates a comfortable atmosphere during class."
+      },
+      "review9": {
+        "name": "Nguyen Quoc Bao",
+        "content": "After some time studying, I can introduce products and communicate with foreign customers more naturally. This is a very worthwhile investment."
+      }
+    }
+  },
+  "seo": {
+    "breadcrumbs": {
+      "home": "Home",
+      "blog": "Blog",
+      "contact": "Contact",
+      "teachers": "Teachers",
+      "teacher": "Teacher",
+      "document": "Document",
+      "recruitment": "Recruitment",
+      "studyPlan": "Study Plan & Tuition",
+      "booking": "Booking",
+      "mySchedule": "My Schedule"
+    },
+    "pages": {
+      "home": {
+        "title": "1-1 Online English Lessons {'|'} NexGen Speak - Private English Tutoring",
+        "description": "Learn English online 1-1 with native teachers. Personalized private English lessons with guaranteed learning outcomes. Sign up for a free trial class today."
+      },
+      "studyPlan": {
+        "title": "Study Plan & Tuition {'|'} 1-1 Online English Lessons - NexGen Speak",
+        "description": "1-1 English learning roadmap with transparent tuition fees. Online 1-1 English courses suitable for all levels. Free consultation.",
+        "course": {
+          "name": "1-1 Online English Course",
+          "description": "1-1 online English learning program with native teachers. Personalized learning path with guaranteed outcomes. NexGen Speak."
+        }
+      },
+      "teachers": {
+        "title": "Our Teachers {'|'} 1-1 Online English Tutors - NexGen Speak",
+        "description": "Native teachers for 1-1 English lessons. Professional online English tutors, supporting effective 1-1 online English learning."
+      },
+      "teacherDetail": {
+        "title": "{name} {'|'} 1-1 Online English Tutor - NexGen Speak",
+        "description": "Learn English 1-1 with {name}. Online English tutor at NexGen Speak - quality 1-1 online English classes."
+      },
+      "blog": {
+        "title": "Blog {'|'} 1-1 English Learning - Tips & Resources - NexGen Speak",
+        "description": "Tips for learning English online 1-1, study materials and student experiences. Updated effective 1-1 English learning methods."
+      },
+      "contact": {
+        "title": "Contact {'|'} 1-1 Online English Lessons - NexGen Speak",
+        "description": "Contact us for 1-1 English course consultation, online English tutors. Free trial class registration support."
+      },
+      "document": {
+        "title": "English Learning Materials {'|'} 1-1 English Learning - NexGen Speak",
+        "description": "Online 1-1 English learning materials, exam preparation. Supporting students in 1-1 English classes at NexGen Speak."
+      },
+      "recruitment": {
+        "title": "Recruitment {'|'} NexGen Speak - Teach English Online 1-1",
+        "description": "Opportunity to become an online English tutor at NexGen Speak. Teach 1-1 English online."
+      },
+      "register": {
+        "title": "Free Trial Registration {'|'} Learn English 1-1 for Free - NexGen Speak",
+        "description": "Register for a free 1-1 online English trial. Experience 1-1 classes with native teachers."
+      },
+      "booking": {
+        "title": "Book a Class {'|'} NexGen Speak",
+        "description": "Select a teacher and book 1-1 English classes."
+      },
+      "mySchedule": {
+        "title": "My Schedule {'|'} NexGen Speak",
+        "description": "View and manage your 1-1 English class schedule."
+      }
+    }
+  }
 }

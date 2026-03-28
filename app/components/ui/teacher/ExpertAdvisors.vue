@@ -1,24 +1,85 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const items = computed(() =>
-  Array.from({ length: 9 }, () => ({
-    image: '/images/avatar-teacher.png',
+const items = computed(() => [
+  {
+    image: '/images/avatar-teacher7.png',
     name: 'Nguyễn Mỹ Anh',
     exp: [
-      t('teacher.expertAdvisors.experience.item1'),
-      t('teacher.expertAdvisors.experience.item2'),
-      t('teacher.expertAdvisors.experience.item3'),
-      t('teacher.expertAdvisors.experience.item4')
+      t('teacher.expertAdvisors.experience1.item1'),
+      t('teacher.expertAdvisors.experience1.item2'),
+      t('teacher.expertAdvisors.experience1.item3'),
+      t('teacher.expertAdvisors.experience1.item4')
     ]
-  }))
-)
+  },
+  {
+    image: '/images/avatar-teacher1.png',
+    name: 'Phan Vân Anh',
+    exp: [
+      t('teacher.expertAdvisors.experience2.item1'),
+      t('teacher.expertAdvisors.experience2.item2'),
+      t('teacher.expertAdvisors.experience2.item3'),
+      t('teacher.expertAdvisors.experience2.item4')
+    ]
+  },
+
+  {
+    image: '/images/avatar-teacher2.png',
+    name: 'Lê Thị Hoài',
+    exp: [
+      t('teacher.expertAdvisors.experience3.item1'),
+      t('teacher.expertAdvisors.experience3.item2'),
+      t('teacher.expertAdvisors.experience3.item3'),
+      t('teacher.expertAdvisors.experience3.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher3.png',
+    name: 'Nguyễn Ngọc Ánh',
+    exp: [
+      t('teacher.expertAdvisors.experience4.item1'),
+      t('teacher.expertAdvisors.experience4.item2'),
+      t('teacher.expertAdvisors.experience4.item3'),
+      t('teacher.expertAdvisors.experience4.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher4.png',
+    name: 'Nguyễn Thị Hạ',
+    exp: [
+      t('teacher.expertAdvisors.experience5.item1'),
+      t('teacher.expertAdvisors.experience5.item2'),
+      t('teacher.expertAdvisors.experience5.item3'),
+      t('teacher.expertAdvisors.experience5.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher5.png',
+    name: 'Nguyễn Thị Thu',
+    exp: [
+      t('teacher.expertAdvisors.experience6.item1'),
+      t('teacher.expertAdvisors.experience6.item2'),
+      t('teacher.expertAdvisors.experience6.item3'),
+      t('teacher.expertAdvisors.experience6.item4')
+    ]
+  },
+  {
+    image: '/images/avatar-teacher6.png',
+    name: 'Nguyễn Ngọc Châm',
+    exp: [
+      t('teacher.expertAdvisors.experience7.item1'),
+      t('teacher.expertAdvisors.experience7.item2'),
+      t('teacher.expertAdvisors.experience7.item3'),
+      t('teacher.expertAdvisors.experience7.item4')
+    ]
+  }
+])
 </script>
 
 <template>
   <section class="bg-[#EEF0F1]">
     <div class="container max-xl:px-6">
-      <UiTeacherTitle :title="$t('teacher.expertAdvisors.title')" />
+      <UiTeacherTitle :title="t('teacher.expertAdvisors.title')" />
       <UCarousel
         v-slot="{ item }"
         loop
@@ -29,8 +90,8 @@ const items = computed(() =>
         :items="items"
         :ui="{
           item: 'basis-full md:basis-1/2 lg:basis-1/3 px-2 sm:px-4 mt-14',
-          prev: 'max-xl:translate-x-16 max-sm:-translate-x-0 hover:cursor-pointer text-white bg-primary hover:bg-primary/60 shadow-none ring-0 focus:ring-0',
-          next: 'max-xl:-translate-x-20 max-md:-translate-x-20 max-sm:-translate-x-2 hover:cursor-pointer text-white bg-primary hover:bg-primary/60 shadow-none ring-0 focus:ring-0'
+          prev: 'max-xl:translate-x-16 max-sm:-translate-x-0 hover:cursor-pointer text-white bg-primary/60 hover:bg-primary active:bg-primary shadow-none ring-0 focus:ring-0',
+          next: 'max-xl:-translate-x-20 max-md:-translate-x-20 max-sm:-translate-x-2 hover:cursor-pointer text-white bg-primary/60 hover:bg-primary active:bg-primary shadow-none ring-0 focus:ring-0'
         }"
       >
         <div class="bg-white rounded-[10px] shadow-md p-6 pb-8 relative mt-8 max-md:p-4 max-md:pb-6">

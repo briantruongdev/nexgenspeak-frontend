@@ -32,7 +32,7 @@ const itemCopy = computed(() => {
 <template>
   <section class="bg-[#EEF0F1] pt-16 max-sm:pt-8">
     <div class="container max-xl:px-6">
-      <UiTeacherTitle :title="$t('teacher.educationPhilosophy.title')" />
+      <UiTeacherTitle :title="t('teacher.educationPhilosophy.title')" />
       <div class="grid grid-cols-3 gap-x-6 gap-y-12 max-lg:grid-cols-2 max-md:gap-x-4 max-md:gap-y-8">
         <div v-for="(item, index) in itemCopy" :key="index">
           <div class="relative">
@@ -49,7 +49,7 @@ const itemCopy = computed(() => {
       </div>
       <div class="py-10 max-md:py-6">
         <BaseButton
-          :text="$t('teacher.educationPhilosophy.viewMore')"
+          :text="t('teacher.educationPhilosophy.viewMore')"
           variant="outline"
           class="mx-auto w-40 max-sm:w-full"
           @click="openTrialRegisterModal"

@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <template>
   <section class="bg-[#EEF0F1]">
@@ -6,7 +8,7 @@
       <p
         class="bg-primary text-white py-6 w-full px-20 max-md:px-10 max-sm:px-6 -mt-1 rounded-br-[20px] rounded-bl-[20px] text-center font-bold text-4xl max-lg:text-2xl max-[400px]:py-4 max-sm:text-base"
       >
-        {{ $t('studyPlan.trialRegistration.title') }}
+        {{ t('studyPlan.trialRegistration.title') }}
       </p>
       <div class="grid grid-cols-4 gap-x-8 max-sm:gap-x-4 mt-12 max-[400px]:mt-4! max-md:mt-8 max-md:grid-cols-2 max-sm:mt-6">
         <div>

@@ -40,8 +40,8 @@ const items = ['/images/people4.png', '/images/people5.png', '/images/people3.pn
           next-icon="i-lucide-chevron-right"
           :ui="{
             item: 'basis-full basis-1/2',
-            prev: 'max-xl:translate-x-14 max-sm:-translate-x-2 hover:cursor-pointer bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60',
-            next: 'max-xl:-translate-x-14 hover:cursor-pointer max-sm:translate-x-2 bg-primary text-white shadow-none ring-0 focus:ring-0 hover:bg-primary/60'
+            prev: 'max-xl:translate-x-14 max-sm:-translate-x-2 hover:cursor-pointer bg-primary/60 hover:bg-primary active:bg-primary text-white shadow-none ring-0 focus:ring-0',
+            next: 'max-xl:-translate-x-14 hover:cursor-pointer max-sm:translate-x-2 bg-primary/60 hover:bg-primary active:bg-primary text-white shadow-none ring-0 focus:ring-0'
           }"
           class="w-full mt-12 max-sm:hidden"
         >

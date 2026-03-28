@@ -2,11 +2,13 @@
 import { getPaginationRowModel, type Column, type Row } from '@tanstack/vue-table'
 import { ScheduleStatusEnum } from '~/types/constant.type'
 import type { ISlot } from '~/types/registration.type'
+import { refDebounced } from '@vueuse/core'
 
 const UButton = resolveComponent('UButton')
 const UDropdownMenu = resolveComponent('UDropdownMenu')
 const table = useTemplateRef('table')
-const { data: listSchedule, pending, filters, apply, cancelBooking } = useBooking()
+const { data: listSchedule, pending, refresh } = useSchedule()
+const { cancelBooking } = useRegistration()
 interface FlattenedSlot extends ISlot {
   date: string
 }
@@ -16,6 +18,15 @@ definePageMeta({
   middleware: 'auth',
   layout: 'default'
 })
+
+useSeo({
+  title: () => t('seo.pages.mySchedule.title'),
+  description: () => t('seo.pages.mySchedule.description'),
+  titleKey: 'seo.pages.mySchedule.title',
+  descriptionKey: 'seo.pages.mySchedule.description',
+  noindex: true
+})
+
 const SCHEDULE_STATUS = computed(() => [
   {
     label: t('mySchedule.status.all'),
@@ -42,6 +53,11 @@ const pagination = ref({
   pageIndex: 0,
   pageSize: 20
 })
+const filters = ref({
+  search: '',
+  status: ScheduleStatusEnum.UPCOMING
+})
+const searchDebounced = refDebounced(toRef(filters.value, 'search'), 300)
 
 const matchesSearchFilter = (date: string, searchTerm: string): boolean => {
   if (!searchTerm) return true
@@ -75,7 +91,7 @@ const flattenedData = computed(() => {
 
 const filteredData = computed(() =>
   flattenedData.value.filter(
-    item => matchesSearchFilter(item.date, filters.value.search) && matchesStatusFilter(item.date, filters.value.status)
+    item => matchesSearchFilter(item.date, searchDebounced.value) && matchesStatusFilter(item.date, filters.value.status)
   )
 )
 
@@ -198,6 +214,7 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
       slotIds: [slotDelete.value!.id]
     }
     await cancelBooking(data)
+    await refresh()
     isConfirmOpen.value = false
   } catch (error) {
     console.error(error)
@@ -222,7 +239,6 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
           class="w-1/4 max-lg:w-1/3 max-sm:w-full"
           icon="i-lucide-search"
           :is-show-clear="true"
-          @input="apply({ search: filters.search })"
         />
         <BaseSelectMenu
           v-model="filters.status"
@@ -231,7 +247,6 @@ const handleCancelSchedule = async (slot?: FlattenedSlot) => {
           label-key="label"
           :placeholder="t('status')"
           class="w-1/6 max-lg:w-1/4 max-sm:w-full"
-          @change="apply({ status: $event as typeof filters.status })"
         />
       </div>
       <div class="max-sm:hidden">

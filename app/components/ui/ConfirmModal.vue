@@ -80,7 +80,6 @@ const iconConfig = computed(() => {
   <UModal v-model:open="isOpen" :title="title" class="w-1/3">
     <template #body>
       <div class="flex items-center gap-4">
-        <!-- Icon -->
         <div :class="[iconConfig.bgColor, 'shrink-0 flex items-center justify-center w-12 h-12 rounded-full']">
           <UIcon :name="iconConfig.icon" :class="[iconConfig.color, 'w-6 h-6']" />
         </div>
